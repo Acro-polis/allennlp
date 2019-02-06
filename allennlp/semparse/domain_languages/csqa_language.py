@@ -20,6 +20,7 @@ class CSQALanguage(DomainLanguage):
         super().__init__(start_types={Number, List[str]})
 
         self.kg_context = wikidata_context
+        # Todo: Triple
         self.kg_data = [Triple(triple) for triple in wikidata_context.kg_data]
         self.wikidata_graph = wikidata_context.get_knowledge_graph()
 

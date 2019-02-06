@@ -6,10 +6,8 @@ import pytest
 from allennlp.common.testing import AllenNlpTestCase
 from allennlp.data.tokenizers import Token
 from allennlp.data.tokenizers import WordTokenizer
-from allennlp.semparse.contexts import TableQuestionContext
-from allennlp.semparse.domain_languages.domain_language import ExecutionError
-from allennlp.semparse.domain_languages.wikitables_language import Date, WikiTablesLanguage
-from allennlp.tests.semparse.domain_languages.domain_language_test import check_productions_match
+from allennlp.semparse.contexts import CSQAContext
+from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 
 
 class TestCSQALanguage(AllenNlpTestCase):
@@ -20,6 +18,16 @@ class TestCSQALanguage(AllenNlpTestCase):
         question_tokens = [Token(x) for x in["which", "administrative", "territory", "is", "the", "country", "of",
                            "origin", "of", "frank", "and", "jesse", "?"]]
 
-        self.table_file = self.FIXTURES_ROOT / 'data' / 'wikitables' / 'sample_table.tagged'
-        self.table_context = TableQuestionContext.read_from_file(self.table_file, question_tokens)
-        self.language = WikiTablesLanguage(self.table_context)
+        self.kg_file = self.FIXTURES_ROOT / 'data' / 'csqa' / 'sample_kg.json'
+        self.csqa_context = CSQAContext.read_from_file(self.kg_file, question_tokens)
+
+        #TODO: implement
+        # self.language = CSQALanguage(self.csqa_context)
+
+    def _get_world_with_question_tokens(self, tokens: List[Token]) -> CSQALanguage:
+        table_context = CSQAContext.read_from_file(self.table_file, tokens)
+        world = CSQALanguage(table_context)
+        return world
+
+    def test(self):
+        pass
