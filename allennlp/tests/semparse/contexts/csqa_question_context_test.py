@@ -15,7 +15,7 @@ class TestTableQuestionContext(AllenNlpTestCase):
         question_tokens = self.tokenizer.tokenize(question)
         test_file = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         csqa_context = CSQAContext.read_from_file(test_file, question_tokens)
-        print(csqa_context)
+        print(csqa_context.kg_data)
         # assert csqa_context.kg_data == [{'date_column:year': '2001',
         #                                               'number_column:division': '2',
         #                                               'string_column:league': 'usl_a_league',

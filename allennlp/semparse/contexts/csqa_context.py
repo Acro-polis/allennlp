@@ -28,7 +28,7 @@ class CSQAContext:
         # TODO: map entity/predicate ID's to strings
         kg_data: List[Dict[str, List[str]]] = []
         for subject in kg_dict.keys():
-            predicate_object_dict = subject
+            predicate_object_dict = kg_dict[subject]
             kg_data.append(predicate_object_dict)
             # predicates = kg_dict[subject].keys()
             # for predicate in predicates:
