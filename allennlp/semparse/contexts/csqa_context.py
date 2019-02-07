@@ -22,7 +22,11 @@ class CSQAContext:
         pass
 
     def get_entities_from_question(self):
-        pass
+        question_numbers = []
+        for token in self.question_tokens:
+            if token.text.isdigit():
+                question_numbers.append(token)
+        return self.question_entities, question_numbers
 
     @classmethod
     def read_kg_from_json(cls,
