@@ -6,8 +6,12 @@ from allennlp.data.tokenizers import Token
 
 class CSQAContext:
 
-    def __init__(self) -> None:
-        self.kg_data = None
+    def __init__(self,
+                kg_data: List[Dict[str, str]],
+                question_tokens: List[Token]) -> None:
+
+        self.kg_data = kg_data
+        self.question_tokens = question_tokens
 
     def get_knowledge_graph(self):
         pass
@@ -20,11 +24,17 @@ class CSQAContext:
                        kg_dict: Dict[str, Dict[str, List[str]]],
                        question_tokens: List[Token]) -> 'CSQAContext':
 
-        for entity in kg_dict.keys():
-            predicate = js
-        print(json)
-        return None
-        # return cls(table_data_with_column_types, column_types, question_tokens)
+        # TODO: check: I believe we need a List as inner datastrucure
+        # TODO: map entity/predicate ID's to strings
+        kg_data: List[Dict[str, List[str]]] = []
+        for subject in kg_dict.keys():
+            predicate_object_dict = subject
+            kg_data.append(predicate_object_dict)
+            # predicates = kg_dict[subject].keys()
+            # for predicate in predicates:
+            #     objects = kg_dict[subject][predicate]
+            #     kg_data.append({predicate: objects})
+        return cls(kg_data, question_tokens)
 
     @classmethod
     def read_from_file(cls, filename: str, question_tokens: List[Token]) -> 'CSQAContext':
