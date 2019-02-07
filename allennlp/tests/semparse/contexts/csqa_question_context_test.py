@@ -8,16 +8,17 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 class TestTableQuestionContext(AllenNlpTestCase):
     def setUp(self):
         super().setUp()
+        self.kg_test_file = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
+        self.entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
+        self.predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         self.tokenizer = WordTokenizer(SpacyWordSplitter(pos_tags=True))
 
     def test_kg_data(self):
         question = "which administrative territory is the country of origin of frank and jesse ?"
         question_tokens = self.tokenizer.tokenize(question)
-        kg_test_file = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
-        entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
-        predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(kg_test_file, entity_id2string_path, predicate_id2string_path,
+        csqa_context = CSQAContext.read_from_file(self.kg_test_file, self.entity_id2string_path,
+                                                  self.predicate_id2string_path,
                                                   question_tokens, question_entities)
         assert csqa_context.kg_data == [{"P31": ["Q20010800"]},
                                         {"P2019": [], "P2387": [], "P2605": [], "P2604": [], "P214": [], "P2519": [],
@@ -34,21 +35,41 @@ class TestTableQuestionContext(AllenNlpTestCase):
     def test_alphabetic_entity_extraction(self):
         question = "which administrative territory is the country of origin of frank and jesse ?"
         question_tokens = self.tokenizer.tokenize(question)
-        kg_test_file = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
-        entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
-        predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(kg_test_file, entity_id2string_path, predicate_id2string_path,
+        csqa_context = CSQAContext.read_from_file(self.kg_test_file, self.entity_id2string_path,
+                                                  self.predicate_id2string_path,
                                                   question_tokens, question_entities)
-        assert csqa_context.question_entities == ["Q12122755"]
+
+        entities, _ = csqa_context.get_entities_from_question()
+        assert entities == ["Q12122755"]
 
     def test_number_extraction(self):
         question = "Which fictional characters had their voice dubbing done by atmost 3 people ?"
         question_tokens = self.tokenizer.tokenize(question)
+        question_entities = ["Q12122755"]
+        csqa_context = CSQAContext.read_from_file(self.kg_test_file, self.entity_id2string_path,
+                                                  self.predicate_id2string_path,
+                                                  question_tokens, question_entities)
+        _, number_entities = csqa_context.get_entities_from_question()
+        assert number_entities == [("3", 10)]
 
+    def test_date_extraction(self):
+        question = "Which people took part in the March 2007 Iditarod and are a male ?"
+        question_tokens = self.tokenizer.tokenize(question)
+        question_entities = ["Q12122755"]
+        csqa_context = CSQAContext.read_from_file(self.kg_test_file, self.entity_id2string_path,
+                                                  self.predicate_id2string_path,
+                                                  question_tokens, question_entities)
+        _, number_entities = csqa_context.get_entities_from_question()
+        assert number_entities == [("3", 6), ("2007", 7)]
 
-
-    # TODO: implement entity extraction (read from qa file)
-    # TODO: implement relation extraction?
-    # TODO: reuse number extraction code
-    # TODO: pass entities to Language
+    def test_rank_number_extraction(self):
+        question = "How many television stations were the first to air greater number of" \
+                   " television programs or television genres than American Heroes Channel ?"
+        question_tokens = self.tokenizer.tokenize(question)
+        question_entities = ["Q12122755"]
+        csqa_context = CSQAContext.read_from_file(self.kg_test_file, self.entity_id2string_path,
+                                                  self.predicate_id2string_path,
+                                                  question_tokens, question_entities)
+        _, number_entities = csqa_context.get_entities_from_question()
+        assert number_entities == [("1", 6)]
