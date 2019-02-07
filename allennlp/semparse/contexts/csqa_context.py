@@ -79,74 +79,13 @@ class CSQAContext:
         extracted_numbers = TableQuestionContext._get_numbers_from_tokens(self.question_tokens)
         return self.question_entities, extracted_numbers
 
-
-    @staticmethod
-    def _get_numbers_from_tokens(tokens: List[Token]) -> List[Tuple[str, int]]:
-        """
-        Finds numbers in the input tokens and returns them as strings.  We do some simple heuristic
-        number recognition, finding ordinals and cardinals expressed as text ("one", "first",
-        etc.), as well as numerals ("7th", "3rd"), months (mapping "july" to 7), and units
-        ("1ghz").
-
-        We also handle year ranges expressed as decade or centuries ("1800s" or "1950s"), adding
-        the endpoints of the range as possible numbers to generate.
-
-        We return a list of tuples, where each tuple is the (number_string, token_index) for a
-        number found in the input tokens.
-        """
-        numbers = []
-        for i, token in enumerate(tokens):
-            number: Union[int, float] = None
-            token_text = token.text
-            text = token.text.replace(',', '').lower()
-            if text in NUMBER_WORDS:
-                number = NUMBER_WORDS[text]
-
-            magnitude = 1
-            if i < len(tokens) - 1:
-                next_token = tokens[i + 1].text.lower()
-                if next_token in ORDER_OF_MAGNITUDE_WORDS:
-                    magnitude = ORDER_OF_MAGNITUDE_WORDS[next_token]
-                    token_text += ' ' + tokens[i + 1].text
-
-            is_range = False
-            if len(text) > 1 and text[-1] == 's' and text[-2] == '0':
-                is_range = True
-                text = text[:-1]
-
-            # We strip out any non-digit characters, to capture things like '7th', or '1ghz'.  The
-            # way we're doing this could lead to false positives for something like '1e2', but
-            # we'll take that risk.  It shouldn't be a big deal.
-            text = ''.join(text[i] for i, char in enumerate(text) if char in NUMBER_CHARACTERS)
-
-            try:
-                # We'll use a check for float(text) to find numbers, because text.isdigit() doesn't
-                # catch things like "-3" or "0.07".
-                number = float(text)
-            except ValueError:
-                pass
-
-            if number is not None:
-                number = number * magnitude
-                if '.' in text:
-                    number_string = '%.3f' % number
-                else:
-                    number_string = '%d' % number
-                numbers.append((number_string, i))
-                if is_range:
-                    num_zeros = 1
-                    while text[-(num_zeros + 1)] == '0':
-                        num_zeros += 1
-                    numbers.append((str(int(number + 10 ** num_zeros)), i))
-        return numbers
-
     @classmethod
     def read_kg_from_json(cls,
                           kg_dict: Dict[str, Dict[str, List[str]]]) -> List[Dict[str, List[str]]]:
         # TODO: check: I believe we need a List as inner datastrucure
         kg_data: List[Dict[str, List[str]]] = []
         for subject in kg_dict.keys():
-            predicate_object_dict = subject
+            predicate_object_dict = kg_dict[subject]
             kg_data.append(predicate_object_dict)
         return kg_data
 
