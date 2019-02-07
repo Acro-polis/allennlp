@@ -36,7 +36,11 @@ class CSQADatasetReader(DatasetReader):
                  max_dpd_tries: int = 20,
                  keep_if_no_dpd: bool = False,
                  tokenizer: Tokenizer = None,
-                 question_token_indexers: Dict[str, TokenIndexer] = None) -> None:
+                 question_token_indexers: Dict[str, TokenIndexer] = None,
+                 kg_path: str = None,
+                 entity_id2string_path: str = None,
+                 predicate_id2string_path: str = None,
+                 ) -> None:
         super().__init__(lazy=lazy)
         self._dpd_output_directory = dpd_output_directory
         self._max_dpd_logical_forms = max_dpd_logical_forms
@@ -45,28 +49,41 @@ class CSQADatasetReader(DatasetReader):
         self._keep_if_no_dpd = keep_if_no_dpd
         self._tokenizer = tokenizer or WordTokenizer(SpacyWordSplitter(pos_tags=True))
         self._question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
+        self.entity_id2string_path = entity_id2string_path
+        self.kg_path = kg_path
+        self.predicate_id2string_path = predicate_id2string_path
 
     @overrides
-    def _read(self, file_path: str):
-        if file_path.endswith('.json'):
-            yield from self._read_unprocessed_file(file_path)
-        # TODO: implement
-        elif file_path.endswith('.somethingelse'):
-            yield from self._read_preprocessed_file(file_path)
+    def _read(self, qa_path: str):
+        if qa_path.endswith('.json'):
+            yield from self._read_unprocessed_file(qa_path)
+        elif qa_path.endswith('.somethingelse'):
+            yield from self._read_preprocessed_file(qa_path)  # TODO: implement
         else:
-            raise ConfigurationError(f"Don't know how to read filetype of {file_path}")
+            raise ConfigurationError(f"Don't know how to read filetype of {qa_path}")
 
-    def _read_unprocessed_file(self, file_path: str):
-        with open(file_path) as data_file:
-            data = json.load(data_file)
+    def _read_unprocessed_file(self, qa_path: str):
+        # Create context to get kg_data, entity_id2string, and predicate_id2string; We create them only once as they
+        # are the same fore every context.
+        context = CSQAContext.read_from_file(self.kg_path, self.entity_id2string_path, self.entity_id2string_path, [], [])
+        kg_data = context.kg_data
+        entity_id2string = context.entity_id2string
+        predicate_id2string = context.predicate_id2string
+
+        with open(qa_path) as qa_data:
+            data = json.load(qa_data)
 
             for conversation_turn_dict in data:
                 speaker = conversation_turn_dict["speaker"]
                 utterance = conversation_turn_dict["utterance"]
+                entities_in_utterance = conversation_turn_dict["entities_in_utterance"]
                 if speaker == "USER":
                     question = utterance
+                    entities_in_question = entities_in_utterance
+                    relations_in_question = conversation_turn_dict["relations"]
                 elif speaker == "SYSTEM":
                     answer = utterance
+                    entities_in_answer = entities_in_utterance
                 else:
                     raise AssertionError("Unexpected value of speaker", speaker)
 
@@ -100,13 +117,25 @@ class CSQADatasetReader(DatasetReader):
 
                 if speaker == "SYSTEM":
                     instance = self.text_to_instance(question=question,
+                                                     entities_in_question=entities_in_question,
+                                                     relations_in_question=relations_in_question,
                                                      answer=answer,
+                                                     entities_in_answer=entities_in_answer,
+                                                     kg_data=kg_data,
+                                                     entity_id2string=entity_id2string,
+                                                     predicate_id2string=predicate_id2string,
                                                      dpd_output=logical_forms)
                     yield instance
 
     def text_to_instance(self,
                          question: str,
+                         entities_in_question: List[str],
+                         relations_in_question: List[str],
                          answer: str,
+                         entities_in_answer: List[str],
+                         kg_data: List[Dict[str, str]],
+                         entity_id2string: Dict[str, str],
+                         predicate_id2string: Dict[str, str],
                          dpd_output: List[str] = None,
                          tokenized_question: List[Token] = None) -> Instance:
         """
@@ -115,8 +144,20 @@ class CSQADatasetReader(DatasetReader):
         ----------
         question : ``str``
             Input question
+        entities_in_question : ``str``
+            Entities in the question
+        relations_in_question : ``str``
+            Relations in the question
         answer : ``str``
             Input answer
+        entities_in_answer : ``str``
+            Entities in the answer
+        kg_data :  : ``List[Dict[str, str]]``
+            Knowledge graph
+        entity_id2string : ``Dice[str, str]``
+            Mapping from entity ids to there string values
+        predicate_id2string : ``Dict[str, str]``
+            Mapping from predicate ids to there string values
         dpd_output : List[str], optional
             List of logical forms, produced by dynamic programming on denotations. Not required
             during test.
@@ -132,10 +173,9 @@ class CSQADatasetReader(DatasetReader):
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
-        # TODO: implement CSQAKnowledgeGraph class
-        # wikidata_knowledge_graph = CSQAKnowledgeGraph.read_from_file("somefile")
-        wikidata_knowledge_graph = CSQAContext()
-        world = CSQALanguage(wikidata_knowledge_graph)
+        context = CSQAContext('', '', '', tokenized_question, entities_in_question, kg_data=kg_data,
+                              entity_id2string=entity_id2string, predicate_id2string=predicate_id2string)
+        world = CSQALanguage(context)
         world_field = MetadataField(world)
 
         production_rule_fields: List[Field] = []

@@ -33,7 +33,11 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
     def test_reader_reads(self):
         params = {
                 'lazy': False,
+                'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
+                'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
+                'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
                 }
         reader = CSQADatasetReader.from_params(Params(params))
-        dataset = reader.read(str(self.FIXTURES_ROOT / "data" / "csqa" / "sample_qa.json"))
+        qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
+        dataset = reader.read(qa_path)
         assert_dataset_correct(dataset)
