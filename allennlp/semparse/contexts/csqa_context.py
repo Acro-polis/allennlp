@@ -17,7 +17,7 @@ class CSQAContext:
 
     @classmethod
     def read_from_json(cls,
-                       kg_dict: Dict[str, Dict[str, list[str]]],
+                       kg_dict: Dict[str, Dict[str, List[str]]],
                        question_tokens: List[Token]) -> 'CSQAContext':
 
         for entity in kg_dict.keys():

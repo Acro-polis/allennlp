@@ -20,8 +20,7 @@ from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse.contexts import CSQAKnowledgeGraph
-
-from allennlp.semparse.worlds import CSQAWorld
+from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -135,12 +134,12 @@ class CSQADatasetReader(DatasetReader):
 
         # TODO: implement CSQAKnowledgeGraph class
         wikidata_knowledge_graph = CSQAKnowledgeGraph.read_from_file("somefile")
-        world = CSQAWorld(wikidata_knowledge_graph)
+        world = CSQALanguage(wikidata_knowledge_graph)
         world_field = MetadataField(world)
 
         production_rule_fields: List[Field] = []
-        for production_rule in world.all_possible_actions():
-            #TODO: implement, iterates over empty list now
+        for production_rule in world.all_possible_productions():
+            # TODO: implement, iterates over empty list now
             _, rule_right_side = production_rule.split(' -> ')
             is_global_rule = not world.is_table_entity(rule_right_side)
             field = ProductionRuleField(production_rule, is_global_rule)

@@ -21,7 +21,7 @@ class CSQALanguage(DomainLanguage):
 
         self.kg_context = wikidata_context
         # Todo: Triple
-        self.kg_data = [Triple(triple) for triple in wikidata_context.kg_data]
+        # self.kg_data = [Triple(triple) for triple in wikidata_context.kg_data]
         self.wikidata_graph = wikidata_context.get_knowledge_graph()
 
         # Adding entities and numbers seen in questions as constants.
