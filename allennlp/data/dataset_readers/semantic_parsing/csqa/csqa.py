@@ -19,7 +19,7 @@ from allennlp.data.instance import Instance
 from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
-from allennlp.semparse.contexts import CSQAKnowledgeGraph
+from allennlp.semparse.contexts import CSQAKnowledgeGraph, CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -133,7 +133,8 @@ class CSQADatasetReader(DatasetReader):
                                     "answer": answer}
 
         # TODO: implement CSQAKnowledgeGraph class
-        wikidata_knowledge_graph = CSQAKnowledgeGraph.read_from_file("somefile")
+        # wikidata_knowledge_graph = CSQAKnowledgeGraph.read_from_file("somefile")
+        wikidata_knowledge_graph = CSQAContext()
         world = CSQALanguage(wikidata_knowledge_graph)
         world_field = MetadataField(world)
 

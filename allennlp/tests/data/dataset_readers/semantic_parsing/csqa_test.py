@@ -24,6 +24,8 @@ def assert_dataset_correct(dataset):
     assert [t.text for t in instance.fields["question"].tokens] == question_tokens
     assert isinstance(instance.fields['world'].as_tensor({}), CSQAWorld)
 
+    print("#"*10000)
+
     # TODO: implement actions and action tests
 
 

@@ -7,8 +7,8 @@ from allennlp.data.tokenizers import Token
 class CSQAContext:
 
     def __init__(self,
-                kg_data: List[Dict[str, str]],
-                question_tokens: List[Token]) -> None:
+                 kg_data: List[Dict[str, str]],
+                 question_tokens: List[Token]) -> None:
 
         self.kg_data = kg_data
         self.question_tokens = question_tokens
@@ -22,9 +22,9 @@ class CSQAContext:
     @classmethod
     def read_from_json(cls,
                        kg_dict: Dict[str, Dict[str, List[str]]],
-                       question_tokens: List[Token]) -> 'CSQAContext':
+                       question_tokens: List[Token]) -> "CSQAContext":
 
-        # TODO: check: I believe we need a List as inner datastrucure
+        # TODO: check: I believe we need a List as inner data structure
         # TODO: map entity/predicate ID's to strings
         kg_data: List[Dict[str, List[str]]] = []
         for subject in kg_dict.keys():
