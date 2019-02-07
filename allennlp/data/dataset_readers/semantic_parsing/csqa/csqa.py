@@ -145,7 +145,7 @@ class CSQADatasetReader(DatasetReader):
             field = ProductionRuleField(production_rule, is_global_rule)
             production_rule_fields.append(field)
 
-        # add empty rule (remove when loop above is implemented)
+        # Add empty rule (remove when loop above is implemented).
         field = ProductionRuleField("", False)
         production_rule_fields.append(field)
         action_field = ListField(production_rule_fields)
