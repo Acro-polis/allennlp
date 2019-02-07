@@ -64,12 +64,11 @@ class CSQADatasetReader(DatasetReader):
 
     def _read_unprocessed_file(self, qa_path: str):
         # Create context to get kg_data, entity_id2string, and predicate_id2string; We create them only once as they
-        # are the same fore every context.
+        # are the same fore every instance.
         context = CSQAContext.read_from_file(self.kg_path, self.entity_id2string_path, self.predicate_id2string_path, [], [])
         kg_data = context.kg_data
         entity_id2string = context.entity_id2string
         predicate_id2string = context.predicate_id2string
-        print(predicate_id2string)
 
         with open(qa_path) as qa_data:
             data = json.load(qa_data)

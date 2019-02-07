@@ -53,7 +53,6 @@ class CSQAContext:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
         if not predicate_id2string:
-            print(predicate_id2string)
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
         return cls(kg_data, question_tokens, question_entities, entity_id2string, predicate_id2string)
