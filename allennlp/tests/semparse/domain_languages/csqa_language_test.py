@@ -126,7 +126,6 @@ class TestCSQALanguage(AllenNlpTestCase):
         language = self._get_world_with_question_tokens_and_entities(question_tokens, question_entities)
         logical_form = "(least all_entities P106 1)"
         entity_set = set(language.execute(logical_form))
-        print(entity_set)
         assert entity_set == {'Q274244', 'Q1253489'}
 
     # TODO: test union empty set
