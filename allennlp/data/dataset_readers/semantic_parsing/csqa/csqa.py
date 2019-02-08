@@ -65,7 +65,8 @@ class CSQADatasetReader(DatasetReader):
     def _read_unprocessed_file(self, qa_path: str):
         # Create context to get kg_data, entity_id2string, and predicate_id2string; We create them only once as they
         # are the same fore every instance.
-        context = CSQAContext.read_from_file(self.kg_path, self.entity_id2string_path, self.predicate_id2string_path, [], [])
+        context = CSQAContext.read_from_file(self.kg_path, self.entity_id2string_path, self.predicate_id2string_path,
+                                             [], [])
         kg_data = context.kg_data
         entity_id2string = context.entity_id2string
         predicate_id2string = context.predicate_id2string
@@ -75,15 +76,14 @@ class CSQADatasetReader(DatasetReader):
 
             for conversation_turn_dict in data:
                 speaker = conversation_turn_dict["speaker"]
-                utterance = conversation_turn_dict["utterance"]
-                entities_in_utterance = conversation_turn_dict["entities_in_utterance"]
                 if speaker == "USER":
-                    question = utterance
-                    entities_in_question = entities_in_utterance
-                    relations_in_question = conversation_turn_dict["relations"]
+                    question = conversation_turn_dict["utterance"]
+                    question_entities = conversation_turn_dict["entities_in_utterance"]
+                    print(question_entities)
+                    question_predicates = conversation_turn_dict["relations"]
                 elif speaker == "SYSTEM":
-                    answer = utterance
-                    entities_in_answer = entities_in_utterance
+                    answer = conversation_turn_dict["utterance"]
+                    entities_result = conversation_turn_dict["all_entities"]
                 else:
                     raise AssertionError("Unexpected value of speaker", speaker)
 
@@ -117,10 +117,10 @@ class CSQADatasetReader(DatasetReader):
 
                 if speaker == "SYSTEM":
                     instance = self.text_to_instance(question=question,
-                                                     entities_in_question=entities_in_question,
-                                                     relations_in_question=relations_in_question,
+                                                     question_entities=question_entities,
+                                                     question_predicates=question_predicates,
                                                      answer=answer,
-                                                     entities_in_answer=entities_in_answer,
+                                                     entities_result=entities_result,
                                                      kg_data=kg_data,
                                                      entity_id2string=entity_id2string,
                                                      predicate_id2string=predicate_id2string,
@@ -129,10 +129,10 @@ class CSQADatasetReader(DatasetReader):
 
     def text_to_instance(self,
                          question: str,
-                         entities_in_question: List[str],
-                         relations_in_question: List[str],
+                         question_entities: List[str],
+                         question_predicates: List[str],
                          answer: str,
-                         entities_in_answer: List[str],
+                         entities_result: List[str],
                          kg_data: List[Dict[str, str]],
                          entity_id2string: Dict[str, str],
                          predicate_id2string: Dict[str, str],
@@ -144,15 +144,15 @@ class CSQADatasetReader(DatasetReader):
         ----------
         question : ``str``
             Input question
-        entities_in_question : ``str``
+        question_entities : ``List[str]``
             Entities in the question
-        relations_in_question : ``str``
+        question_predicates : ``List[str]``
             Relations in the question
-        answer : ``str``
-            Input answer
-        entities_in_answer : ``str``
-            Entities in the answer
-        kg_data :  : ``List[Dict[str, str]]``
+        answer : ``List[str]``
+            Answer text (can differ from the actual result, e.g. naming only three of 100 found entities)
+        entities_result : ``List[str]``
+            Entities that constitute the result of the query executed to formulate the answer
+        kg_data : ``List[Dict[str, str]]``
             Knowledge graph
         entity_id2string : ``Dice[str, str]``
             Mapping from entity ids to there string values
@@ -173,10 +173,8 @@ class CSQADatasetReader(DatasetReader):
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
-        context = CSQAContext.read_from_file('', '', '', tokenized_question, entities_in_question, kg_data=kg_data,
+        context = CSQAContext.read_from_file('', '', '', tokenized_question, question_entities, kg_data=kg_data,
                                              entity_id2string=entity_id2string, predicate_id2string=predicate_id2string)
-
-        # TODO hier verder gaan na eten
 
         world = CSQALanguage(context)
         world_field = MetadataField(world)
