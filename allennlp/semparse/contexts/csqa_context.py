@@ -102,8 +102,8 @@ class CSQAContext:
                        ) -> 'CSQAContext':
         if not kg_data:
             with open(kg_path, 'r') as file_pointer:
-                kg_dict = json.load(file_pointer)
-                kg_data = cls.read_kg_from_json(kg_dict)
+                kg_data = json.load(file_pointer)
+                # kg_data = cls.read_kg_from_json(kg_dict)
         if not entity_id2string:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
