@@ -1,8 +1,13 @@
 from allennlp.semparse import DomainLanguage, predicate
 from allennlp.semparse.contexts import CSQAContext
+from allennlp.semparse.domain_languages.domain_language import (DomainLanguage, ExecutionError,
+                                                                predicate)
+import logging
 
 from typing import Dict, List, NamedTuple, Set, Tuple
 from numbers import Number
+
+logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
 class Predicate(NamedTuple):
@@ -42,6 +47,41 @@ class CSQALanguage(DomainLanguage):
         self.terminal_productions: Dict[str, str] = {}
         for name, types in self._function_types.items():
             self.terminal_productions[name] = "%s -> %s" % (types[0], name)
+
+    def get_agenda(self):
+        # TODO: this needs to be implemented when we are searching for logical forms
+        raise NotImplementedError("")
+
+    def evaluate_logical_form_correct(self, logical_form: str, target_list: List[str]) -> bool:
+        """
+        Takes a logical form, and the list of target entities as strings from the original lisp
+        string, and returns True iff the logical form executes to the entity list
+        """
+        assert len(target_list) == 1
+        try:
+            denotation = self.execute(logical_form)
+        except ExecutionError:
+            logger.warning(f'Failed to execute: {logical_form}')
+            return False
+
+        return set(denotation) == set(target_list)
+
+    def evaluate_logical_form_precision_recall(self, logical_form: str, target_list: List[str]) -> Tuple[float, float]:
+        """
+        Takes a logical form, and the list of target entities as strings from the original lisp
+        string, and returns precision and recall
+        """
+        try:
+            denotation = self.execute(logical_form)
+        except ExecutionError:
+            logger.warning(f'Failed to execute: {logical_form}')
+            return 0., 0.
+
+        n_intersection = len(set(denotation).intersection(set(target_list)))
+        precision = n_intersection / len(set(denotation))
+        recall = n_intersection / len(set(target_list))
+
+        return precision, recall
 
     @predicate
     def all_entities(self) -> List[str]:

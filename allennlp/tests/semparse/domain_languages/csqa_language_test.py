@@ -111,7 +111,7 @@ class TestCSQALanguage(AllenNlpTestCase):
         assert entity_set == {"Q1253489"}
 
     def test_most(self):
-        question = "which american president has at most than 4 brothers?"
+        question = "which american president has at most 4 brothers?"
         question_tokens = self.tokenizer.tokenize(question)
         question_entities = ["Q274244", "Q1253489"]
         language = self._get_world_with_question_tokens_and_entities(question_tokens, question_entities)
@@ -120,7 +120,7 @@ class TestCSQALanguage(AllenNlpTestCase):
         assert entity_set == {"Q1253489", 'Q15140125', 'Q12122755', 'Q274244', 'Q1253486'}
 
     def test_least(self):
-        question = "which american president has at least than 1 brothers?"
+        question = "which american president has at least than 1 brother?"
         question_tokens = self.tokenizer.tokenize(question)
         question_entities = ["Q274244", "Q1253489"]
         language = self._get_world_with_question_tokens_and_entities(question_tokens, question_entities)
