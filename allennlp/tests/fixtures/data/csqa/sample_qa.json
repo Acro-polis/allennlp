@@ -767,5 +767,831 @@
   "active_set": [
    "(c(Q95074),P725,c(Q502895))"
   ]
+ },
+ {
+  "ques_type_id": 1,
+  "question-type": "Simple Question (Direct)",
+  "description": "Simple Question",
+  "entities_in_utterance": [
+   "Q5791351"
+  ],
+  "relations": [
+   "P54"
+  ],
+  "type_list": [
+   "Q847017"
+  ],
+  "speaker": "USER",
+  "utterance": "What is Cristi\u00e1n Marcelo \u00c1lvarez a member of ?"
+ },
+ {
+  "all_entities": [
+   "Q170703"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q170703"
+  ],
+  "utterance": "Boca Juniors",
+  "active_set": [
+   "(Q5791351,P54,c(Q847017))"
+  ]
+ },
+ {
+  "ques_type_id": 2,
+  "question-type": "Simple Question (Direct)",
+  "description": "Simple Question|Single Entity",
+  "entities_in_utterance": [
+   "Q5791351"
+  ],
+  "sec_ques_sub_type": 1,
+  "relations": [
+   "P19"
+  ],
+  "type_list": [
+   "Q56061"
+  ],
+  "speaker": "USER",
+  "sec_ques_type": 1,
+  "utterance": "Which administrative territory is the birthplace of Cristi\u00e1n Marcelo \u00c1lvarez ?"
+ },
+ {
+  "all_entities": [
+   "Q264679"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q264679"
+  ],
+  "utterance": "Trenque Lauquen",
+  "active_set": [
+   "(Q5791351,P19,c(Q56061))"
+  ]
+ },
+ {
+  "ques_type_id": 6,
+  "question-type": "Simple Question (Ellipsis)",
+  "description": "only subject is changed, parent and predicate remains same",
+  "entities_in_utterance": [
+   "Q2546228"
+  ],
+  "inc_ques_type": 2,
+  "relations": [],
+  "type_list": [
+   "Q56061"
+  ],
+  "speaker": "USER",
+  "utterance": "And how about Walter Schulz-Matan?"
+ },
+ {
+  "all_entities": [
+   "Q490689"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q490689"
+  ],
+  "utterance": "Apolda",
+  "active_set": [
+   "(Q2546228,P19,c(Q56061))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q106852",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P19",
+   "P27"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are Cristi\u00e1n Marcelo \u00c1lvarez an inhabitant of or were Franziska Lechner born in ?"
+ },
+ {
+  "all_entities": [
+   "Q224720",
+   "Q414"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q224720",
+   "Q414"
+  ],
+  "utterance": "Edling, Germany, Argentina",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q106852,P19,c(Q15617994)))"
+  ]
+ },
+ {
+  "ques_type_id": 7,
+  "question-type": "Comparative Reasoning (Count) (All)",
+  "description": "Comparative|Count over More/Less|Single entity type",
+  "entities_in_utterance": [
+   "Q912"
+  ],
+  "speaker": "USER",
+  "relations": [
+   "P530"
+  ],
+  "count_ques_sub_type": 6,
+  "type_list": [
+   "Q15617994",
+   "Q15617994"
+  ],
+  "count_ques_type": 2,
+  "utterance": "How many administrative territories have diplomatic relations with approximately the same number of administrative territories as Mali ?",
+  "is_incomplete": 0
+ },
+ {
+  "all_entities": [
+   "Q702",
+   "Q804",
+   "Q800",
+   "Q419",
+   "Q668",
+   "Q414",
+   "Q55",
+   "Q145",
+   "Q262",
+   "Q148",
+   "Q783",
+   "Q265",
+   "Q37",
+   "Q712",
+   "Q711",
+   "Q717",
+   "Q837",
+   "Q252",
+   "Q399",
+   "Q398",
+   "Q403",
+   "Q657",
+   "Q258",
+   "Q45",
+   "Q43",
+   "Q41",
+   "Q792",
+   "Q790",
+   "Q796",
+   "Q794",
+   "Q954",
+   "Q889",
+   "Q884",
+   "Q958",
+   "Q881",
+   "Q986",
+   "Q822",
+   "Q241",
+   "Q242",
+   "Q244",
+   "Q811",
+   "Q33",
+   "Q32",
+   "Q31",
+   "Q924",
+   "Q36",
+   "Q34",
+   "Q928",
+   "Q39",
+   "Q739",
+   "Q423",
+   "Q983",
+   "Q851",
+   "Q733",
+   "Q29999",
+   "Q854",
+   "Q734",
+   "Q819",
+   "Q424",
+   "Q730",
+   "Q736",
+   "Q236",
+   "Q232",
+   "Q233",
+   "Q238",
+   "Q20",
+   "Q1045",
+   "Q1041",
+   "Q27",
+   "Q28",
+   "Q921",
+   "Q1049",
+   "Q1027",
+   "Q1020",
+   "Q189",
+   "Q843",
+   "Q842",
+   "Q1029",
+   "Q1028",
+   "Q786",
+   "Q228",
+   "Q227",
+   "Q225",
+   "Q224",
+   "Q222",
+   "Q221",
+   "Q96",
+   "Q229",
+   "Q347",
+   "Q902",
+   "Q1036",
+   "Q1037",
+   "Q974",
+   "Q1032",
+   "Q1033",
+   "Q1030",
+   "Q191",
+   "Q965",
+   "Q967",
+   "Q962",
+   "Q963",
+   "Q697",
+   "Q298",
+   "Q695",
+   "Q115",
+   "Q117",
+   "Q754",
+   "Q750",
+   "Q212",
+   "Q213",
+   "Q211",
+   "Q217",
+   "Q214",
+   "Q215",
+   "Q218",
+   "Q219",
+   "Q912",
+   "Q917",
+   "Q916",
+   "Q1007",
+   "Q1006",
+   "Q1005",
+   "Q833",
+   "Q977",
+   "Q1009",
+   "Q1008",
+   "Q971",
+   "Q683",
+   "Q34020",
+   "Q686",
+   "Q836",
+   "Q574",
+   "Q79",
+   "Q77",
+   "Q878",
+   "Q774",
+   "Q948",
+   "Q817",
+   "Q810",
+   "Q1019",
+   "Q1016",
+   "Q1011",
+   "Q945",
+   "Q678",
+   "Q29",
+   "Q33788",
+   "Q869"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "147",
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q100354",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P47",
+   "P27"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are the native countriesof Cristi\u00e1n Marcelo \u00c1lvarez or are bordered by Cene ?"
+ },
+ {
+  "all_entities": [
+   "Q100195",
+   "Q53489",
+   "Q101117",
+   "Q99968",
+   "Q101190",
+   "Q101130",
+   "Q101057",
+   "Q414",
+   "Q100161"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q100195",
+   "Q53489",
+   "Q101117",
+   "Q99968",
+   "Q101190",
+   "Q101130",
+   "Q101057",
+   "Q414",
+   "Q100161"
+  ],
+  "utterance": "Cazzano Sant'Andrea, Albino, Lombardy, Gaverina Terme, Bianzano, Leffe, Lombardy, Gazzaniga, Fiorano al Serio, Argentina, Casnigo",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q100354,P47,c(Q15617994)))"
+  ]
+ },
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)",
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type",
+  "type_list": [
+   "Q15617994",
+   "Q2342494",
+   "Q11060274"
+  ],
+  "entities_in_utterance": [],
+  "is_incomplete": 0,
+  "set_op": 1,
+  "ques_type_id": 8,
+  "relations": [
+   "P180"
+  ],
+  "count_ques_sub_type": 6,
+  "speaker": "USER",
+  "count_ques_type": 1,
+  "utterance": "How many administrative territories are expressed in atleast 1 collectables and prints ?"
+ },
+ {
+  "all_entities": [
+   "Q47505",
+   "Q131596",
+   "Q1028",
+   "Q17",
+   "Q298",
+   "Q13320",
+   "Q79",
+   "Q1011",
+   "Q913434",
+   "Q376896",
+   "Q34876",
+   "Q80591"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "12",
+  "active_set": [
+   "(c(Q2342494)|c(Q11060274),P180,c(Q15617994))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Single_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q51456",
+   "Q53489"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P47"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories have an adjacent border with Albino, Lombardy or Mosciano Sant'Angelo ?"
+ },
+ {
+  "all_entities": [
+   "Q51465",
+   "Q101663",
+   "Q99979",
+   "Q101470",
+   "Q101753",
+   "Q101117",
+   "Q101208",
+   "Q51470",
+   "Q51450",
+   "Q101572",
+   "Q95079",
+   "Q100199",
+   "Q101130",
+   "Q2081",
+   "Q51458",
+   "Q51430",
+   "Q51423",
+   "Q101269",
+   "Q100354"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q51423",
+   "Q51465",
+   "Q101208",
+   "Q51430",
+   "Q101470",
+   "Q51470",
+   "Q51458",
+   "Q101663",
+   "Q100199",
+   "Q2081"
+  ],
+  "utterance": "Some of them are Bellante, Sant'Omero, Luzzana, Castellalto, Pradalunga, Tortoreto, Notaresco, Trescore Balneario, Cenate Sopra, Roseto degli Abruzzi",
+  "active_set": [
+   "OR((c(Q15617994),P47,Q53489), (c(Q15617994),P47,Q51456))"
+  ]
+ },
+ {
+  "question-type": "Quantitative Reasoning (All)",
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type",
+  "type_list": [
+   "Q847017",
+   "Q483110",
+   "Q811979"
+  ],
+  "entities_in_utterance": [],
+  "is_incomplete": 0,
+  "set_op": 1,
+  "ques_type_id": 8,
+  "relations": [
+   "P466"
+  ],
+  "count_ques_sub_type": 4,
+  "speaker": "USER",
+  "count_ques_type": 1,
+  "utterance": "Which sports clubs were the inhabitants of atmost 2 stadia and architectural structures ?"
+ },
+ {
+  "all_entities": [
+   "Q2048027",
+   "Q3490794",
+   "Q960398",
+   "Q2592041",
+   "Q1752534",
+   "Q18640",
+   "Q6923799",
+   "Q2837064",
+   "Q3930749",
+   "Q923819",
+   "Q7879378",
+   "Q7864150",
+   "Q12639260",
+   "Q5885203",
+   "Q3135684",
+   "Q3110049",
+   "Q7865221",
+   "Q3324473",
+   "Q5430349",
+   "Q6781317",
+   "Q2919388",
+   "Q5109363",
+   "Q4954890",
+   "Q5021173",
+   "Q2927986",
+   "Q3437966",
+   "Q2927988",
+   "Q7330995",
+   "Q2421925",
+   "Q3389148",
+   "Q2928116",
+   "Q5330243",
+   "Q3036862",
+   "Q264545",
+   "Q4355164",
+   "Q1475738",
+   "Q2893390",
+   "Q7397246",
+   "Q2902236",
+   "Q1752323",
+   "Q2892892",
+   "Q5060350",
+   "Q4983432",
+   "Q7906648",
+   "Q3246281",
+   "Q5018216",
+   "Q5924408",
+   "Q170703",
+   "Q240444",
+   "Q7887638",
+   "Q5679994",
+   "Q2300913",
+   "Q5973014",
+   "Q6911260",
+   "Q7442161",
+   "Q3421770",
+   "Q2590997",
+   "Q6694580",
+   "Q732656",
+   "Q2927996",
+   "Q293981",
+   "Q2266247",
+   "Q2938060",
+   "Q16155075",
+   "Q691912",
+   "Q11682959",
+   "Q3528311",
+   "Q6984821",
+   "Q6084019",
+   "Q11704313",
+   "Q3528314",
+   "Q3568142",
+   "Q3568143",
+   "Q16058313",
+   "Q3098117",
+   "Q1353661",
+   "Q9091033",
+   "Q3046352",
+   "Q11031649",
+   "Q3046351",
+   "Q539834",
+   "Q5416041",
+   "Q1029351",
+   "Q2021487",
+   "Q3526120",
+   "Q3503744",
+   "Q1573151",
+   "Q1475263",
+   "Q5976873",
+   "Q5134647",
+   "Q12069029",
+   "Q3064744",
+   "Q7566988",
+   "Q7054443",
+   "Q3064747",
+   "Q1416599",
+   "Q3110047",
+   "Q3569708",
+   "Q7865082",
+   "Q16155042",
+   "Q3618237",
+   "Q1529158",
+   "Q387809",
+   "Q2998740",
+   "Q3733194",
+   "Q3492325",
+   "Q2892868",
+   "Q2926069",
+   "Q3067028",
+   "Q6541715",
+   "Q1752504",
+   "Q7240721",
+   "Q6418651",
+   "Q6118621",
+   "Q3760755",
+   "Q7427882",
+   "Q5060640",
+   "Q3422788",
+   "Q5138258",
+   "Q4898114",
+   "Q3434103",
+   "Q1752526",
+   "Q3518772",
+   "Q2918860",
+   "Q14679331",
+   "Q3418614",
+   "Q3418615",
+   "Q7566649",
+   "Q6416485",
+   "Q3325235",
+   "Q1632686",
+   "Q7971449",
+   "Q14250050",
+   "Q6674530",
+   "Q11680794",
+   "Q2880367",
+   "Q4705179",
+   "Q6116991",
+   "Q3001866",
+   "Q3494415",
+   "Q3141652",
+   "Q3143454",
+   "Q3139203",
+   "Q1773169",
+   "Q6268012",
+   "Q5595224",
+   "Q10532778",
+   "Q2891250",
+   "Q4743655",
+   "Q7055362",
+   "Q7051112",
+   "Q5850905",
+   "Q4398663",
+   "Q7231995",
+   "Q6117385",
+   "Q3008553",
+   "Q3243927",
+   "Q11694486",
+   "Q7930884",
+   "Q934835",
+   "Q5471312",
+   "Q1138025",
+   "Q16191826",
+   "Q2875233",
+   "Q16191824",
+   "Q7058442",
+   "Q5594342",
+   "Q5587532",
+   "Q2963880",
+   "Q550397",
+   "Q7611658",
+   "Q3098948",
+   "Q3174614",
+   "Q5032453",
+   "Q278591",
+   "Q3518575",
+   "Q944259",
+   "Q2927984",
+   "Q201360",
+   "Q25708263",
+   "Q1753811",
+   "Q576483",
+   "Q2699793",
+   "Q7401516",
+   "Q214978",
+   "Q3355089",
+   "Q3572131",
+   "Q2907160",
+   "Q7407653",
+   "Q3540227",
+   "Q16150848",
+   "Q16152277",
+   "Q3410971",
+   "Q5756206",
+   "Q6063500",
+   "Q7886397",
+   "Q2275408",
+   "Q7280155",
+   "Q1581747",
+   "Q5575178",
+   "Q2918449",
+   "Q944639",
+   "Q7401836",
+   "Q6518815",
+   "Q2465468",
+   "Q7887406",
+   "Q2986819",
+   "Q3422875",
+   "Q2908032",
+   "Q7235052",
+   "Q5522634",
+   "Q7864170",
+   "Q16155638",
+   "Q7587998",
+   "Q1402360",
+   "Q7863809",
+   "Q5712175",
+   "Q292618",
+   "Q4667759",
+   "Q3094988",
+   "Q5876889",
+   "Q7830320",
+   "Q910444",
+   "Q3747539",
+   "Q7409309",
+   "Q5330211",
+   "Q5241667",
+   "Q5664204",
+   "Q8043281",
+   "Q3882012",
+   "Q3569661",
+   "Q6818265",
+   "Q3143452",
+   "Q200410",
+   "Q15799",
+   "Q7569367",
+   "Q6448703",
+   "Q3005618",
+   "Q3496221",
+   "Q11688121",
+   "Q7570056",
+   "Q6418592",
+   "Q2905393",
+   "Q3110096",
+   "Q6167295",
+   "Q8058667",
+   "Q2437088",
+   "Q376655",
+   "Q1752542",
+   "Q3959826",
+   "Q3422807",
+   "Q5552064",
+   "Q5316083",
+   "Q3242000",
+   "Q3417492",
+   "Q2906313",
+   "Q2902329",
+   "Q6389746",
+   "Q18195588",
+   "Q6116335",
+   "Q7401260",
+   "Q7984717",
+   "Q3326621",
+   "Q3388922",
+   "Q4709317",
+   "Q6117959",
+   "Q7419312",
+   "Q7987942",
+   "Q2887398",
+   "Q5061546",
+   "Q5816740",
+   "Q3554487",
+   "Q7864699",
+   "Q8026563",
+   "Q3071648",
+   "Q27614315",
+   "Q6418664",
+   "Q2365318",
+   "Q5028065",
+   "Q7987685"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q3618237",
+   "Q12069029",
+   "Q25708263"
+  ],
+  "utterance": "Anorthosis Famagusta Volley (men), Nea Salamis Famagusta VC, Anagennisi Deryneia VC (men)",
+  "active_set": [
+   "(c(Q483110)|c(Q811979),P466,c(Q847017))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q7110291",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P27",
+   "P17"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are the countries of citizenship of Cristi\u00e1n Marcelo \u00c1lvarez or are Oueguedo-Yarce a part of ?"
+ },
+ {
+  "all_entities": [
+   "Q965",
+   "Q414"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q965",
+   "Q414"
+  ],
+  "utterance": "Burkina Faso, Argentina",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q7110291,P17,c(Q15617994)))"
+  ]
+ },
+ {
+  "ques_type_id": 5,
+  "question-type": "Verification (Boolean) (All)",
+  "entities_in_utterance": [
+   "Q1641989"
+  ],
+  "relations": [
+   "P530"
+  ],
+  "type_list": [
+   "Q1048835"
+  ],
+  "speaker": "USER",
+  "bool_ques_type": 6,
+  "utterance": "Do Robledo del Mazo have diplomatic relations with those administrative territories ?",
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ },
+ {
+  "all_entities": [],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "NO",
+  "active_set": [
+   "(Q1641989,P530,Q965)",
+   "(Q1641989,P530,Q414)"
+  ]
  }
 ]

@@ -9,11 +9,10 @@ from allennlp.models.model import Model
 from allennlp.semparse.domain_languages import CSQALanguage
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
+from allennlp.training.metrics import Average
 
 
 class CSQASemanticParser(Model):
-
-
     def __init__(self,
                  vocab: Vocabulary,
                  sentence_embedder: TextFieldEmbedder,
@@ -22,7 +21,24 @@ class CSQASemanticParser(Model):
                  dropout: float = 0.0,
                  rule_namespace: str = 'rule_labels') -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
-        pass
+
+        self._sentence_embedder = sentence_embedder
+        self._denotation_accuracy = Average()
+        self._consistency = Average()
+        self._encoder = encoder
+        if dropout > 0:
+            self._dropout = torch.nn.Dropout(p=dropout)
+        else:
+            self._dropout = lambda x: x
+        self._rule_namespace = rule_namespace
+
+        self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
+                                          embedding_dim=action_embedding_dim)
+
+        # This is what we pass as input in the first step of decoding, when we don't have a
+        # previous action.
+        self._first_action_embedding = torch.nn.Parameter(torch.FloatTensor(action_embedding_dim))
+        torch.nn.init.normal_(self._first_action_embedding)
 
     @overrides
     def forward(self):  # type: ignore

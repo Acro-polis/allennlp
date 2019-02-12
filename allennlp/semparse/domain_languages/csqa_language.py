@@ -1,4 +1,3 @@
-from allennlp.semparse import DomainLanguage, predicate
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.domain_language import (DomainLanguage, ExecutionError,
                                                                 predicate)

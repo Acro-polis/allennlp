@@ -2,12 +2,12 @@
 from allennlp.common import Params
 from allennlp.common.testing import AllenNlpTestCase
 from allennlp.data.dataset_readers import CSQADatasetReader
-from allennlp.semparse.worlds import CSQAWorld
+from allennlp.semparse.domain_languages import CSQALanguage
 
 
 def assert_dataset_correct(dataset):
     instances = list(dataset)
-    assert len(instances) == 14
+    assert len(instances) == 17
     instance = instances[0]
 
     assert instance.fields.keys() == {
@@ -15,18 +15,24 @@ def assert_dataset_correct(dataset):
         'answer',
         'world',
         'actions',
-        'metadata'
+        'metadata',
+        'target_action_sequences'
     }
 
+    language = instance.fields['world'].as_tensor({})
     question_tokens = ["which", "administrative", "territory", "is", "the", "country", "of",
                        "origin", "of", "frank", "and", "jesse", "?"]
 
     assert [t.text for t in instance.fields["question"].tokens] == question_tokens
-    assert isinstance(instance.fields['world'].as_tensor({}), CSQAWorld)
+    assert isinstance(language, CSQALanguage)
 
-    print("#"*10000)
+    action_fields = instance.fields['actions'].field_list
+    first_action_sequence = instance.fields["target_action_sequences"].field_list[0]
 
-    # TODO: implement actions and action tests
+    actions_vocab = [action_field.rule for action_field in action_fields]
+    action_indices = [l.sequence_index for l in first_action_sequence.field_list]
+    actions = [actions_vocab[i] for i in action_indices]
+    assert actions == ['@start@ -> List[str]', '<str:List[str]> -> get', 'str -> Q12122755']
 
 
 class CSQADatasetReaderTest(AllenNlpTestCase):
