@@ -205,7 +205,7 @@ class CSQADatasetReader(DatasetReader):
         world_field = MetadataField(language)
 
         fields = {'question': question_field,
-                  'answer': answer_field,
+                  # 'answer': answer_field,
                   'world': world_field,
                   'actions': action_field,
                   'metadata': MetadataField(metadata)}
