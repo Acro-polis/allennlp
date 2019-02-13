@@ -247,7 +247,14 @@ class CSQADatasetReader(DatasetReader):
         else:
             # TODO: remove, this is just a placholder
             action_sequence_fields: List[Field] = []
-            # print(list(action_map.keys())[17])
+            # # print()
+            # for i in range(14,20):
+            #     prod_rule = list(action_map.keys())[i]
+            #     lhs, rhs = prod_rule.split("->")
+            #     # if rhs[1] is not "P":
+            #         # print(lhs)
+            #         # print(rhs)
+            #         # print()
             # get: 11, start 12,
             index_fields: List[Field] = [IndexField(12, action_field), IndexField(11, action_field),
                                          IndexField(588, action_field)]

@@ -90,6 +90,7 @@ class CSQASemanticParser(Model):
         This function creates a GrammarStateLet by computing the valid actions
         """
         valid_actions = world.get_nonterminal_productions()
+        print(valid_actions)
         action_mapping = {}
         for i, action in enumerate(possible_actions):
             action_mapping[action[0]] = i

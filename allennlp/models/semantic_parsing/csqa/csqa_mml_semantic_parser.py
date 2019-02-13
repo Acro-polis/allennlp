@@ -80,7 +80,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
     @overrides
     def forward(self,  # type: ignore
                 question: Dict[str, torch.LongTensor],
-                worlds: List[List[CSQALanguage]],
+                world: List[CSQALanguage],
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
                 target_action_sequences: torch.LongTensor = None,
@@ -91,7 +91,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihod over a set of approximate logical forms.
         """
-        batch_size = len(worlds)
+
+        batch_size = question['tokens'].size()[0]
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float)
@@ -100,7 +101,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         label_strings: List[List[str]] = self._get_label_strings(labels) if labels is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
-        initial_grammar_state = [self._create_grammar_state(worlds[i][0], actions[i]) for i in
+        initial_grammar_state = [self._create_grammar_state(world[i], actions[i]) for i in
                                  range(batch_size)]
 
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),
@@ -141,10 +142,10 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     best_action_indices = [best_final_states[i][0].action_history[0]]
                     best_action_sequences[i] = best_action_indices
             batch_action_strings = self._get_action_strings(actions, best_action_sequences)
-            batch_denotations = self._get_denotations(batch_action_strings, worlds)
+            batch_denotations = self._get_denotations(batch_action_strings, world)
             if target_action_sequences is not None:
                 self._update_metrics(action_strings=batch_action_strings,
-                                     worlds=worlds,
+                                     worlds=world,
                                      label_strings=label_strings)
             else:
                 if metadata is not None:

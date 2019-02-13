@@ -9,10 +9,10 @@ def assert_dataset_correct(dataset):
     instances = list(dataset)
     assert len(instances) == 17
     instance = instances[0]
+    print(instance.fields.keys())
 
     assert instance.fields.keys() == {
         'question',
-        'answer',
         'world',
         'actions',
         'metadata',

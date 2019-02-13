@@ -121,6 +121,7 @@ class BasicTransitionFunction(TransitionFunction[GrammarBasedState]):
                                                            updated_state['hidden_state'],
                                                            updated_state['attention_weights'],
                                                            updated_state['predicted_action_embeddings'])
+        # print(batch_results)
         new_states = self._construct_next_states(state,
                                                  updated_state,
                                                  batch_results,
@@ -213,6 +214,7 @@ class BasicTransitionFunction(TransitionFunction[GrammarBasedState]):
             instance_actions = actions[group_index]
             predicted_action_embedding = predicted_action_embeddings[group_index]
             action_embeddings, output_action_embeddings, action_ids = instance_actions['global']
+            # print(action_ids)
             # This is just a matrix product between a (num_actions, embedding_dim) matrix and an
             # (embedding_dim, 1) matrix.
             action_logits = action_embeddings.mm(predicted_action_embedding.unsqueeze(-1)).squeeze(-1)

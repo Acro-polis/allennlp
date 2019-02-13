@@ -21,14 +21,13 @@ class CSQALanguage(DomainLanguage):
     """
     def __init__(self, csqa_context: CSQAContext) -> None:
         # TODO: do we need dates here too?
-        # TODO: add smart adding of funtions
         # TODO: check name and value passed to add_constant
         super().__init__(start_types={Number, List[str]})
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
 
         for id, predicate in csqa_context.predicate_id2string.items():
-            self.add_constant(id, id, type_=Predicate)
+            self.add_constant(id, id)
         question_entities, question_numbers = csqa_context.get_entities_from_question()
 
         self._question_entities = question_entities
@@ -45,6 +44,8 @@ class CSQALanguage(DomainLanguage):
         # how many terminals to plan for.
         self.terminal_productions: Dict[str, str] = {}
         for name, types in self._function_types.items():
+            # if "P" is not name[0]:
+            #     print("%s -> %s" % (types[0], name))
             self.terminal_productions[name] = "%s -> %s" % (types[0], name)
 
     def get_agenda(self):
@@ -110,7 +111,7 @@ class CSQALanguage(DomainLanguage):
         return len(entities)  # type: ignore
 
     @predicate
-    def is_in(self, entity, entities: List[str]) -> Number:
+    def is_in(self, entity: str, entities: List[str]) -> Number:
         """
         return whether the first entity is in the set of entities
 
@@ -163,14 +164,12 @@ class CSQALanguage(DomainLanguage):
 
         return list(result)
 
-
     @predicate
     def less(self, entities: List[str], predicate_: str, num: Number)-> List[str]:
         """
         subset of entities linking to less than num entities with predicate_
         """
-        # TODO (koen): do we have to include entities that have 0 relations?
-
+        # TODO (koen): do we want to include entities that have 0 relations?
         result = set()
         for entity in entities:
             if len(self.find([entity], predicate_)) < num:
