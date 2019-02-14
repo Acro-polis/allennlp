@@ -1,0 +1,1597 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q12122755"
+  ], 
+  "relations": [
+   "P495"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territory is the country of origin of Frank and Jesse ?"
+ },
+ {
+  "all_entities": [
+   "Q30"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "utterance": "United States of America", 
+  "active_set": [
+   "(Q12122755,P495,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which geographic locations are that administrative territory located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49", 
+   "Q538"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49", 
+   "Q538"
+  ], 
+  "utterance": "North America, Oceania", 
+  "active_set": [
+   "(Q30,P30,c(Q2221906))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q7637573"
+  ], 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Summerfield Schools located in those geographic locations ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q7637573,P30,Q49)", 
+   "(Q7637573,P30,Q538)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q18577469", 
+   "Q12122755"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P710", 
+   "P161"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people starred in Frank and Jesse or attended 2013 Iditarod ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18582198", 
+   "Q18581291", 
+   "Q17100851", 
+   "Q5249867", 
+   "Q6174253", 
+   "Q18642393", 
+   "Q11963832", 
+   "Q11994910", 
+   "Q18588524", 
+   "Q18582082", 
+   "Q18635499", 
+   "Q18638257", 
+   "Q296505", 
+   "Q18587076", 
+   "Q18587841", 
+   "Q18636168", 
+   "Q254431", 
+   "Q18643303", 
+   "Q18643302", 
+   "Q18643307", 
+   "Q18643166", 
+   "Q18643165", 
+   "Q18636577", 
+   "Q18643273", 
+   "Q18643272", 
+   "Q18643309", 
+   "Q6880994", 
+   "Q18643277", 
+   "Q18643276", 
+   "Q6220400", 
+   "Q11978535", 
+   "Q110374", 
+   "Q18627293", 
+   "Q18587597", 
+   "Q17114155", 
+   "Q18587611", 
+   "Q467519", 
+   "Q5211406", 
+   "Q943556", 
+   "Q11971872", 
+   "Q11998076", 
+   "Q18581670", 
+   "Q17109210", 
+   "Q18638260", 
+   "Q18636170", 
+   "Q495487", 
+   "Q18586791", 
+   "Q18643310", 
+   "Q18610003", 
+   "Q18586334", 
+   "Q7020308", 
+   "Q18643306", 
+   "Q18586626", 
+   "Q18588629", 
+   "Q18642973", 
+   "Q18585614", 
+   "Q18643312", 
+   "Q18600416", 
+   "Q16165619", 
+   "Q18643179", 
+   "Q122229", 
+   "Q18643299", 
+   "Q18587958", 
+   "Q18581089", 
+   "Q18643304", 
+   "Q18581282", 
+   "Q18601607", 
+   "Q18643308", 
+   "Q18643305", 
+   "Q11964839", 
+   "Q11956741"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18581291", 
+   "Q18643299", 
+   "Q18610003", 
+   "Q16165619", 
+   "Q254431", 
+   "Q18638257", 
+   "Q18643179", 
+   "Q7020308", 
+   "Q943556", 
+   "Q18643304"
+  ], 
+  "utterance": "Some of them are Jake Berkowitz, Anna Berington, Linwood Fiedler, Ken Anderson, Alexis Arquette, Jessie Royer, Justin Savidis, Newton Marshall, Lance Mackey, Richie Diehl", 
+  "active_set": [
+   "OR((Q12122755,P161,c(Q502895)), (Q18577469,P710,c(Q502895)))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q18643299"
+  ], 
+  "relations": [
+   "P551"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q852446", 
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many US administrative territories or human settlements did Anna Berington reside ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q99", 
+   "Q1734955", 
+   "Q1537"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(Q18643299,P551,c(Q852446))", 
+   "(Q18643299,P551,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q11609133"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q6619679"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which fictional humanoids have been dubbed by less number of people than Sayaka Miki ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1623086", 
+   "Q1205263", 
+   "Q4992177", 
+   "Q24010814", 
+   "Q819585", 
+   "Q1079617", 
+   "Q718965", 
+   "Q3784876", 
+   "Q4006757", 
+   "Q15614636", 
+   "Q1148698", 
+   "Q1056953", 
+   "Q250221", 
+   "Q3149148", 
+   "Q18156023", 
+   "Q6989902", 
+   "Q15726744", 
+   "Q601978", 
+   "Q757015", 
+   "Q15620419", 
+   "Q13471616", 
+   "Q12879", 
+   "Q19796729", 
+   "Q716636", 
+   "Q1154920"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1623086", 
+   "Q1205263", 
+   "Q3149148"
+  ], 
+  "utterance": "Hector Barbossa, Eli Vance, Imoen", 
+  "active_set": [
+   "(c(Q6619679),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q11479883"
+  ], 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q6619679"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And also tell me about Mami Tomoe?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q1623086", 
+   "Q1205263", 
+   "Q4992177", 
+   "Q24010814", 
+   "Q819585", 
+   "Q1079617", 
+   "Q718965", 
+   "Q3784876", 
+   "Q4006757", 
+   "Q15614636", 
+   "Q1148698", 
+   "Q1056953", 
+   "Q250221", 
+   "Q3149148", 
+   "Q18156023", 
+   "Q6989902", 
+   "Q15726744", 
+   "Q601978", 
+   "Q757015", 
+   "Q15620419", 
+   "Q13471616", 
+   "Q12879", 
+   "Q19796729", 
+   "Q716636", 
+   "Q1154920"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1623086", 
+   "Q1205263", 
+   "Q3149148"
+  ], 
+  "utterance": "Hector Barbossa, Eli Vance, Imoen", 
+  "active_set": [
+   "(c(Q6619679),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1623086"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sex does that fictional humanoid possess ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q1205263"
+  ], 
+  "active_set": [
+   "(Q1623086,P21,c(Q290))", 
+   "(Q1205263,P21,c(Q290))", 
+   "(Q3149148,P21,c(Q290))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q1623086", 
+   "Q1205263", 
+   "Q3149148"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Eli Vance ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q1623086"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Hector Barbossa. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q1623086,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q18608583"
+  ], 
+  "entities_in_utterance": [
+   "Q18636161", 
+   "Q18638257"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P710"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which recurring sporting events did Jessie Royer and Zack Steer participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4617538", 
+   "Q4608649", 
+   "Q4604415", 
+   "Q4611255"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4617538", 
+   "Q4608649", 
+   "Q4604415", 
+   "Q4611255"
+  ], 
+  "utterance": "2010 Iditarod, 2007 Iditarod, 2005 Iditarod, 2008 Iditarod", 
+  "active_set": [
+   "AND((c(Q18608583),P710,Q18638257), (c(Q18608583),P710,Q18636161))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P1344"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people competited in that recurring sporting event ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q4608649"
+  ], 
+  "active_set": [
+   "(c(Q502895),P1344,Q4617538)", 
+   "(c(Q502895),P1344,Q4608649)", 
+   "(c(Q502895),P1344,Q4604415)", 
+   "(c(Q502895),P1344,Q4611255)"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean 2007 Iditarod ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 7, 
+  "entities": [
+   "Q4604415"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "No, I meant 2005 Iditarod. Could you tell me the answer for that?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q16165619", 
+   "Q12006382", 
+   "Q6174253", 
+   "Q18581394", 
+   "Q18587114", 
+   "Q11971872", 
+   "Q18636577", 
+   "Q4586875", 
+   "Q18636623", 
+   "Q7350202", 
+   "Q11999490", 
+   "Q18585825", 
+   "Q5211406", 
+   "Q122229", 
+   "Q18635499", 
+   "Q11963832", 
+   "Q17100851", 
+   "Q18581910", 
+   "Q18587471", 
+   "Q18638257", 
+   "Q11978923", 
+   "Q96215", 
+   "Q11994910", 
+   "Q18588176", 
+   "Q6220400", 
+   "Q7279093", 
+   "Q11978535", 
+   "Q1409516", 
+   "Q11966504", 
+   "Q18587572", 
+   "Q18638381", 
+   "Q11988927", 
+   "Q18638396", 
+   "Q18606841", 
+   "Q18638318", 
+   "Q18588244", 
+   "Q7290387", 
+   "Q18638324", 
+   "Q18642008", 
+   "Q11961035", 
+   "Q18638335", 
+   "Q18638336", 
+   "Q18638330", 
+   "Q943556", 
+   "Q18588208", 
+   "Q5249867", 
+   "Q6880994", 
+   "Q4919952", 
+   "Q18627293", 
+   "Q18638260", 
+   "Q11982912", 
+   "Q18636161", 
+   "Q18581616", 
+   "Q18642009", 
+   "Q18642007", 
+   "Q18642006", 
+   "Q18642004", 
+   "Q18642003", 
+   "Q18642002", 
+   "Q18642001", 
+   "Q11980148", 
+   "Q18642010", 
+   "Q18642011", 
+   "Q18642012", 
+   "Q17114155", 
+   "Q18587441", 
+   "Q18586334", 
+   "Q18641937", 
+   "Q11998076", 
+   "Q11956741", 
+   "Q18585614", 
+   "Q17109210", 
+   "Q5300949", 
+   "Q11962427", 
+   "Q18636262", 
+   "Q18636263", 
+   "Q18585714", 
+   "Q2750036", 
+   "Q11978269"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "79", 
+  "active_set": [
+   "(c(Q502895),P1344,Q4604415)"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q4608649"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P21", 
+   "P1344"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people took part in 2007 Iditarod and are a male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q11962427", 
+   "Q18642010", 
+   "Q18638336", 
+   "Q6880994", 
+   "Q18638330", 
+   "Q17100851", 
+   "Q18642100", 
+   "Q6174253", 
+   "Q11963832", 
+   "Q11994910", 
+   "Q16184599", 
+   "Q18635499", 
+   "Q18636161", 
+   "Q18638272", 
+   "Q18588176", 
+   "Q18642061", 
+   "Q7290387", 
+   "Q18642060", 
+   "Q18642098", 
+   "Q18642099", 
+   "Q12006382", 
+   "Q18642086", 
+   "Q18642090", 
+   "Q18642091", 
+   "Q18642092", 
+   "Q18642093", 
+   "Q18642095", 
+   "Q4586875", 
+   "Q18642097", 
+   "Q7350202", 
+   "Q18642058", 
+   "Q17112864", 
+   "Q11961035", 
+   "Q6220400", 
+   "Q96215", 
+   "Q18627293", 
+   "Q18638327", 
+   "Q18587471", 
+   "Q5211406", 
+   "Q122229", 
+   "Q11988698", 
+   "Q11971872", 
+   "Q11998076", 
+   "Q18610003", 
+   "Q12006599", 
+   "Q18638260", 
+   "Q1409516", 
+   "Q18586931", 
+   "Q11982912", 
+   "Q18586334", 
+   "Q11966504", 
+   "Q18638384", 
+   "Q18638386", 
+   "Q5300949", 
+   "Q18588629", 
+   "Q18588104", 
+   "Q18606841", 
+   "Q16165619", 
+   "Q18587076", 
+   "Q11978269", 
+   "Q18642087", 
+   "Q18587441", 
+   "Q18642085", 
+   "Q18642084", 
+   "Q18642083", 
+   "Q18642082", 
+   "Q943556", 
+   "Q11956741", 
+   "Q18642089", 
+   "Q18642088"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18642095", 
+   "Q11988698", 
+   "Q11962427", 
+   "Q943556", 
+   "Q1409516", 
+   "Q18638384", 
+   "Q18635499", 
+   "Q18642061", 
+   "Q11982912", 
+   "Q18587441"
+  ], 
+  "utterance": "Some of them are Bruce Linton, Matt Hayashida, Bryan Mills, Lance Mackey, Hans Gatt, Frank Sihler, Ramey Smyth, Richard Hum, Lachlan Clarke, Hugh Neff", 
+  "active_set": [
+   "AND((c(Q502895),P1344,Q4608649), (c(Q502895),P21,Q6581097))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q502895", 
+   "Q95074"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which fictional characters had their voice dubbing done by atmost 3 people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q16027672", 
+   "Q21847055", 
+   "Q3498590", 
+   "Q308950", 
+   "Q28465", 
+   "Q551327", 
+   "Q21837832", 
+   "Q21847058", 
+   "Q21847115", 
+   "Q15710873", 
+   "Q2442950", 
+   "Q21847074", 
+   "Q21837038", 
+   "Q7828", 
+   "Q3838346", 
+   "Q2570349", 
+   "Q8139731", 
+   "Q247120", 
+   "Q1529229", 
+   "Q21847089", 
+   "Q21847086", 
+   "Q11623287", 
+   "Q17349786", 
+   "Q21847215", 
+   "Q3256697", 
+   "Q21837905", 
+   "Q21837397", 
+   "Q1621656", 
+   "Q2544561", 
+   "Q21837021", 
+   "Q21837027", 
+   "Q27493503", 
+   "Q1984009", 
+   "Q605125", 
+   "Q21847105", 
+   "Q21847103", 
+   "Q5846", 
+   "Q7810", 
+   "Q2725247"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7828", 
+   "Q7810", 
+   "Q247120"
+  ], 
+  "utterance": "Marge Simpson, Homer Simpson, Neo", 
+  "active_set": [
+   "(c(Q95074),P725,c(Q502895))"
+  ]
+ },
+ {
+  "ques_type_id": 1,
+  "question-type": "Simple Question (Direct)",
+  "description": "Simple Question",
+  "entities_in_utterance": [
+   "Q5791351"
+  ],
+  "relations": [
+   "P54"
+  ],
+  "type_list": [
+   "Q847017"
+  ],
+  "speaker": "USER",
+  "utterance": "What is Cristi\u00e1n Marcelo \u00c1lvarez a member of ?"
+ },
+ {
+  "all_entities": [
+   "Q170703"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q170703"
+  ],
+  "utterance": "Boca Juniors",
+  "active_set": [
+   "(Q5791351,P54,c(Q847017))"
+  ]
+ },
+ {
+  "ques_type_id": 2,
+  "question-type": "Simple Question (Direct)",
+  "description": "Simple Question|Single Entity",
+  "entities_in_utterance": [
+   "Q5791351"
+  ],
+  "sec_ques_sub_type": 1,
+  "relations": [
+   "P19"
+  ],
+  "type_list": [
+   "Q56061"
+  ],
+  "speaker": "USER",
+  "sec_ques_type": 1,
+  "utterance": "Which administrative territory is the birthplace of Cristi\u00e1n Marcelo \u00c1lvarez ?"
+ },
+ {
+  "all_entities": [
+   "Q264679"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q264679"
+  ],
+  "utterance": "Trenque Lauquen",
+  "active_set": [
+   "(Q5791351,P19,c(Q56061))"
+  ]
+ },
+ {
+  "ques_type_id": 6,
+  "question-type": "Simple Question (Ellipsis)",
+  "description": "only subject is changed, parent and predicate remains same",
+  "entities_in_utterance": [
+   "Q2546228"
+  ],
+  "inc_ques_type": 2,
+  "relations": [],
+  "type_list": [
+   "Q56061"
+  ],
+  "speaker": "USER",
+  "utterance": "And how about Walter Schulz-Matan?"
+ },
+ {
+  "all_entities": [
+   "Q490689"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q490689"
+  ],
+  "utterance": "Apolda",
+  "active_set": [
+   "(Q2546228,P19,c(Q56061))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q106852",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P19",
+   "P27"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are Cristi\u00e1n Marcelo \u00c1lvarez an inhabitant of or were Franziska Lechner born in ?"
+ },
+ {
+  "all_entities": [
+   "Q224720",
+   "Q414"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q224720",
+   "Q414"
+  ],
+  "utterance": "Edling, Germany, Argentina",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q106852,P19,c(Q15617994)))"
+  ]
+ },
+ {
+  "ques_type_id": 7,
+  "question-type": "Comparative Reasoning (Count) (All)",
+  "description": "Comparative|Count over More/Less|Single entity type",
+  "entities_in_utterance": [
+   "Q912"
+  ],
+  "speaker": "USER",
+  "relations": [
+   "P530"
+  ],
+  "count_ques_sub_type": 6,
+  "type_list": [
+   "Q15617994",
+   "Q15617994"
+  ],
+  "count_ques_type": 2,
+  "utterance": "How many administrative territories have diplomatic relations with approximately the same number of administrative territories as Mali ?",
+  "is_incomplete": 0
+ },
+ {
+  "all_entities": [
+   "Q702",
+   "Q804",
+   "Q800",
+   "Q419",
+   "Q668",
+   "Q414",
+   "Q55",
+   "Q145",
+   "Q262",
+   "Q148",
+   "Q783",
+   "Q265",
+   "Q37",
+   "Q712",
+   "Q711",
+   "Q717",
+   "Q837",
+   "Q252",
+   "Q399",
+   "Q398",
+   "Q403",
+   "Q657",
+   "Q258",
+   "Q45",
+   "Q43",
+   "Q41",
+   "Q792",
+   "Q790",
+   "Q796",
+   "Q794",
+   "Q954",
+   "Q889",
+   "Q884",
+   "Q958",
+   "Q881",
+   "Q986",
+   "Q822",
+   "Q241",
+   "Q242",
+   "Q244",
+   "Q811",
+   "Q33",
+   "Q32",
+   "Q31",
+   "Q924",
+   "Q36",
+   "Q34",
+   "Q928",
+   "Q39",
+   "Q739",
+   "Q423",
+   "Q983",
+   "Q851",
+   "Q733",
+   "Q29999",
+   "Q854",
+   "Q734",
+   "Q819",
+   "Q424",
+   "Q730",
+   "Q736",
+   "Q236",
+   "Q232",
+   "Q233",
+   "Q238",
+   "Q20",
+   "Q1045",
+   "Q1041",
+   "Q27",
+   "Q28",
+   "Q921",
+   "Q1049",
+   "Q1027",
+   "Q1020",
+   "Q189",
+   "Q843",
+   "Q842",
+   "Q1029",
+   "Q1028",
+   "Q786",
+   "Q228",
+   "Q227",
+   "Q225",
+   "Q224",
+   "Q222",
+   "Q221",
+   "Q96",
+   "Q229",
+   "Q347",
+   "Q902",
+   "Q1036",
+   "Q1037",
+   "Q974",
+   "Q1032",
+   "Q1033",
+   "Q1030",
+   "Q191",
+   "Q965",
+   "Q967",
+   "Q962",
+   "Q963",
+   "Q697",
+   "Q298",
+   "Q695",
+   "Q115",
+   "Q117",
+   "Q754",
+   "Q750",
+   "Q212",
+   "Q213",
+   "Q211",
+   "Q217",
+   "Q214",
+   "Q215",
+   "Q218",
+   "Q219",
+   "Q912",
+   "Q917",
+   "Q916",
+   "Q1007",
+   "Q1006",
+   "Q1005",
+   "Q833",
+   "Q977",
+   "Q1009",
+   "Q1008",
+   "Q971",
+   "Q683",
+   "Q34020",
+   "Q686",
+   "Q836",
+   "Q574",
+   "Q79",
+   "Q77",
+   "Q878",
+   "Q774",
+   "Q948",
+   "Q817",
+   "Q810",
+   "Q1019",
+   "Q1016",
+   "Q1011",
+   "Q945",
+   "Q678",
+   "Q29",
+   "Q33788",
+   "Q869"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "147",
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q100354",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P47",
+   "P27"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are the native countriesof Cristi\u00e1n Marcelo \u00c1lvarez or are bordered by Cene ?"
+ },
+ {
+  "all_entities": [
+   "Q100195",
+   "Q53489",
+   "Q101117",
+   "Q99968",
+   "Q101190",
+   "Q101130",
+   "Q101057",
+   "Q414",
+   "Q100161"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q100195",
+   "Q53489",
+   "Q101117",
+   "Q99968",
+   "Q101190",
+   "Q101130",
+   "Q101057",
+   "Q414",
+   "Q100161"
+  ],
+  "utterance": "Cazzano Sant'Andrea, Albino, Lombardy, Gaverina Terme, Bianzano, Leffe, Lombardy, Gazzaniga, Fiorano al Serio, Argentina, Casnigo",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q100354,P47,c(Q15617994)))"
+  ]
+ },
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)",
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type",
+  "type_list": [
+   "Q15617994",
+   "Q2342494",
+   "Q11060274"
+  ],
+  "entities_in_utterance": [],
+  "is_incomplete": 0,
+  "set_op": 1,
+  "ques_type_id": 8,
+  "relations": [
+   "P180"
+  ],
+  "count_ques_sub_type": 6,
+  "speaker": "USER",
+  "count_ques_type": 1,
+  "utterance": "How many administrative territories are expressed in atleast 1 collectables and prints ?"
+ },
+ {
+  "all_entities": [
+   "Q47505",
+   "Q131596",
+   "Q1028",
+   "Q17",
+   "Q298",
+   "Q13320",
+   "Q79",
+   "Q1011",
+   "Q913434",
+   "Q376896",
+   "Q34876",
+   "Q80591"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "12",
+  "active_set": [
+   "(c(Q2342494)|c(Q11060274),P180,c(Q15617994))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Single_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q51456",
+   "Q53489"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P47"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories have an adjacent border with Albino, Lombardy or Mosciano Sant'Angelo ?"
+ },
+ {
+  "all_entities": [
+   "Q51465",
+   "Q101663",
+   "Q99979",
+   "Q101470",
+   "Q101753",
+   "Q101117",
+   "Q101208",
+   "Q51470",
+   "Q51450",
+   "Q101572",
+   "Q95079",
+   "Q100199",
+   "Q101130",
+   "Q2081",
+   "Q51458",
+   "Q51430",
+   "Q51423",
+   "Q101269",
+   "Q100354"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q51423",
+   "Q51465",
+   "Q101208",
+   "Q51430",
+   "Q101470",
+   "Q51470",
+   "Q51458",
+   "Q101663",
+   "Q100199",
+   "Q2081"
+  ],
+  "utterance": "Some of them are Bellante, Sant'Omero, Luzzana, Castellalto, Pradalunga, Tortoreto, Notaresco, Trescore Balneario, Cenate Sopra, Roseto degli Abruzzi",
+  "active_set": [
+   "OR((c(Q15617994),P47,Q53489), (c(Q15617994),P47,Q51456))"
+  ]
+ },
+ {
+  "question-type": "Quantitative Reasoning (All)",
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type",
+  "type_list": [
+   "Q847017",
+   "Q483110",
+   "Q811979"
+  ],
+  "entities_in_utterance": [],
+  "is_incomplete": 0,
+  "set_op": 1,
+  "ques_type_id": 8,
+  "relations": [
+   "P466"
+  ],
+  "count_ques_sub_type": 4,
+  "speaker": "USER",
+  "count_ques_type": 1,
+  "utterance": "Which sports clubs were the inhabitants of atmost 2 stadia and architectural structures ?"
+ },
+ {
+  "all_entities": [
+   "Q2048027",
+   "Q3490794",
+   "Q960398",
+   "Q2592041",
+   "Q1752534",
+   "Q18640",
+   "Q6923799",
+   "Q2837064",
+   "Q3930749",
+   "Q923819",
+   "Q7879378",
+   "Q7864150",
+   "Q12639260",
+   "Q5885203",
+   "Q3135684",
+   "Q3110049",
+   "Q7865221",
+   "Q3324473",
+   "Q5430349",
+   "Q6781317",
+   "Q2919388",
+   "Q5109363",
+   "Q4954890",
+   "Q5021173",
+   "Q2927986",
+   "Q3437966",
+   "Q2927988",
+   "Q7330995",
+   "Q2421925",
+   "Q3389148",
+   "Q2928116",
+   "Q5330243",
+   "Q3036862",
+   "Q264545",
+   "Q4355164",
+   "Q1475738",
+   "Q2893390",
+   "Q7397246",
+   "Q2902236",
+   "Q1752323",
+   "Q2892892",
+   "Q5060350",
+   "Q4983432",
+   "Q7906648",
+   "Q3246281",
+   "Q5018216",
+   "Q5924408",
+   "Q170703",
+   "Q240444",
+   "Q7887638",
+   "Q5679994",
+   "Q2300913",
+   "Q5973014",
+   "Q6911260",
+   "Q7442161",
+   "Q3421770",
+   "Q2590997",
+   "Q6694580",
+   "Q732656",
+   "Q2927996",
+   "Q293981",
+   "Q2266247",
+   "Q2938060",
+   "Q16155075",
+   "Q691912",
+   "Q11682959",
+   "Q3528311",
+   "Q6984821",
+   "Q6084019",
+   "Q11704313",
+   "Q3528314",
+   "Q3568142",
+   "Q3568143",
+   "Q16058313",
+   "Q3098117",
+   "Q1353661",
+   "Q9091033",
+   "Q3046352",
+   "Q11031649",
+   "Q3046351",
+   "Q539834",
+   "Q5416041",
+   "Q1029351",
+   "Q2021487",
+   "Q3526120",
+   "Q3503744",
+   "Q1573151",
+   "Q1475263",
+   "Q5976873",
+   "Q5134647",
+   "Q12069029",
+   "Q3064744",
+   "Q7566988",
+   "Q7054443",
+   "Q3064747",
+   "Q1416599",
+   "Q3110047",
+   "Q3569708",
+   "Q7865082",
+   "Q16155042",
+   "Q3618237",
+   "Q1529158",
+   "Q387809",
+   "Q2998740",
+   "Q3733194",
+   "Q3492325",
+   "Q2892868",
+   "Q2926069",
+   "Q3067028",
+   "Q6541715",
+   "Q1752504",
+   "Q7240721",
+   "Q6418651",
+   "Q6118621",
+   "Q3760755",
+   "Q7427882",
+   "Q5060640",
+   "Q3422788",
+   "Q5138258",
+   "Q4898114",
+   "Q3434103",
+   "Q1752526",
+   "Q3518772",
+   "Q2918860",
+   "Q14679331",
+   "Q3418614",
+   "Q3418615",
+   "Q7566649",
+   "Q6416485",
+   "Q3325235",
+   "Q1632686",
+   "Q7971449",
+   "Q14250050",
+   "Q6674530",
+   "Q11680794",
+   "Q2880367",
+   "Q4705179",
+   "Q6116991",
+   "Q3001866",
+   "Q3494415",
+   "Q3141652",
+   "Q3143454",
+   "Q3139203",
+   "Q1773169",
+   "Q6268012",
+   "Q5595224",
+   "Q10532778",
+   "Q2891250",
+   "Q4743655",
+   "Q7055362",
+   "Q7051112",
+   "Q5850905",
+   "Q4398663",
+   "Q7231995",
+   "Q6117385",
+   "Q3008553",
+   "Q3243927",
+   "Q11694486",
+   "Q7930884",
+   "Q934835",
+   "Q5471312",
+   "Q1138025",
+   "Q16191826",
+   "Q2875233",
+   "Q16191824",
+   "Q7058442",
+   "Q5594342",
+   "Q5587532",
+   "Q2963880",
+   "Q550397",
+   "Q7611658",
+   "Q3098948",
+   "Q3174614",
+   "Q5032453",
+   "Q278591",
+   "Q3518575",
+   "Q944259",
+   "Q2927984",
+   "Q201360",
+   "Q25708263",
+   "Q1753811",
+   "Q576483",
+   "Q2699793",
+   "Q7401516",
+   "Q214978",
+   "Q3355089",
+   "Q3572131",
+   "Q2907160",
+   "Q7407653",
+   "Q3540227",
+   "Q16150848",
+   "Q16152277",
+   "Q3410971",
+   "Q5756206",
+   "Q6063500",
+   "Q7886397",
+   "Q2275408",
+   "Q7280155",
+   "Q1581747",
+   "Q5575178",
+   "Q2918449",
+   "Q944639",
+   "Q7401836",
+   "Q6518815",
+   "Q2465468",
+   "Q7887406",
+   "Q2986819",
+   "Q3422875",
+   "Q2908032",
+   "Q7235052",
+   "Q5522634",
+   "Q7864170",
+   "Q16155638",
+   "Q7587998",
+   "Q1402360",
+   "Q7863809",
+   "Q5712175",
+   "Q292618",
+   "Q4667759",
+   "Q3094988",
+   "Q5876889",
+   "Q7830320",
+   "Q910444",
+   "Q3747539",
+   "Q7409309",
+   "Q5330211",
+   "Q5241667",
+   "Q5664204",
+   "Q8043281",
+   "Q3882012",
+   "Q3569661",
+   "Q6818265",
+   "Q3143452",
+   "Q200410",
+   "Q15799",
+   "Q7569367",
+   "Q6448703",
+   "Q3005618",
+   "Q3496221",
+   "Q11688121",
+   "Q7570056",
+   "Q6418592",
+   "Q2905393",
+   "Q3110096",
+   "Q6167295",
+   "Q8058667",
+   "Q2437088",
+   "Q376655",
+   "Q1752542",
+   "Q3959826",
+   "Q3422807",
+   "Q5552064",
+   "Q5316083",
+   "Q3242000",
+   "Q3417492",
+   "Q2906313",
+   "Q2902329",
+   "Q6389746",
+   "Q18195588",
+   "Q6116335",
+   "Q7401260",
+   "Q7984717",
+   "Q3326621",
+   "Q3388922",
+   "Q4709317",
+   "Q6117959",
+   "Q7419312",
+   "Q7987942",
+   "Q2887398",
+   "Q5061546",
+   "Q5816740",
+   "Q3554487",
+   "Q7864699",
+   "Q8026563",
+   "Q3071648",
+   "Q27614315",
+   "Q6418664",
+   "Q2365318",
+   "Q5028065",
+   "Q7987685"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q3618237",
+   "Q12069029",
+   "Q25708263"
+  ],
+  "utterance": "Anorthosis Famagusta Volley (men), Nea Salamis Famagusta VC, Anagennisi Deryneia VC (men)",
+  "active_set": [
+   "(c(Q483110)|c(Q811979),P466,c(Q847017))"
+  ]
+ },
+ {
+  "set_op_choice": 1,
+  "question-type": "Logical Reasoning (All)",
+  "description": "Logical|Union|Multiple_Relation",
+  "type_list": [
+   "Q15617994"
+  ],
+  "entities_in_utterance": [
+   "Q7110291",
+   "Q5791351"
+  ],
+  "ques_type_id": 4,
+  "is_inc": 0,
+  "relations": [
+   "P27",
+   "P17"
+  ],
+  "speaker": "USER",
+  "utterance": "Which administrative territories are the countries of citizenship of Cristi\u00e1n Marcelo \u00c1lvarez or are Oueguedo-Yarce a part of ?"
+ },
+ {
+  "all_entities": [
+   "Q965",
+   "Q414"
+  ],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [
+   "Q965",
+   "Q414"
+  ],
+  "utterance": "Burkina Faso, Argentina",
+  "active_set": [
+   "OR((Q5791351,P27,c(Q15617994)), (Q7110291,P17,c(Q15617994)))"
+  ]
+ },
+ {
+  "ques_type_id": 5,
+  "question-type": "Verification (Boolean) (All)",
+  "entities_in_utterance": [
+   "Q1641989"
+  ],
+  "relations": [
+   "P530"
+  ],
+  "type_list": [
+   "Q1048835"
+  ],
+  "speaker": "USER",
+  "bool_ques_type": 6,
+  "utterance": "Do Robledo del Mazo have diplomatic relations with those administrative territories ?",
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ },
+ {
+  "all_entities": [],
+  "speaker": "SYSTEM",
+  "entities_in_utterance": [],
+  "utterance": "NO",
+  "active_set": [
+   "(Q1641989,P530,Q965)",
+   "(Q1641989,P530,Q414)"
+  ]
+ }
+]
