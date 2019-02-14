@@ -65,8 +65,6 @@ class GrammarStatelet(Generic[ActionRepresentation]):
         Returns the valid actions in the current grammar state.  The `Model` determines what
         exactly this looks like when it constructs the `valid_actions` dictionary.
         """
-        action_embeddings, output_action_embeddings, action_ids = self._valid_actions[self._nonterminal_stack[-1]]['global']
-        # print("current expected output: {}, allowed transitions: {} ".format((self._nonterminal_stack[-1]), action_ids))
         return self._valid_actions[self._nonterminal_stack[-1]]
 
     def take_action(self, production_rule: str) -> 'GrammarStatelet':

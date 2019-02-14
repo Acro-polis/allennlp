@@ -84,6 +84,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
                 target_action_sequences: torch.LongTensor = None,
+                result_entities = None,
                 labels: torch.LongTensor = None,
                 metadata: List[Dict[str, Any]] = None) -> Dict[str, torch.Tensor]:
         # pylint: disable=arguments-differ
@@ -98,7 +99,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float)
                               for i in range(batch_size)]
 
-        label_strings: List[List[str]] = self._get_label_strings(labels) if labels is not None else None
+        result_entities: List[List[str]] = self._get_label_strings(result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_state = [self._create_grammar_state(world[i], actions[i]) for i in
@@ -110,7 +111,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                           rnn_state=initial_rnn_state,
                                           grammar_state=initial_grammar_state,
                                           possible_actions=actions,
-                                          extras=label_strings)
+                                          extras=result_entities)
 
         if target_action_sequences is not None:
             # Remove the trailing dimension (from ListField[ListField[IndexField]]).
@@ -146,7 +147,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             if target_action_sequences is not None:
                 self._update_metrics(action_strings=batch_action_strings,
                                      worlds=world,
-                                     label_strings=label_strings)
+                                     label_strings=result_entities)
             else:
                 if metadata is not None:
                     outputs["sentence_tokens"] = [x["sentence_tokens"] for x in metadata]
@@ -164,7 +165,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
     def _update_metrics(self,
                         action_strings: List[List[List[str]]],
-                        worlds: List[List[CSQALanguage]],
+                        worlds: List[CSQALanguage],
                         label_strings: List[List[str]]) -> None:
         # TODO(pradeep): Move this to the base class.
         # TODO(pradeep): Using only the best decoded sequence. Define metrics for top-k sequences?
@@ -174,11 +175,11 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             sequence_is_correct = [False]
             if instance_action_strings:
                 instance_label_strings = label_strings[i]
-                instance_worlds = worlds[i]
+                instance_world = worlds[i]
                 # Taking only the best sequence.
                 sequence_is_correct = self._check_denotation(instance_action_strings[0],
                                                              instance_label_strings,
-                                                             instance_worlds)
+                                                             instance_world)
             for correct_in_world in sequence_is_correct:
                 self._denotation_accuracy(1 if correct_in_world else 0)
             self._consistency(1 if all(sequence_is_correct) else 0)

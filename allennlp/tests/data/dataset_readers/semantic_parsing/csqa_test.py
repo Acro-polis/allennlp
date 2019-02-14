@@ -9,8 +9,6 @@ def assert_dataset_correct(dataset):
     instances = list(dataset)
     assert len(instances) == 17
     instance = instances[0]
-    print(instance.fields.keys())
-
     assert instance.fields.keys() == {
         'question',
         'world',
@@ -32,7 +30,10 @@ def assert_dataset_correct(dataset):
     actions_vocab = [action_field.rule for action_field in action_fields]
     action_indices = [l.sequence_index for l in first_action_sequence.field_list]
     actions = [actions_vocab[i] for i in action_indices]
-    assert actions == ['@start@ -> List[str]', '<str:List[str]> -> get', 'str -> Q12122755']
+    assert actions == ['@start@ -> List[str]',
+                       'List[str] -> [<str:List[str]>, str]',
+                       '<str:List[str]> -> get',
+                       'str -> Q12122755']
 
 
 class CSQADatasetReaderTest(AllenNlpTestCase):

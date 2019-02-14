@@ -90,7 +90,6 @@ class CSQASemanticParser(Model):
         This function creates a GrammarStateLet by computing the valid actions
         """
         valid_actions = world.get_nonterminal_productions()
-        print(valid_actions)
         action_mapping = {}
         for i, action in enumerate(possible_actions):
             action_mapping[action[0]] = i
@@ -113,6 +112,20 @@ class CSQASemanticParser(Model):
         return GrammarStatelet([START_SYMBOL],
                                translated_valid_actions,
                                world.is_nonterminal)
+
+    def _get_label_strings(self, labels):
+        # TODO (pradeep): Use an unindexed field for labels?
+        labels_data = labels.detach().cpu()
+        label_strings: List[List[str]] = []
+        for instance_labels_data in labels_data:
+            label_strings.append([])
+            for label in instance_labels_data:
+                label_int = int(label)
+                if label_int == -1:
+                    # Padding, because not all instances have the same number of labels.
+                    continue
+                label_strings[-1].append(self.vocab.get_token_from_index(label_int, "denotations"))
+        return label_strings
 
     @classmethod
     def _get_action_strings(cls,
@@ -137,35 +150,36 @@ class CSQASemanticParser(Model):
 
     @staticmethod
     def _get_denotations(action_strings: List[List[List[str]]],
-                         worlds: List[List[CSQALanguage]]) -> List[List[List[str]]]:
+                         world: List[CSQALanguage]) -> List[List[List[str]]]:
         all_denotations: List[List[List[str]]] = []
-        for instance_worlds, instance_action_sequences in zip(worlds, action_strings):
+        for instance_world, instance_action_sequences in zip(world, action_strings):
             denotations: List[List[str]] = []
             for instance_action_strings in instance_action_sequences:
                 if not instance_action_strings:
                     continue
-                logical_form = instance_worlds[0].action_sequence_to_logical_form(instance_action_strings)
+                logical_form = instance_world.action_sequence_to_logical_form(instance_action_strings)
                 instance_denotations: List[str] = []
-                for world in instance_worlds:
-                    # Some of the worlds can be None for instances that come with less than 4 worlds
-                    # because of padding.
-                    if world is not None:
-                        instance_denotations.append(str(world.execute(logical_form)))
+
+                if instance_world is not None:
+                    instance_denotations.append(str(instance_world.execute(logical_form)))
+
                 denotations.append(instance_denotations)
             all_denotations.append(denotations)
         return all_denotations
 
     @staticmethod
     def _check_denotation(action_sequence: List[str],
-                          labels: List[str],
-                          worlds: List[CSQALanguage]) -> List[bool]:
+                          result_entities: List[str],
+                          world: CSQALanguage) -> List[bool]:
         is_correct = []
-        for world, label in zip(worlds, labels):
-            logical_form = world.action_sequence_to_logical_form(action_sequence)
-            denotation = world.execute(logical_form)
-            is_correct.append(str(denotation).lower() == label)
+        logical_form = world.action_sequence_to_logical_form(action_sequence)
+        denotation = world.execute(logical_form)
+        # TODO: deal with other types of results (counts, verification etc.)
+        if isinstance(denotation, list):
+            is_correct.append(set(denotation) == set(result_entities))
+        else:
+            is_correct.append(False)
         return is_correct
-
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:

@@ -14,14 +14,14 @@ from collections import defaultdict
 
 from allennlp.common.checks import ConfigurationError
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
-from allennlp.data.fields import Field, IndexField, KnowledgeGraphField, ListField
+from allennlp.data.fields import Field, IndexField, LabelField, ListField
 from allennlp.data.fields import MetadataField, ProductionRuleField, TextField
 from allennlp.data.instance import Instance
 from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse import ParsingError
-from allennlp.semparse.contexts import CSQAKnowledgeGraph, CSQAContext
+from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -186,7 +186,7 @@ class CSQADatasetReader(DatasetReader):
 
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
-        answer_field = TextField(tokenized_question, self._question_token_indexers)
+        # answer_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
@@ -204,11 +204,15 @@ class CSQADatasetReader(DatasetReader):
         action_field = ListField(production_rule_fields)
         world_field = MetadataField(language)
 
+        result_entities_field = ListField([LabelField(result_entity, label_namespace='denotations')
+                                           for result_entity in entities_result])
+
+        # 'answer': answer_field,
         fields = {'question': question_field,
-                  # 'answer': answer_field,
                   'world': world_field,
                   'actions': action_field,
-                  'metadata': MetadataField(metadata)}
+                  'metadata': MetadataField(metadata),
+                  "result_entities": result_entities_field}
 
         # TODO: Assuming that possible actions are the same in all worlds. This is not true of course
         action_map = {action.rule: i for i, action in enumerate(action_field.field_list)}  # type: ignore
@@ -247,19 +251,9 @@ class CSQADatasetReader(DatasetReader):
         else:
             # TODO: remove, this is just a placholder
             action_sequence_fields: List[Field] = []
-            # # print()
-            # for i in range(14,20):
-            #     prod_rule = list(action_map.keys())[i]
-            #     lhs, rhs = prod_rule.split("->")
-            #     # if rhs[1] is not "P":
-            #         # print(lhs)
-            #         # print(rhs)
-            #         # print()
-            # get: 11, start 12,
-            index_fields: List[Field] = [IndexField(12, action_field), IndexField(11, action_field),
-                                         IndexField(588, action_field)]
+            index_fields: List[Field] = [IndexField(12, action_field), IndexField(17, action_field),
+                                         IndexField(11, action_field), IndexField(588, action_field)]
             action_sequence_fields.append(ListField(index_fields))
             fields['target_action_sequences'] = ListField(action_sequence_fields)
-
 
         return Instance(fields)

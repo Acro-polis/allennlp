@@ -48,9 +48,15 @@ class CSQALanguage(DomainLanguage):
             #     print("%s -> %s" % (types[0], name))
             self.terminal_productions[name] = "%s -> %s" % (types[0], name)
 
+
     def get_agenda(self):
         # TODO: this needs to be implemented when we are searching for logical forms
         raise NotImplementedError("")
+
+    def __eq__(self, other):
+        if isinstance(self, other.__class__):
+            return self.kg_data == other.kg_data and self.terminal_productions == other.terminal_productions
+        return NotImplemented
 
     def evaluate_logical_form_correct(self, logical_form: str, target_list: List[str]) -> bool:
         """
