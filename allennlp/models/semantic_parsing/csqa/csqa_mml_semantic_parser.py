@@ -23,10 +23,9 @@ logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 @Model.register("csqa_mml_parser")
 class CSQAMmlSemanticParser(CSQASemanticParser):
     """
-    ``NlvrDirectSemanticParser`` is an ``NlvrSemanticParser`` that gets around the problem of lack
+    ``CSQAMMlSemanticParser`` is an ``CSQASemanticParser`` that gets around the problem of lack
     of logical form annotations by maximizing the marginal likelihood of an approximate set of target
-    sequences that yield the correct denotation. The main difference between this parser and
-    ``NlvrCoverageSemanticParser`` is that while this parser takes the output of an offline search
+    sequences that yield the correct denotation. This parser takes the output of an offline search
     process as the set of target sequences for training, the latter performs search during training.
 
     Parameters
@@ -90,7 +89,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         # pylint: disable=arguments-differ
         """
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
-        likelihod over a set of approximate logical forms.
+        likelihood over a set of approximate logical forms.
         """
 
         batch_size = question['tokens'].size()[0]

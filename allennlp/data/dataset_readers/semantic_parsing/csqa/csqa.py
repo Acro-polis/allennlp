@@ -30,7 +30,53 @@ logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 # noinspection PyTypeChecker
 @DatasetReader.register("csqa")
 class CSQADatasetReader(DatasetReader):
+    """
 
+    Parameters
+    ----------
+    lazy : ``bool`` (optional, default=False)
+        Passed to ``DatasetReader``.  If this is ``True``, training will start sooner, but will
+        take longer per batch.
+    dpd_output_directory : ``str``, optional
+        Directory that contains all the gzipped dpd output files. We assume the filenames match the
+        example IDs (e.g.: ``nt-0.gz``).  This is required for training a model, but not required
+        for prediction.
+    max_dpd_logical_forms : ``int``, optional (default=10)
+        We will use the first ``max_dpd_logical_forms`` logical forms as our target label.  Only
+        applicable if ``dpd_output_directory`` is given.
+    sort_dpd_logical_forms : ``bool``, optional (default=True)
+        If ``True``, we will sort the logical forms in the DPD output by length before selecting
+        the first ``max_dpd_logical_forms``.  This makes the data loading quite a bit slower, but
+        results in better training data.
+    max_dpd_tries : ``int``, optional
+        Sometimes DPD just made bad choices about logical forms and gives us forms that we can't
+        parse (most of the time these are very unlikely logical forms, because, e.g., it
+        hallucinates a date or number from the table that's not in the question).  But we don't
+        want to spend our time trying to parse thousands of bad logical forms.  We will try to
+        parse only the first ``max_dpd_tries`` logical forms before giving up.  This also speeds up
+        data loading time, because we don't go through the entire DPD file if it's huge (unless
+        we're sorting the logical forms).  Only applicable if ``dpd_output_directory`` is given.
+        Default is 20.
+    keep_if_no_dpd : ``bool``, optional (default=False)
+        If ``True``, we will keep instances we read that don't have DPD output.  If you want to
+        compute denotation accuracy on the full dataset, you should set this to ``True``.
+        Otherwise, your accuracy numbers will only reflect the subset of the data that has DPD
+        output.
+    tokenizer : ``Tokenizer``, optional
+        Tokenizer to use for the questions. Will default to ``WordTokenizer()`` with Spacy's tagger
+        enabled, as we use lemma matches as features for entity linking.
+    question_token_indexers : ``Dict[str, TokenIndexer]``, optional
+        Token indexers for questions. Will default to ``{"tokens": SingleIdTokenIndexer()}``.
+    kg_path: ``str``, optional
+        Path to the knowledge graph file. We use this file to initialize our context
+    entity_id2string_path ``str``, optional
+        Path to the json file which maps entity id's to their string values
+    predicate_id2string_path ``str``, optional
+        Path to the json file which maps predicate id's to their string values
+    read_only_direct ``bool``, optional
+        boolean indicating whether we only read direct questions (without references to questions earlier in the
+        conversation)
+    """
     def __init__(self,
                  lazy: bool = False,
                  dpd_output_directory: str = None,

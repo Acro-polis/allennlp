@@ -50,7 +50,7 @@ class CSQALanguage(DomainLanguage):
 
 
     def get_agenda(self):
-        # TODO: this needs to be implemented when we are searching for logical forms
+        # TODO: this needs to be implemented when carrying out a search for correct logical forms
         raise NotImplementedError("")
 
     def __eq__(self, other):
@@ -114,6 +114,9 @@ class CSQALanguage(DomainLanguage):
 
     @predicate
     def count(self, entities: List[str]) -> Number:
+        """
+        returns a count of the passed list of entities
+        """
         return len(entities)  # type: ignore
 
     @predicate

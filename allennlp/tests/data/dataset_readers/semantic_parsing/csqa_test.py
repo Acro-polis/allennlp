@@ -14,7 +14,8 @@ def assert_dataset_correct(dataset):
         'world',
         'actions',
         'metadata',
-        'target_action_sequences'
+        'target_action_sequences',
+        'result_entities'
     }
 
     language = instance.fields['world'].as_tensor({})

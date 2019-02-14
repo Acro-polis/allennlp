@@ -15,6 +15,29 @@ from allennlp.training.metrics import Average
 
 
 class CSQASemanticParser(Model):
+    """
+    ``CSQASemanticParser`` is a semantic parsing model built for the CSQA domain. This is an
+    abstract class and does not have a ``forward`` method implemented. Classes that inherit from
+    this class are expected to define their own logic depending on the kind of supervision they
+    use.  Accordingly, they should use the appropriate ``DecoderTrainer``. This class provides some
+    common functionality for things like defining an initial ``RnnStatelet``, embedding actions,
+    evaluating the denotations of completed logical forms, etc.
+
+    Parameters
+    ----------
+    vocab : ``Vocabulary``
+    sentence_embedder : ``TextFieldEmbedder``
+        Embedder for sentences.
+    action_embedding_dim : ``int``
+        Dimension to use for action embeddings.
+    encoder : ``Seq2SeqEncoder``
+        The encoder to use for the input question.
+    dropout : ``float``, optional (default=0.0)
+        Dropout on the encoder outputs.
+    rule_namespace : ``str``, optional (default=rule_labels)
+        The vocabulary namespace to use for production rules.  The default corresponds to the
+        default used in the dataset reader, so you likely don't need to modify this.
+    """
     def __init__(self,
                  vocab: Vocabulary,
                  sentence_embedder: TextFieldEmbedder,
@@ -174,9 +197,9 @@ class CSQASemanticParser(Model):
         is_correct = []
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        # TODO: deal with other types of results (counts, verification etc.)
         if isinstance(denotation, list):
             is_correct.append(set(denotation) == set(result_entities))
+        # TODO: deal with other types of results (counts, verification etc.)
         else:
             is_correct.append(False)
         return is_correct
