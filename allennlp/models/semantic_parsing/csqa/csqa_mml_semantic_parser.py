@@ -95,20 +95,18 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         batch_size = question['tokens'].size()[0]
 
         initial_rnn_state = self._get_initial_rnn_state(question)
-        initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float)
-                              for i in range(batch_size)]
+        initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
 
         result_entities: List[List[str]] = self._get_label_strings(result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
-        initial_grammar_state = [self._create_grammar_state(world[i], actions[i]) for i in
-                                 range(batch_size)]
+        initial_grammar_statelet = [self._create_grammar_statelet(world[i], actions[i]) for i in range(batch_size)]
 
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),
                                           action_history=[[] for _ in range(batch_size)],
                                           score=initial_score_list,
                                           rnn_state=initial_rnn_state,
-                                          grammar_state=initial_grammar_state,
+                                          grammar_state=initial_grammar_statelet,
                                           possible_actions=actions,
                                           extras=result_entities)
 
