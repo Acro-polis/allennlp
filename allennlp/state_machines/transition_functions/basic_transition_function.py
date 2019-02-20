@@ -7,15 +7,11 @@ import torch
 from torch.nn.modules.rnn import LSTM, LSTMCell
 from torch.nn.modules.linear import Linear
 
-
 from allennlp.modules import Attention
 from allennlp.nn import util, Activation
 from allennlp.state_machines.states import RnnStatelet, GrammarBasedState
 from allennlp.state_machines.transition_functions.transition_function import TransitionFunction
 
-import json
-
-json.load(object_hook=)
 
 class BasicTransitionFunction(TransitionFunction[GrammarBasedState]):
     """
