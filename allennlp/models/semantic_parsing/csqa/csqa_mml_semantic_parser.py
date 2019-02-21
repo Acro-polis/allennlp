@@ -83,7 +83,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
                 target_action_sequences: torch.LongTensor = None,
-                result_entities = None,
+                result_entities=None,
                 labels: torch.LongTensor = None,
                 metadata: List[Dict[str, Any]] = None) -> Dict[str, torch.Tensor]:
         # pylint: disable=arguments-differ

@@ -23,6 +23,7 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse import ParsingError
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
+from allennlp.semparse.domain_languages.csqa_language import Entity, Predicate
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -188,7 +189,8 @@ class CSQADatasetReader(DatasetReader):
                                                  entity_id2string=entity_id2string,
                                                  predicate_id2string=predicate_id2string,
                                                  dpd_output=logical_forms)
-                yield instance
+                if instance:
+                    yield instance
 
     def text_to_instance(self,
                          question: str,
@@ -232,7 +234,6 @@ class CSQADatasetReader(DatasetReader):
 
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
-        # answer_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
@@ -250,11 +251,33 @@ class CSQADatasetReader(DatasetReader):
         action_field = ListField(production_rule_fields)
         world_field = MetadataField(language)
 
-        result_entities_field = ListField([LabelField(result_entity, label_namespace='denotations')
-                                           for result_entity in entities_result])
+        # parse answer
+        if answer in ["YES", "NO"]:
+            expected_result = True if answer is "YES" else False
+        elif entities_result:
+            # check if result is a count of entities
+            try:
+                expected_result = int(answer)
+            # read entities in result
+            except ValueError:
+                # expected_result = {Entity(ent, ent) for ent in entities_result}
+                expected_result = {language.get_entity_from_question_id(ent) for ent in entities_result}
+        elif answer.startswith("Did you mean"):
+            expected_result = "clarification"
+        else:
+            raise ValueError("unknown answer format: {}".format(answer))
+
+        expected_result_field = MetadataField(expected_result)
+
+        if entities_result:
+            result_entities_field = ListField([LabelField(result_entity, label_namespace='denotations')
+                                               for result_entity in entities_result])
+        else:
+            result_entities_field = ListField([LabelField("none")])
 
         # 'answer': answer_field,
         fields = {'question': question_field,
+                  'expected_result': expected_result_field,
                   'world': world_field,
                   'actions': action_field,
                   'metadata': MetadataField(metadata),
@@ -295,10 +318,23 @@ class CSQADatasetReader(DatasetReader):
                 return None
             fields['target_action_sequences'] = ListField(action_sequence_fields)
         else:
-            # TODO: remove, this is just a placholder
+            # TODO: remove, this is just a placeholder
             action_sequence_fields: List[Field] = []
-            index_fields: List[Field] = [IndexField(12, action_field), IndexField(17, action_field),
-                                         IndexField(11, action_field), IndexField(588, action_field)]
+
+            index_fields: List[Field] = [1,2,3,4]
+            for i, prod in enumerate(language.all_possible_productions()):
+                if prod == '@start@ -> List[Entity]':
+                    index_fields[0] = IndexField(i, action_field)
+                if prod == 'List[Entity] -> [<Entity:List[Entity]>, Entity]':
+                    index_fields[1] = IndexField(i, action_field)
+                if prod == '<Entity:List[Entity]> -> get':
+                    index_fields[2] = IndexField(i, action_field)
+                if prod.startswith('Entity ->'):
+                    index_fields[3] = IndexField(i, action_field)
+            # hack if no entities in text, skip for now
+            if index_fields[3] == 4:
+                return None
+
             action_sequence_fields.append(ListField(index_fields))
             fields['target_action_sequences'] = ListField(action_sequence_fields)
 

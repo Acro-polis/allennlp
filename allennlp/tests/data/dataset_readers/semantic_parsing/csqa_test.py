@@ -5,9 +5,9 @@ from allennlp.data.dataset_readers import CSQADatasetReader
 from allennlp.semparse.domain_languages import CSQALanguage
 
 
-def assert_dataset_correct(dataset):
+def assert_dataset_correct(dataset, n_instances=14):
     instances = list(dataset)
-    assert len(instances) == 17
+    assert len(instances) == n_instances
     instance = instances[0]
     assert instance.fields.keys() == {
         'question',
@@ -15,6 +15,7 @@ def assert_dataset_correct(dataset):
         'actions',
         'metadata',
         'target_action_sequences',
+        'expected_result',
         'result_entities'
     }
 
@@ -31,14 +32,16 @@ def assert_dataset_correct(dataset):
     actions_vocab = [action_field.rule for action_field in action_fields]
     action_indices = [l.sequence_index for l in first_action_sequence.field_list]
     actions = [actions_vocab[i] for i in action_indices]
-    assert actions == ['@start@ -> List[str]',
-                       'List[str] -> [<str:List[str]>, str]',
-                       '<str:List[str]> -> get',
-                       'str -> Q12122755']
+
+    assert actions == ['@start@ -> List[Entity]',
+                       'List[Entity] -> [<Entity:List[Entity]>, Entity]',
+                       '<Entity:List[Entity]> -> get',
+                       'Entity -> Q12122755']
 
 
 class CSQADatasetReaderTest(AllenNlpTestCase):
-    def test_reader_reads(self):
+    def test_reader_reads_direct(self):
+        # read direct questions only
         params = {
                 'lazy': False,
                 'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
@@ -49,3 +52,17 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
         dataset = reader.read(qa_path)
         assert_dataset_correct(dataset)
+
+    def test_reader_reads(self):
+        # read both direct and indirect questions
+        params = {
+            'lazy': False,
+            'read_only_direct': False,
+            'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
+            'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
+            'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
+        }
+        reader = CSQADatasetReader.from_params(Params(params))
+        qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
+        dataset = reader.read(qa_path)
+        assert_dataset_correct(dataset, n_instances=19)

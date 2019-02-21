@@ -8,10 +8,10 @@ from allennlp.state_machines.states import State
 from allennlp.state_machines.transition_functions import TransitionFunction
 
 
-class ConstrainedBeamSearch:
+class ConstrainedBreadthFirstSearch:
     """
-    This class implements beam search over transition sequences given an initial ``State``, a
-    ``TransitionFunction``, and a list of allowed transition sequences.  We will do a beam search
+    This class implements breadth first search over transition sequences given an initial ``State``,
+    and a list of allowed transition sequences.  We will do a beam search
     `over the list of allowed sequences` and return the highest scoring states found by the beam.
     This is only actually a `beam search` if your beam size is smaller than the list of allowed
     transition sequences; otherwise, we are just scoring and sorting the sequences using a prefix
@@ -78,9 +78,25 @@ class ConstrainedBeamSearch:
         finished_states: Dict[int, List[State]] = defaultdict(list)
         states = [initial_state]
         step_num = 0
-        while states:
+        depth = 0
+
+        while states and depth < 1:
             step_num += 1
+            depth += 1
+            next_states = List[State]
+
+            possible_continuations = []
+
+            for production_rule in language.all_possible_productions():
+                _, rule_right_side = production_rule.split(' -> ')
+
+
+
+            #######################################
+            #######################################
+
             next_states: Dict[int, List[State]] = defaultdict(list)
+
             grouped_state = states[0].combine_states(states)
             allowed_actions = []
             for batch_index, action_history in zip(grouped_state.batch_indices,
@@ -89,8 +105,6 @@ class ConstrainedBeamSearch:
             for next_state in transition_function.take_step(grouped_state,
                                                             max_actions=self._per_node_beam_size,
                                                             allowed_actions=allowed_actions):
-                # print("next state")
-                # print(next_state.possible_actions)
                 # NOTE: we're doing state.batch_indices[0] here (and similar things below),
                 # hard-coding a group size of 1.  But, our use of `next_state.is_finished()`
                 # already checks for that, as it crashes if the group size is not 1.

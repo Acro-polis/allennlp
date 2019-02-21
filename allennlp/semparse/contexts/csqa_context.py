@@ -1,5 +1,8 @@
 import json
+import time
+
 from typing import Dict, List, Optional, Tuple, Union, Set
+import pickle
 
 from allennlp.data.tokenizers import Token
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
@@ -58,6 +61,21 @@ NUMBER_WORDS = {
 }
 
 
+def _decode(o):
+    # Note the "unicode" part is only for python2
+    if isinstance(o, str):
+        try:
+            return int(o)
+        except ValueError:
+            return o
+    elif isinstance(o, dict):
+        return {k: _decode(v) for k, v in o.items()}
+    elif isinstance(o, list):
+        return [_decode(v) for v in o]
+    else:
+        return o
+
+
 class CSQAContext:
     """
     Context for the CSQADomainlanguage. this context contains the knowledge graph, questions and some mappings from
@@ -72,16 +90,18 @@ class CSQAContext:
     """
 
     def __init__(self,
-                 kg_data: List[Dict[str, str]],
+                 kg_data: Dict[str, Dict[str, str]],
                  question_tokens: List[Token],
                  question_entities: List[str],
                  entity_id2string: Dict[str, str],
-                 predicate_id2string: Dict[str, str]) -> None:
+                 predicate_id2string: Dict[str, str],
+                 use_integer_ids=False) -> None:
         self.kg_data = kg_data
         self.question_tokens = question_tokens
         self.question_entities = question_entities
         self.entity_id2string = entity_id2string
         self.predicate_id2string = predicate_id2string
+        self.use_integer_ids = use_integer_ids
 
     def get_knowledge_graph(self):
         pass
@@ -91,23 +111,13 @@ class CSQAContext:
         return self.question_entities, extracted_numbers
 
     @classmethod
-    def read_kg_from_json(cls,
-                          kg_dict: Dict[str, Dict[str, List[str]]]) -> List[Dict[str, List[str]]]:
-        # TODO: check: I believe we need a List as inner datastrucure
-        kg_data: List[Dict[str, List[str]]] = []
-        for subject in kg_dict.keys():
-            predicate_object_dict = kg_dict[subject]
-            kg_data.append(predicate_object_dict)
-        return kg_data
-
-    @classmethod
     def read_from_file(cls,
                        kg_path: str,
                        entity_id2string_path: str,
                        predicate_id2string_path: str,
                        question_tokens: List[Token],
                        question_entities: List[str],
-                       kg_data: List[Dict[str, str]] = None,
+                       kg_data: Dict[int, Dict[int, int]] = None,
                        entity_id2string: Dict[str, str] = None,
                        predicate_id2string: Dict[str, str] = None
                        ) -> 'CSQAContext':
@@ -140,13 +150,28 @@ class CSQAContext:
 
         """
         if not kg_data:
-            with open(kg_path, 'r') as file_pointer:
-                kg_data = json.load(file_pointer)
-                # kg_data = cls.read_kg_from_json(kg_dict)
+            if '.json' in kg_path:
+                use_integer_ids = False
+                with open(kg_path, 'r') as file_pointer:
+                    kg_data = json.load(file_pointer, object_hook=_decode)
+
+            elif'.p' in kg_path:
+                use_integer_ids = True
+                if 'sample' not in kg_path:
+                    print("Loading wikidata graph")
+                with open(kg_path, 'rb') as file_pointer:
+                    kg_data = pickle.load(file_pointer)
+            else:
+                raise ValueError()
+
+        else:
+            # inspect first key
+            use_integer_ids = isinstance(next(iter(kg_data)), int)
+
         if not entity_id2string:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
         if not predicate_id2string:
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
-        return cls(kg_data, question_tokens, question_entities, entity_id2string, predicate_id2string)
+        return cls(kg_data, question_tokens, question_entities, entity_id2string, predicate_id2string, use_integer_ids)
