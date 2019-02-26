@@ -33,16 +33,24 @@ class CSQALanguage(DomainLanguage):
         super().__init__(start_types={Number, List[Entity]})
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
+        self.kg_type_data = csqa_context.kg_type_data
         self.use_integer_ids = csqa_context.use_integer_ids
 
         for predicate_id, predicate in csqa_context.predicate_id2string.items():
             self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
 
+        # add fake id for istypeof / isoftype
+        predicate_id = "P1"
+        self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
+
+        predicate_id = "P-1"
+        self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
+
         question_entities, question_numbers = csqa_context.get_entities_from_question()
 
         self._question_entities = question_entities
 
-        for entity_id in self._question_entities:
+        for entity_id in self._question_entities + csqa_context.question_type_list:
             self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
 
         self._question_numbers = [number for number, _ in question_numbers]
@@ -132,13 +140,22 @@ class CSQALanguage(DomainLanguage):
         """Get the property of a list of entities."""
         result = set()
         for ent in entities:
-            try:
-                ent_ids: List[Union[str, int]] = self.kg_data[ent.id][predicate_.id]
-                for ent_id in ent_ids:
-                    entity = self.get_entity_from_kg_id(ent_id)
-                    result = result.union({entity})
-            except KeyError:
-                continue
+            if not(predicate_.id == 1 or predicate_.id == -1):
+                try:
+                    ent_ids: List[Union[str, int]] = self.kg_data[ent.id][predicate_.id]
+                    for ent_id in ent_ids:
+                        entity = self.get_entity_from_kg_id(ent_id)
+                        result = result.union({entity})
+                except KeyError:
+                    continue
+            else:
+                try:
+                    ent_ids: List[Union[str, int]] = self.kg_type_data[ent.id][predicate_.id]
+                    for ent_id in ent_ids:
+                        entity = self.get_entity_from_kg_id(ent_id)
+                        result = result.union({entity})
+                except KeyError:
+                    continue
         return list(result)
 
     @predicate

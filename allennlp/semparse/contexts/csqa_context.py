@@ -91,14 +91,18 @@ class CSQAContext:
 
     def __init__(self,
                  kg_data: Dict[str, Dict[str, str]],
+                 kg_type_data: Dict[str, Dict[str, str]],
                  question_tokens: List[Token],
                  question_entities: List[str],
+                 type_list: List[str],
                  entity_id2string: Dict[str, str],
                  predicate_id2string: Dict[str, str],
                  use_integer_ids=False) -> None:
         self.kg_data = kg_data
+        self.kg_type_data = kg_type_data
         self.question_tokens = question_tokens
         self.question_entities = question_entities
+        self.question_type_list = type_list
         self.entity_id2string = entity_id2string
         self.predicate_id2string = predicate_id2string
         self.use_integer_ids = use_integer_ids
@@ -113,11 +117,14 @@ class CSQAContext:
     @classmethod
     def read_from_file(cls,
                        kg_path: str,
+                       kg_type_data_path: str,
                        entity_id2string_path: str,
                        predicate_id2string_path: str,
                        question_tokens: List[Token],
                        question_entities: List[str],
+                       type_list: List[str],
                        kg_data: Dict[int, Dict[int, int]] = None,
+                       kg_type_data: Dict[int, Dict[int, int]] = None,
                        entity_id2string: Dict[str, str] = None,
                        predicate_id2string: Dict[str, str] = None
                        ) -> 'CSQAContext':
@@ -168,10 +175,21 @@ class CSQAContext:
             # inspect first key
             use_integer_ids = isinstance(next(iter(kg_data)), int)
 
+        if not kg_type_data:
+            if'.p' in kg_type_data_path:
+                use_integer_ids = True
+                if 'sample' not in kg_type_data_path:
+                    print("Loading wikidata type graph")
+                with open(kg_type_data_path, 'rb') as file_pointer:
+                    kg_type_data = pickle.load(file_pointer)
+            else:
+                raise ValueError()
+
         if not entity_id2string:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
         if not predicate_id2string:
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
-        return cls(kg_data, question_tokens, question_entities, entity_id2string, predicate_id2string, use_integer_ids)
+        return cls(kg_data, kg_type_data, question_tokens, question_entities, type_list,
+                   entity_id2string, predicate_id2string, use_integer_ids)

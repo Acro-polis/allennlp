@@ -5,40 +5,6 @@ from allennlp.data.dataset_readers import CSQADatasetReader
 from allennlp.semparse.domain_languages import CSQALanguage
 
 
-def assert_dataset_correct(dataset, n_instances=14):
-    instances = list(dataset)
-    assert len(instances) == n_instances
-    instance = instances[0]
-    assert instance.fields.keys() == {
-        'question',
-        'world',
-        'actions',
-        'metadata',
-        'target_action_sequences',
-        'expected_result',
-        'result_entities'
-    }
-
-    language = instance.fields['world'].as_tensor({})
-    question_tokens = ["which", "administrative", "territory", "is", "the", "country", "of",
-                       "origin", "of", "frank", "and", "jesse", "?"]
-
-    assert [t.text for t in instance.fields["question"].tokens] == question_tokens
-    assert isinstance(language, CSQALanguage)
-
-    action_fields = instance.fields['actions'].field_list
-    first_action_sequence = instance.fields["target_action_sequences"].field_list[0]
-
-    actions_vocab = [action_field.rule for action_field in action_fields]
-    action_indices = [l.sequence_index for l in first_action_sequence.field_list]
-    actions = [actions_vocab[i] for i in action_indices]
-
-    assert actions == ['@start@ -> List[Entity]',
-                       'List[Entity] -> [<Entity:List[Entity]>, Entity]',
-                       '<Entity:List[Entity]> -> get',
-                       'Entity -> Q12122755']
-
-
 class CSQADatasetReaderTest(AllenNlpTestCase):
     def test_reader_reads_direct(self):
         # read direct questions only
@@ -66,3 +32,38 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
         dataset = reader.read(qa_path)
         assert_dataset_correct(dataset, n_instances=19)
+
+
+def assert_dataset_correct(dataset, n_instances=14):
+    instances = list(dataset)
+    assert len(instances) == n_instances
+    instance = instances[0]
+    assert instance.fields.keys() == {
+        'question',
+        'world',
+        'actions',
+        'metadata',
+        'target_action_sequences',
+        'expected_result',
+        'result_entities',
+        'question_predicates'
+    }
+
+    language = instance.fields['world'].as_tensor({})
+    question_tokens = ["which", "administrative", "territory", "is", "the", "country", "of",
+                       "origin", "of", "frank", "and", "jesse", "?"]
+
+    assert [t.text for t in instance.fields["question"].tokens] == question_tokens
+    assert isinstance(language, CSQALanguage)
+
+    action_fields = instance.fields['actions'].field_list
+    first_action_sequence = instance.fields["target_action_sequences"].field_list[0]
+
+    actions_vocab = [action_field.rule for action_field in action_fields]
+    action_indices = [l.sequence_index for l in first_action_sequence.field_list]
+    actions = [actions_vocab[i] for i in action_indices]
+
+    assert actions == ['@start@ -> List[Entity]',
+                       'List[Entity] -> [<Entity:List[Entity]>, Entity]',
+                       '<Entity:List[Entity]> -> get',
+                       'Entity -> Q12122755']

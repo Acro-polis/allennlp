@@ -32,8 +32,9 @@ def search(csqa_directory: str,
         os.makedirs(output_directory)
 
     params = {'lazy': False,
-              #'kg_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_kg.p',
+              # 'kg_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_kg.p',
               'kg_path':  f'{wikidata_directory}/wikidata_short_1_2.p',
+              'kg_type_data_path':  f'{wikidata_directory}/child_all_parents_till_5_levels_full.p',
               'entity_id2string_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
              }
@@ -41,22 +42,54 @@ def search(csqa_directory: str,
     reader = CSQADatasetReader.from_params(Params(params))
     qa_path = f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_qa.json'
     dataset = reader.read(qa_path)
-    print_instance_info = True
+    # print_instance_info = True
+    print_instance_info = False
     logical_forms_found = 0
 
-    for instance in dataset[2:5]:
+    logical_forms = ["(find (get Q12122755) P495)",
+                     "(union (find (get Q18577469) P710) (find (get Q12122755) P161))",
+                     "(count (find (get Q18643299) P551))"]
+
+    # for instance in dataset[0:5]:
+    for i, instance in enumerate(dataset[0:10]):
+
         instance_start_time = time.time()
 
         question: str = instance['question'].tokens
         language: CSQALanguage = instance['world'].metadata
         expected_result = instance['expected_result'].metadata
+        predicates = instance['question_predicates'].metadata
+
+        if i != 3:
+            continue
+
+        # logical_form = logical_forms[i]
+        # logical_form = "(find (get Q6619679) P-1)"
+        logical_form = "(count (find (get Q11609133) P725))"
+        query_result = language.execute(logical_form)
+        query_result = set(query_result) if isinstance(query_result, list) else query_result
+        print(query_result)
+
+        print(query_result == expected_result)
+
+        # print(language.logical_form_to_action_sequence(logical_form))
+        print(len(language.logical_form_to_action_sequence(logical_form)))
+
+
+        # query = "(find (get Q18643299) P551)"
+        # print(language.execute(query))
+
+        continue
+
+        print(question)
+        print(expected_result)
 
         # initialize states
-        valid_actions = defaultdict(list)
+        lanuage_valid_actions = defaultdict(list)
         for production_rule in language.all_possible_productions():
             lhs, rhs = production_rule.split(' -> ')
-            valid_actions[lhs].append(rhs)
-        initial_grammar_statelet = GrammarStatelet(nonterminal_stack=[START_SYMBOL], valid_actions=valid_actions,
+            lanuage_valid_actions[lhs].append(rhs)
+        initial_grammar_statelet = GrammarStatelet(nonterminal_stack=[START_SYMBOL], valid_actions=lanuage_valid_actions,
                                                    is_nonterminal=language.is_nonterminal)
         initial_state = GrammarBasedSearchState(action_history=[],
                                                 grammar_state=initial_grammar_statelet)
@@ -66,27 +99,47 @@ def search(csqa_directory: str,
         depth = 0
         evaluated_states = 0
 
-        while depth < 11:
+        # max_depth = 16
+        max_depth = 8
+        while depth < max_depth:
             depth += 1
             next_states = []
             for state in states:
                 evaluated_states += 1
-                start_time = time.time()
                 if state.is_finished():
                     finished_states.append(state)
-                    # if set(language.execute_action_sequence(state.action_history)) == set(result_entities):
                     query_result = language.execute_action_sequence(state.action_history)
                     query_result = set(query_result) if isinstance(query_result, list) else query_result
                     if query_result == expected_result:
                         correct_states.append(state)
                     continue
-                if (time.time()-start_time) > 1.0:
-                    print(time.time()-start_time)
-                    print(state.action_history)
 
-                for valid_action in state.get_valid_actions():
-                    production_rule = state.grammar_state._nonterminal_stack[-1] + " -> " + valid_action
-                    next_states.append(state.take_action(production_rule))
+                state_valid_actions = [v for v in state.get_valid_actions() if v[0] != 'P' or v in predicates]
+
+                # for v in state_valid_actions:
+                #     expected_extra_length = v.count(',') + v.count(':') + 1
+                #     if expected_extra_length > 2:
+                #         print(v, expected_extra_length)
+                depth_left = max_depth - depth
+
+                state_valid_actions = [v for v in state_valid_actions if
+                                       v.count(',') + v.count(':') + 1 <= depth_left]
+
+                if depth < max_depth:
+                    for valid_action in state_valid_actions:
+                        if depth == 1:
+                            if isinstance(expected_result, set):
+                                if 'List' not in valid_action:
+                                    continue
+                            elif isinstance(expected_result, int):
+                                if 'Number' not in valid_action:
+                                    continue
+                            else:
+                                raise ValueError()
+                        production_rule = state.grammar_state._nonterminal_stack[-1] + " -> " + valid_action
+                        next_states.append(state.take_action(production_rule))
+            # if depth == max_depth:
+            #     print(states[0].action_history)
 
             states = next_states
 

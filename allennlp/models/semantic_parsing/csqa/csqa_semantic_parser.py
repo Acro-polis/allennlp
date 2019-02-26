@@ -180,8 +180,6 @@ class CSQASemanticParser(Model):
             for instance_action_strings in instance_action_sequences:
                 if not instance_action_strings:
                     continue
-                print("actions")
-                print(instance_action_strings)
                 logical_form = instance_world.action_sequence_to_logical_form(instance_action_strings)
                 instance_denotations: List[str] = []
 

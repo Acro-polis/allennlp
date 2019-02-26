@@ -16,9 +16,9 @@ class GrammarBasedSearchState:
 
     Parameters
     ----------
-    action_history : ``List[List[int]]``
+    action_history : ``List[str]``
         Passed to super class; see docs there.
-    grammar_state : ``List[GrammarStatelet]``
+    grammar_state : ``GrammarStatelet``
         This hold the current grammar state for each element of the group.  The ``GrammarStatelet``
         keeps track of which actions are currently valid.
     """

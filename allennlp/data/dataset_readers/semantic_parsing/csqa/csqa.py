@@ -88,6 +88,7 @@ class CSQADatasetReader(DatasetReader):
                  tokenizer: Tokenizer = None,
                  question_token_indexers: Dict[str, TokenIndexer] = None,
                  kg_path: str = None,
+                 kg_type_data_path: str = None,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
                  read_only_direct: bool = True
@@ -102,6 +103,7 @@ class CSQADatasetReader(DatasetReader):
         self._question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
         self.entity_id2string_path = entity_id2string_path
         self.kg_path = kg_path
+        self.kg_type_data_path = kg_type_data_path
         self.predicate_id2string_path = predicate_id2string_path
         self.load_direct_questions_only = read_only_direct
 
@@ -117,9 +119,10 @@ class CSQADatasetReader(DatasetReader):
     def _read_unprocessed_file(self, qa_path: str):
         # Create context to get kg_data, entity_id2string, and predicate_id2string; We create them only once as they
         # are the same fore every instance.
-        context = CSQAContext.read_from_file(self.kg_path, self.entity_id2string_path, self.predicate_id2string_path,
-                                             [], [])
+        context = CSQAContext.read_from_file(self.kg_path, self.kg_type_data_path, self.entity_id2string_path,
+                                             self.predicate_id2string_path, [], [], [])
         kg_data = context.kg_data
+        kg_type_data = context.kg_type_data
         entity_id2string = context.entity_id2string
         predicate_id2string = context.predicate_id2string
 
@@ -133,6 +136,7 @@ class CSQADatasetReader(DatasetReader):
                 question = qa_dict_question["utterance"]
                 question_entities = qa_dict_question["entities_in_utterance"]
                 question_predicates = qa_dict_question["relations"]
+                question_type_list = qa_dict_question["type_list"]
                 question_description = qa_dict_question["description"]
                 question_type = qa_dict_question["question-type"]
                 answer = qa_dict_answer["utterance"]
@@ -148,35 +152,14 @@ class CSQADatasetReader(DatasetReader):
                     # If this question requires clarification, we skip the next (as it will contain a reference)
                     if "Clarification" in answer_description:
                         skip_next = True
-                    if "Indirect" in question_description or "indirectly" in question_description or\
-                            "Incomplete" in question_description or "Coreferenced" in question_type:
+                    if "Indirect" in question_description or "indirectly" in question_description or "Incomplete" in \
+                            question_description or "Coreferenced" in question_type or "Ellipsis" in question_type:
                         # skip , to next qa pair
                         continue
 
                 # TODO: implement reading dynamic programming denotations
                 if self._dpd_output_directory:
-                    dpd_output_filename = os.path.join(self._dpd_output_directory,
-                                                       "gz_filename")
-                    try:
-                        dpd_file = gzip.open(dpd_output_filename)
-                        if self._sort_dpd_logical_forms:
-                            logical_forms = [dpd_line.strip().decode('utf-8') for dpd_line in dpd_file]
-                            # We'll sort by the number of open parens in the logical form, which
-                            # tells you how many nodes there are in the syntax tree.
-                            logical_forms.sort(key=lambda x: x.count('('))
-                            if self._max_dpd_tries:
-                                logical_forms = logical_forms[:self._max_dpd_tries]
-                        else:
-                            logical_forms = []
-                            for dpd_line in dpd_file:
-                                logical_forms.append(dpd_line.strip().decode('utf-8'))
-                                if self._max_dpd_tries and len(logical_forms) >= self._max_dpd_tries:
-                                    break
-                    except FileNotFoundError:
-                        logger.debug(f'Missing DPD output for instance ; skipping...')
-                        logical_forms = None
-                        if not self._keep_if_no_dpd:
-                            continue
+                    pass
                 else:
                     logical_forms = None
 
@@ -185,7 +168,9 @@ class CSQADatasetReader(DatasetReader):
                                                  question_predicates=question_predicates,
                                                  answer=answer,
                                                  entities_result=entities_result,
+                                                 type_list=question_type_list,
                                                  kg_data=kg_data,
+                                                 kg_type_data=kg_type_data,
                                                  entity_id2string=entity_id2string,
                                                  predicate_id2string=predicate_id2string,
                                                  dpd_output=logical_forms)
@@ -198,7 +183,9 @@ class CSQADatasetReader(DatasetReader):
                          question_predicates: List[str],
                          answer: str,
                          entities_result: List[str],
+                         type_list: List[str],
                          kg_data: List[Dict[str, str]],
+                         kg_type_data: List[Dict[str, str]],
                          entity_id2string: Dict[str, str],
                          predicate_id2string: Dict[str, str],
                          dpd_output: List[str] = None,
@@ -219,6 +206,8 @@ class CSQADatasetReader(DatasetReader):
             Entities that constitute the result of the query executed to formulate the answer
         kg_data : ``List[Dict[str, str]]``
             Knowledge graph
+        type_list: ``str``
+            Types occuring in question
         entity_id2string : ``Dice[str, str]``
             Mapping from entity ids to there string values
         predicate_id2string : ``Dict[str, str]``
@@ -237,7 +226,10 @@ class CSQADatasetReader(DatasetReader):
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
-        context = CSQAContext.read_from_file('', '', '', tokenized_question, question_entities, kg_data=kg_data,
+        context = CSQAContext.read_from_file('', '', '', '', tokenized_question, question_entities,
+                                             kg_data=kg_data,
+                                             kg_type_data=kg_type_data,
+                                             type_list=type_list,
                                              entity_id2string=entity_id2string, predicate_id2string=predicate_id2string)
         language = CSQALanguage(context)
 
@@ -250,6 +242,8 @@ class CSQADatasetReader(DatasetReader):
         # Add empty rule (remove when loop above is implemented).
         action_field = ListField(production_rule_fields)
         world_field = MetadataField(language)
+        predicate_field = MetadataField(question_predicates)
+        type_list_field = MetadataField(type_list)
 
         # parse answer
         if answer in ["YES", "NO"]:
@@ -281,7 +275,8 @@ class CSQADatasetReader(DatasetReader):
                   'world': world_field,
                   'actions': action_field,
                   'metadata': MetadataField(metadata),
-                  "result_entities": result_entities_field}
+                  "result_entities": result_entities_field,
+                  'question_predicates': predicate_field}
 
         # TODO: Assuming that possible actions are the same in all worlds. This is not true of course
         action_map = {action.rule: i for i, action in enumerate(action_field.field_list)}  # type: ignore
@@ -289,33 +284,6 @@ class CSQADatasetReader(DatasetReader):
         # TODO: implement this part
         if dpd_output:
             action_sequence_fields: List[Field] = []
-            for logical_form in dpd_output:
-                if not self._should_keep_logical_form(logical_form):
-                    continue
-                try:
-                    expression = language.parse_logical_form(logical_form)
-                except ParsingError as error:
-                    continue
-                except:
-                    raise
-                action_sequence = language.get_action_sequence(expression)
-                try:
-                    index_fields: List[Field] = []
-                    for production_rule in action_sequence:
-                        index_fields.append(IndexField(action_map[production_rule], action_field))
-                    action_sequence_fields.append(ListField(index_fields))
-                except KeyError as error:
-                    continue
-                if len(action_sequence_fields) >= self._max_dpd_logical_forms:
-                    break
-
-            if not action_sequence_fields:
-                # This is not great, but we're only doing it when we're passed logical form
-                # supervision, so we're expecting labeled logical forms, but we can't actually
-                # produce the logical forms.  We should skip this instance.  Note that this affects
-                # _dev_ and _test_ instances, too, so your metrics could be over-estimates on the
-                # full test data.
-                return None
             fields['target_action_sequences'] = ListField(action_sequence_fields)
         else:
             # TODO: remove, this is just a placeholder
