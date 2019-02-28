@@ -1,6 +1,5 @@
-from allennlp.semparse.contexts import CSQAContext
-from allennlp.semparse.domain_languages.domain_language import (DomainLanguage, ExecutionError,
-                                                                predicate)
+from allennlp.semparse.contexts import CSQADgraphContext
+from allennlp.semparse.domain_languages.domain_language import (DomainLanguage, ExecutionError, predicate)
 import logging
 
 from typing import Dict, List, NamedTuple, Tuple
@@ -13,22 +12,22 @@ class Predicate(NamedTuple):
     name: str
 
 
-class CSQALanguage(DomainLanguage):
+class CSQADgraphLanguage(DomainLanguage):
     # pylint: disable=too-many-public-methods,no-self-use
     """
     Implements the functions in the variable free language in "Dialog-to-Action: Conversational Question
     Answering Over a Large-Scale Knowledge Base" by Daya Guo, Duyu Tang, Nan Duan, Ming Zhou, and Jian Yin
     """
-    def __init__(self, csqa_context: CSQAContext) -> None:
+    def __init__(self, csqa_dgraph_context: CSQADgraphContext) -> None:
         # TODO: do we need dates here too?
         # TODO: check name and value passed to add_constant
         super().__init__(start_types={Number, List[str]})
-        self.kg_context = csqa_context
-        self.kg_data = csqa_context.kg_data
+        self.kg_context = csqa_dgraph_context
+        self.kg_data = csqa_dgraph_context.kg_data
 
-        for id, predicate in csqa_context.predicate_id2string.items():
+        for id, predicate in csqa_dgraph_context.predicate_id2string.items():
             self.add_constant(id, id)
-        question_entities, question_numbers = csqa_context.get_entities_from_question()
+        question_entities, question_numbers = csqa_dgraph_context.get_entities_from_question()
 
         self._question_entities = question_entities
         self._question_numbers = [number for number, _ in question_numbers]
