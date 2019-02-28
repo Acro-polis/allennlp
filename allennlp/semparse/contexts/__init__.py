@@ -2,3 +2,4 @@ from allennlp.semparse.contexts.table_question_knowledge_graph import TableQuest
 from allennlp.semparse.contexts.atis_sql_table_context import AtisSqlTableContext
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
 from allennlp.semparse.contexts.csqa_context import CSQAContext
+from allennlp.semparse.contexts.csqa_dgraph_context import CSQADgraphContext
