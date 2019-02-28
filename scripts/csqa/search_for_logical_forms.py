@@ -33,11 +33,13 @@ def search(csqa_directory: str,
 
     params = {'lazy': False,
               # 'kg_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_kg.p',
-              'kg_path':  f'{wikidata_directory}/wikidata_short_1_2.p',
-              'kg_type_data_path':  f'{wikidata_directory}/child_all_parents_till_5_levels_full.p',
+              'kg_path':  f'{wikidata_directory}/wikidata_short_1_2_full.p',
+              # 'kg_type_datapath':  f'{wikidata_directory}/child_all_parents_till_5_levels_full.p',
+              'kg_type_data_path':  f'{wikidata_directory}/par_child_dict_full.p',
               'entity_id2string_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
              }
+
 
     reader = CSQADatasetReader.from_params(Params(params))
     qa_path = f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_qa.json'
@@ -48,9 +50,14 @@ def search(csqa_directory: str,
 
     logical_forms = ["(find (get Q12122755) P495)",
                      "(union (find (get Q18577469) P710) (find (get Q12122755) P161))",
-                     "(count (find (get Q18643299) P551))"]
+                     "(count (find (get Q18643299) P551))",
+                     "(less (find (get Q6619679) P-1) P725 (count (find (get Q11609133) P725)))",
+                     "unknown, but sometim with participant ",
+                     "(intersection (find (get Q6581097) P-21) (find (get Q4608649) P-1344))"
+                     ]
 
     # for instance in dataset[0:5]:
+
     for i, instance in enumerate(dataset[0:10]):
 
         instance_start_time = time.time()
@@ -60,20 +67,39 @@ def search(csqa_directory: str,
         expected_result = instance['expected_result'].metadata
         predicates = instance['question_predicates'].metadata
 
-        if i != 3:
+        if i != 6:
             continue
+
+        print(question)
 
         # logical_form = logical_forms[i]
         # logical_form = "(find (get Q6619679) P-1)"
-        logical_form = "(count (find (get Q11609133) P725))"
+        # logical_form = "(count (find (get Q11609133) P725))"
+
+        # logical_form = "(larger (find (get Q502895) P-1) P1344 0)"
+        # logical_form = "(find (get Q502895) P-1)"
+        # logical_form = "(find (get Q4608649) P-1344)"
+        # logical_form = "(most (find (get Q95074) P-1) P725 3)"
+        logical_form = "(equal (find (get Q95074) P-1) P725 0)"
+        # logical_form = "(find (get Q95074) P-1)"
+        # logical_form = "(intersection (find (get Q6581097) P-21) (find (get Q4608649) P-1344))"
         query_result = language.execute(logical_form)
         query_result = set(query_result) if isinstance(query_result, list) else query_result
-        print(query_result)
+        # print(query_result)
+        #TODO check comp_wikidata_rev
+        print(list(query_result)[:10])
+        print("len query result {}".format(len(query_result)))
+        print("len expected result {}".format(len(expected_result)))
 
+        print(query_result.intersection(expected_result))
+        print("len query intersect expected result {}".format(len(query_result.intersection(expected_result))))
+        print("len expected res diff query result {}".format(len(expected_result.difference(query_result))))
+        print("expected res diff query result {}".format(expected_result.difference(query_result)))
+        print("len query result difference expected result {}".format(len(query_result.difference(expected_result))))
         print(query_result == expected_result)
 
         # print(language.logical_form_to_action_sequence(logical_form))
-        print(len(language.logical_form_to_action_sequence(logical_form)))
+        # print(len(language.logical_form_to_action_sequence(logical_form)))
 
 
         # query = "(find (get Q18643299) P551)"

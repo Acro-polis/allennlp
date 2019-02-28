@@ -38,6 +38,9 @@ class CSQALanguage(DomainLanguage):
 
         for predicate_id, predicate in csqa_context.predicate_id2string.items():
             self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
+            # add inverse
+            predicate_id = predicate_id[0] + "-" + predicate_id[1:]
+            self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
 
         # add fake id for istypeof / isoftype
         predicate_id = "P1"
@@ -57,6 +60,9 @@ class CSQALanguage(DomainLanguage):
 
         for number in self._question_numbers:
             self.add_constant(str(number), float(number), type_=Number)
+
+        #TODO: remove this
+        self.add_constant(str(0), float(0), type_=Number)
 
         # Mapping from terminal strings to productions that produce them.  We use this in the
         # agenda-related methods, and some models that use this language look at this field to know
@@ -138,14 +144,15 @@ class CSQALanguage(DomainLanguage):
         """
 
         """Get the property of a list of entities."""
-        result = set()
+        result = []
         for ent in entities:
             if not(predicate_.id == 1 or predicate_.id == -1):
                 try:
                     ent_ids: List[Union[str, int]] = self.kg_data[ent.id][predicate_.id]
                     for ent_id in ent_ids:
                         entity = self.get_entity_from_kg_id(ent_id)
-                        result = result.union({entity})
+                        result.append(entity)
+                        # result = result.union({entity})
                 except KeyError:
                     continue
             else:
@@ -153,10 +160,11 @@ class CSQALanguage(DomainLanguage):
                     ent_ids: List[Union[str, int]] = self.kg_type_data[ent.id][predicate_.id]
                     for ent_id in ent_ids:
                         entity = self.get_entity_from_kg_id(ent_id)
-                        result = result.union({entity})
+                        result.append(entity)
+                        # result = result.union({entity})
                 except KeyError:
                     continue
-        return list(result)
+        return list(set(result))
 
     @predicate
     def count(self, entities: List[Entity]) -> Number:
@@ -166,7 +174,7 @@ class CSQALanguage(DomainLanguage):
         return len(entities)  # type: ignore
 
     @predicate
-    def is_in(self, entity: Entity, entities: List[Entity]) -> Number:
+    def is_in(self, entity: Entity, entities: List[Entity]) -> bool:
         """
         return whether the first entity is in the set of entities
 
@@ -225,12 +233,14 @@ class CSQALanguage(DomainLanguage):
         subset of entities linking to less than num entities with predicate_
         """
         # TODO (koen): do we want to include entities that have 0 relations?
-        result = set()
+        result = []
         for entity in entities:
-            if len(self.find([entity], predicate_)) < num:
-                result = result.union([entity])
+            n_links = len(self.find([entity], predicate_))
+            if n_links < num and n_links != 0:
+            # if n_links < num:
+                result.append(entity)
 
-        return list(result)
+        return list(set(result))
 
     @predicate
     def equal(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
@@ -247,12 +257,13 @@ class CSQALanguage(DomainLanguage):
         subset of entities linking to at most num entities with predicate_
         """
 
-        result = set()
+        result = []
         for entity in entities:
-            if len(self.find([entity], predicate_)) <= num:
-                result = result.union([entity])
+            n_links = len(self.find([entity], predicate_))
+            if n_links <= num and n_links != 0:
+                result.append(entity)
 
-        return list(result)
+        return list(set(result))
 
     @predicate
     def least(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
