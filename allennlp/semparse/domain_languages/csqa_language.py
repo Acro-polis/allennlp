@@ -232,15 +232,35 @@ class CSQALanguage(DomainLanguage):
         """
         subset of entities linking to less than num entities with predicate_
         """
-        # TODO (koen): do we want to include entities that have 0 relations?
+
         result = []
         for entity in entities:
-            n_links = len(self.find([entity], predicate_))
-            if n_links < num and n_links != 0:
-            # if n_links < num:
-                result.append(entity)
+            try:
+                linked_entities = self.kg_data[entity.id][predicate_.id]
+                if entity.name == "Q1148698":
+                    print("AAAAAAAAAAAAAA")
+                    print(linked_entities)
+                # if len(linked_entities) < num and linked_entities != 0:
+                print(len(linked_entities))
+                if len(linked_entities) < num:
+                    # if n_links < num:
+                    result.append(entity)
+            except KeyError:
+                continue
 
         return list(set(result))
+
+        # result = []
+        # for entity in entities:
+        #     linked_entities = self.find([entity], predicate_)
+        #     if linked_entities is not None:
+        #         n_links = len(self.find([entity], predicate_))
+        #     else:
+        #         n_links = -1
+        #     if n_links < num and n_links != -1:
+        #         result.append(entity)
+        #
+        # return list(set(result))
 
     @predicate
     def equal(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
@@ -257,12 +277,16 @@ class CSQALanguage(DomainLanguage):
         subset of entities linking to at most num entities with predicate_
         """
 
+
         result = []
         for entity in entities:
-            n_links = len(self.find([entity], predicate_))
-            if n_links <= num and n_links != 0:
-                result.append(entity)
-
+            try:
+                linked_entities = self.kg_data[entity.id][predicate_.id]
+                if len(linked_entities) <= num:
+                    # if n_links < num:
+                    result.append(entity)
+            except KeyError:
+                continue
         return list(set(result))
 
     @predicate
