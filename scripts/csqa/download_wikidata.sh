@@ -1,6 +1,7 @@
 #!/bin/bash
 
-wikidata_dir='~/Desktop/wikidata'
+wikidata_dir=~/Desktop/wikidata
+mkdir -p ${wikidata_dir}
 
 filenames=(
     'wikidata_short_1.json'
@@ -16,18 +17,16 @@ fileids=(
     '1pzlX_LJjwZFx-wTFzPsi5wIy59QgrQm4'
     '1YBGZgK6ultWwZveX3vRr5-MN18TIj39b' )
 
-#filename="wikidata_short_1.json"
-#fileid="1ST5lqRNlaJlDqZEWe0Nq2Bvl9MyN9vdC"
 
 for index in ${!filenames[*]}; do 
     filename=${filenames[$index]}
     fileid=${fileids[$index]}
 
-    if [ ! -f $filename ]; then
+    if [ ! -f $wikidata_dir/$filename ]; then
         echo "downloading $filename"
         # some hacks to deal with large files on google drive
         curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
-        curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}
+        curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${wikidata_dir}/${filename}
     fi
 done
 
