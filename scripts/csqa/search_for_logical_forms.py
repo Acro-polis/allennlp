@@ -46,6 +46,7 @@ def search(csqa_directory: str,
     dataset = reader.read(qa_path)
     # print_instance_info = True
     print_instance_info = False
+    print_debug_info = True
     logical_forms_found = 0
 
     logical_forms = ["(find (get Q12122755) P495)",
@@ -86,16 +87,18 @@ def search(csqa_directory: str,
         query_result = language.execute(logical_form)
         query_result = set(query_result) if isinstance(query_result, list) else query_result
         # print(query_result)
-        #TODO check comp_wikidata_rev
-        print(list(query_result)[:10])
-        print("len query result {}".format(len(query_result)))
-        print("len expected result {}".format(len(expected_result)))
 
-        print(query_result.intersection(expected_result))
-        print("len query intersect expected result {}".format(len(query_result.intersection(expected_result))))
-        print("len expected res diff query result {}".format(len(expected_result.difference(query_result))))
-        print("expected res diff query result {}".format(expected_result.difference(query_result)))
-        print("len query result difference expected result {}".format(len(query_result.difference(expected_result))))
+        if print_debug_info:
+            #TODO check comp_wikidata_rev
+            print(list(query_result)[:10])
+            print("len query result {}".format(len(query_result)))
+            print("len expected result {}".format(len(expected_result)))
+
+            print(query_result.intersection(expected_result))
+            print("len query intersect expected result {}".format(len(query_result.intersection(expected_result))))
+            print("len expected res diff query result {}".format(len(expected_result.difference(query_result))))
+            print("expected res diff query result {}".format(expected_result.difference(query_result)))
+            print("len query result difference expected result {}".format(len(query_result.difference(expected_result))))
         print(query_result == expected_result)
 
         # print(language.logical_form_to_action_sequence(logical_form))
