@@ -26,6 +26,7 @@ class CSQADgraphContext:
         self.question_entities = question_entities
         self.entity_id2string = entity_id2string
         self.predicate_id2string = predicate_id2string
+        self.use_integer_id = False
 
     def get_entities_from_question(self) -> Tuple[List[str], List[Tuple[str, int]]]:
         extracted_numbers = TableQuestionContext._get_numbers_from_tokens(self.question_tokens)
@@ -41,7 +42,7 @@ class CSQADgraphContext:
                       kg_data: pydgraph.DgraphClient = None,
                       entity_id2string: Dict[str, str] = None,
                       predicate_id2string: Dict[str, str] = None
-                      ) -> 'CSQADgraphContext':
+                      ) -> "CSQADgraphContext":
         """
         This method loads a CSQAContext from file given the question tokens + the path to the kg,
         and entity and predicate dicts. Optionally, we can pass loaded dictionaries of each of those,
