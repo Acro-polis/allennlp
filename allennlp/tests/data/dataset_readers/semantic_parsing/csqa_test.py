@@ -57,7 +57,11 @@ def assert_dataset_correct(dataset, n_instances=19):
     instances = list(dataset)
     assert len(instances) == n_instances
     instance = instances[0]
+    print(instance.fields.keys())
     assert instance.fields.keys() == {
+        'qa_id',
+        'question_type',
+        'question_description',
         'question',
         'world',
         'actions',
