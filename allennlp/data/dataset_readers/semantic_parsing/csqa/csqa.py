@@ -166,7 +166,6 @@ class CSQADatasetReader(DatasetReader):
                 answer_description = qa_dict_answer["description"]
                 entities_result = qa_dict_answer["all_entities"]
 
-
                 # TODO: do we need extra checks here (e.g. 2 clarifications in a row)?
                 if skip_next_turn:
                     skip_next_turn = False
@@ -299,6 +298,8 @@ class CSQADatasetReader(DatasetReader):
                 expected_result = {language.get_entity_from_question_id(ent) for ent in entities_result}
         elif answer.startswith("Did you mean"):
             expected_result = "clarification"
+        elif answer == "YES and NO respectively" or answer == "NO and YES respectively":
+            return None
         else:
             raise ValueError("unknown answer format: {}".format(answer))
 
