@@ -330,13 +330,13 @@ class CSQADatasetReader(DatasetReader):
             # TODO: remove, this is just a placeholder
             action_sequence_fields: List[Field] = []
 
-            index_fields: List[Field] = [1,2,3,4]
+            index_fields: List[Field] = [1, 2, 3, 4]
             for i, prod in enumerate(language.all_possible_productions()):
-                if prod == '@start@ -> List[Entity]':
+                if prod == '@start@ -> Set[Entity]':
                     index_fields[0] = IndexField(i, action_field)
-                if prod == 'List[Entity] -> [<Entity:List[Entity]>, Entity]':
+                if prod == 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]':
                     index_fields[1] = IndexField(i, action_field)
-                if prod == '<Entity:List[Entity]> -> get':
+                if prod == '<Entity:Set[Entity]> -> get':
                     index_fields[2] = IndexField(i, action_field)
                 if prod.startswith('Entity ->'):
                     index_fields[3] = IndexField(i, action_field)

@@ -43,7 +43,7 @@ class CSQALanguage(DomainLanguage):
                  ) -> None:
         # TODO: do we need dates here too?
         # TODO: check name and value passed to add_constant
-        super().__init__(start_types={Number, List[Entity]})
+        super().__init__(start_types={Number, Set[Entity]})
         self.search_modus = search_modus
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
@@ -156,13 +156,13 @@ class CSQALanguage(DomainLanguage):
         return precision, recall
 
     @predicate
-    def find(self, entities: List[Entity], predicate_: Predicate) -> List[Entity]:
+    def find(self, entities: Set[Entity], predicate_: Predicate) -> Set[Entity]:
         """
         find function takes a list of entities E and and a predicate p and loops through
         e in E and returns the set of entities with a p edge to e
         """
 
-        result = []
+        result = set()
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
 
         for ent in entities:
@@ -170,16 +170,15 @@ class CSQALanguage(DomainLanguage):
             try:
                 ent_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
                 if len(ent_ids) > 10000 and self.search_modus:
-                    # TODO: THIS IS VERY BAD, fix
+                    # TODO: THIS IS A VERY BAD SOLUTION, FIX
                     ent_ids = ent_ids[:13]
 
                 for ent_id in ent_ids:
                     entity = self.get_entity_from_kg_id(ent_id)
-                    result.append(entity)
+                    result.add(entity)
 
             except KeyError:
                 continue
-        result = list(set(result))
         return result
 
     # @predicate
@@ -203,30 +202,30 @@ class CSQALanguage(DomainLanguage):
     #     return result
 
     @predicate
-    def has_relation_with(self, entities: List[Entity], predicate_: Predicate, object_: Entity) -> List[Entity]:
+    def has_relation_with(self, entities: Set[Entity], predicate_: Predicate, object_: Entity) -> Set[Entity]:
         """
         """
 
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
-        result = []
+        result = set()
         for ent in entities:
             try:
                 object_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
                 if object_.id in object_ids:
-                    result.append(ent)
+                    result.add(ent)
             except KeyError:
                 continue
-        return list(set(result))
+        return result
 
     @predicate
-    def count(self, entities: List[Entity]) -> Number:
+    def count(self, entities: Set[Entity]) -> Number:
         """
         returns a count of the passed list of entities
         """
         return len(entities)  # type: ignore
 
     @predicate
-    def is_in(self, entity: Entity, entities: List[Entity]) -> bool:
+    def is_in(self, entity: Entity, entities: Set[Entity]) -> bool:
         """
         return whether the first entity is in the set of entities
 
@@ -234,118 +233,124 @@ class CSQALanguage(DomainLanguage):
         return entity in entities
 
     @predicate
-    def union(self, entities1: List[Entity], entities2: List[Entity]) -> List[Entity]:
+    def union(self, entities1: Set[Entity], entities2: Set[Entity]) -> Set[Entity]:
         """
         return union of two sets of entities
 
         """
-        return list(set(entities1).union(set(entities2)))
+        return entities1.union(entities2)
 
     @predicate
-    def intersection(self, entities1: List[Entity], entities2: List[Entity]) -> List[Entity]:
+    def intersection(self, entities1: Set[Entity], entities2: Set[Entity]) -> Set[Entity]:
         """
         return intersection of two sets of entities
 
         """
-        result = list(set(entities1).intersection(entities2))
-        return result
+        return entities1.intersection(entities2)
 
     @predicate
-    def get(self, entity: Entity)-> List[Entity]:
+    def get(self, entity: Entity)-> Set[Entity]:
         """
         get entity and wrap it in a set (See Dialog-to-action Table 1 A15)
 
         """
-        return [entity]
+        return {entity}
 
     @predicate
-    def diff(self, entities1: List[Entity], entities2: List[Entity])-> List[Entity]:
+    def diff(self, entities1: Set[Entity], entities2: Set[Entity])-> Set[Entity]:
         """
         return instances included in entities1 but not included in entities2. Note that this is *NOT* the symmetric
         difference. E.g. set([1, 2]) - set([2, 3]) = set([1]) and *NOT* set([1, 2]) - set([2, 3]) = set([1, 3])
 
         """
-        return list(set(entities1) - set(entities2))
+        return entities1 - entities2
 
     @predicate
-    def larger(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
+    def larger(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         subset of entities linking to more than num entities with predicate_
         """
 
-        result = []
+        result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 # if len(linked_entities) < num and linked_entities != 0:
                 if len(linked_entities) > num:
                     # if n_links < num:
-                    result.append(entity)
+                    result.add(entity)
             except KeyError:
                 continue
 
-        return list(set(result))
+        return result
 
     @predicate
-    def less(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
+    def less(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         subset of entities linking to less than num entities with predicate_
         """
 
-        result = []
+        result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 # if len(linked_entities) < num and linked_entities != 0:
                 if len(linked_entities) < num:
                     # if n_links < num:
-                    result.append(entity)
+                    result.add(entity)
             except KeyError:
                 continue
 
-        return list(set(result))
+        return result
 
     @predicate
-    def equal(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
+    def equal(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         subset of entities linking to exactly num entities with predicate_
         """
+        result = set()
+        for entity in entities:
+            try:
+                linked_entities = self.kg_data[entity.id][predicate_.id]
+                # if len(linked_entities) < num and linked_entities != 0:
+                if len(linked_entities) == num:
+                    # if n_links < num:
+                    result.add(entity)
+            except KeyError:
+                continue
 
-        result = set([entity for entity in entities if len(self.find([entity], predicate_)) == num])
-        return list(result)
+        return result
 
     @predicate
-    def most(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
+    def most(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         subset of entities linking to at most num entities with predicate_
         """
 
-
-        result = []
+        result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 if len(linked_entities) <= num:
                     # if n_links < num:
-                    result.append(entity)
+                    result.add(entity)
             except KeyError:
                 continue
-        return list(set(result))
+        return result
 
     @predicate
-    def least(self, entities: List[Entity], predicate_: Predicate, num: Number)-> List[Entity]:
+    def least(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         subset of entities linking to at least num entities with predicate_
         """
 
-        result = []
+        result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 if len(linked_entities) >= num:
                     # if n_links < num:
-                    result.append(entity)
+                    result.add(entity)
             except KeyError:
                 continue
-        return list(set(result))
-
+        return result
