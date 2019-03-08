@@ -40,7 +40,6 @@ def search(csqa_directory: str,
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
              }
 
-
     reader = CSQADatasetReader.from_params(Params(params))
     qa_path = f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_qa.json'
     dataset = reader.read(qa_path)

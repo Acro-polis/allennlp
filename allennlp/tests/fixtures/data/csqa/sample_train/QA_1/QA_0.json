@@ -1,0 +1,365 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3354921"
+  ], 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q3914"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the school where Johan Henrik Nebelong was educated ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1641001"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1641001"
+  ], 
+  "utterance": "Royal Danish Academy of Fine Arts", 
+  "active_set": [
+   "(Q3354921,P69,c(Q3914))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3354921"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did that person expire ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1748"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1748"
+  ], 
+  "utterance": "Copenhagen", 
+  "active_set": [
+   "(Q1641001,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q41176"
+  ], 
+  "entities_in_utterance": [
+   "Q15615028", 
+   "Q3354921"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P84"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which buildings were Johan Henrik Nebelong or Christian von der Emden the designer of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1818601", 
+   "Q1662324"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1818601", 
+   "Q1662324"
+  ], 
+  "utterance": "Oscarshall, Rigal\u2019sche Kapelle", 
+  "active_set": [
+   "OR((c(Q41176),P84,Q3354921), (c(Q41176),P84,Q15615028))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1662324"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political territory is that building present in ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q1818601"
+  ], 
+  "active_set": [
+   "(Q1818601,P17,c(Q1048835))", 
+   "(Q1662324,P17,c(Q1048835))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q1818601", 
+   "Q1662324"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Oscarshall ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q1662324"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Rigal\u2019sche Kapelle. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "utterance": "Germany", 
+  "active_set": [
+   "(Q1662324,P17,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q1048835", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many political territories have diplomatic associations with less number of political territories than Germany ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1000", 
+   "Q40", 
+   "Q781", 
+   "Q778", 
+   "Q769", 
+   "Q685", 
+   "Q35", 
+   "Q691", 
+   "Q16", 
+   "Q664", 
+   "Q766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "11", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q35"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q1048835", 
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And also tell me about Denmark?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q1000", 
+   "Q40", 
+   "Q781", 
+   "Q778", 
+   "Q769", 
+   "Q685", 
+   "Q691", 
+   "Q766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "8", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q3372395", 
+   "Q3058965"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P20"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q515"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many cities are the places of death of Paul Wach or Esther Drummond ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1486", 
+   "Q6602"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q3372395,P20,c(Q515))", 
+   "(Q3058965,P20,c(Q515))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q15617994", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories holds diplomatic relationship with max number of political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q38"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "utterance": "Italy", 
+  "active_set": [
+   "(c(Q1048835),P530,Q953)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P172"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who have that administrative territory as ethnic group ?"
+ }, 
+ {
+  "all_entities": [
+   "Q312614", 
+   "Q5096249", 
+   "Q1387658"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q312614", 
+   "Q5096249", 
+   "Q1387658"
+  ], 
+  "utterance": "Alessandro Petacchi, Chicken John, Francesco D'Macho", 
+  "active_set": [
+   "(c(Q502895),P172,Q38)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P740"
+  ], 
+  "type_list": [
+   "Q101352"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the family name that was formed at Italy ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16860406"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16860406"
+  ], 
+  "utterance": "Brescia", 
+  "active_set": [
+   "(c(Q101352),P740,Q38)"
+  ]
+ }
+]

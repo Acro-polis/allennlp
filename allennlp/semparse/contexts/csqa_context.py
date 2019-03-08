@@ -94,6 +94,7 @@ class CSQAContext:
                  kg_type_data: Dict[str, Dict[str, str]],
                  question_tokens: List[Token],
                  question_entities: List[str],
+                 question_predicates: List[str],
                  type_list: List[str],
                  entity_id2string: Dict[str, str],
                  predicate_id2string: Dict[str, str],
@@ -102,6 +103,7 @@ class CSQAContext:
         self.kg_type_data = kg_type_data
         self.question_tokens = question_tokens
         self.question_entities = question_entities
+        self.question_predicates = question_predicates
         self.question_type_list = type_list
         self.entity_id2string = entity_id2string
         self.predicate_id2string = predicate_id2string
@@ -122,6 +124,7 @@ class CSQAContext:
                        predicate_id2string_path: str,
                        question_tokens: List[Token],
                        question_entities: List[str],
+                       question_predicates: List[str],
                        type_list: List[str],
                        kg_data: Dict[int, Dict[int, int]] = None,
                        kg_type_data: Dict[int, Dict[int, int]] = None,
@@ -191,5 +194,5 @@ class CSQAContext:
         if not predicate_id2string:
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
-        return cls(kg_data, kg_type_data, question_tokens, question_entities, type_list,
+        return cls(kg_data, kg_type_data, question_tokens, question_entities, question_predicates, type_list,
                    entity_id2string, predicate_id2string, use_integer_ids)

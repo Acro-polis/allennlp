@@ -11,6 +11,8 @@ import os
 
 from overrides import overrides
 from collections import defaultdict
+from pathlib import Path
+
 
 from allennlp.common.checks import ConfigurationError
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
@@ -91,6 +93,7 @@ class CSQADatasetReader(DatasetReader):
                  kg_type_data_path: str = None,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
+                 skip_approximate_questions: bool = True,
                  read_only_direct: bool = True
                  ) -> None:
         super().__init__(lazy=lazy)
@@ -106,31 +109,54 @@ class CSQADatasetReader(DatasetReader):
         self.kg_type_data_path = kg_type_data_path
         self.predicate_id2string_path = predicate_id2string_path
         self.load_direct_questions_only = read_only_direct
+        self.skip_approximate_questions = skip_approximate_questions
+        self.shared_kg_context = None
+
+    def get_empty_context(self):
+        return CSQAContext.read_from_file(self.kg_path, self.kg_type_data_path, self.entity_id2string_path,
+                                          self.predicate_id2string_path, [], [], [], [])
 
     @overrides
     def _read(self, qa_path: str):
         if qa_path.endswith('.json'):
-            yield from self._read_unprocessed_file(qa_path)
-        elif qa_path.endswith('.somethingelse'):
-            yield from self._read_preprocessed_file(qa_path)  # TODO: implement
+            file_id = 'sample'
+            yield from self._read_unprocessed_file(qa_path, file_id)
+
+        # read from data directory
+        elif os.path.isdir(qa_path):
+            qa_path = Path(qa_path)
+            for file_path in qa_path.glob('**/*.json'):
+                # if our file_path is some_dir/some_other_dir/train/QA_0/QA_0.json,
+                # the file_id is train/QA_0/QA_0.json
+                file_id = file_path.relative_to(qa_path.parent)
+                yield from self._read_unprocessed_file(file_path, str(file_id))
         else:
             raise ConfigurationError(f"Don't know how to read filetype of {qa_path}")
 
-    def _read_unprocessed_file(self, qa_path: str):
-        # Create context to get kg_data, entity_id2string, and predicate_id2string; We create them only once as they
-        # are the same fore every instance.
-        context = CSQAContext.read_from_file(self.kg_path, self.kg_type_data_path, self.entity_id2string_path,
-                                             self.predicate_id2string_path, [], [], [])
-        kg_data = context.kg_data
-        kg_type_data = context.kg_type_data
-        entity_id2string = context.entity_id2string
-        predicate_id2string = context.predicate_id2string
+    def _read_unprocessed_file(self, qa_file_path: str, file_id: str):
+        # initialize a "shared context" object, which we only create once as it is very expensive to read the kg, and
+        # we can re-use the kg for each object
+        if not self.shared_kg_context:
+            self.shared_kg_context = CSQAContext.read_from_file(self.kg_path,
+                                                                self.kg_type_data_path,
+                                                                self.entity_id2string_path,
+                                                                self.predicate_id2string_path,
+                                                                [], [], [], [])
 
-        with open(qa_path) as f:
+        kg_data = self.shared_kg_context.kg_data
+        kg_type_data = self.shared_kg_context.kg_type_data
+        entity_id2string = self.shared_kg_context.entity_id2string
+        predicate_id2string = self.shared_kg_context.predicate_id2string
+
+        with open(qa_file_path) as f:
             data = json.load(f)
             data = iter(data)
-            skip_next = False
+            skip_next_turn = False
+            turn_id = 0
             for qa_dict_question in data:
+                qa_id = file_id + str(turn_id)
+                turn_id += 1
+
                 qa_dict_question = defaultdict(str, qa_dict_question)
                 qa_dict_answer = defaultdict(str, next(data))
                 question = qa_dict_question["utterance"]
@@ -144,17 +170,21 @@ class CSQADatasetReader(DatasetReader):
                 entities_result = qa_dict_answer["all_entities"]
 
                 # TODO: do we need extra checks here (e.g. 2 clarifications in a row)?
-                if skip_next:
-                    skip_next = False
+                if skip_next_turn:
+                    skip_next_turn = False
                     continue
 
                 if self.load_direct_questions_only:
                     # If this question requires clarification, we skip the next (as it will contain a reference)
                     if "Clarification" in answer_description:
-                        skip_next = True
-                    if "Indirect" in question_description or "indirectly" in question_description or "Incomplete" in \
-                            question_description or "Coreferenced" in question_type or "Ellipsis" in question_type:
-                        # skip , to next qa pair
+                        skip_next_turn = True
+                    if "Indirect" in question_description or "indirect" in question_description or "indirectly" in \
+                            question_description or "Incomplete" in question_description or "Coreferenced" in \
+                            question_type or "Ellipsis" in question_type:
+                        continue
+
+                if self.skip_approximate_questions:
+                    if "approximate" in question:
                         continue
 
                 # TODO: implement reading dynamic programming denotations
@@ -163,7 +193,8 @@ class CSQADatasetReader(DatasetReader):
                 else:
                     logical_forms = None
 
-                instance = self.text_to_instance(question=question,
+                instance = self.text_to_instance(qa_id=qa_id,
+                                                 question=question,
                                                  question_entities=question_entities,
                                                  question_predicates=question_predicates,
                                                  answer=answer,
@@ -178,6 +209,7 @@ class CSQADatasetReader(DatasetReader):
                     yield instance
 
     def text_to_instance(self,
+                         qa_id: str,
                          question: str,
                          question_entities: List[str],
                          question_predicates: List[str],
@@ -194,6 +226,8 @@ class CSQADatasetReader(DatasetReader):
         Reads text inputs and makes an instance.
         Parameters
         ----------
+        qa_id: ``str``
+            qa turn id, e.g. 'train/QA_0/QA_1.json/0'
         question : ``str``
             Input question
         question_entities : ``List[str]``
@@ -206,6 +240,8 @@ class CSQADatasetReader(DatasetReader):
             Entities that constitute the result of the query executed to formulate the answer
         kg_data : ``List[Dict[str, str]]``
             Knowledge graph
+        kg_type_data : ``List[Dict[str, str]]``
+            Type graph
         type_list: ``str``
             Types occuring in question
         entity_id2string : ``Dice[str, str]``
@@ -226,7 +262,10 @@ class CSQADatasetReader(DatasetReader):
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
                                     "answer": answer}
 
-        context = CSQAContext.read_from_file('', '', '', '', tokenized_question, question_entities,
+        context = CSQAContext.read_from_file('', '', '', '',
+                                             tokenized_question,
+                                             question_entities,
+                                             question_predicates,
                                              kg_data=kg_data,
                                              kg_type_data=kg_type_data,
                                              type_list=type_list,
@@ -241,6 +280,7 @@ class CSQADatasetReader(DatasetReader):
 
         # Add empty rule (remove when loop above is implemented).
         action_field = ListField(production_rule_fields)
+        qa_id_field = MetadataField(qa_id)
         world_field = MetadataField(language)
         predicate_field = MetadataField(question_predicates)
         type_list_field = MetadataField(type_list)
@@ -270,7 +310,8 @@ class CSQADatasetReader(DatasetReader):
             result_entities_field = ListField([LabelField("none")])
 
         # 'answer': answer_field,
-        fields = {'question': question_field,
+        fields = {'qa_id': qa_id_field,
+                  'question': question_field,
                   'expected_result': expected_result_field,
                   'world': world_field,
                   'actions': action_field,
