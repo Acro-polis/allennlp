@@ -11,7 +11,7 @@ from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
-from allennlp.training.metrics import Average
+from allennlp.training.metrics import F1Measure, BooleanAccuracy
 
 
 class CSQASemanticParser(Model):
@@ -48,9 +48,18 @@ class CSQASemanticParser(Model):
         super(CSQASemanticParser, self).__init__(vocab=vocab)
 
         self._sentence_embedder = sentence_embedder
-        self._denotation_accuracy = Average()
-        self._consistency = Average()
         self._encoder = encoder
+        self._metrics = {
+            "Simple_Question (Direct)": F1Measure(positive_label=1),
+            "Simple Question (Coreferenced)": F1Measure(positive_label=1),
+            "Simple Question (Ellipsis)": F1Measure(positive_label=1),
+            "Logical Reasoning (All)": F1Measure(positive_label=1),
+            "Quantitative Reasoning (Count) (All)": F1Measure(positive_label=1),
+            "Clarification": F1Measure(positive_label=1),
+            "Verification (Boolean) (All)": BooleanAccuracy(),
+            "Quantitative Reasoning (All)": BooleanAccuracy(),
+            "Comparative Reasoning (All)": BooleanAccuracy()
+        }
         if dropout > 0:
             self._dropout = torch.nn.Dropout(p=dropout)
         else:
@@ -60,8 +69,7 @@ class CSQASemanticParser(Model):
         self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
                                           embedding_dim=action_embedding_dim)
 
-        # This is what we pass as input in the first step of decoding, when we don't have a
-        # previous action.
+        # This is what we pass as input in the first step of decoding, when we don't have a previous action.
         self._first_action_embedding = torch.nn.Parameter(torch.FloatTensor(action_embedding_dim))
         torch.nn.init.normal_(self._first_action_embedding)
 

@@ -185,8 +185,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
-        return {
-            'denotation_accuracy': self._denotation_accuracy.get_metric(reset),
-            'consistency': self._consistency.get_metric(reset)
-        }
-
+        metrics = {}
+        for key, metric in self._metrics.keys():
+            metrics[key] = metric.get_metric(reset)
+        return metrics
