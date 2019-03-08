@@ -57,7 +57,11 @@ def assert_dataset_correct(dataset, n_instances=19):
     instances = list(dataset)
     assert len(instances) == n_instances
     instance = instances[0]
+    print(instance.fields.keys())
     assert instance.fields.keys() == {
+        'qa_id',
+        'question_type',
+        'question_description',
         'question',
         'world',
         'actions',
@@ -82,7 +86,7 @@ def assert_dataset_correct(dataset, n_instances=19):
     action_indices = [l.sequence_index for l in first_action_sequence.field_list]
     actions = [actions_vocab[i] for i in action_indices]
 
-    assert actions == ['@start@ -> List[Entity]',
-                       'List[Entity] -> [<Entity:List[Entity]>, Entity]',
-                       '<Entity:List[Entity]> -> get',
+    assert actions == ['@start@ -> Set[Entity]',
+                       'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
+                       '<Entity:Set[Entity]> -> get',
                        'Entity -> Q15617994']

@@ -4,7 +4,6 @@ Reader for CSQA (https://amritasaha1812.github.io/CSQA/).
 """
 
 from typing import Dict, List, Any
-import gzip
 import json
 import logging
 import os
@@ -22,10 +21,8 @@ from allennlp.data.instance import Instance
 from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
 from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
-from allennlp.semparse import ParsingError
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
-from allennlp.semparse.domain_languages.csqa_language import Entity, Predicate
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -194,6 +191,8 @@ class CSQADatasetReader(DatasetReader):
                     logical_forms = None
 
                 instance = self.text_to_instance(qa_id=qa_id,
+                                                 question_type=question_type,
+                                                 question_description=question_description,
                                                  question=question,
                                                  question_entities=question_entities,
                                                  question_predicates=question_predicates,
@@ -210,6 +209,8 @@ class CSQADatasetReader(DatasetReader):
 
     def text_to_instance(self,
                          qa_id: str,
+                         question_type: str,
+                         question_description: str,
                          question: str,
                          question_entities: List[str],
                          question_predicates: List[str],
@@ -243,7 +244,7 @@ class CSQADatasetReader(DatasetReader):
         kg_type_data : ``List[Dict[str, str]]``
             Type graph
         type_list: ``str``
-            Types occuring in question
+            Types occurring in question
         entity_id2string : ``Dice[str, str]``
             Mapping from entity ids to there string values
         predicate_id2string : ``Dict[str, str]``
@@ -259,8 +260,7 @@ class CSQADatasetReader(DatasetReader):
 
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
-        metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question],
-                                    "answer": answer}
+        metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
 
         context = CSQAContext.read_from_file('', '', '', '',
                                              tokenized_question,
@@ -298,6 +298,8 @@ class CSQADatasetReader(DatasetReader):
                 expected_result = {language.get_entity_from_question_id(ent) for ent in entities_result}
         elif answer.startswith("Did you mean"):
             expected_result = "clarification"
+        elif answer == "YES and NO respectively" or answer == "NO and YES respectively":
+            return None
         else:
             raise ValueError("unknown answer format: {}".format(answer))
 
@@ -311,6 +313,8 @@ class CSQADatasetReader(DatasetReader):
 
         # 'answer': answer_field,
         fields = {'qa_id': qa_id_field,
+                  'question_type': question_type,
+                  'question_description': question_description,
                   'question': question_field,
                   'expected_result': expected_result_field,
                   'world': world_field,
@@ -326,25 +330,17 @@ class CSQADatasetReader(DatasetReader):
         if dpd_output:
             action_sequence_fields: List[Field] = []
             fields['target_action_sequences'] = ListField(action_sequence_fields)
+            # TODO add correct indices
         else:
-            # TODO: remove, this is just a placeholder
-            action_sequence_fields: List[Field] = []
-
-            index_fields: List[Field] = [1, 2, 3, 4]
-            for i, prod in enumerate(language.all_possible_productions()):
-                if prod == '@start@ -> Set[Entity]':
-                    index_fields[0] = IndexField(i, action_field)
-                if prod == 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]':
-                    index_fields[1] = IndexField(i, action_field)
-                if prod == '<Entity:Set[Entity]> -> get':
-                    index_fields[2] = IndexField(i, action_field)
-                if prod.startswith('Entity ->'):
-                    index_fields[3] = IndexField(i, action_field)
-            # hack if no entities in text, skip for now
-            if index_fields[3] == 4:
-                return None
-
-            action_sequence_fields.append(ListField(index_fields))
+            # Create fake programs if not provided. Creates a dummy query that gets the last entity provided by the
+            # question. If no entity is present in the question, it returns to skip this instance.
+            entity = [prod for prod in language.all_possible_productions() if prod.startswith('Entity ->')]
+            if not entity:
+                return
+            productions = ['@start@ -> Set[Entity]', 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
+                           '<Entity:Set[Entity]> -> get', entity[-1]]
+            indices = ([language.all_possible_productions().index(prod) for prod in productions])
+            action_sequence_fields: List[Field] = [ListField([IndexField(idx, action_field) for idx in indices])]
             fields['target_action_sequences'] = ListField(action_sequence_fields)
 
         return Instance(fields)
