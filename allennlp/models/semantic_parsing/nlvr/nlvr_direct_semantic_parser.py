@@ -97,7 +97,7 @@ class NlvrDirectSemanticParser(NlvrSemanticParser):
                               for i in range(batch_size)]
         label_strings = self._get_label_strings(labels) if labels is not None else None
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
-        initial_grammar_state = [self._create_grammar_statelet(worlds[i][0], actions[i]) for i in
+        initial_grammar_state = [self._create_grammar_state(worlds[i][0], actions[i]) for i in
                                  range(batch_size)]
 
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),

@@ -346,8 +346,8 @@ class QuarelSemanticParser(Model):
                                                  encoder_output_list,
                                                  question_mask_list))
 
-        initial_grammar_state = [self._create_grammar_statelet(world[i], actions[i],
-                                                               linking_scores[i], entity_types[i])
+        initial_grammar_state = [self._create_grammar_state(world[i], actions[i],
+                                                            linking_scores[i], entity_types[i])
                                  for i in range(batch_size)]
 
         initial_score = initial_rnn_state[0].hidden_state.new_zeros(batch_size)

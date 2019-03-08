@@ -106,9 +106,9 @@ class CSQASemanticParser(Model):
                                                  sentence_mask_list))
         return initial_rnn_state
 
-    def _create_grammar_statelet(self,
-                                 world: CSQALanguage,
-                                 possible_actions: List[ProductionRule]) -> GrammarStatelet:
+    def _create_grammar_state(self,
+                              world: CSQALanguage,
+                              possible_actions: List[ProductionRule]) -> GrammarStatelet:
         """
         This function creates a GrammarStatelet by computing the valid actions
         """

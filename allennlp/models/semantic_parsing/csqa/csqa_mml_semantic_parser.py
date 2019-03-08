@@ -100,7 +100,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         result_entities: List[List[str]] = self._get_label_strings(result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
-        initial_grammar_statelet = [self._create_grammar_statelet(world[i], actions[i]) for i in range(batch_size)]
+        initial_grammar_statelet = [self._create_grammar_state(world[i], actions[i]) for i in range(batch_size)]
 
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),
                                           action_history=[[] for _ in range(batch_size)],
