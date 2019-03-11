@@ -57,12 +57,14 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                  attention: Attention,
                  decoder_beam_search: BeamSearch,
                  max_decoding_steps: int,
-                 dropout: float = 0.0) -> None:
+                 dropout: float = 0.0,
+                 direct_questions_only=True) -> None:
         super(CSQAMmlSemanticParser, self).__init__(vocab=vocab,
                                                     sentence_embedder=sentence_embedder,
                                                     action_embedding_dim=action_embedding_dim,
                                                     encoder=encoder,
-                                                    dropout=dropout)
+                                                    dropout=dropout,
+                                                    direct_questions_only=direct_questions_only)
 
         self._decoder_trainer = MaximumMarginalLikelihood()
         self._decoder_step = BasicTransitionFunction(encoder_output_dim=self._encoder.get_output_dim(),

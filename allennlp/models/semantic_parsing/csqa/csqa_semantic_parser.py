@@ -15,6 +15,10 @@ from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
 from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
 
+RETRIEVAL_QUESTION_TYPES_DIRECT = ["Simple Question (Direct)", "Logical Reasoning (All)",
+                                   "Quantitative Reasoning (Count) (All)", "Clarification"]
+RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Question (Ellipsis)"]
+OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)", "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
 
 class CSQASemanticParser(Model):
     """
@@ -46,20 +50,15 @@ class CSQASemanticParser(Model):
                  action_embedding_dim: int,
                  encoder: Seq2SeqEncoder,
                  dropout: float = 0.0,
-                 rule_namespace: str = 'rule_labels') -> None:
+                 rule_namespace: str = 'rule_labels',
+                 direct_questions_only: bool = True) -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
         self._sentence_embedder = sentence_embedder
         self._encoder = encoder
 
-        self.retrieval_question_types = ["Simple Question (Direct)",
-                                         "Simple Question (Coreferenced)",
-                                         "Simple Question (Ellipsis)",
-                                         "Logical Reasoning (All)",
-                                         "Quantitative Reasoning (Count) (All)",
-                                         "Clarification"]
-        self.other_question_types = ["Verification (Boolean) (All)",
-                                     "Quantitative Reasoning (All)",
-                                     "Comparative Reasoning (All)"]
+        self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
+            RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
+        self.other_question_types = OTHER_QUESTION_TYPES
 
         precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
         recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
@@ -67,23 +66,6 @@ class CSQASemanticParser(Model):
 
         self._metrics = dict(precision_metrics + recall_metrics + average_metrics)
 
-        # self._metrics = {
-        #     "Simple Question (Direct) precision": AveragePrecision(),
-        #     "Simple Question (Direct) recall": AverageRecall(),
-        #     "Simple Question (Coreferenced) precision": AveragePrecision(),
-        #     "Simple Question (Coreferenced) recall": AverageRecall(),
-        #     "Simple Question (Ellipsis) precision": AveragePrecision(),
-        #     "Simple Question (Ellipsis) recall": AverageRecall(),
-        #     "Logical Reasoning (All) precision": AveragePrecision(),
-        #     "Logical Reasoning (All) recall": AverageRecall(),
-        #     "Quantitative Reasoning (Count) (All) precision": AveragePrecision(),
-        #     "Quantitative Reasoning (Count) (All) recall": AverageRecall(),
-        #     "Clarification precision": AveragePrecision(),
-        #     "Clarification recall": AverageRecall(),
-        #     "Verification (Boolean) (All)": Average(),
-        #     "Quantitative Reasoning (All)": Average(),
-        #     "Comparative Reasoning (All)": Average()
-        # }
         if dropout > 0:
             self._dropout = torch.nn.Dropout(p=dropout)
         else:
@@ -256,7 +238,7 @@ class CSQASemanticParser(Model):
 
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        return denotation if isinstance(denotation, list) else []
+        return [d.name for d in denotation] if isinstance(denotation, set) else []
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:

@@ -144,7 +144,7 @@ class CSQADatasetReader(DatasetReader):
     @overrides
     def _read(self, qa_path: str):
         if qa_path.endswith('.json'):
-            file_id = 'sample'
+            file_id = 'sample.json'
             yield from self._read_unprocessed_file(qa_path, file_id)
         elif os.path.isdir(qa_path):
             qa_path = Path(qa_path)

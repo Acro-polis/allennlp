@@ -21,7 +21,7 @@ class TestCSQALanguage(AllenNlpTestCase):
         # (un)comment these line to test the pickle file (with integer ids instead of string ids) or the full wikidata
         self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
-        # self.kg_test_path = f'{str(Path.home())}/Desktop/wikidata/wikidata_short_1_2.p'
+        # self.kg_test_path = f'{str(Path.home())}/Desktop/wikidata/wikidata_short_1_2_rev.p'
         self.kg_type_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p'
 
         self.entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
