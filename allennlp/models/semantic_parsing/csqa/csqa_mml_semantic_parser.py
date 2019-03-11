@@ -16,6 +16,7 @@ from allennlp.state_machines import BeamSearch
 from allennlp.state_machines.states import GrammarBasedState
 from allennlp.state_machines.trainers import MaximumMarginalLikelihood
 from allennlp.state_machines.transition_functions import BasicTransitionFunction
+from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -78,7 +79,12 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
     @overrides
     def forward(self,  # type: ignore
+                qa_id,
                 question: Dict[str, torch.LongTensor],
+                question_type,
+                question_description,
+                question_predicates,
+                expected_result,
                 world: List[CSQALanguage],
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
@@ -127,6 +133,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             outputs = self._decoder_trainer.decode(initial_state,
                                                    self._decoder_step,
                                                    (target_action_sequences, target_mask))
+
         if not self.training:
             initial_state.debug_info = [[] for _ in range(batch_size)]
             best_final_states = self._decoder_beam_search.search(self._max_decoding_steps,
@@ -146,7 +153,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             if target_action_sequences is not None:
                 self._update_metrics(action_strings=batch_action_strings,
                                      worlds=world,
-                                     label_strings=result_entities)
+                                     label_strings=result_entities,
+                                     question_types=question_type)
             else:
                 if metadata is not None:
                     outputs["sentence_tokens"] = [x["sentence_tokens"] for x in metadata]
@@ -165,27 +173,42 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
     def _update_metrics(self,
                         action_strings: List[List[List[str]]],
                         worlds: List[CSQALanguage],
-                        label_strings: List[List[str]]) -> None:
-        # TODO(pradeep): Move this to the base class.
-        # TODO(pradeep): Using only the best decoded sequence. Define metrics for top-k sequences?
+                        label_strings: List[List[str]],
+                        question_types: List[str]) -> None:
         batch_size = len(worlds)
+
         for i in range(batch_size):
             instance_action_strings = action_strings[i]
-            sequence_is_correct = [False]
-            if instance_action_strings:
-                instance_label_strings = label_strings[i]
-                instance_world = worlds[i]
-                # Taking only the best sequence.
-                sequence_is_correct = self._check_denotation(instance_action_strings[0],
-                                                             instance_label_strings,
-                                                             instance_world)
-            for correct_in_world in sequence_is_correct:
-                self._denotation_accuracy(1 if correct_in_world else 0)
-            self._consistency(1 if all(sequence_is_correct) else 0)
+            # if instance_action_strings:
+            instance_label_strings = label_strings[i]
+            instance_world = worlds[i]
+            question_type = question_types[i]
+            # Taking only the best sequence.
+            if question_type in self.retrieval_question_types:
+                precision_metric = self._metrics[question_type + " precision"]
+                recall_metric = self._metrics[question_type + " recall"]
+                if instance_action_strings:
+                    retrieved_entities = self._get_retrieved_entities(instance_action_strings[0],
+                                                                      instance_world)
+                else:
+                    retrieved_entities = []
+
+                precision_metric(instance_label_strings, retrieved_entities)
+                recall_metric(instance_label_strings, retrieved_entities)
+
+            elif question_type in self.other_question_types:
+                metric = self._metrics[question_type]
+                if instance_action_strings:
+                    sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],
+                                                                       instance_label_strings,
+                                                                       instance_world)[0]
+                else:
+                    sequence_is_correct: bool = False
+                metric(1 if sequence_is_correct else 0)
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
         metrics = {}
-        for key, metric in self._metrics.keys():
+        for key, metric in self._metrics.items():
             metrics[key] = metric.get_metric(reset)
         return metrics

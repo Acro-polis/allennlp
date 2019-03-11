@@ -311,8 +311,8 @@ class CSQADatasetReader(DatasetReader):
                                            entities_result] if entities_result else [LabelField("none")])
 
         fields = {'qa_id': MetadataField(qa_id),
-                  'question_type': question_type,
-                  'question_description': question_description,
+                  'question_type': MetadataField(question_type),
+                  'question_description': MetadataField(question_description),
                   'question': question_field,
                   'expected_result': expected_result_field,
                   'world': MetadataField(language),

@@ -11,7 +11,9 @@ from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
-from allennlp.training.metrics import F1Measure, BooleanAccuracy
+from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
+from allennlp.training.metrics.average_precision import AveragePrecision
+from allennlp.training.metrics.average_recall import AverageRecall
 
 
 class CSQASemanticParser(Model):
@@ -46,20 +48,42 @@ class CSQASemanticParser(Model):
                  dropout: float = 0.0,
                  rule_namespace: str = 'rule_labels') -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
-
         self._sentence_embedder = sentence_embedder
         self._encoder = encoder
-        self._metrics = {
-            "Simple_Question (Direct)": F1Measure(positive_label=1),
-            "Simple Question (Coreferenced)": F1Measure(positive_label=1),
-            "Simple Question (Ellipsis)": F1Measure(positive_label=1),
-            "Logical Reasoning (All)": F1Measure(positive_label=1),
-            "Quantitative Reasoning (Count) (All)": F1Measure(positive_label=1),
-            "Clarification": F1Measure(positive_label=1),
-            "Verification (Boolean) (All)": BooleanAccuracy(),
-            "Quantitative Reasoning (All)": BooleanAccuracy(),
-            "Comparative Reasoning (All)": BooleanAccuracy()
-        }
+
+        self.retrieval_question_types = ["Simple Question (Direct)",
+                                         "Simple Question (Coreferenced)",
+                                         "Simple Question (Ellipsis)",
+                                         "Logical Reasoning (All)",
+                                         "Quantitative Reasoning (Count) (All)",
+                                         "Clarification"]
+        self.other_question_types = ["Verification (Boolean) (All)",
+                                     "Quantitative Reasoning (All)",
+                                     "Comparative Reasoning (All)"]
+
+        precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
+        recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
+        average_metrics = [(qt, Average()) for qt in self.other_question_types]
+
+        self._metrics = dict(precision_metrics + recall_metrics + average_metrics)
+
+        # self._metrics = {
+        #     "Simple Question (Direct) precision": AveragePrecision(),
+        #     "Simple Question (Direct) recall": AverageRecall(),
+        #     "Simple Question (Coreferenced) precision": AveragePrecision(),
+        #     "Simple Question (Coreferenced) recall": AverageRecall(),
+        #     "Simple Question (Ellipsis) precision": AveragePrecision(),
+        #     "Simple Question (Ellipsis) recall": AverageRecall(),
+        #     "Logical Reasoning (All) precision": AveragePrecision(),
+        #     "Logical Reasoning (All) recall": AverageRecall(),
+        #     "Quantitative Reasoning (Count) (All) precision": AveragePrecision(),
+        #     "Quantitative Reasoning (Count) (All) recall": AverageRecall(),
+        #     "Clarification precision": AveragePrecision(),
+        #     "Clarification recall": AverageRecall(),
+        #     "Verification (Boolean) (All)": Average(),
+        #     "Quantitative Reasoning (All)": Average(),
+        #     "Comparative Reasoning (All)": Average()
+        # }
         if dropout > 0:
             self._dropout = torch.nn.Dropout(p=dropout)
         else:
@@ -205,12 +229,34 @@ class CSQASemanticParser(Model):
         is_correct = []
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
+
+        # TODO: clean this code
+
+        if isinstance(result_entities, list):
+            result_entities = set(result_entities)
+
         if isinstance(denotation, list):
-            is_correct.append(set(denotation) == set(result_entities))
+            if isinstance(result_entities, set):
+                is_correct.append(set(denotation) == result_entities)
+            else:
+                is_correct.append(False)
+        elif isinstance(denotation, set):
+            if isinstance(result_entities, set):
+                is_correct.append(denotation == result_entities)
+            else:
+                is_correct.append(False)
         # TODO: deal with other types of results (counts, verification etc.)
         else:
             is_correct.append(False)
         return is_correct
+
+    @staticmethod
+    def _get_retrieved_entities(action_sequence: List[str],
+                                world: CSQALanguage) -> List[bool]:
+
+        logical_form = world.action_sequence_to_logical_form(action_sequence)
+        denotation = world.execute(logical_form)
+        return denotation if isinstance(denotation, list) else []
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:

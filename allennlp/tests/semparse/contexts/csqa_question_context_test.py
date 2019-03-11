@@ -7,7 +7,7 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from pathlib import Path
 
 
-class TestTableQuestionContext(AllenNlpTestCase):
+class TestCSQAContext(AllenNlpTestCase):
 
     @classmethod
     def setUpClass(self):
@@ -17,12 +17,18 @@ class TestTableQuestionContext(AllenNlpTestCase):
         # self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
         # self.kg_test_path = f'{str(Path.home())}/Desktop/wikidata/wikidata_short_1_2.p'
 
+        self.kg_type_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p'
+
         self.entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
         self.predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         self.tokenizer = WordTokenizer(SpacyWordSplitter(pos_tags=True))
-        context = CSQAContext.read_from_file(self.kg_test_path, self.entity_id2string_path,
-                                             self.predicate_id2string_path, "", "")
+        context = CSQAContext.read_from_file(self.kg_test_path,
+                                             self.kg_type_test_path,
+                                             self.entity_id2string_path,
+                                             self.predicate_id2string_path,
+                                             [], [], [], [])
         self.kg_data = context.kg_data
+        self.kg_type_data = context.kg_type_data
         self.entity_id2string = context.entity_id2string
         self.predicate_id2string = context.predicate_id2string
 
@@ -31,12 +37,17 @@ class TestTableQuestionContext(AllenNlpTestCase):
 
     def test_kg_data(self):
         question = "which administrative territory is the country of origin of frank and jesse ?"
+        question_predicates = ["P1"]
+        type_list = ["Q1"]
         question_tokens = self.tokenizer.tokenize(question)
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file("", "", "",
+        csqa_context = CSQAContext.read_from_file("", "", "", "",
+                                                  question_predicates=question_predicates,
+                                                  type_list=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_data=self.kg_data,
+                                                  kg_type_data=self.kg_type_data,
                                                   entity_id2string=self.entity_id2string,
                                                   predicate_id2string=self.predicate_id2string)
         if 'sample_kg.json' in self.kg_test_path:
@@ -84,14 +95,20 @@ class TestTableQuestionContext(AllenNlpTestCase):
     def test_alphabetic_entity_extraction(self):
         question = "which administrative territory is the country of origin of frank and jesse ?"
         question_tokens = self.tokenizer.tokenize(question)
+        question_predicates = ["P1"]
+        type_list = ["Q1"]
         question_entities = ["Q12122755"]
         if self.kg_data:
-            csqa_context = CSQAContext.read_from_file("", "", "",
+            csqa_context = CSQAContext.read_from_file("", "", "", "",
+                                                      question_predicates=question_predicates,
+                                                      type_list=type_list,
                                                       question_tokens=question_tokens,
                                                       question_entities=question_entities,
                                                       kg_data=self.kg_data,
+                                                      kg_type_data=self.kg_type_data,
                                                       entity_id2string=self.entity_id2string,
                                                       predicate_id2string=self.predicate_id2string)
+        if 'sample_kg.json' in self.kg_test_path:
 
             entities, _ = csqa_context.get_entities_from_question()
             assert entities == ["Q12122755"]
@@ -99,12 +116,17 @@ class TestTableQuestionContext(AllenNlpTestCase):
     def test_number_extraction(self):
         question = "Which fictional characters had their voice dubbing done by atmost 3 people ?"
         question_tokens = self.tokenizer.tokenize(question)
+        question_predicates = ["P1"]
+        type_list = ["Q1"]
         question_entities = ["Q12122755"]
         if self.kg_data:
-            csqa_context = CSQAContext.read_from_file("", "", "",
+            csqa_context = CSQAContext.read_from_file("", "", "", "",
+                                                      question_predicates=question_predicates,
+                                                      type_list=type_list,
                                                       question_tokens=question_tokens,
                                                       question_entities=question_entities,
                                                       kg_data=self.kg_data,
+                                                      kg_type_data=self.kg_type_data,
                                                       entity_id2string=self.entity_id2string,
                                                       predicate_id2string=self.predicate_id2string)
 
@@ -115,11 +137,16 @@ class TestTableQuestionContext(AllenNlpTestCase):
         question = "Which people took part in the March 2007 Iditarod and are a male ?"
         question_tokens = self.tokenizer.tokenize(question)
         question_entities = ["Q12122755"]
+        question_predicates = ["P1"]
+        type_list = ["Q1"]
         if self.kg_data:
-            csqa_context = CSQAContext.read_from_file("", "", "",
+            csqa_context = CSQAContext.read_from_file("", "", "", "",
+                                                      question_predicates=question_predicates,
+                                                      type_list=type_list,
                                                       question_tokens=question_tokens,
                                                       question_entities=question_entities,
                                                       kg_data=self.kg_data,
+                                                      kg_type_data=self.kg_type_data,
                                                       entity_id2string=self.entity_id2string,
                                                       predicate_id2string=self.predicate_id2string)
 
@@ -130,12 +157,17 @@ class TestTableQuestionContext(AllenNlpTestCase):
         question = "How many television stations were the first to air greater number of" \
                    " television programs or television genres than American Heroes Channel ?"
         question_tokens = self.tokenizer.tokenize(question)
+        question_predicates = ["P1"]
+        type_list = ["Q1"]
         question_entities = ["Q12122755"]
         if self.kg_data:
-            csqa_context = CSQAContext.read_from_file("", "", "",
+            csqa_context = CSQAContext.read_from_file("", "", "", "",
+                                                      question_predicates=question_predicates,
+                                                      type_list=type_list,
                                                       question_tokens=question_tokens,
                                                       question_entities=question_entities,
                                                       kg_data=self.kg_data,
+                                                      kg_type_data=self.kg_type_data,
                                                       entity_id2string=self.entity_id2string,
                                                       predicate_id2string=self.predicate_id2string)
 
