@@ -19,6 +19,9 @@ from allennlp.state_machines.trainers import MaximumMarginalLikelihood
 from allennlp.state_machines.transition_functions import BasicTransitionFunction
 from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
 
+from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
+    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
+
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
@@ -187,6 +190,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             instance_label_strings = label_strings[i]
             instance_world = worlds[i]
             question_type = question_types[i]
+            print(question_type)
             # Taking only the best sequence.
             if question_type in self.retrieval_question_types:
                 precision_metric = self._metrics[question_type + " precision"]
@@ -200,7 +204,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 precision_metric(instance_label_strings, retrieved_entities)
                 recall_metric(instance_label_strings, retrieved_entities)
 
-            elif question_type in self.other_question_types:
+            elif question_type in OTHER_QUESTION_TYPES + COUNT_QUESTION_TYPES:
                 metric = self._metrics[question_type + " accuracy"]
                 if instance_action_strings:
                     sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],

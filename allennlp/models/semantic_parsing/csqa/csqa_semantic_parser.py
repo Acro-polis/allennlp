@@ -16,10 +16,8 @@ from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
 from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
 
-RETRIEVAL_QUESTION_TYPES_DIRECT = ["Simple Question (Direct)", "Logical Reasoning (All)",
-                                   "Quantitative Reasoning (Count) (All)", "Clarification"]
-RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Question (Ellipsis)"]
-OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)", "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
+from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
+    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
 
 
 class CSQASemanticParser(Model):
@@ -60,11 +58,10 @@ class CSQASemanticParser(Model):
 
         self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
             RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
-        self.other_question_types = OTHER_QUESTION_TYPES
 
         precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
         recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
-        average_metrics = [(qt + " accuracy", Average()) for qt in self.other_question_types]
+        average_metrics = [(qt + " accuracy", Average()) for qt in OTHER_QUESTION_TYPES + COUNT_QUESTION_TYPES]
 
         self._metrics = OrderedDict(precision_metrics + recall_metrics + average_metrics)
 
@@ -72,8 +69,8 @@ class CSQASemanticParser(Model):
             self._dropout = torch.nn.Dropout(p=dropout)
         else:
             self._dropout = lambda x: x
-        self._rule_namespace = rule_namespace
 
+        self._rule_namespace = rule_namespace
         self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
                                           embedding_dim=action_embedding_dim)
 
@@ -213,6 +210,8 @@ class CSQASemanticParser(Model):
         is_correct = []
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
+        print(denotation, type(denotation))
+        print(result_entities, type(result_entities))
 
         # TODO: clean this code
 

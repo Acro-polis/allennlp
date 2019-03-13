@@ -24,8 +24,16 @@ from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
+from allennlp.data.dataset_readers.semantic_parsing.csqa.util import get_dummy_action_sequences, question_is_indirect
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
+
+
+RETRIEVAL_QUESTION_TYPES_DIRECT = ["Simple Question (Direct)", "Logical Reasoning (All)",
+                                   "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
+RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Question (Ellipsis)", "Clarification"]
+COUNT_QUESTION_TYPES = ["Quantitative Reasoning (Count) (All)", "Comparative Reasoning (Count) (All)"]
+OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)"]
 
 
 # noinspection PyTypeChecker
@@ -182,37 +190,43 @@ class CSQADatasetReader(DatasetReader):
                 question_description = qa_dict_question["description"]
                 question_type = qa_dict_question["question-type"]
                 answer_description = qa_dict_answer["description"]
+                question_entities = qa_dict_question["entities_in_utterance"]
 
-                # TODO: do we need extra checks here (e.g. 2 clarifications in a row)?
+                # TODO: do we need extra checks here?
                 if skip_next_turn:
                     skip_next_turn = False
                     continue
 
                 if self.load_direct_questions_only:
                     # If this question requires clarification, we skip the next (as it will contain a reference)
-                    if "Clarification" in answer_description:
-                        skip_next_turn = True
-                    if "Indirect" in question_description or "indirect" in question_description or "indirectly" in \
-                            question_description or "Incomplete" in question_description or "Coreferenced" in \
-                            question_type or "Ellipsis" in question_type:
+                    skip_next_turn = "Clarification" in answer_description
+                    if question_is_indirect(question_description, question_type):
                         continue
 
                 if self.skip_approximate_questions:
                     if "approximate" in question:
                         continue
 
-                # TODO: implement reading dynamic programming denotations
-
                 if self._dpd_output_file:
-                    logical_forms = self.dpd_logical_form_dict[qa_id]
+                    # TODO: fix difference between empty list and no key
+                    if qa_id in self.dpd_logical_form_dict:
+                        qa_logical_forms = self.dpd_logical_form_dict[qa_id]
+                        if not qa_logical_forms:
+                            continue
+                    else:
+                        continue
                 else:
-                    logical_forms = None
+                    if question_entities:
+                        qa_logical_forms = get_dummy_action_sequences(question_entities)
+
+                    else:
+                        continue
 
                 instance = self.text_to_instance(qa_id=qa_id,
                                                  question_type=question_type,
                                                  question_description=question_description,
                                                  question=question,
-                                                 question_entities=qa_dict_question["entities_in_utterance"],
+                                                 question_entities=question_entities,
                                                  question_predicates=qa_dict_question["relations"],
                                                  answer=qa_dict_answer["utterance"],
                                                  entities_result=qa_dict_answer["all_entities"],
@@ -221,7 +235,7 @@ class CSQADatasetReader(DatasetReader):
                                                  kg_type_data=kg_type_data,
                                                  entity_id2string=entity_id2string,
                                                  predicate_id2string=predicate_id2string,
-                                                 qa_logical_forms=logical_forms)
+                                                 qa_logical_forms=qa_logical_forms)
                 if instance:
                     yield instance
 
@@ -276,6 +290,8 @@ class CSQADatasetReader(DatasetReader):
             the whole dataset, then pass the result in here.
         """
 
+        # if no logical forms where found, skip turn
+
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
@@ -287,14 +303,14 @@ class CSQADatasetReader(DatasetReader):
                                              kg_data=kg_data,
                                              kg_type_data=kg_type_data,
                                              type_list=type_list,
-                                             entity_id2string=entity_id2string, predicate_id2string=predicate_id2string)
+                                             entity_id2string=entity_id2string,
+                                             predicate_id2string=predicate_id2string)
         language = CSQALanguage(context)
 
         production_rule_fields: List[Field] = []
         for production_rule in language.all_possible_productions():
             _, rule_right_side = production_rule.split(' -> ')
             # TODO: make difference between global and local rules
-            # is_global_rule = not language.is_table_entity(rule_right_side)
             field = ProductionRuleField(production_rule, is_global_rule=True)
             production_rule_fields.append(field)
 
@@ -321,27 +337,12 @@ class CSQADatasetReader(DatasetReader):
                   "result_entities": result_entities_field,
                   'question_predicates': MetadataField(question_predicates)}
 
-        # TODO: Assuming that possible actions are the same in all worlds. This is not true of course
-        action_map = {action.rule: i for i, action in enumerate(action_field.field_list)}  # type: ignore
+        def create_action_sequences_field(logical_forms, action_map_):
+            return ListField([ListField([IndexField(action_map_[a], action_field) for a in l]) for l in logical_forms])
 
-        # TODO: implement this part
-        if self._dpd_output_file:
-            if not qa_logical_forms:
-                return None
-            action_sequence_fields: List[Field] = [
-                ListField([IndexField(action_map[a], action_field) for a in logical_form]) for logical_form in
-                qa_logical_forms]
-            fields['target_action_sequences'] = ListField(action_sequence_fields)
-            # TODO add correct indices
-        else:
-            # Create fake programs if not provided. Creates a dummy query that gets the last entity provided by the
-            # question. If no entity is present in the question, it returns to skip this instance.
-            entity = [prod for prod in language.all_possible_productions() if prod.startswith('Entity ->')]
-            if not entity: return None
-            dummy_action_sequence = ['@start@ -> Set[Entity]', 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
-                                     '<Entity:Set[Entity]> -> get', entity[-1]]
-            action_sequence_fields: List[Field] = [ListField([IndexField(action_map[a], action_field)
-                                                              for a in dummy_action_sequence])]
-            fields['target_action_sequences'] = ListField(action_sequence_fields)
+        # TODO: Assuming that possible actions are the same in all worlds. This is not true
+        action_map = {action.rule: i for i, action in enumerate(action_field.field_list)}  # type: ignore
+        target_action_sequences_field: ListField = create_action_sequences_field(qa_logical_forms, action_map)
+        fields['target_action_sequences'] = target_action_sequences_field
 
         return Instance(fields)

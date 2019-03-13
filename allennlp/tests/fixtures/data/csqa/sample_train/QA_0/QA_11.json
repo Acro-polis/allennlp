@@ -1,0 +1,330 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q7513041"
+  ], 
+  "relations": [
+   "P136"
+  ], 
+  "type_list": [
+   "Q1792379"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What can be considered as category for Signs of Life ?"
+ }, 
+ {
+  "all_entities": [
+   "Q130232"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q130232"
+  ], 
+  "utterance": "drama film", 
+  "active_set": [
+   "(Q7513041,P136,c(Q1792379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q7513041"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P57"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who was the director of Signs of Life ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6228659"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6228659"
+  ], 
+  "utterance": "John David Coles", 
+  "active_set": [
+   "(Q7513041,P57,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q15622377"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Blonde Cobra?"
+ }, 
+ {
+  "all_entities": [
+   "Q325399"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q325399"
+  ], 
+  "utterance": "Ken Jacobs", 
+  "active_set": [
+   "(Q15622377,P57,c(Q502895))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q838948"
+  ], 
+  "entities_in_utterance": [
+   "Q18587287", 
+   "Q325399"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P57"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which works of art are Ken Jacobs or Jane Kav\u010di\u010d a director of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4445366", 
+   "Q26970396", 
+   "Q26243026", 
+   "Q27658216", 
+   "Q26239582", 
+   "Q7235128", 
+   "Q7600909"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4445366", 
+   "Q26970396", 
+   "Q26243026", 
+   "Q27658216", 
+   "Q26239582", 
+   "Q7235128", 
+   "Q7600909"
+  ], 
+  "utterance": "Tom, Tom, the Piper's Son, Akcija, A Minute for Murder, Begunec, Three Stories, Potraga za zmajem, Star Spangled to Death", 
+  "active_set": [
+   "OR((c(Q838948),P57,Q325399), (c(Q838948),P57,Q18587287))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q7235128"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many people were casted in Potraga za zmajem ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q3939507", 
+   "Q12792148"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q7235128,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q471362"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Lion of the Desert?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q3903253", 
+   "Q696055", 
+   "Q3848561", 
+   "Q69340", 
+   "Q3972631", 
+   "Q365100", 
+   "Q238665", 
+   "Q3751297", 
+   "Q83484", 
+   "Q727786", 
+   "Q313588", 
+   "Q386240", 
+   "Q433903", 
+   "Q230563", 
+   "Q204685", 
+   "Q273215", 
+   "Q510769", 
+   "Q518369", 
+   "Q3939922"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "19", 
+  "active_set": [
+   "(Q471362,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q210509"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Salon Kitty?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "20", 
+  "active_set": [
+   "(Q210509,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q19599023", 
+   "Q471362"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P495"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories did Lion of the Desert or L'amour originate ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30", 
+   "Q884"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30", 
+   "Q884"
+  ], 
+  "utterance": "United States of America, South Korea", 
+  "active_set": [
+   "OR((Q471362,P495,c(Q15617994)), (Q19599023,P495,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q792"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories have diplomatic relations with less number of administrative territories than El Salvador ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q702", 
+   "Q804", 
+   "Q265", 
+   "Q712", 
+   "Q837", 
+   "Q242", 
+   "Q811", 
+   "Q929", 
+   "Q29999", 
+   "Q854", 
+   "Q730", 
+   "Q232", 
+   "Q1027", 
+   "Q1032", 
+   "Q697", 
+   "Q695", 
+   "Q754", 
+   "Q912", 
+   "Q683", 
+   "Q836", 
+   "Q817", 
+   "Q1019", 
+   "Q945", 
+   "Q678", 
+   "Q33788"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q929", 
+   "Q29999", 
+   "Q232"
+  ], 
+  "utterance": "Central African Republic, Kingdom of the Netherlands, Kazakhstan", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }
+]
