@@ -2,6 +2,7 @@ from typing import Dict, List, Tuple
 from overrides import overrides
 
 import torch
+from collections import OrderedDict
 
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.semparse.contexts import CSQAContext
@@ -19,6 +20,7 @@ RETRIEVAL_QUESTION_TYPES_DIRECT = ["Simple Question (Direct)", "Logical Reasonin
                                    "Quantitative Reasoning (Count) (All)", "Clarification"]
 RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Question (Ellipsis)"]
 OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)", "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
+
 
 class CSQASemanticParser(Model):
     """
@@ -62,9 +64,9 @@ class CSQASemanticParser(Model):
 
         precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
         recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
-        average_metrics = [(qt, Average()) for qt in self.other_question_types]
+        average_metrics = [(qt + " accuracy", Average()) for qt in self.other_question_types]
 
-        self._metrics = dict(precision_metrics + recall_metrics + average_metrics)
+        self._metrics = OrderedDict(precision_metrics + recall_metrics + average_metrics)
 
         if dropout > 0:
             self._dropout = torch.nn.Dropout(p=dropout)

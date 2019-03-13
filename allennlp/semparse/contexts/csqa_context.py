@@ -1,5 +1,6 @@
 import json
 import time
+import gc
 
 from typing import Dict, List, Optional, Tuple, Union, Set
 import pickle
@@ -159,6 +160,7 @@ class CSQAContext:
         CSQAContext
 
         """
+
         if not kg_data:
             if '.json' in kg_path:
                 use_integer_ids = False
@@ -169,8 +171,11 @@ class CSQAContext:
                 use_integer_ids = True
                 if 'sample' not in kg_path:
                     print("Loading wikidata graph")
+                # temporarily disabling gc results in a large speedup
+                gc.disable()
                 with open(kg_path, 'rb') as file_pointer:
                     kg_data = pickle.load(file_pointer)
+                gc.enable()
             else:
                 raise ValueError()
 
@@ -183,8 +188,11 @@ class CSQAContext:
                 use_integer_ids = True
                 if 'sample' not in kg_type_data_path:
                     print("Loading wikidata type graph")
+                # temporarily disabling gc results in a large speedup
+                gc.disable()
                 with open(kg_type_data_path, 'rb') as file_pointer:
                     kg_type_data = pickle.load(file_pointer)
+                gc.enable()
             else:
                 raise ValueError()
 

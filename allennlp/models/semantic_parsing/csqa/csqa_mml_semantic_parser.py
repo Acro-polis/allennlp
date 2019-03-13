@@ -2,6 +2,7 @@ import logging
 from typing import Any, List, Dict
 
 from overrides import overrides
+from collections import OrderedDict
 
 import torch
 
@@ -106,7 +107,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float)
                               for i in range(batch_size)]
 
-        result_entities: List[List[str]] = self._get_label_strings(result_entities) if result_entities is not None else None
+        result_entities: List[List[str]] = self._get_label_strings(
+            result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_state = [self._create_grammar_state(world[i], actions[i]) for i in
@@ -199,7 +201,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 recall_metric(instance_label_strings, retrieved_entities)
 
             elif question_type in self.other_question_types:
-                metric = self._metrics[question_type]
+                metric = self._metrics[question_type + " accuracy"]
                 if instance_action_strings:
                     sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],
                                                                        instance_label_strings,
@@ -210,7 +212,17 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
-        metrics = {}
+        metrics = OrderedDict()
         for key, metric in self._metrics.items():
-            metrics[key] = metric.get_metric(reset)
+            tensorboard_key = "_" + key
+            # tensorboard(X?) does not allow spaces and brackets
+            for c in [" ", "(", ")"]:
+                tensorboard_key = tensorboard_key.replace(c, "_")
+            if not self.training:
+                metrics[tensorboard_key] = metric.get_metric(reset)
+            else:
+                # also write to dict when not tracking these metrics (for train),
+                # to preserve metric ordering when printing
+                metrics[tensorboard_key] = None
+
         return metrics
