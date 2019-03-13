@@ -3,8 +3,6 @@ from allennlp.semparse.domain_languages.domain_language import (DomainLanguage, 
                                                                 predicate)
 import logging
 
-import time
-
 from typing import Dict, List, NamedTuple, Set, Tuple, Union, Type
 from numbers import Number
 
@@ -34,17 +32,18 @@ class TypePredicate(NamedTuple):
 class CSQALanguage(DomainLanguage):
     # pylint: disable=too-many-public-methods,no-self-use
     """
-    Implements the functions in the variable free language in "Dialog-to-Action: Conversational Question
-    Answering Over a Large-Scale Knowledge Base" by Daya Guo, Duyu Tang, Nan Duan, Ming Zhou, and Jian Yin
+    Implements the functions in the variable free language in "Dialog-to-Action: Conversational
+    Question Answering Over a Large-Scale Knowledge Base" by Daya Guo, Duyu Tang, Nan Duan, Ming
+    Zhou, and Jian Yin.
     """
     def __init__(self,
                  csqa_context: CSQAContext,
-                 search_modus: bool = False
+                 search_mode: bool = False
                  ) -> None:
         # TODO: do we need dates here too?
         # TODO: check name and value passed to add_constant
         super().__init__(start_types={Number, Set[Entity]})
-        self.search_modus = search_modus
+        self.search_mode = search_mode
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
         self.kg_type_data = csqa_context.kg_type_data
@@ -58,16 +57,11 @@ class CSQALanguage(DomainLanguage):
             self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
             self.add_constant(inv_predicate_id, self.get_predicate_from_question_id(inv_predicate_id), type_=Predicate)
 
-        # add fake id for is_type_of / is_of_type
-        # for type_predicate_id in ["P1", "P-1"]:
+        # Add fake id for is_type_of / is_of_type.
         for type_predicate_id in ["P1"]:
             self.add_constant(type_predicate_id,
                               self.get_predicate_from_question_id(type_predicate_id, predicate_class=Predicate),
                               type_=Predicate)
-        # for type_predicate_id in ["P1", "P-1"]:
-        #     self.add_constant(type_predicate_id,
-        #                       self.get_predicate_from_question_id(type_predicate_id, predicate_class=TypePredicate),
-        #                       type_=TypePredicate)
 
         for entity_id in self._question_entities + csqa_context.question_type_list:
             self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
@@ -84,50 +78,53 @@ class CSQALanguage(DomainLanguage):
         # how many terminals to plan for.
         self.terminal_productions: Dict[str, str] = {}
         for name, types in self._function_types.items():
-            # if "P" is not name[0]:
-            #     print("%s -> %s" % (types[0], name))
             self.terminal_productions[name] = "%s -> %s" % (types[0], name)
 
-    def set_search_modus(self):
-        self.search_modus = True
-
-    def get_agenda(self):
-        # TODO: this needs to be implemented when carrying out a search for correct logical forms
-        raise NotImplementedError("")
+    def set_search_mode(self):
+        """
+        Sets search mode to True.
+        """
+        self.search_mode = True
 
     def get_entity_from_question_id(self, entity_id: str, entity_class: Type = Entity):
-        # these are always strings with Q prefix
+        """
+        Returns Entity from question with id entity_id. Removes "Q" prefix.
+        """
         if self.use_integer_ids:
             return entity_class(entity_id, int(entity_id[1:]))
         else:
             return entity_class(entity_id, entity_id)
 
     def get_entity_from_kg_id(self, entity_id: Union[str, int], entity_class: Type = Entity):
-        # This is exactly the inverse of get_entity_from_question_id,
-        # we get an id, which can be without Q prefix or with, and we want to give it the right name
+        """
+        Returns Entity from kg with id entity_id. Adds "Q" prefix.
+        """
         if self.use_integer_ids:
-            # entity id is an int
             return entity_class("Q" + str(entity_id), entity_id)
         else:
             return entity_class(entity_id, entity_id)
 
-    def get_predicate_from_question_id(self, predicate_id: str,
-                                       predicate_class: Type = Predicate):
-        # these are always strings with P prefix
+    def get_predicate_from_question_id(self, predicate_id: str, predicate_class: Type = Predicate):
+        """
+        Returns Predicate of question with id predicate_id.
+        """
         if self.use_integer_ids:
             return predicate_class(predicate_id, int(predicate_id[1:]))
         else:
             return predicate_class(predicate_id, predicate_id)
 
     def __eq__(self, other):
+        """
+        Returns True if other contains the same data and terminal productions as this instance.
+        """
         if isinstance(self, other.__class__):
             return self.kg_data == other.kg_data and self.terminal_productions == other.terminal_productions
         return NotImplemented
 
     def evaluate_logical_form_correct(self, logical_form: str, target_list: List[str]) -> bool:
         """
-        Takes a logical form, and the list of target entities as strings from the original lisp
-        string, and returns True iff the logical form executes to the entity list
+        Takes a logical form and the list of target entities as strings from the original lisp
+        string, and returns True iff the logical form executes to the entity list.
         """
         assert len(target_list) == 1
         try:
@@ -141,7 +138,7 @@ class CSQALanguage(DomainLanguage):
     def evaluate_logical_form_precision_recall(self, logical_form: str, target_list: List[str]) -> Tuple[float, float]:
         """
         Takes a logical form, and the list of target entities as strings from the original lisp
-        string, and returns precision and recall
+        string, and returns precision and recall.
         """
         try:
             denotation = self.execute(logical_form)
@@ -158,10 +155,9 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def find(self, entities: Set[Entity], predicate_: Predicate) -> Set[Entity]:
         """
-        find function takes a list of entities E and and a predicate p and loops through
-        e in E and returns the set of entities with a p edge to e
+        Find function takes a list of entities E and and a predicate p and loops through e in E and
+        returns the set of entities with p edge to e.
         """
-
         result = set()
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
 
@@ -169,7 +165,7 @@ class CSQALanguage(DomainLanguage):
             # if not(predicate_.id == 1 or predicate_.id == -1):
             try:
                 ent_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
-                if len(ent_ids) > 10000 and self.search_modus:
+                if len(ent_ids) > 10000 and self.search_mode:
                     # TODO: THIS IS A VERY BAD SOLUTION, FIX
                     ent_ids = ent_ids[:13]
 
@@ -181,31 +177,10 @@ class CSQALanguage(DomainLanguage):
                 continue
         return result
 
-    # @predicate
-    # def filter_type(self, entities: List[Entity], object_type: TypeEntity) -> List[Entity]:
-    #     """
-    #     find function takes a list of entities E and and a predicate p and loops through
-    #     e in E and returns the set of entities with a p edge to e
-    #     """
-    #
-    #     """Get the property of a list of entities."""
-    #     result = []
-    #     predicate_id = 1 if self.use_integer_ids else "P1"
-    #     for ent in entities:
-    #         try:
-    #             type_ids: List[Union[str, int]] = self.kg_type_data[ent.id][predicate_id]
-    #             if object_type.id in type_ids:
-    #                 result.append(ent)
-    #         except KeyError:
-    #             continue
-    #     result = list(set(result))
-    #     return result
-
     @predicate
     def has_relation_with(self, entities: Set[Entity], predicate_: Predicate, object_: Entity) -> Set[Entity]:
         """
         """
-
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
         result = set()
         for ent in entities:
@@ -220,64 +195,57 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def count(self, entities: Set[Entity]) -> Number:
         """
-        returns a count of the passed list of entities
+        Returns a count of the passed list of entities.
         """
         return len(entities)  # type: ignore
 
     @predicate
     def is_in(self, entity: Entity, entities: Set[Entity]) -> bool:
         """
-        return whether the first entity is in the set of entities
-
+        Return whether the entity is in the set of entities.
         """
         return entity in entities
 
     @predicate
     def union(self, entities1: Set[Entity], entities2: Set[Entity]) -> Set[Entity]:
         """
-        return union of two sets of entities
-
+        Return union of two sets of entities.
         """
         return entities1.union(entities2)
 
     @predicate
     def intersection(self, entities1: Set[Entity], entities2: Set[Entity]) -> Set[Entity]:
         """
-        return intersection of two sets of entities
-
+        Return intersection of two sets of entities.
         """
         return entities1.intersection(entities2)
 
     @predicate
     def get(self, entity: Entity)-> Set[Entity]:
         """
-        get entity and wrap it in a set (See Dialog-to-action Table 1 A15)
-
+        Get entity and wrap it in a set (See Dialog-to-action Table 1 A15).
         """
         return {entity}
 
     @predicate
     def diff(self, entities1: Set[Entity], entities2: Set[Entity])-> Set[Entity]:
         """
-        return instances included in entities1 but not included in entities2. Note that this is *NOT* the symmetric
-        difference. E.g. set([1, 2]) - set([2, 3]) = set([1]) and *NOT* set([1, 2]) - set([2, 3]) = set([1, 3])
-
+        Return instances included in entities1 but not included in entities2. Note that this is
+        *NOT* the symmetric difference. E.g. set([1, 2]) - set([2, 3]) = set([1]) and *NOT*
+        set([1, 2]) - set([2, 3]) = set([1, 3]).
         """
         return entities1 - entities2
 
     @predicate
     def larger(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
-        subset of entities linking to more than num entities with predicate_
+        Subset of entities linking to more than num entities with predicate_.
         """
-
         result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
-                # if len(linked_entities) < num and linked_entities != 0:
                 if len(linked_entities) > num:
-                    # if n_links < num:
                     result.add(entity)
             except KeyError:
                 continue
@@ -287,16 +255,13 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def less(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
-        subset of entities linking to less than num entities with predicate_
+        Subset of entities linking to less than num entities with predicate_.
         """
-
         result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
-                # if len(linked_entities) < num and linked_entities != 0:
                 if len(linked_entities) < num:
-                    # if n_links < num:
                     result.add(entity)
             except KeyError:
                 continue
@@ -306,15 +271,13 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def equal(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
-        subset of entities linking to exactly num entities with predicate_
+        Subset of entities linking to exactly num entities with predicate_.
         """
         result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
-                # if len(linked_entities) < num and linked_entities != 0:
                 if len(linked_entities) == num:
-                    # if n_links < num:
                     result.add(entity)
             except KeyError:
                 continue
@@ -324,15 +287,13 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def most(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
-        subset of entities linking to at most num entities with predicate_
+        Subset of entities linking to at most num entities with predicate_.
         """
-
         result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 if len(linked_entities) <= num:
-                    # if n_links < num:
                     result.add(entity)
             except KeyError:
                 continue
@@ -341,15 +302,13 @@ class CSQALanguage(DomainLanguage):
     @predicate
     def least(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
-        subset of entities linking to at least num entities with predicate_
+        Subset of entities linking to at least num entities with predicate_.
         """
-
         result = set()
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 if len(linked_entities) >= num:
-                    # if n_links < num:
                     result.add(entity)
             except KeyError:
                 continue

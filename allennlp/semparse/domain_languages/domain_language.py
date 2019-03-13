@@ -517,7 +517,6 @@ class DomainLanguage:
                 raise ExecutionError(f"Error executing expression {expression} (see stderr for stack trace)")
         elif isinstance(expression, str):
             if expression not in self._functions:
-                print(self._functions.keys())
                 raise ExecutionError(f"Unrecognized constant: {expression}")
             # This is a bit of a quirk in how we represent constants and zero-argument functions.
             # For consistency, constants are wrapped in a zero-argument lambda.  So both constants

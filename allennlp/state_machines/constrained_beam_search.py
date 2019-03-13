@@ -89,8 +89,6 @@ class ConstrainedBeamSearch:
             for next_state in transition_function.take_step(grouped_state,
                                                             max_actions=self._per_node_beam_size,
                                                             allowed_actions=allowed_actions):
-                # print("next state")
-                # print(next_state.possible_actions)
                 # NOTE: we're doing state.batch_indices[0] here (and similar things below),
                 # hard-coding a group size of 1.  But, our use of `next_state.is_finished()`
                 # already checks for that, as it crashes if the group size is not 1.

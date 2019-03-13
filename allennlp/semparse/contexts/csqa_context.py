@@ -1,11 +1,11 @@
 import json
-import time
 
-from typing import Dict, List, Optional, Tuple, Union, Set
+from typing import Dict, List, Tuple
 import pickle
 
 from allennlp.data.tokenizers import Token
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
+from allennlp.common.file_utils import cached_path
 
 
 NUMBER_CHARACTERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'}
@@ -61,32 +61,18 @@ NUMBER_WORDS = {
 }
 
 
-def _decode(o):
-    # Note the "unicode" part is only for python2
-    if isinstance(o, str):
-        try:
-            return int(o)
-        except ValueError:
-            return o
-    elif isinstance(o, dict):
-        return {k: _decode(v) for k, v in o.items()}
-    elif isinstance(o, list):
-        return [_decode(v) for v in o]
-    else:
-        return o
-
-
 class CSQAContext:
     """
-    Context for the CSQADomainlanguage. this context contains the knowledge graph, questions and some mappings from
-    entity/predicate id's to their corresponding string value.
+    Context for the CSQADomainlanguage. This context contains the knowledge graph, questions and
+    some mappings from entity/predicate ids to their corresponding string value.
 
-    #################################################################################################################
-    IMPORTANT: CSQAContext objects can get very large (as they contains the full kg, therefore when initialize multiple
-    CSQAContext objects, we should let every object point to the same kg dict. We can do this by 1) initializing one
-    object using CSQAContext.read_from_file(path1,path2,path3) 2) read the kg_dict from the initialized object 3)
-    initialize new CSQAContext objects by calling read_from_file(kg_dict), passing the kg_dict from the first object
-    #################################################################################################################
+    ################################################################################################
+    IMPORTANT: CSQAContext objects are large as they contains the full kg. Therefore, when
+    initializing multiple CSQAContext objects, every object points to the same kg dict. This is done
+    by 1) initializing one object using CSQAContext.read_from_file(path1, path2, path3); 2) read
+    the kg_dict from the initialized object, and 3) initialize new CSQAContext objects by calling
+    read_from_file(kg_dict), passing the kg_dict from the first object.
+    ################################################################################################
     """
 
     def __init__(self,
@@ -125,47 +111,56 @@ class CSQAContext:
                        question_tokens: List[Token],
                        question_entities: List[str],
                        question_predicates: List[str],
-                       type_list: List[str],
+                       question_types: List[str],
                        kg_data: Dict[int, Dict[int, int]] = None,
                        kg_type_data: Dict[int, Dict[int, int]] = None,
                        entity_id2string: Dict[str, str] = None,
                        predicate_id2string: Dict[str, str] = None
                        ) -> 'CSQAContext':
         """
-        This method loads a CSQAContext from file given the question tokens + the path to the kg,
-        and entity and predicate dicts. Optionally, we can pass loaded dictionaries of each of those,
-        which means the paths are ignored.
+        This method loads a CSQAContext from file given the question tokens anj the path to the kg,
+        and the entity and predicate dicts. Optionally, we can pass loaded dictionaries of each of
+        those, in which case the paths are ignored.
+
         Parameters
         ----------
         kg_path: ``str``, optional
+            Path to the knowledge graph file used to initialize context.
+        kg_type_data_path: ``str``, optional
             Path to the knowledge graph file. We use this file to initialize our context
         entity_id2string_path: ``str``, optional
-            Path to the json file which maps entity id's to their string values
+            Path to the json file which maps entity ids to their string values
         predicate_id2string_path: ``str``, optional
-            Path to the json file which maps predicate id's to their string values
+            Path to the json file which maps predicate ids to their string values
         question_tokens: ``List[Token]``
-            question tokens
+            List of tokens present in the question.
         question_entities: ``List[str]``
-            list of entities
-        kg_data: ``List[Dict[str,str]]``
-            loaded knowledge graph
+            List of entities present in the question.
+        question_predicates: ``List[str]``
+            List of predicates present in the question.
+        question_types: ``List[str]``
+            List of types of the entities in the question.
+        kg_data: ``Dict[int, Dict[int, int]]``
+            Loaded knowledge graph.
+        kg_type_data: Dict[int, Dict[int, int]]
+            Loaded type relations of entities in knowledge graph.
         entity_id2string: ``Dict[str,str]``
-            loaded entitity vocab
+            Loaded entity vocabulary.
         predicate_id2string: ``Dict[str,str]``
-            loaded predicate vocab
+            Loaded predicate vocabulary.
 
         Returns
         -------
-        CSQAContext
+        CSQAContext.
 
         """
         if not kg_data:
+            kg_path = cached_path(kg_path)
             if '.json' in kg_path:
                 use_integer_ids = False
                 with open(kg_path, 'r') as file_pointer:
-                    kg_data = json.load(file_pointer, object_hook=_decode)
-
-            elif'.p' in kg_path:
+                    kg_data = json.load(file_pointer)
+            elif '.p' in kg_path or 'allennlp' in kg_path:
                 use_integer_ids = True
                 if 'sample' not in kg_path:
                     print("Loading wikidata graph")
@@ -173,13 +168,13 @@ class CSQAContext:
                     kg_data = pickle.load(file_pointer)
             else:
                 raise ValueError()
-
         else:
-            # inspect first key
+            # Inspect the first key.
             use_integer_ids = isinstance(next(iter(kg_data)), int)
 
         if not kg_type_data:
-            if'.p' in kg_type_data_path:
+            kg_type_data_path = cached_path(kg_type_data_path)
+            if'.p' in kg_type_data_path or 'allennlp' in kg_type_data_path:
                 use_integer_ids = True
                 if 'sample' not in kg_type_data_path:
                     print("Loading wikidata type graph")
@@ -191,8 +186,10 @@ class CSQAContext:
         if not entity_id2string:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
+
         if not predicate_id2string:
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
-        return cls(kg_data, kg_type_data, question_tokens, question_entities, question_predicates, type_list,
-                   entity_id2string, predicate_id2string, use_integer_ids)
+
+        return cls(kg_data, kg_type_data, question_tokens, question_entities, question_predicates,
+                   question_types, entity_id2string, predicate_id2string, use_integer_ids)

@@ -286,7 +286,7 @@ class CSQADatasetReader(DatasetReader):
                                              question_predicates,
                                              kg_data=kg_data,
                                              kg_type_data=kg_type_data,
-                                             type_list=type_list,
+                                             question_types=type_list,
                                              entity_id2string=entity_id2string, predicate_id2string=predicate_id2string)
         language = CSQALanguage(context)
 

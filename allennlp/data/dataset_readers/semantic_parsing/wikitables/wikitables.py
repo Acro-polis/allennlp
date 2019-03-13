@@ -259,8 +259,7 @@ class WikiTablesDatasetReader(DatasetReader):
         dpd_output : List[str], optional
             List of logical forms, produced by dynamic programming on denotations. Not required
             during test.
-        tokenized_question : ``List[Token]``,
-        # TODO: implement this partoptional
+        tokenized_question : ``List[Token]``, optional
             If you have already tokenized the question, you can pass that in here, so we don't
             duplicate that work.  You might, for example, do batch processing on the questions in
             the whole dataset, then pass the result in here.
