@@ -1,4 +1,3 @@
-
 """
 Reader for CSQA (https://amritasaha1812.github.io/CSQA/).
 """
@@ -8,11 +7,12 @@ import json
 import logging
 import os
 import pickle
+import tarfile
+from allennlp.common import Tqdm
 
 from overrides import overrides
 from collections import defaultdict
 from pathlib import Path
-
 
 from allennlp.common.checks import ConfigurationError
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
@@ -24,6 +24,7 @@ from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
 from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
+from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -75,8 +76,8 @@ class CSQADatasetReader(DatasetReader):
     predicate_id2string_path ``str``, optional
         Path to the json file which maps predicate id's to their string values
     read_only_direct ``bool``, optional
-        boolean indicating whether we only read direct questions (without references to questions earlier in the
-        conversation)
+        boolean indicating whether we only read direct questions (without references to questions
+        earlier in the conversation)
     """
     def __init__(self,
                  lazy: bool = False,
@@ -142,23 +143,39 @@ class CSQADatasetReader(DatasetReader):
             raise ValueError("unknown answer format: {}".format(answer))
 
     @overrides
-    def _read(self, qa_path: str):
-        if qa_path.endswith('.json'):
+    def _read(self, path: str):
+        path = cached_path(path)
+        if path.endswith('.json'):
             file_id = 'sample.json'
-            yield from self._read_unprocessed_file(qa_path, file_id)
-        elif os.path.isdir(qa_path):
-            qa_path = Path(qa_path)
-            for file_path in qa_path.glob('**/*.json'):
-                # if our file_path is some_dir/some_other_dir/train/QA_0/QA_0.json,
-                # the file_id is train/QA_0/QA_0.json
-                file_id = file_path.relative_to(qa_path.parent)
-                yield from self._read_unprocessed_file(file_path, str(file_id))
+            yield from self._read_unprocessed_file(path, file_id)
+        elif os.path.isdir(path):
+            yield from self._read_from_directory(path)
+        elif tarfile.is_tarfile(path):
+            qa_path_dir = path.split('.')[:-2][0] if path.split('.')[-1] == 'gz' else path + "_dir"
+            if os.path.isdir(qa_path_dir):
+                print("Target folder for extraction already exists: ", qa_path_dir)
+                yield from self._read_from_directory(qa_path_dir)
+            else:
+                print("Extracting into directory: ", qa_path_dir)
+                os.mkdir(qa_path_dir)
+                tar = tarfile.open(path)
+                for member in Tqdm.tqdm(tar.getmembers()):
+                    tar.extract(member, path=qa_path_dir)
+                tar.close()
+                yield from self._read_from_directory(qa_path_dir)
         else:
-            raise ConfigurationError(f"Don't know how to read file type of {qa_path}")
+            raise ConfigurationError(f"Don't know how to read file type of {path}")
+
+    def _read_from_directory(self, directory):
+        directory = Path(directory)
+        for file_path in directory.glob('**/*.json'):
+            # The file_id is of format: QA_*/QA_*.json.
+            file_id = file_path.relative_to(directory)
+            yield from self._read_unprocessed_file(file_path, str(file_id))
 
     def _read_unprocessed_file(self, qa_file_path: str, file_id: str):
-        # initialize a "shared context" object, which we only create once as it is very expensive to read the kg, and
-        # we can re-use the kg for each object
+        # Initialize a "shared context" object, which we only create once as it is very expensive to
+        # read the kg, and we can re-use the kg for each object.
         self.init_shared_kg_context()
         self.init_dpd_dict()
 
