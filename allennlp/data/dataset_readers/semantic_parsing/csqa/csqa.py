@@ -137,12 +137,11 @@ class CSQADatasetReader(DatasetReader):
         if answer in ["YES", "NO"]:
             return True if answer is "YES" else False
         elif entities_result:
-            # check if result is a count of entities
+            # Check if result is a count of entities.
             try:
                 return int(answer)
-            # read entities in result
+            # Read entities in result.
             except ValueError:
-                # expected_result = {Entity(ent, ent) for ent in entities_result}
                 return {language.get_entity_from_question_id(ent) for ent in entities_result}
         elif answer.startswith("Did you mean"):
             return "clarification"
@@ -202,14 +201,22 @@ class CSQADatasetReader(DatasetReader):
                 qa_id = file_id + str(turn_id)
                 turn_id += 1
 
-                qa_dict_question = defaultdict(str, qa_dict_question)
-                qa_dict_answer = defaultdict(str, next(data))
+                qa_dict_question = defaultdict(list, qa_dict_question)
+                qa_dict_answer = defaultdict(list, next(data))
                 question = qa_dict_question["utterance"]
                 question_description = qa_dict_question["description"]
-                question_type = qa_dict_question["question-type"]
-                question_type_entities = qa_dict_question["type_list"]
-                answer_description = qa_dict_answer["description"]
+
+                # TODO fix /wo defaultdict
                 question_entities = qa_dict_question["entities_in_utterance"]
+                if qa_dict_question["entities"]:
+                    if qa_dict_question["entities_in_utterance"]:
+                        question_entities.append(qa_dict_question["entities"])
+                    else:
+                        question_entities = qa_dict_question["entities"]
+
+                question_type_entities = qa_dict_question["type_list"]
+                question_type = qa_dict_question["question-type"]
+                answer_description = qa_dict_answer["description"]
 
                 # TODO: do we need extra checks here?
                 if skip_next_turn:

@@ -162,47 +162,45 @@ class CSQAContext:
         """
 
         if not kg_data:
+            print("Loading wikidata graph")
             kg_path = cached_path(kg_path)
             if '.json' in kg_path:
                 use_integer_ids = False
-                with open(kg_path, 'r') as file_pointer:
-                    kg_data = json.load(file_pointer)
+                with open(kg_path, 'r') as file:
+                    kg_data = json.load(file)
             elif '.p' in kg_path or 'allennlp' in kg_path:
                 use_integer_ids = True
-                if 'sample' not in kg_path:
-                    print("Loading wikidata graph")
-                # temporarily disabling gc results in a large speedup
+                # Temporarily disabling gc results in a large speedup.
                 gc.disable()
-                with open(kg_path, 'rb') as file_pointer:
-                    kg_data = pickle.load(file_pointer)
+                with open(kg_path, 'rb') as file:
+                    kg_data = pickle.load(file)
                 gc.enable()
             else:
                 raise ValueError()
         else:
-            # Inspect the first key.
+            # Inspect the first key to determine whether to use integer ids.
             use_integer_ids = isinstance(next(iter(kg_data)), int)
 
         if not kg_type_data:
+            print("Loading wikidata type graph")
             kg_type_data_path = cached_path(kg_type_data_path)
             if'.p' in kg_type_data_path or 'allennlp' in kg_type_data_path:
                 use_integer_ids = True
-                if 'sample' not in kg_type_data_path:
-                    print("Loading wikidata type graph")
-                # temporarily disabling gc results in a large speedup
+                # Temporarily disabling gc results in a large speedup.
                 gc.disable()
-                with open(kg_type_data_path, 'rb') as file_pointer:
-                    kg_type_data = pickle.load(file_pointer)
+                with open(kg_type_data_path, 'rb') as file:
+                    kg_type_data = pickle.load(file)
                 gc.enable()
             else:
                 raise ValueError()
 
         if not entity_id2string:
-            with open(entity_id2string_path, 'r') as file_pointer:
-                entity_id2string = json.load(file_pointer)
+            with open(entity_id2string_path, 'r') as file:
+                entity_id2string = json.load(file)
 
         if not predicate_id2string:
-            with open(predicate_id2string_path, 'r') as file_pointer:
-                predicate_id2string = json.load(file_pointer)
+            with open(predicate_id2string_path, 'r') as file:
+                predicate_id2string = json.load(file)
 
         return cls(kg_data=kg_data,
                    kg_type_data=kg_type_data,

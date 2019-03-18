@@ -9,8 +9,8 @@ class TestCSQAContext(AllenNlpTestCase):
 
     @classmethod
     def setUpClass(self):
-
-        # (un)comment these line to test the pickle file (with integer ids instead of string ids) or the full wikidata
+        # (Un)comment these line to test the pickle file (with integer ids instead of string ids) or
+        # the full wikidata.
         self.kg_test_path_json = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         self.kg_test_path_p = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
         self.kg_type_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p'
@@ -37,7 +37,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = ["Q12122755"]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -75,7 +75,7 @@ class TestCSQAContext(AllenNlpTestCase):
 
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -102,7 +102,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = ["Q12122755"]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -114,7 +114,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = [12122755]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -131,7 +131,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = ["Q12122755"]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -143,7 +143,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = [12122755]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -160,7 +160,7 @@ class TestCSQAContext(AllenNlpTestCase):
         type_list = ["Q1"]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -172,7 +172,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = [12122755]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -190,7 +190,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = ["Q12122755"]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
@@ -203,7 +203,7 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = [12122755]
         csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   kg_type_data=self.kg_type_data,
