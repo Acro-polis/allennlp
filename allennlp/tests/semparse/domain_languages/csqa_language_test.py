@@ -60,7 +60,7 @@ class TestCSQALanguage(AllenNlpTestCase):
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   question_predicates=question_predicates,
-                                                  type_list=type_list,
+                                                  question_types=type_list,
                                                   kg_data=self.context.kg_data,
                                                   kg_type_data=self.context.kg_type_data,
                                                   entity_id2string=self.context.entity_id2string,

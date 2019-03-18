@@ -121,7 +121,6 @@ class BasicTransitionFunction(TransitionFunction[GrammarBasedState]):
                                                            updated_state['hidden_state'],
                                                            updated_state['attention_weights'],
                                                            updated_state['predicted_action_embeddings'])
-        # print(batch_results)
         new_states = self._construct_next_states(state,
                                                  updated_state,
                                                  batch_results,

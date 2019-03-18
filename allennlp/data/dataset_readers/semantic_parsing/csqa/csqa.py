@@ -1,4 +1,3 @@
-
 """
 Reader for CSQA (https://amritasaha1812.github.io/CSQA/).
 """
@@ -8,11 +7,12 @@ import json
 import logging
 import os
 import pickle
+import tarfile
+from allennlp.common import Tqdm
 
 from overrides import overrides
 from collections import defaultdict
 from pathlib import Path
-
 
 from allennlp.common.checks import ConfigurationError
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
@@ -25,6 +25,7 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 from allennlp.data.dataset_readers.semantic_parsing.csqa.util import get_dummy_action_sequences, question_is_indirect
+from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -83,8 +84,8 @@ class CSQADatasetReader(DatasetReader):
     predicate_id2string_path ``str``, optional
         Path to the json file which maps predicate id's to their string values
     read_only_direct ``bool``, optional
-        boolean indicating whether we only read direct questions (without references to questions earlier in the
-        conversation)
+        boolean indicating whether we only read direct questions (without references to questions
+        earlier in the conversation)
     """
     def __init__(self,
                  lazy: bool = False,
@@ -151,23 +152,39 @@ class CSQADatasetReader(DatasetReader):
             raise ValueError("unknown answer format: {}".format(answer))
 
     @overrides
-    def _read(self, qa_path: str):
-        if qa_path.endswith('.json'):
+    def _read(self, path: str):
+        path = cached_path(path)
+        if path.endswith('.json'):
             file_id = 'sample.json'
-            yield from self._read_unprocessed_file(qa_path, file_id)
-        elif os.path.isdir(qa_path):
-            qa_path = Path(qa_path)
-            for file_path in qa_path.glob('**/*.json'):
-                # if our file_path is some_dir/some_other_dir/train/QA_0/QA_0.json,
-                # the file_id is train/QA_0/QA_0.json
-                file_id = file_path.relative_to(qa_path.parent)
-                yield from self._read_unprocessed_file(file_path, str(file_id))
+            yield from self._read_unprocessed_file(path, file_id)
+        elif os.path.isdir(path):
+            yield from self._read_from_directory(path)
+        elif tarfile.is_tarfile(path):
+            qa_path_dir = path.split('.')[:-2][0] if path.split('.')[-1] == 'gz' else path + "_dir"
+            if os.path.isdir(qa_path_dir):
+                print("Target folder for extraction already exists: ", qa_path_dir)
+                yield from self._read_from_directory(qa_path_dir)
+            else:
+                print("Extracting into directory: ", qa_path_dir)
+                os.mkdir(qa_path_dir)
+                tar = tarfile.open(path)
+                for member in Tqdm.tqdm(tar.getmembers()):
+                    tar.extract(member, path=qa_path_dir)
+                tar.close()
+                yield from self._read_from_directory(qa_path_dir)
         else:
-            raise ConfigurationError(f"Don't know how to read file type of {qa_path}")
+            raise ConfigurationError(f"Don't know how to read file type of {path}")
+
+    def _read_from_directory(self, directory):
+        directory = Path(directory)
+        for file_path in directory.glob('**/*.json'):
+            # The file_id is of format: QA_*/QA_*.json.
+            file_id = file_path.relative_to(directory)
+            yield from self._read_unprocessed_file(file_path, str(file_id))
 
     def _read_unprocessed_file(self, qa_file_path: str, file_id: str):
-        # initialize a "shared context" object, which we only create once as it is very expensive to read the kg, and
-        # we can re-use the kg for each object
+        # Initialize a "shared context" object, which we only create once as it is very expensive to
+        # read the kg, and we can re-use the kg for each object.
         self.init_shared_kg_context()
         self.init_dpd_dict()
 
@@ -190,7 +207,7 @@ class CSQADatasetReader(DatasetReader):
                 question = qa_dict_question["utterance"]
                 question_description = qa_dict_question["description"]
                 question_type = qa_dict_question["question-type"]
-                question_types = qa_dict_question["type_list"]
+                question_type_entities = qa_dict_question["type_list"]
                 answer_description = qa_dict_answer["description"]
                 question_entities = qa_dict_question["entities_in_utterance"]
 
@@ -218,7 +235,7 @@ class CSQADatasetReader(DatasetReader):
                     else:
                         continue
                 else:
-                    qa_logical_forms = get_dummy_action_sequences(question_entities, question_types)
+                    qa_logical_forms = get_dummy_action_sequences(question_entities, question_type_entities)
 
                 instance = self.text_to_instance(qa_id=qa_id,
                                                  question_type=question_type,
@@ -228,7 +245,7 @@ class CSQADatasetReader(DatasetReader):
                                                  question_predicates=qa_dict_question["relations"],
                                                  answer=qa_dict_answer["utterance"],
                                                  entities_result=qa_dict_answer["all_entities"],
-                                                 type_list=question_types,
+                                                 question_type_entities=question_type_entities,
                                                  kg_data=kg_data,
                                                  kg_type_data=kg_type_data,
                                                  entity_id2string=entity_id2string,
@@ -246,7 +263,7 @@ class CSQADatasetReader(DatasetReader):
                          question_predicates: List[str],
                          answer: str,
                          entities_result: List[str],
-                         type_list: List[str],
+                         question_type_entities: List[str],
                          kg_data: List[Dict[str, str]],
                          kg_type_data: List[Dict[str, str]],
                          entity_id2string: Dict[str, str],
@@ -257,6 +274,9 @@ class CSQADatasetReader(DatasetReader):
         Reads text inputs and makes an instance.
         Parameters
         ----------
+        question_type
+        question_description
+        question_type_entities
         qa_id: ``str``
             qa turn id, e.g. 'train/QA_0/QA_1.json/0'
         question : ``str``
@@ -293,11 +313,11 @@ class CSQADatasetReader(DatasetReader):
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
 
         context = CSQAContext.read_from_file('', '', '', '',
+                                             question_type=question_type,
                                              question_tokens=tokenized_question,
                                              question_entities=question_entities,
                                              question_predicates=question_predicates,
-                                             type_list=type_list,
-                                             question_type=question_type,
+                                             question_type_entities=question_type_entities,
                                              kg_data=kg_data,
                                              kg_type_data=kg_type_data,
                                              entity_id2string=entity_id2string,
@@ -313,7 +333,7 @@ class CSQADatasetReader(DatasetReader):
 
         # Add empty rule (remove when loop above is implemented).
         action_field = ListField(production_rule_fields)
-        type_list_field = MetadataField(type_list)
+        type_list_field = MetadataField(question_type_entities)
 
         expected_result = self.parse_answer(answer, entities_result, language)
         if expected_result is None:
