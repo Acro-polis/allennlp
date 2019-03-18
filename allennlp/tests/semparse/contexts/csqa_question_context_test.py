@@ -9,8 +9,6 @@ class TestCSQAContext(AllenNlpTestCase):
 
     @classmethod
     def setUpClass(self):
-        # (Un)comment these line to test the pickle file (with integer ids instead of string ids) or
-        # the full wikidata.
         self.kg_test_path_json = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         self.kg_test_path_p = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
         self.kg_type_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p'

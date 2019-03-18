@@ -19,7 +19,7 @@ class TestCSQALanguage(AllenNlpTestCase):
         # (un)Comment these line to test the pickle file (with integer ids instead of string ids) or
         # the full wikidata.
 
-        # TODO json doest not work yet, as us_integer_ids is always true due to sample_par_child_dict.p
+        # TODO json does not work yet, as us_integer_ids is always true due to sample_par_child_dict.p
         # self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
 
@@ -38,7 +38,7 @@ class TestCSQALanguage(AllenNlpTestCase):
         self.question_tokens = self.tokenizer.tokenize(self.question)
 
         self.context = CSQAContext.read_from_file(kg_path=self.kg_test_path,
-                                                  kg_type_data_path=self.kg_type_test_path,
+                                                  kg_type_path=self.kg_type_test_path,
                                                   entity_id2string_path=self.entity_id2string_path,
                                                   predicate_id2string_path=self.predicate_id2string_path,
                                                   question_tokens=self.question_tokens,

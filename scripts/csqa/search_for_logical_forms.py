@@ -34,8 +34,8 @@ def search(csqa_directory: str,
     params = {'lazy': False,
               # 'kg_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_kg.p',
               'kg_path':  f'{wikidata_directory}/wikidata_short_1_2_full.p',
-              # 'kg_type_datapath':  f'{wikidata_directory}/child_all_parents_till_5_levels_full.p',
-              'kg_type_data_path':  f'{wikidata_directory}/par_child_dict_full.p',
+              # 'kg_type_path':  f'{wikidata_directory}/child_all_parents_till_5_levels_full.p',
+              'kg_type_path':  f'{wikidata_directory}/par_child_dict_full.p',
               'entity_id2string_path':  f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
              }

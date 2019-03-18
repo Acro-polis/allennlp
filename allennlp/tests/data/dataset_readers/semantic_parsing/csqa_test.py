@@ -11,7 +11,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         params = {
                 'lazy': False,
                 'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
-                'kg_type_data_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
+                'kg_type_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
                 'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
                 'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
                 }
@@ -25,7 +25,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         params = {
             'lazy': True,
             'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
-            'kg_type_data_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
+            'kg_type_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
             'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
             'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         }
@@ -41,7 +41,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
             'lazy': True,
             'dpd_output_file': f'{self.FIXTURES_ROOT}/data/csqa/sample_train_action_sequences.p',
             'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
-            'kg_type_data_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
+            'kg_type_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
             'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
             'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json',
         }
@@ -57,7 +57,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
             'lazy': False,
             'read_only_direct': False,
             'kg_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json',
-            'kg_type_data_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
+            'kg_type_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p',
             'entity_id2string_path':  f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
             'predicate_id2string_path': f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         }

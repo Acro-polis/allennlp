@@ -6,9 +6,9 @@
 //    "kg_path": "/home/ubuntu/Desktop/wikidata/wikidata_short_1_2_rev.p",
 //    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
 
-     "kg_type_data_path": "allennlp/tests/fixtures/data/csqa/sample_par_child_dict.p",
-//    "kg_type_data_path": "/home/ubuntu/Desktop/wikidata/par_child_dict_full.p" ,
-//    "kg_type_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+     "kg_type_path": "allennlp/tests/fixtures/data/csqa/sample_par_child_dict.p",
+//    "kg_type_path": "/home/ubuntu/Desktop/wikidata/par_child_dict_full.p" ,
+//    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
 
 //    "dpd_output_file": "allennlp/tests/fixtures/data/csqa/sample_train_action_sequences.p",
 

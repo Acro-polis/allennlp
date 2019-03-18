@@ -108,7 +108,7 @@ class CSQAContext:
     @classmethod
     def read_from_file(cls,
                        kg_path: str,
-                       kg_type_data_path: str,
+                       kg_type_path: str,
                        entity_id2string_path: str,
                        predicate_id2string_path: str,
                        question_type: str = None,
@@ -132,7 +132,7 @@ class CSQAContext:
         question_type
         kg_path: ``str``, optional
             Path to the knowledge graph file used to initialize context.
-        kg_type_data_path: ``str``, optional
+        kg_type_path: ``str``, optional
             Path to the knowledge graph file. We use this file to initialize our context
         entity_id2string_path: ``str``, optional
             Path to the json file which maps entity ids to their string values
@@ -183,12 +183,12 @@ class CSQAContext:
 
         if not kg_type_data:
             print("Loading wikidata type graph")
-            kg_type_data_path = cached_path(kg_type_data_path)
-            if'.p' in kg_type_data_path or 'allennlp' in kg_type_data_path:
+            kg_type_path = cached_path(kg_type_path)
+            if'.p' in kg_type_path or 'allennlp' in kg_type_path:
                 use_integer_ids = True
                 # Temporarily disabling gc results in a large speedup.
                 gc.disable()
-                with open(kg_type_data_path, 'rb') as file:
+                with open(kg_type_path, 'rb') as file:
                     kg_type_data = pickle.load(file)
                 gc.enable()
             else:
