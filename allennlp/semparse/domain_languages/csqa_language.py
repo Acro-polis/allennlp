@@ -5,8 +5,10 @@ import logging
 
 import time
 
+
 from typing import Dict, List, NamedTuple, Set, Tuple, Union, Type
 from numbers import Number
+from collections import Counter
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -43,7 +45,7 @@ class CSQALanguage(DomainLanguage):
                  ) -> None:
         # TODO: do we need dates here too?
         # TODO: check name and value passed to add_constant
-        super().__init__(start_types={Number, Set[Entity]})
+        super().__init__(start_types={Set[Entity], Number, bool})
         self.search_modus = search_modus
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
@@ -52,6 +54,8 @@ class CSQALanguage(DomainLanguage):
         question_entities, question_numbers = csqa_context.get_entities_from_question()
         self._question_entities = question_entities
         self._question_numbers = [number for number, _ in question_numbers]
+        self.function_cache = []
+        self.result_cache = []
 
         for predicate_id in csqa_context.question_predicates:
             inv_predicate_id = predicate_id[0] + "-" + predicate_id[1:]
@@ -59,15 +63,15 @@ class CSQALanguage(DomainLanguage):
             self.add_constant(inv_predicate_id, self.get_predicate_from_question_id(inv_predicate_id), type_=Predicate)
 
         # add fake id for is_type_of / is_of_type
-        # for type_predicate_id in ["P1", "P-1"]:
-        for type_predicate_id in ["P1"]:
+        if csqa_context.question_type in ["Quantitative Reasoning (All)", "Comparative Reasoning (All)"]:
+            type_predicate_ids = ["P1", "P-1"]
+        else:
+            type_predicate_ids = ["P1"]
+
+        for type_predicate_id in type_predicate_ids:
             self.add_constant(type_predicate_id,
                               self.get_predicate_from_question_id(type_predicate_id, predicate_class=Predicate),
                               type_=Predicate)
-        # for type_predicate_id in ["P1", "P-1"]:
-        #     self.add_constant(type_predicate_id,
-        #                       self.get_predicate_from_question_id(type_predicate_id, predicate_class=TypePredicate),
-        #                       type_=TypePredicate)
 
         for entity_id in self._question_entities + csqa_context.question_type_list:
             self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
@@ -165,11 +169,19 @@ class CSQALanguage(DomainLanguage):
         result = set()
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
 
+        if self.search_modus:
+            try:
+                result = self.result_cache[self.function_cache.index(["find", entities, predicate_])]
+                return result
+            except ValueError:
+                pass
+
         for ent in entities:
             # if not(predicate_.id == 1 or predicate_.id == -1):
             try:
                 ent_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
-                if len(ent_ids) > 10000 and self.search_modus:
+                if len(ent_ids) > 10000 and self.search_modus and (not self.kg_context.question_type in [
+                    "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]):
                     # TODO: THIS IS A VERY BAD SOLUTION, FIX
                     ent_ids = ent_ids[:13]
 
@@ -179,6 +191,11 @@ class CSQALanguage(DomainLanguage):
 
             except KeyError:
                 continue
+
+        if self.search_modus and len(result) > 1000:
+            self.function_cache.append(["find", entities, predicate_])
+            self.result_cache.append(result)
+
         return result
 
     # @predicate
@@ -291,15 +308,32 @@ class CSQALanguage(DomainLanguage):
         """
 
         result = set()
+
+        cache_result: bool = self.search_modus
+
+        if cache_result:
+            try:
+                count_cache = self.result_cache[self.function_cache.index(["less", entities, predicate_])]
+                return set(ent for ent, count in count_cache.items() if count < num)
+            except ValueError:
+                count_cache = Counter()
+
         for entity in entities:
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
-                # if len(linked_entities) < num and linked_entities != 0:
+
                 if len(linked_entities) < num:
                     # if n_links < num:
                     result.add(entity)
+
+                if cache_result:
+                    count_cache[entity] = len(linked_entities)
             except KeyError:
                 continue
+
+        if cache_result:
+            self.function_cache.append(["less", entities, predicate_])
+            self.result_cache.append(count_cache)
 
         return result
 
@@ -332,6 +366,27 @@ class CSQALanguage(DomainLanguage):
             try:
                 linked_entities = self.kg_data[entity.id][predicate_.id]
                 if len(linked_entities) <= num:
+                    # if n_links < num:
+                    result.add(entity)
+            except KeyError:
+                continue
+        return result
+
+    @predicate
+    def most_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number, type_: Entity)-> Set[Entity]:
+        """
+        """
+
+        result = set()
+        type_predicate = self.get_predicate_from_question_id("P1", predicate_class=Predicate)
+
+        for entity in entities:
+            try:
+                linked_entity_ids = self.kg_data[entity.id][predicate_.id]
+                linked_entities = [self.get_entity_from_kg_id(ent_id) for ent_id in linked_entity_ids]
+                linked_entities_with_type = self.has_relation_with(linked_entities, type_predicate, type_)
+
+                if len(linked_entities_with_type) <= num:
                     # if n_links < num:
                     result.add(entity)
             except KeyError:

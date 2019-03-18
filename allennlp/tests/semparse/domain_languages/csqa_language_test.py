@@ -33,14 +33,12 @@ class TestCSQALanguage(AllenNlpTestCase):
         self.question = "which administrative territory is the country of origin of frank and jesse ?"
         self.question_tokens = self.tokenizer.tokenize(self.question)
 
-        self.context = CSQAContext.read_from_file(self.kg_test_path,
-                                                  self.kg_type_test_path,
-                                                  self.entity_id2string_path,
-                                                  self.predicate_id2string_path,
-                                                  [],
-                                                  self.question_entities,
-                                                  self.question_predicates,
-                                                  [])
+        self.context = CSQAContext.read_from_file(kg_path=self.kg_test_path,
+                                                  kg_type_data_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
+                                                  question_entities=self.question_entities,
+                                                  question_predicates=self.question_predicates)
 
         self.language = CSQALanguage(self.context)
 

@@ -19,8 +19,7 @@ from allennlp.state_machines.trainers import MaximumMarginalLikelihood
 from allennlp.state_machines.transition_functions import BasicTransitionFunction
 from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
 
-from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
-    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
+from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -142,6 +141,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                                    (target_action_sequences, target_mask))
 
         if not self.training:
+            print(question_type)
             initial_state.debug_info = [[] for _ in range(batch_size)]
             best_final_states = self._decoder_beam_search.search(self._max_decoding_steps,
                                                                  initial_state,
@@ -157,6 +157,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     best_action_sequences[i] = best_action_indices
             batch_action_strings = self._get_action_strings(actions, best_action_sequences)
             batch_denotations = self._get_denotations(batch_action_strings, world)
+
             if target_action_sequences is not None:
                 self._update_metrics(action_strings=batch_action_strings,
                                      worlds=world,
@@ -190,7 +191,6 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
             instance_label_strings = label_strings[i]
             instance_world = worlds[i]
             question_type = question_types[i]
-            print(question_type)
             # Taking only the best sequence.
             if question_type in self.retrieval_question_types:
                 precision_metric = self._metrics[question_type + " precision"]
@@ -209,7 +209,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 if instance_action_strings:
                     sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],
                                                                        instance_label_strings,
-                                                                       instance_world)[0]
+                                                                       instance_world,
+                                                                       question_type)
                 else:
                     sequence_is_correct: bool = False
                 metric(1 if sequence_is_correct else 0)

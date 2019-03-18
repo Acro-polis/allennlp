@@ -121,9 +121,10 @@ class CSQADatasetReader(DatasetReader):
 
     def init_shared_kg_context(self):
         if not self.shared_kg_context:
-            self.shared_kg_context = CSQAContext.read_from_file(self.kg_path, self.kg_type_data_path,
-                                                                self.entity_id2string_path,
-                                                                self.predicate_id2string_path, [], [], [], [])
+            self.shared_kg_context = CSQAContext.read_from_file(kg_path=self.kg_path,
+                                                                kg_type_data_path=self.kg_type_data_path,
+                                                                entity_id2string_path=self.entity_id2string_path,
+                                                                predicate_id2string_path=self.predicate_id2string_path)
 
     def init_dpd_dict(self):
         if not self.dpd_logical_form_dict and self._dpd_output_file:
@@ -189,6 +190,7 @@ class CSQADatasetReader(DatasetReader):
                 question = qa_dict_question["utterance"]
                 question_description = qa_dict_question["description"]
                 question_type = qa_dict_question["question-type"]
+                question_types = qa_dict_question["type_list"]
                 answer_description = qa_dict_answer["description"]
                 question_entities = qa_dict_question["entities_in_utterance"]
 
@@ -204,7 +206,7 @@ class CSQADatasetReader(DatasetReader):
                         continue
 
                 if self.skip_approximate_questions:
-                    if "approximate" in question:
+                    if "approximate" in question or "around" in question:
                         continue
 
                 if self._dpd_output_file:
@@ -216,11 +218,7 @@ class CSQADatasetReader(DatasetReader):
                     else:
                         continue
                 else:
-                    if question_entities:
-                        qa_logical_forms = get_dummy_action_sequences(question_entities)
-
-                    else:
-                        continue
+                    qa_logical_forms = get_dummy_action_sequences(question_entities, question_types)
 
                 instance = self.text_to_instance(qa_id=qa_id,
                                                  question_type=question_type,
@@ -230,7 +228,7 @@ class CSQADatasetReader(DatasetReader):
                                                  question_predicates=qa_dict_question["relations"],
                                                  answer=qa_dict_answer["utterance"],
                                                  entities_result=qa_dict_answer["all_entities"],
-                                                 type_list=qa_dict_question["type_list"],
+                                                 type_list=question_types,
                                                  kg_data=kg_data,
                                                  kg_type_data=kg_type_data,
                                                  entity_id2string=entity_id2string,
@@ -290,19 +288,18 @@ class CSQADatasetReader(DatasetReader):
             the whole dataset, then pass the result in here.
         """
 
-        # if no logical forms where found, skip turn
-
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
 
         context = CSQAContext.read_from_file('', '', '', '',
-                                             tokenized_question,
-                                             question_entities,
-                                             question_predicates,
+                                             question_tokens=tokenized_question,
+                                             question_entities=question_entities,
+                                             question_predicates=question_predicates,
+                                             type_list=type_list,
+                                             question_type=question_type,
                                              kg_data=kg_data,
                                              kg_type_data=kg_type_data,
-                                             type_list=type_list,
                                              entity_id2string=entity_id2string,
                                              predicate_id2string=predicate_id2string)
         language = CSQALanguage(context)

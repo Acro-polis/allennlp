@@ -212,8 +212,8 @@
  }, 
  {
   "ques_type_id": 6, 
-  "question-type": "Quantitative Reasoning (Count) (All)", 
-  "description": "Incomplete count-based ques", 
+  "question-type": "Quantitative Reasoning (Count) (All)",
+  "description": "Incomplete count-based ques",
   "entities_in_utterance": [
    "Q210509"
   ], 

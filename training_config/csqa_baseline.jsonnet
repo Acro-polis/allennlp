@@ -37,20 +37,19 @@
     },
     "max_decoding_steps": 20,
     "attention": {"type": "dot_product"},
-    "dropout": 0.2
+    "dropout": 0.0
   },
   "iterator": {
     "type": "bucket",
     "sorting_keys": [["question", "num_tokens"]],
     "padding_noise": 0.0,
-    "batch_size" : 2
+    "batch_size" : 6
   },
   "trainer": {
     "num_epochs": 100,
-    "patience": 2,
     "cuda_device": -1,
     "optimizer": {
-      "type": "sgd",
+      "type": "adam",
       "lr": 0.01
     }
   }

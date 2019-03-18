@@ -20,7 +20,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         reader = CSQADatasetReader.from_params(Params(params))
         qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
         dataset = reader.read(qa_path)
-        assert_dataset_correct(dataset, n_instances=15)
+        assert_dataset_correct(dataset, n_instances=12)
 
     def test_reader_reads_multiple_files_direct(self):
         # read direct questions only
@@ -35,7 +35,7 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_train'
         dataset = reader.read(qa_path)
         instances = list(dataset)
-        assert len(instances) == 32
+        assert len(instances) == 46
 
     def test_reader_reads_dpd(self):
         params = {
@@ -65,14 +65,13 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
         reader = CSQADatasetReader.from_params(Params(params))
         qa_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_qa.json'
         dataset = reader.read(qa_path)
-        assert_dataset_correct(dataset, n_instances=22)
+        assert_dataset_correct(dataset, n_instances=18)
 
 
 def assert_dataset_correct(dataset, n_instances=19):
     instances = list(dataset)
     assert len(instances) == n_instances
     instance = instances[0]
-    print(instance.fields.keys())
     assert instance.fields.keys() == {
         'qa_id',
         'question_type',
@@ -104,4 +103,4 @@ def assert_dataset_correct(dataset, n_instances=19):
     assert actions == ['@start@ -> Set[Entity]',
                        'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
                        '<Entity:Set[Entity]> -> get',
-                       'Entity -> Q15617994']
+                       'Entity -> Q12122755']

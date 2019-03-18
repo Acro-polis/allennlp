@@ -25,8 +25,7 @@ class TestCSQAContext(AllenNlpTestCase):
         context = CSQAContext.read_from_file(self.kg_test_path,
                                              self.kg_type_test_path,
                                              self.entity_id2string_path,
-                                             self.predicate_id2string_path,
-                                             [], [], [], [])
+                                             self.predicate_id2string_path)
         self.kg_data = context.kg_data
         self.kg_type_data = context.kg_type_data
         self.entity_id2string = context.entity_id2string

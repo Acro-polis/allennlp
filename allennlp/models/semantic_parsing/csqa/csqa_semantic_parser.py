@@ -206,32 +206,17 @@ class CSQASemanticParser(Model):
     @staticmethod
     def _check_denotation(action_sequence: List[str],
                           result_entities: List[str],
-                          world: CSQALanguage) -> List[bool]:
-        is_correct = []
+                          world: CSQALanguage,
+                          question_type: str) -> List[bool]:
+
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        print(denotation, type(denotation))
-        print(result_entities, type(result_entities))
 
-        # TODO: clean this code
-
-        if isinstance(result_entities, list):
-            result_entities = set(result_entities)
-
-        if isinstance(denotation, list):
-            if isinstance(result_entities, set):
-                is_correct.append(set(denotation) == result_entities)
+        if question_type in COUNT_QUESTION_TYPES:
+            if denotation == len(set(result_entities)):
+                return True
             else:
-                is_correct.append(False)
-        elif isinstance(denotation, set):
-            if isinstance(result_entities, set):
-                is_correct.append(denotation == result_entities)
-            else:
-                is_correct.append(False)
-        # TODO: deal with other types of results (counts, verification etc.)
-        else:
-            is_correct.append(False)
-        return is_correct
+                return False
 
     @staticmethod
     def _get_retrieved_entities(action_sequence: List[str],
@@ -250,7 +235,7 @@ class CSQASemanticParser(Model):
         """
         best_action_strings = output_dict["best_action_strings"]
         # Instantiating an empty world for getting logical forms.
-        world = CSQALanguage(CSQAContext({}, {}, [], [], [], [], {}, {}))
+        world = CSQALanguage(CSQAContext({}, {}, [], [], [], "", [], {}, {}))
         logical_forms = []
         for instance_action_sequences in best_action_strings:
             instance_logical_forms = []

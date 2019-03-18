@@ -96,6 +96,7 @@ class CSQAContext:
                  question_tokens: List[Token],
                  question_entities: List[str],
                  question_predicates: List[str],
+                 question_type: str,
                  type_list: List[str],
                  entity_id2string: Dict[str, str],
                  predicate_id2string: Dict[str, str],
@@ -105,6 +106,7 @@ class CSQAContext:
         self.question_tokens = question_tokens
         self.question_entities = question_entities
         self.question_predicates = question_predicates
+        self.question_type = question_type
         self.question_type_list = type_list
         self.entity_id2string = entity_id2string
         self.predicate_id2string = predicate_id2string
@@ -123,10 +125,11 @@ class CSQAContext:
                        kg_type_data_path: str,
                        entity_id2string_path: str,
                        predicate_id2string_path: str,
-                       question_tokens: List[Token],
-                       question_entities: List[str],
-                       question_predicates: List[str],
-                       type_list: List[str],
+                       question_tokens: List[Token] = None,
+                       question_entities: List[str] = None,
+                       question_predicates: List[str] = None,
+                       type_list: List[str] = None,
+                       question_type: str = None,
                        kg_data: Dict[int, Dict[int, int]] = None,
                        kg_type_data: Dict[int, Dict[int, int]] = None,
                        entity_id2string: Dict[str, str] = None,
@@ -138,6 +141,7 @@ class CSQAContext:
         which means the paths are ignored.
         Parameters
         ----------
+        question_type
         kg_path: ``str``, optional
             Path to the knowledge graph file. We use this file to initialize our context
         entity_id2string_path: ``str``, optional
@@ -199,8 +203,18 @@ class CSQAContext:
         if not entity_id2string:
             with open(entity_id2string_path, 'r') as file_pointer:
                 entity_id2string = json.load(file_pointer)
+
         if not predicate_id2string:
             with open(predicate_id2string_path, 'r') as file_pointer:
                 predicate_id2string = json.load(file_pointer)
-        return cls(kg_data, kg_type_data, question_tokens, question_entities, question_predicates, type_list,
-                   entity_id2string, predicate_id2string, use_integer_ids)
+
+        return cls(kg_data=kg_data,
+                   kg_type_data=kg_type_data,
+                   question_tokens=question_tokens,
+                   question_entities=question_entities,
+                   question_predicates=question_predicates,
+                   question_type=question_type,
+                   type_list=type_list,
+                   entity_id2string=entity_id2string,
+                   predicate_id2string=predicate_id2string,
+                   use_integer_ids=use_integer_ids)
