@@ -2,16 +2,22 @@ from typing import Dict, List, Tuple
 from overrides import overrides
 
 import torch
+from collections import OrderedDict
 
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.semparse.contexts import CSQAContext
-from allennlp.state_machines.states import GrammarBasedState, GrammarStatelet, RnnStatelet
+from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
 from allennlp.models.model import Model
 from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
+from allennlp.training.metrics.average_precision import AveragePrecision
+from allennlp.training.metrics.average_recall import AverageRecall
+
+from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
+    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
 
 
 class CSQASemanticParser(Model):
@@ -26,6 +32,7 @@ class CSQASemanticParser(Model):
     Parameters
     ----------
     vocab : ``Vocabulary``
+        Vocabulary used for input.
     sentence_embedder : ``TextFieldEmbedder``
         Embedder for sentences.
     action_embedding_dim : ``int``
@@ -44,24 +51,32 @@ class CSQASemanticParser(Model):
                  action_embedding_dim: int,
                  encoder: Seq2SeqEncoder,
                  dropout: float = 0.0,
-                 rule_namespace: str = 'rule_labels') -> None:
+                 rule_namespace: str = 'rule_labels',
+                 direct_questions_only: bool = True) -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
-
         self._sentence_embedder = sentence_embedder
-        self._denotation_accuracy = Average()
-        self._consistency = Average()
         self._encoder = encoder
+
+        self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
+            RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
+
+        precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
+        recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
+        average_metrics = [(qt + " accuracy", Average()) for qt in OTHER_QUESTION_TYPES + COUNT_QUESTION_TYPES]
+
+        self._metrics = OrderedDict(precision_metrics + recall_metrics + average_metrics)
+
         if dropout > 0:
             self._dropout = torch.nn.Dropout(p=dropout)
         else:
             self._dropout = lambda x: x
-        self._rule_namespace = rule_namespace
 
+        self._rule_namespace = rule_namespace
         self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
                                           embedding_dim=action_embedding_dim)
 
-        # This is what we pass as input in the first step of decoding, when we don't have a
-        # previous action.
+        # This is what we pass as input in the first step of decoding, when we don't have a previous
+        # action.
         self._first_action_embedding = torch.nn.Parameter(torch.FloatTensor(action_embedding_dim))
         torch.nn.init.normal_(self._first_action_embedding)
 
@@ -73,9 +88,9 @@ class CSQASemanticParser(Model):
 
     def _get_initial_rnn_state(self, question: Dict[str, torch.LongTensor]):
         """
-        This function encodes the question and computes attention over each question token and the final state. Then,
-        each instance in the batch, an RnnStatelet is computed using the encodings, an empty memory and a first action
-        embedding.
+        This function encodes the question and computes attention over each question token and the
+        final state. Then, for each instance in the batch, an RnnStatelet is computed using: the
+        encodings, an empty memory and a first action embedding.
         """
         embedded_input = self._sentence_embedder(question)
         # TODO: embed entities
@@ -193,16 +208,25 @@ class CSQASemanticParser(Model):
     @staticmethod
     def _check_denotation(action_sequence: List[str],
                           result_entities: List[str],
-                          world: CSQALanguage) -> List[bool]:
-        is_correct = []
+                          world: CSQALanguage,
+                          question_type: str) -> List[bool]:
+
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        if isinstance(denotation, list):
-            is_correct.append(set(denotation) == set(result_entities))
-        # TODO: deal with other types of results (counts, verification etc.)
-        else:
-            is_correct.append(False)
-        return is_correct
+
+        if question_type in COUNT_QUESTION_TYPES:
+            if denotation == len(set(result_entities)):
+                return True
+            else:
+                return False
+
+    @staticmethod
+    def _get_retrieved_entities(action_sequence: List[str],
+                                world: CSQALanguage) -> List[bool]:
+
+        logical_form = world.action_sequence_to_logical_form(action_sequence)
+        denotation = world.execute(logical_form)
+        return [d.name for d in denotation] if isinstance(denotation, set) else []
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
@@ -213,7 +237,7 @@ class CSQASemanticParser(Model):
         """
         best_action_strings = output_dict["best_action_strings"]
         # Instantiating an empty world for getting logical forms.
-        world = CSQALanguage(CSQAContext([], [], [], {}, {}))
+        world = CSQALanguage(CSQAContext({}, {}, [], [], [], "", [], {}, {}))
         logical_forms = []
         for instance_action_sequences in best_action_strings:
             instance_logical_forms = []
@@ -251,4 +275,3 @@ class CSQASemanticParser(Model):
         output_dict["predicted_actions"] = batch_action_info
         output_dict["logical_form"] = logical_forms
         return output_dict
-
