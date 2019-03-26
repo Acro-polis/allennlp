@@ -6,13 +6,13 @@ from collections import OrderedDict
 
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.semparse.contexts import CSQAContext
-from allennlp.state_machines.states import GrammarBasedState, GrammarStatelet, RnnStatelet
+from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
 from allennlp.models.model import Model
 from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
-from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
+from allennlp.training.metrics import Average
 from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
 
@@ -32,6 +32,7 @@ class CSQASemanticParser(Model):
     Parameters
     ----------
     vocab : ``Vocabulary``
+        Vocabulary used for input.
     sentence_embedder : ``TextFieldEmbedder``
         Embedder for sentences.
     action_embedding_dim : ``int``
@@ -74,7 +75,8 @@ class CSQASemanticParser(Model):
         self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
                                           embedding_dim=action_embedding_dim)
 
-        # This is what we pass as input in the first step of decoding, when we don't have a previous action.
+        # This is what we pass as input in the first step of decoding, when we don't have a previous
+        # action.
         self._first_action_embedding = torch.nn.Parameter(torch.FloatTensor(action_embedding_dim))
         torch.nn.init.normal_(self._first_action_embedding)
 
@@ -86,9 +88,9 @@ class CSQASemanticParser(Model):
 
     def _get_initial_rnn_state(self, question: Dict[str, torch.LongTensor]):
         """
-        This function encodes the question and computes attention over each question token and the final state. Then,
-        each instance in the batch, an RnnStatelet is computed using the encodings, an empty memory and a first action
-        embedding.
+        This function encodes the question and computes attention over each question token and the
+        final state. Then, for each instance in the batch, an RnnStatelet is computed using: the
+        encodings, an empty memory and a first action embedding.
         """
         embedded_input = self._sentence_embedder(question)
         # TODO: embed entities
@@ -273,4 +275,3 @@ class CSQASemanticParser(Model):
         output_dict["predicted_actions"] = batch_action_info
         output_dict["logical_form"] = logical_forms
         return output_dict
-

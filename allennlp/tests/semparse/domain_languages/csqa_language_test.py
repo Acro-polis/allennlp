@@ -1,6 +1,5 @@
 # pylint: disable=no-self-use,invalid-name,too-many-public-methods
 from typing import List
-from pathlib import Path
 import time
 
 import pytest
@@ -17,28 +16,35 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
 class TestCSQALanguage(AllenNlpTestCase):
     @classmethod
     def setUpClass(self):
+        # (un)Comment these line to test the pickle file (with integer ids instead of string ids) or
+        # the full wikidata.
 
-        # (un)comment these line to test the pickle file (with integer ids instead of string ids) or the full wikidata
-        self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
+        # TODO json does not work yet, as us_integer_ids is always true due to sample_par_child_dict.p
+        # self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.json'
         self.kg_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_kg.p'
-        # self.kg_test_path = f'{str(Path.home())}/Desktop/wikidata/wikidata_short_1_2_rev.p'
+
         self.kg_type_test_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_par_child_dict.p'
+        # self.kg_test_path = f'{str(Path.home())}/Desktop/wikidata/wikidata_short_1_2_rev.p'
 
         self.entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
         self.predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
 
-        self.tokenizer = WordTokenizer(SpacyWordSplitter(pos_tags=True))
+        self.question = "which administrative territory is the country of origin of frank and jesse ?"
         self.question_entities = ["Q12122755", "Q274244", "Q1253489", "Q15140125", "Q1253489"]
         self.question_predicates = ["P19"]
-        self.question = "which administrative territory is the country of origin of frank and jesse ?"
+        self.question_types_entities = ["Q15617994"]
+
+        self.tokenizer = WordTokenizer(SpacyWordSplitter(pos_tags=True))
         self.question_tokens = self.tokenizer.tokenize(self.question)
 
         self.context = CSQAContext.read_from_file(kg_path=self.kg_test_path,
-                                                  kg_type_data_path=self.kg_type_test_path,
+                                                  kg_type_path=self.kg_type_test_path,
                                                   entity_id2string_path=self.entity_id2string_path,
                                                   predicate_id2string_path=self.predicate_id2string_path,
+                                                  question_tokens=self.question_tokens,
                                                   question_entities=self.question_entities,
-                                                  question_predicates=self.question_predicates)
+                                                  question_predicates=self.question_predicates,
+                                                  question_type_entities=self.question_types_entities)
 
         self.language = CSQALanguage(self.context)
 
@@ -60,7 +66,7 @@ class TestCSQALanguage(AllenNlpTestCase):
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   question_predicates=question_predicates,
-                                                  question_types=type_list,
+                                                  question_type_entities=type_list,
                                                   kg_data=self.context.kg_data,
                                                   kg_type_data=self.context.kg_type_data,
                                                   entity_id2string=self.context.entity_id2string,

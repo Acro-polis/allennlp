@@ -7,10 +7,7 @@ from allennlp.training.metrics.metric import Metric
 @Metric.register("average_recall")
 class AverageRecall(Metric):
     """
-    This :class:`Metric` breaks with the typical ``Metric`` API and just stores values that were
-    computed in some fashion outside of a ``Metric``.  If you have some external code that computes
-    the metric for you, for instance, you can use this to report the average result using our
-    ``Metric`` API.
+    This :class:`Metric` stores the average recall.
     """
     def __init__(self) -> None:
         self._total_value = 0.0
@@ -19,22 +16,33 @@ class AverageRecall(Metric):
     @overrides
     def __call__(self, relevant: List[str], retrieved: List[str]):
         """
+        Adds instant's recall to the total recall.
+
         Parameters
         ----------
-        value : ``float``
-            The value to average.
+        relevant : ``List[str]``
+            List of relevant answers.
+        retrieved : ``List[str]``
+            List of retrieved answers.
         """
         relevant, retrieved = set(relevant), set(retrieved)
         if len(relevant) != 0:
-            instance_precision = len(relevant.intersection(retrieved)) / len(relevant)
+            instance_recall = len(relevant.intersection(retrieved)) / len(relevant)
         else:
             raise ValueError
-        self._total_value += instance_precision
+        self._total_value += instance_recall
         self._count += 1
 
     @overrides
     def get_metric(self, reset: bool = False):
         """
+        Get the average recall.
+
+        Parameters
+        ----------
+        reset : ``Bool`` (optional, default=False)
+            Whether to reset the average recall after returning its current value.
+
         Returns
         -------
         The average of all values that were passed to ``__call__``.
@@ -46,6 +54,9 @@ class AverageRecall(Metric):
 
     @overrides
     def reset(self):
+        """
+        Resets the average recall to zero.
+        """
         self._total_value = 0.0
         self._count = 0
 

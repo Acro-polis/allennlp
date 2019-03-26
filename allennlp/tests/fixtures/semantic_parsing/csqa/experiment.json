@@ -2,7 +2,7 @@
   "dataset_reader": {
     "type": "csqa",
     "kg_path": "allennlp/tests/fixtures/data/csqa/sample_kg.json",
-    "kg_type_data_path": "allennlp/tests/fixtures/data/csqa/sample_par_child_dict.p",
+    "kg_type_path": "allennlp/tests/fixtures/data/csqa/sample_par_child_dict.p",
     "entity_id2string_path": "allennlp/tests/fixtures/data/csqa/sample_entity_id2string.json",
     "predicate_id2string_path": "allennlp/tests/fixtures/data/csqa/filtered_property_wikidata4.json",
     "read_only_direct": true

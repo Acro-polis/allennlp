@@ -1,11 +1,11 @@
 
-def get_dummy_action_sequences(question_entities, question_types):
+def get_dummy_action_sequences(question_entities, question_type_entities):
     if question_entities:
         return [['@start@ -> Set[Entity]', 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
                  '<Entity:Set[Entity]> -> get', 'Entity -> ' + question_entities[-1]]]
-    elif question_types:
+    elif question_type_entities:
         return [['@start@ -> Set[Entity]', 'Set[Entity] -> [<Entity:Set[Entity]>, Entity]',
-                 '<Entity:Set[Entity]> -> get', 'Entity -> ' + question_types[-1]]]
+                 '<Entity:Set[Entity]> -> get', 'Entity -> ' + question_type_entities[-1]]]
     else:
         raise ValueError()
 

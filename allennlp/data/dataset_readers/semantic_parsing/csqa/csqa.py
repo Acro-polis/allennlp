@@ -1,7 +1,6 @@
 """
-Reader for CSQA (https://amritasaha1812.github.io/CSQA/).
+Reader for CSQA: https://amritasaha1812.github.io/CSQA/.
 """
-
 from typing import Dict, List, Any
 import json
 import logging
@@ -41,51 +40,62 @@ OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)"]
 @DatasetReader.register("csqa")
 class CSQADatasetReader(DatasetReader):
     """
+    This dataset reader is used for the CSQA dataset, which uses various files to contain different
+    forms of information. QA files are parsed for question's and answer's type, text, entities and
+    entity types. A knowledge graph (kg) is used to store entities and their relations. Another kg
+    is used to store the types of the entities. Logical forms, i.e. queries that would result in
+    the correct answers, can be specified for strong supervision training.
+
+    To increase speed, pickles can be saved and loaded using this reader as well.
 
     Parameters
     ----------
     lazy : ``bool`` (optional, default=False)
         Passed to ``DatasetReader``.  If this is ``True``, training will start sooner, but will
         take longer per batch.
-    dpd_output_directory : ``str``, optional
+    dpd_output_file : ``str``, optional
         Directory that contains all the gzipped dpd output files. We assume the filenames match the
-        example IDs (e.g.: ``nt-0.gz``).  This is required for training a model, but not required
+        example IDs (e.g.: ``nt-0.gz``). This is required for training a model, but not required
         for prediction.
     max_dpd_logical_forms : ``int``, optional (default=10)
-        We will use the first ``max_dpd_logical_forms`` logical forms as our target label.  Only
+        We will use the first ``max_dpd_logical_forms`` logical forms as our target label. Only
         applicable if ``dpd_output_directory`` is given.
     sort_dpd_logical_forms : ``bool``, optional (default=True)
-        If ``True``, we will sort the logical forms in the DPD output by length before selecting
-        the first ``max_dpd_logical_forms``.  This makes the data loading quite a bit slower, but
+        If ``True``, logical forms in the DPD output are sorted by length before selecting
+        the first ``max_dpd_logical_forms``. This makes the data loading quite a bit slower, but
         results in better training data.
     max_dpd_tries : ``int``, optional
         Sometimes DPD just made bad choices about logical forms and gives us forms that we can't
         parse (most of the time these are very unlikely logical forms, because, e.g., it
-        hallucinates a date or number from the table that's not in the question).  But we don't
-        want to spend our time trying to parse thousands of bad logical forms.  We will try to
-        parse only the first ``max_dpd_tries`` logical forms before giving up.  This also speeds up
+        hallucinates a date or number from the table that's not in the question). But we don't
+        want to spend our time trying to parse thousands of bad logical forms. We will try to
+        parse only the first ``max_dpd_tries`` logical forms before giving up. This also speeds up
         data loading time, because we don't go through the entire DPD file if it's huge (unless
-        we're sorting the logical forms).  Only applicable if ``dpd_output_directory`` is given.
+        we're sorting the logical forms). Only applicable if ``dpd_output_directory`` is given.
         Default is 20.
     keep_if_no_dpd : ``bool``, optional (default=False)
-        If ``True``, we will keep instances we read that don't have DPD output.  If you want to
-        compute denotation accuracy on the full dataset, you should set this to ``True``.
-        Otherwise, your accuracy numbers will only reflect the subset of the data that has DPD
+        If ``True``, instances that don't have DPD output are kept. If you want to compute
+        denotation accuracy on the full dataset, you should set this to ``True``. Otherwise, your
+        accuracy numbers will only reflect the subset of the data that has DPD
         output.
     tokenizer : ``Tokenizer``, optional
         Tokenizer to use for the questions. Will default to ``WordTokenizer()`` with Spacy's tagger
         enabled, as we use lemma matches as features for entity linking.
     question_token_indexers : ``Dict[str, TokenIndexer]``, optional
         Token indexers for questions. Will default to ``{"tokens": SingleIdTokenIndexer()}``.
-    kg_path: ``str``, optional
-        Path to the knowledge graph file. We use this file to initialize our context
-    entity_id2string_path ``str``, optional
-        Path to the json file which maps entity id's to their string values
-    predicate_id2string_path ``str``, optional
-        Path to the json file which maps predicate id's to their string values
-    read_only_direct ``bool``, optional
-        boolean indicating whether we only read direct questions (without references to questions
-        earlier in the conversation)
+    kg_path : ``str``, optional
+        Path to the knowledge graph file. We use this file to initialize our context.
+    kg_type_path : ``str``, optional
+        Path to the knowledge graph type file. We use this file to initialize our context.
+    entity_id2string_path : ``str``, optional
+        Path to the json file that maps entity id's to their string values.
+    predicate_id2string_path : ``str``, optional
+        Path to the json file that maps predicate id's to their string values.
+    skip_approximate_questions : ``bool``, optional
+        Boolean indicating whether questions containing "approximate" or "around" are skipped.
+    read_only_direct : ``bool``, optional
+        Boolean indicating whether only direct questions are read (without references to questions
+        earlier in the conversation).
     """
     def __init__(self,
                  lazy: bool = False,
@@ -97,7 +107,7 @@ class CSQADatasetReader(DatasetReader):
                  tokenizer: Tokenizer = None,
                  question_token_indexers: Dict[str, TokenIndexer] = None,
                  kg_path: str = None,
-                 kg_type_data_path: str = None,
+                 kg_type_path: str = None,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
                  skip_approximate_questions: bool = True,
@@ -113,7 +123,7 @@ class CSQADatasetReader(DatasetReader):
         self._question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
         self.entity_id2string_path = entity_id2string_path
         self.kg_path = kg_path
-        self.kg_type_data_path = kg_type_data_path
+        self.kg_type_path = kg_type_path
         self.predicate_id2string_path = predicate_id2string_path
         self.load_direct_questions_only = read_only_direct
         self.skip_approximate_questions = skip_approximate_questions
@@ -123,7 +133,7 @@ class CSQADatasetReader(DatasetReader):
     def init_shared_kg_context(self):
         if not self.shared_kg_context:
             self.shared_kg_context = CSQAContext.read_from_file(kg_path=self.kg_path,
-                                                                kg_type_data_path=self.kg_type_data_path,
+                                                                kg_type_path=self.kg_type_path,
                                                                 entity_id2string_path=self.entity_id2string_path,
                                                                 predicate_id2string_path=self.predicate_id2string_path)
 
@@ -137,12 +147,11 @@ class CSQADatasetReader(DatasetReader):
         if answer in ["YES", "NO"]:
             return True if answer is "YES" else False
         elif entities_result:
-            # check if result is a count of entities
+            # Check if result is a count of entities.
             try:
                 return int(answer)
-            # read entities in result
+            # Read entities in result.
             except ValueError:
-                # expected_result = {Entity(ent, ent) for ent in entities_result}
                 return {language.get_entity_from_question_id(ent) for ent in entities_result}
         elif answer.startswith("Did you mean"):
             return "clarification"
@@ -202,14 +211,22 @@ class CSQADatasetReader(DatasetReader):
                 qa_id = file_id + str(turn_id)
                 turn_id += 1
 
-                qa_dict_question = defaultdict(str, qa_dict_question)
-                qa_dict_answer = defaultdict(str, next(data))
+                qa_dict_question = defaultdict(list, qa_dict_question)
+                qa_dict_answer = defaultdict(list, next(data))
                 question = qa_dict_question["utterance"]
                 question_description = qa_dict_question["description"]
-                question_type = qa_dict_question["question-type"]
-                question_type_entities = qa_dict_question["type_list"]
-                answer_description = qa_dict_answer["description"]
+
+                # TODO fix /wo defaultdict
                 question_entities = qa_dict_question["entities_in_utterance"]
+                if qa_dict_question["entities"]:
+                    if qa_dict_question["entities_in_utterance"]:
+                        question_entities.append(qa_dict_question["entities"])
+                    else:
+                        question_entities = qa_dict_question["entities"]
+
+                question_type_entities = qa_dict_question["type_list"]
+                question_type = qa_dict_question["question-type"]
+                answer_description = qa_dict_answer["description"]
 
                 # TODO: do we need extra checks here?
                 if skip_next_turn:
@@ -217,7 +234,8 @@ class CSQADatasetReader(DatasetReader):
                     continue
 
                 if self.load_direct_questions_only:
-                    # If this question requires clarification, we skip the next (as it will contain a reference)
+                    # If this question requires clarification, the next is skipped (as it will
+                    # contain a reference).
                     skip_next_turn = "Clarification" in answer_description
                     if question_is_indirect(question_description, question_type):
                         continue
@@ -260,10 +278,10 @@ class CSQADatasetReader(DatasetReader):
                          question_description: str,
                          question: str,
                          question_entities: List[str],
+                         question_type_entities: List[str],
                          question_predicates: List[str],
                          answer: str,
                          entities_result: List[str],
-                         question_type_entities: List[str],
                          kg_data: List[Dict[str, str]],
                          kg_type_data: List[Dict[str, str]],
                          entity_id2string: Dict[str, str],
@@ -271,43 +289,45 @@ class CSQADatasetReader(DatasetReader):
                          qa_logical_forms: List[str] = None,
                          tokenized_question: List[Token] = None) -> object:
         """
-        Reads text inputs and makes an instance.
+        Reads text inputs and creates an instance per question answer pair.
+
         Parameters
         ----------
-        question_type
-        question_description
-        question_type_entities
-        qa_id: ``str``
-            qa turn id, e.g. 'train/QA_0/QA_1.json/0'
+        qa_id : ``str``
+            Question answer turn id, e.g. 'train/QA_0/QA_1.json/0'.
+        question_type : ``str``
+            Type of the question, used to determine metrics per type of question.
+        question_description : ``str``
+            Description of the question in terms of 'Count', 'Indirect', etc.
         question : ``str``
-            Input question
+            Input question.
         question_entities : ``List[str]``
-            Entities in the question
+            Entities in the question.
+        question_type_entities : ``List[str]``
+            Types of entities in the question.
         question_predicates : ``List[str]``
-            Relations in the question
-        answer : ``List[str]``
-            Answer text (can differ from the actual result, e.g. naming only three of 100 found entities)
+            Relations in the question.
+        answer : ``str``
+            Answer text (can differ from the actual result, e.g.: naming only three of 100 retrieved
+            entities).
         entities_result : ``List[str]``
-            Entities that constitute the result of the query executed to formulate the answer
+            Entities that constitute the result of the query executed to formulate the answer.
         kg_data : ``List[Dict[str, str]]``
-            Knowledge graph
+            Knowledge graph.
         kg_type_data : ``List[Dict[str, str]]``
-            Type graph
-        type_list: ``str``
-            Types occurring in question
+            Knowledge graph containing entity types.
         entity_id2string : ``Dice[str, str]``
-            Mapping from entity ids to there string values
+            Mapping from entity ids to there string values.
         predicate_id2string : ``Dict[str, str]``
-            Mapping from predicate ids to there string values
+            Mapping from predicate ids to there string values.
         qa_logical_forms : List[str], optional
             List of logical forms, produced by dynamic programming on denotations. Not required
             during test.
         tokenized_question : ``List[Token]``, optional
             If you have already tokenized the question, you can pass that in here, so we don't
-            duplicate that work.  You might, for example, do batch processing on the questions in
+            duplicate that work. You might, for example, do batch processing on the questions in
             the whole dataset, then pass the result in here.
         """
-
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
@@ -333,8 +353,8 @@ class CSQADatasetReader(DatasetReader):
 
         # Add empty rule (remove when loop above is implemented).
         action_field = ListField(production_rule_fields)
-        # TODO: add types in test
-        type_list_field = MetadataField(question_type_entities)
+        # TODO add type_list_field?
+        # type_list_field = MetadataField(question_type_entities)
 
         expected_result = self.parse_answer(answer, entities_result, language)
         if expected_result is None:

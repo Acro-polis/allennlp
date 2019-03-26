@@ -1,10 +1,9 @@
 import logging
 from typing import Any, List, Dict
 
-from overrides import overrides
-from collections import OrderedDict
-
 import torch
+from collections import OrderedDict
+from overrides import overrides
 
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.data.vocabulary import Vocabulary
@@ -17,8 +16,6 @@ from allennlp.state_machines import BeamSearch
 from allennlp.state_machines.states import GrammarBasedState
 from allennlp.state_machines.trainers import MaximumMarginalLikelihood
 from allennlp.state_machines.transition_functions import BasicTransitionFunction
-from allennlp.training.metrics import F1Measure, BooleanAccuracy, Average
-
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -27,8 +24,8 @@ logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 @Model.register("csqa_mml_parser")
 class CSQAMmlSemanticParser(CSQASemanticParser):
     """
-    ``CSQAMMlSemanticParser`` is an ``CSQASemanticParser`` that gets around the problem of lack
-    of logical form annotations by maximizing the marginal likelihood of an approximate set of target
+    ``CSQAMMlSemanticParser`` is an ``CSQASemanticParser`` that solves the problem of lack of
+    logical form annotations by maximizing the marginal likelihood of an approximate set of target
     sequences that yield the correct denotation. This parser takes the output of an offline search
     process as the set of target sequences for training, the latter performs search during training.
 
@@ -51,6 +48,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Maximum number of steps for beam search after training.
     dropout : ``float``, optional (default=0.0)
         Probability of dropout to apply on encoder outputs, decoder outputs and predicted actions.
+    direct_questions_only : ``bool``, optional (default=True)
+        Only train on direct question (i.e.: without questions that refer to earlier conversation).
     """
     def __init__(self,
                  vocab: Vocabulary,
@@ -102,7 +101,6 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
-
         batch_size = question['tokens'].size()[0]
 
         initial_rnn_state = self._get_initial_rnn_state(question)
@@ -220,14 +218,13 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         metrics = OrderedDict()
         for key, metric in self._metrics.items():
             tensorboard_key = "_" + key
-            # tensorboard(X?) does not allow spaces and brackets
+            # Tensorboard does not allow spaces and brackets in keys.
             for c in [" ", "(", ")"]:
                 tensorboard_key = tensorboard_key.replace(c, "_")
             if not self.training:
                 metrics[tensorboard_key] = metric.get_metric(reset)
             else:
-                # also write to dict when not tracking these metrics (for train),
-                # to preserve metric ordering when printing
+                # Also write to dict when not tracking these metrics (for train) to preserve
+                # metric ordering when printing.
                 metrics[tensorboard_key] = None
-
         return metrics
