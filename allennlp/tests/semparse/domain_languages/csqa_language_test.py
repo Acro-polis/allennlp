@@ -116,12 +116,12 @@ class TestCSQALanguage(AllenNlpTestCase):
         entity_set = set([ent.name for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q274244"}
 
-    def test_larger(self):
+    def test_more(self):
         question_tokens = self.tokenizer.tokenize("which american president has more than 2 brothers?")
         question_predicates = ["P106"]
         language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
                                                                      self.question_entities, [])
-        logical_form = "(larger (union (get Q274244) (get Q1253489)) P106 2)"
+        logical_form = "(more (union (get Q274244) (get Q1253489)) P106 2)"
         entity_set = set([ent.name for ent in language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 

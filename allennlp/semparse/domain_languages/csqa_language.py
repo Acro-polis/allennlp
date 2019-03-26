@@ -5,7 +5,6 @@ import logging
 
 from typing import Dict, List, NamedTuple, Set, Tuple, Union, Type
 from numbers import Number
-from collections import Counter
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -15,14 +14,12 @@ class Predicate(NamedTuple):
     id: Union[str, int]
 
 
-class Entity(NamedTuple):
-    name: str
-    id: Union[str, int]
+class Entity(int):
+    pass
 
 
-class TypeEntity(NamedTuple):
-    name: str
-    id: Union[str, int]
+class TypeEntity(int):
+    pass
 
 
 class TypePredicate(NamedTuple):
@@ -44,7 +41,7 @@ class CSQALanguage(DomainLanguage):
         # TODO: do we need dates here too?
         # TODO: check name and value passed to add_constant
         super().__init__(start_types={Set[Entity], Number, bool})
-        super().__init__(start_types={Number, Set[Entity]})
+        # super().__init__(start_types={Number, Set[Entity]})
         self.search_mode = search_mode
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
@@ -62,10 +59,10 @@ class CSQALanguage(DomainLanguage):
             self.add_constant(inv_predicate_id, self.get_predicate_from_question_id(inv_predicate_id), type_=Predicate)
 
         # add fake id for is_type_of / is_of_type
-        if csqa_context.question_type in ["Quantitative Reasoning (All)", "Comparative Reasoning (All)"]:
+        # if csqa_context.question_type in ["Quantitative Reasoning (All)", "Comparative Reasoning (All)"]:
             type_predicate_ids = ["P1", "P-1"]
-        else:
-            type_predicate_ids = ["P1"]
+        # else:
+        #     type_predicate_ids = ["P1"]
 
         for type_predicate_id in type_predicate_ids:
             self.add_constant(type_predicate_id,
@@ -75,9 +72,12 @@ class CSQALanguage(DomainLanguage):
         for entity_id in self._question_entities + csqa_context.question_type_entities:
             self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
 
-        for type_id in csqa_context.question_type_entities:
-            self.add_constant(type_id, self.get_entity_from_question_id(type_id, entity_class=TypeEntity),
-                              type_=TypeEntity)
+        # for entity_id in self._question_entities:
+        #     self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
+
+        # for type_id in csqa_context.question_type_entities:
+        #     self.add_constant(type_id, self.get_entity_from_question_id(type_id, entity_class=TypeEntity),
+        #                       type_=TypeEntity)
 
         for number in self._question_numbers:
             self.add_constant(str(number), float(number), type_=Number)
@@ -85,6 +85,7 @@ class CSQALanguage(DomainLanguage):
         # Mapping from terminal strings to productions that produce them.  We use this in the
         # agenda-related methods, and some models that use this language look at this field to know
         # how many terminals to plan for.
+
         self.terminal_productions: Dict[str, str] = {}
         for name, types in self._function_types.items():
             self.terminal_productions[name] = "%s -> %s" % (types[0], name)
@@ -100,18 +101,22 @@ class CSQALanguage(DomainLanguage):
         Returns Entity from question with id entity_id. Removes "Q" prefix.
         """
         if self.use_integer_ids:
-            return entity_class(entity_id, int(entity_id[1:]))
+            return entity_class(int(entity_id[1:]))
+            # return entity_class(entity_id, int(entity_id[1:]))
         else:
-            return entity_class(entity_id, entity_id)
+            raise ValueError()
+            # return entity_class(entity_id, entity_id)
 
     def get_entity_from_kg_id(self, entity_id: Union[str, int], entity_class: Type = Entity):
         """
         Returns Entity from kg with id entity_id. Adds "Q" prefix.
         """
         if self.use_integer_ids:
-            return entity_class("Q" + str(entity_id), entity_id)
+            return entity_class(entity_id)
+            # return entity_class("Q" + str(entity_id), entity_id)
         else:
-            return entity_class(entity_id, entity_id)
+            raise ValueError()
+            # return entity_class(entity_id, entity_id)
 
     def get_predicate_from_question_id(self, predicate_id: str, predicate_class: Type = Predicate):
         """
@@ -161,54 +166,101 @@ class CSQALanguage(DomainLanguage):
 
         return precision, recall
 
+    def hash(self, entities: Set[Entity], predicate_: Predicate, action=None):
+        string_hash = hash(action) % 10**8 if action is not None else 0
+        entities_hash = (sum(entities) + len(entities)) * -10**6
+        predicate_hash = predicate_.id * 10**3
+        return string_hash + entities_hash + predicate_hash
+
+    def hash_with_type(self, entities: Set[Entity], predicate_: Predicate, type_: Entity):
+        entities_hash = (sum(entities) + len(entities)) * -10**6
+        predicate_hash = predicate_.id * 10**3
+        type_hash = type_ * -10**7
+        return entities_hash + predicate_hash + type_hash
+
+    def get_cache(self, cache_key):
+        if self.search_mode:
+            try:
+                return self.result_cache[self.function_cache.index(cache_key)]
+            except ValueError:
+                return None
+
+    def update_cache(self, cache_key, cache_value):
+        if self.search_mode:
+            self.function_cache.append(cache_key)
+            self.result_cache.append(cache_value)
+
+    def get_counts_with_type(self, entities: Set[Entity], predicate_: Predicate, type_: Entity):
+        hash_ = self.hash_with_type(entities, predicate_, type_)
+        counts = self.get_cache(hash_)
+        if counts is None:
+            counts = self.compute_counts_with_type(entities, predicate_, type_)
+            self.update_cache(hash_, counts)
+        return counts
+
+    def compute_counts_with_type(self, entities: Set[Entity], predicate_: Predicate, type_: Entity):
+        type_predicate = self.get_predicate_from_question_id("P1", predicate_class=Predicate)
+        counts = dict()
+        for entity in entities:
+            try:
+                linked_entities = [Entity(ent_id) for ent_id in self.kg_data[entity][predicate_.id]]
+                counts[entity] = len(self.has_relation_with(linked_entities, type_predicate, {type_}))
+            except KeyError:
+                continue
+        return counts
+
+    def get_counts(self, entities: Set[Entity], predicate_: Predicate):
+        counts = self.get_cache(self.hash(entities, predicate_))
+        if counts is None:
+            counts = self.compute_counts(entities, predicate_)
+            self.update_cache(self.hash(entities, predicate_), counts)
+        return counts
+
+    def compute_counts(self, entities: Set[Entity], predicate_):
+        counts = dict()
+        for entity in entities:
+            try:
+                counts[entity] = len(self.kg_data[entity][predicate_.id])
+            except KeyError:
+                continue
+        return counts
+
     @predicate
     def find(self, entities: Set[Entity], predicate_: Predicate) -> Set[Entity]:
         """
         Find function takes a list of entities E and and a predicate p and loops through e in E and
         returns the set of entities with p edge to e.
+
         """
-        result = set()
+
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
 
-        if self.search_mode:
-            try:
-                result = self.result_cache[self.function_cache.index(["find", entities, predicate_])]
-                return result
-            except ValueError:
-                pass
+        result_entities = self.get_cache(self.hash(entities, predicate_, "find"))
 
-        for ent in entities:
-            # if not(predicate_.id == 1 or predicate_.id == -1):
-            try:
-                ent_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
-                if len(ent_ids) > 10000 and self.search_mode and (not self.kg_context.question_type in [
-                    "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]):
-                    # TODO: THIS IS A VERY BAD SOLUTION, FIX
-                    ent_ids = ent_ids[:13]
-
-                for ent_id in ent_ids:
-                    entity = self.get_entity_from_kg_id(ent_id)
-                    result.add(entity)
-
-            except KeyError:
-                continue
-
-        if self.search_mode and len(result) > 1000:
-            self.function_cache.append(["find", entities, predicate_])
-            self.result_cache.append(result)
-
-        return result
+        if result_entities is None:
+            result_entities = []
+            for ent in entities:
+                try:
+                    linked_entities = [Entity(ent_id) for ent_id in kg_data[ent][predicate_.id]]
+                    result_entities += linked_entities
+                except KeyError:
+                    continue
+            result_entities = set(result_entities)
+            self.update_cache(self.hash(entities, predicate_, "find"), result_entities)
+        return result_entities
 
     @predicate
-    def has_relation_with(self, entities: Set[Entity], predicate_: Predicate, object_: Entity) -> Set[Entity]:
+    def has_relation_with(self, entities: Set[Entity], predicate_: Predicate, objects: Set[Entity]) -> Set[Entity]:
         """
         """
         kg_data = self.kg_data if predicate_.id not in [1, -1, "1", "-1"] else self.kg_type_data
         result = set()
         for ent in entities:
             try:
-                object_ids: List[Union[str, int]] = kg_data[ent.id][predicate_.id]
-                if object_.id in object_ids:
+                linked_entities = kg_data[ent][predicate_.id]
+                # adds result when sets have at least one common entity
+                if not objects.isdisjoint(linked_entities):
+                # if object_ in object_ids:
                     result.add(ent)
             except KeyError:
                 continue
@@ -259,117 +311,117 @@ class CSQALanguage(DomainLanguage):
         return entities1 - entities2
 
     @predicate
-    def larger(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
+    def more(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         Subset of entities linking to more than num entities with predicate_.
         """
-        result = set()
-        for entity in entities:
-            try:
-                linked_entities = self.kg_data[entity.id][predicate_.id]
-                if len(linked_entities) > num:
-                    result.add(entity)
-            except KeyError:
-                continue
+        counts = self.get_counts(entities, predicate_)
+        return set(ent for ent, count in counts.items() if count > num)
 
-        return result
+    @predicate
+    def more_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number, type_: Entity)-> Set[Entity]:
+        """
+        """
+
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        return set(ent for ent, count in counts.items() if count > num)
 
     @predicate
     def less(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         Subset of entities linking to less than num entities with predicate_.
         """
-        result = set()
+        counts = self.get_counts(entities, predicate_)
+        return set(ent for ent, count in counts.items() if count < num)
 
-        cache_result: bool = self.search_mode
+    @predicate
+    def less_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number, type_: Entity)-> Set[Entity]:
+        """
+        """
 
-        if cache_result:
-            try:
-                count_cache = self.result_cache[self.function_cache.index(["less", entities, predicate_])]
-                return set(ent for ent, count in count_cache.items() if count < num)
-            except ValueError:
-                count_cache = Counter()
-
-        for entity in entities:
-            try:
-                linked_entities = self.kg_data[entity.id][predicate_.id]
-                if len(linked_entities) < num:
-                    result.add(entity)
-
-                if cache_result:
-                    count_cache[entity] = len(linked_entities)
-            except KeyError:
-                continue
-
-        if cache_result:
-            self.function_cache.append(["less", entities, predicate_])
-            self.result_cache.append(count_cache)
-
-        return result
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        return set(ent for ent, count in counts.items() if count < num)
 
     @predicate
     def equal(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         Subset of entities linking to exactly num entities with predicate_.
         """
-        result = set()
-        for entity in entities:
-            try:
-                linked_entities = self.kg_data[entity.id][predicate_.id]
-                if len(linked_entities) == num:
-                    result.add(entity)
-            except KeyError:
-                continue
 
-        return result
+        counts = self.get_counts(entities, predicate_)
+        return set(ent for ent, count in counts.items() if count == num)
+
+    @predicate
+    def equal_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number, type_: Entity)-> Set[Entity]:
+        """
+        """
+
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        return set(ent for ent, count in counts.items() if count == num)
 
     @predicate
     def most(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         Subset of entities linking to at most num entities with predicate_.
         """
-        result = set()
-        for entity in entities:
-            try:
-                linked_entities = self.kg_data[entity.id][predicate_.id]
-                if len(linked_entities) <= num:
-                    result.add(entity)
-            except KeyError:
-                continue
-        return result
+
+        counts = self.get_counts(entities, predicate_)
+        return set(ent for ent, count in counts.items() if count <= num)
 
     @predicate
     def most_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number, type_: Entity)-> Set[Entity]:
         """
         """
 
-        result = set()
-        type_predicate = self.get_predicate_from_question_id("P1", predicate_class=Predicate)
-
-        for entity in entities:
-            try:
-                linked_entity_ids = self.kg_data[entity.id][predicate_.id]
-                linked_entities = [self.get_entity_from_kg_id(ent_id) for ent_id in linked_entity_ids]
-                linked_entities_with_type = self.has_relation_with(linked_entities, type_predicate, type_)
-
-                if len(linked_entities_with_type) <= num:
-                    # if n_links < num:
-                    result.add(entity)
-            except KeyError:
-                continue
-        return result
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        return set(ent for ent, count in counts.items() if count <= num)
 
     @predicate
     def least(self, entities: Set[Entity], predicate_: Predicate, num: Number)-> Set[Entity]:
         """
         Subset of entities linking to at least num entities with predicate_.
         """
-        result = set()
-        for entity in entities:
-            try:
-                linked_entities = self.kg_data[entity.id][predicate_.id]
-                if len(linked_entities) >= num:
-                    result.add(entity)
-            except KeyError:
-                continue
-        return result
+
+        counts = self.get_counts(entities, predicate_)
+        return set(ent for ent, count in counts.items() if count >= num)
+
+    @predicate
+    def least_with_type(self, entities: Set[Entity], predicate_: Predicate, num: Number,
+                        type_: Entity)-> Set[Entity]:
+
+        """
+        """
+
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        return set(ent for ent, count in counts.items() if count >= num)
+
+    @predicate
+    def max(self, entities: Set[Entity], predicate_: Predicate)-> Set[Entity]:
+        """
+        Subset of entities linking to max num entities with predicate_.
+        """
+
+        counts = self.get_counts(entities, predicate_)
+        max_count = max(counts.values()) if counts else None
+        return set(ent for ent, count in counts.items() if count == max_count)
+
+    @predicate
+    def max_with_type(self, entities: Set[Entity], predicate_: Predicate, type_: Entity)-> Set[Entity]:
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        max_count = max(counts.values()) if counts else None
+        return set(ent for ent, count in counts.items() if count == max_count)
+
+    @predicate
+    def min(self, entities: Set[Entity], predicate_: Predicate)-> Set[Entity]:
+        """
+        Subset of entities linking to min num entities with predicate_.
+        """
+        counts = self.get_counts(entities, predicate_)
+        min_count = min(counts.values()) if counts else None
+        return set(ent for ent, count in counts.items() if count == min_count)
+
+    @predicate
+    def min_with_type(self, entities: Set[Entity], predicate_: Predicate, type_: Entity)-> Set[Entity]:
+        counts = self.get_counts_with_type(entities, predicate_, type_)
+        min_count = min(counts.values()) if counts else None
+        return set(ent for ent, count in counts.items() if count <= min_count)

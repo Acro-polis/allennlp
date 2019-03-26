@@ -333,6 +333,7 @@ class CSQADatasetReader(DatasetReader):
 
         # Add empty rule (remove when loop above is implemented).
         action_field = ListField(production_rule_fields)
+        # TODO: add types in test
         type_list_field = MetadataField(question_type_entities)
 
         expected_result = self.parse_answer(answer, entities_result, language)
