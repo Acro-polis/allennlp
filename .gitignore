@@ -25,7 +25,9 @@ dist/
 allennlp/tools/EVALB/evalb.dSYM/
 doc/_build/
 *.swp
-allennlp/tests/fixtures/data/csqa/sample_train_1300/
+allennlp/tests/fixtures/data/csqa/sample_train_7000/
+allennlp/tests/fixtures/data/csqa/sample_train_7000_first_200_logical_forms.p
+allennlp/tests/fixtures/data/csqa/sample_train_7000_logical_forms_log
 
 
 # python

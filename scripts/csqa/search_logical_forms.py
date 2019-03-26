@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(
 def search(args):
     params = {'lazy': True,
               'kg_path': args.wikidata_directory,
-              'kg_type_data_path': args.wikidata_type_directory,
+              'kg_type_path': args.wikidata_type_directory,
               'entity_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json',
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'}
 
@@ -66,7 +66,7 @@ def search(args):
     with open(csqa_directory + "_logical_forms.p", 'wb') as file:
         pickle.dump(logical_form_result_dict, file)
 
-    with open(csqa_directory + "logical_forms_log", 'w') as file:
+    with open(csqa_directory + "_logical_forms_log", 'w') as file:
         n_found = len(list(logical_form_result_dict.keys()))
         percentage = n_found / args.instance_limit * 100
         file.write("{} qa turns in total, found {} ({:.2f}%)".format(args.instance_limit, n_found, percentage))
@@ -75,7 +75,7 @@ def search(args):
         file.write("\n\n")
         file.write("\n".join([str(k) + " : " + str(v) for k, v in question_type_counter.items()]))
         file.write("\n\n")
-        file.write(str(args))
+        file.write("\n".join([str(k) + " : " + str(v) for k, v in vars(args).items()]))
 
 
 if __name__ == "__main__":

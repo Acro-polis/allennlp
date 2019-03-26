@@ -18,15 +18,6 @@ class Entity(int):
     pass
 
 
-class TypeEntity(int):
-    pass
-
-
-class TypePredicate(NamedTuple):
-    name: str
-    id: Union[str, int]
-
-
 class CSQALanguage(DomainLanguage):
     # pylint: disable=too-many-public-methods,no-self-use
     """
@@ -46,7 +37,7 @@ class CSQALanguage(DomainLanguage):
         self.kg_context = csqa_context
         self.kg_data = csqa_context.kg_data
         self.kg_type_data = csqa_context.kg_type_data
-        self.use_integer_ids = csqa_context.use_integer_ids
+        self.use_integer_ids = True
         question_entities, question_numbers = csqa_context.get_entities_from_question()
         self._question_entities = question_entities
         self._question_numbers = [number for number, _ in question_numbers]
@@ -58,26 +49,13 @@ class CSQALanguage(DomainLanguage):
             self.add_constant(predicate_id, self.get_predicate_from_question_id(predicate_id), type_=Predicate)
             self.add_constant(inv_predicate_id, self.get_predicate_from_question_id(inv_predicate_id), type_=Predicate)
 
-        # add fake id for is_type_of / is_of_type
-        # if csqa_context.question_type in ["Quantitative Reasoning (All)", "Comparative Reasoning (All)"]:
-            type_predicate_ids = ["P1", "P-1"]
-        # else:
-        #     type_predicate_ids = ["P1"]
-
-        for type_predicate_id in type_predicate_ids:
+        for type_predicate_id in ["P1", "P-1"]:
             self.add_constant(type_predicate_id,
                               self.get_predicate_from_question_id(type_predicate_id, predicate_class=Predicate),
                               type_=Predicate)
 
         for entity_id in self._question_entities + csqa_context.question_type_entities:
             self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
-
-        # for entity_id in self._question_entities:
-        #     self.add_constant(entity_id, self.get_entity_from_question_id(entity_id), type_=Entity)
-
-        # for type_id in csqa_context.question_type_entities:
-        #     self.add_constant(type_id, self.get_entity_from_question_id(type_id, entity_class=TypeEntity),
-        #                       type_=TypeEntity)
 
         for number in self._question_numbers:
             self.add_constant(str(number), float(number), type_=Number)
