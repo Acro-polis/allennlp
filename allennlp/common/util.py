@@ -363,6 +363,8 @@ def gpu_memory_mb() -> Dict[int, int]:
         Returns an empty ``dict`` if GPUs are not available.
     """
     # pylint: disable=bare-except
+    if not torch.cuda.is_available():
+        return {}
     try:
         result = subprocess.check_output(['nvidia-smi', '--query-gpu=memory.used',
                                           '--format=csv,nounits,noheader'],
