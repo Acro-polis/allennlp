@@ -10,7 +10,7 @@ from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
 from allennlp.models.model import Model
 from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
-from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
+from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, KgEmbedder, Embedding
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
 from allennlp.training.metrics.average_precision import AveragePrecision
@@ -48,6 +48,7 @@ class CSQASemanticParser(Model):
     def __init__(self,
                  vocab: Vocabulary,
                  sentence_embedder: TextFieldEmbedder,
+                 kg_embedder: KgEmbedder,
                  action_embedding_dim: int,
                  encoder: Seq2SeqEncoder,
                  dropout: float = 0.0,
@@ -55,6 +56,7 @@ class CSQASemanticParser(Model):
                  direct_questions_only: bool = True) -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
         self._sentence_embedder = sentence_embedder
+        self._kg_embedder = kg_embedder
         self._encoder = encoder
 
         self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
@@ -93,7 +95,6 @@ class CSQASemanticParser(Model):
         encodings, an empty memory and a first action embedding.
         """
         embedded_input = self._sentence_embedder(question)
-        # TODO: embed entities
 
         # (batch_size, sentence_length)
         sentence_mask = util.get_text_field_mask(question).float()

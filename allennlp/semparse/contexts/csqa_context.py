@@ -3,6 +3,7 @@ import gc
 
 from typing import Dict, List, Tuple
 import pickle
+import numpy as np
 
 from allennlp.data.tokenizers import Token
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
@@ -128,8 +129,6 @@ class CSQAContext:
 
         Parameters
         ----------
-        question_type_entities
-        question_type
         kg_path: ``str``, optional
             Path to the knowledge graph file used to initialize context.
         kg_type_path: ``str``, optional
@@ -144,7 +143,7 @@ class CSQAContext:
             List of entities present in the question.
         question_predicates: ``List[str]``
             List of predicates present in the question.
-        question_types: ``List[str]``
+        question_type_entities: ``List[str]``
             List of types of the entities in the question.
         kg_data: ``Dict[int, Dict[int, int]]``
             Loaded knowledge graph.
@@ -160,7 +159,6 @@ class CSQAContext:
         CSQAContext.
 
         """
-
         if not kg_data:
             print("Loading wikidata graph")
             kg_path = cached_path(kg_path)

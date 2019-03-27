@@ -11,23 +11,24 @@ from overrides import overrides
 import numpy as np
 import torch
 from torch.nn.functional import embedding
-with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=FutureWarning)
-    import h5py
 
 from allennlp.common import Params, Tqdm
 from allennlp.common.checks import ConfigurationError
 from allennlp.common.file_utils import get_file_extension, cached_path
 from allennlp.data import Vocabulary
-from allennlp.modules.token_embedders.token_embedder import TokenEmbedder
+from allennlp.modules.kg_embedders.kg_embedder import KgEmbedder
 from allennlp.modules.time_distributed import TimeDistributed
 from allennlp.nn import util
+
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=FutureWarning)
+    import h5py
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
 
-@TokenEmbedder.register("embedding")
-class Embedding(TokenEmbedder):
+@KgEmbedder.register("kg_embedding")
+class KgEmbedding(KgEmbedder):
     """
     A more featureful embedding module than the default in Pytorch.  Adds the ability to:
 
@@ -89,7 +90,7 @@ class Embedding(TokenEmbedder):
                  scale_grad_by_freq: bool = False,
                  sparse: bool = False,
                  vocab_namespace: str = None) -> None:
-        super(Embedding, self).__init__()
+        super(KgEmbedding, self).__init__()
         self.num_embeddings = num_embeddings
         self.padding_index = padding_index
         self.max_norm = max_norm
@@ -127,15 +128,33 @@ class Embedding(TokenEmbedder):
         # but embedding expects (batch_size, sequence_length), so pass inputs to
         # util.combine_initial_dims (which is a no-op if there are no extra dimensions).
         # Remember the original size.
-        print("inputs: ", inputs)
+        print(inputs)
+        inputs = [[int(element[1:]) for element in instance] for instance in inputs]
+        print(inputs)
+        inputs = torch.tensor(inputs)
+        print(inputs)
+        entity_embedding_path = f'/media/ruben/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/entity2vec.bin'
+        if entity_embedding_path:
+            print("\n\n@@@@@@@@@@@", entity_embedding_path)
+            vec = np.memmap(entity_embedding_path, dtype='float32', mode='r', shape=(20982733, 50))
+            print("###########", vec.shape, "\n\n")
+            print(vec[0])
+            # arr = torch.IntTensor(torch.IntStorage.from_file('file.bin', size=100))
+            # torch.from_numpy(vec)
+
         original_size = inputs.size()
         inputs = util.combine_initial_dims(inputs)
 
-        embedded = embedding(inputs, self.weight,
+        embedded = embedding(inputs, vec,
                              max_norm=self.max_norm,
                              norm_type=self.norm_type,
                              scale_grad_by_freq=self.scale_grad_by_freq,
                              sparse=self.sparse)
+        # embedded = embedding(inputs, self.weight,
+        #                      max_norm=self.max_norm,
+        #                      norm_type=self.norm_type,
+        #                      scale_grad_by_freq=self.scale_grad_by_freq,
+        #                      sparse=self.sparse)
 
         # Now (if necessary) add back in the extra dimensions.
         embedded = util.uncombine_initial_dims(embedded, original_size)
@@ -199,7 +218,7 @@ class Embedding(TokenEmbedder):
 
     # Custom logic requires custom from_params.
     @classmethod
-    def from_params(cls, vocab: Vocabulary, params: Params) -> 'Embedding':  # type: ignore
+    def from_params(cls, vocab: Vocabulary, params: Params) -> 'Embedding':
         """
         We need the vocabulary here to know how many items we need to embed, and we look for a
         ``vocab_namespace`` key in the parameter dictionary to know which vocabulary to use.  If

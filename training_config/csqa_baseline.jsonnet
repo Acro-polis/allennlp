@@ -30,7 +30,16 @@
 //  "validation_data_path": "/home/ubuntu/Desktop/CSQA_v9/test.tar.gz",
 //  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/valid.tar.gz",
 
+
+
+//'entity_embedding_path': f'/media/ruben/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/entity2vec.bin'
+
   "model": {
+    "kg_embedder": {
+      "type": "kg_embedding",
+      "embedding_dim": 50,
+      "trainable": false
+    },
     "type": "csqa_mml_parser",
     "sentence_embedder": {
       "token_embedders": {
@@ -39,7 +48,7 @@
           "embedding_dim": 25,
           "trainable": true
         }
-      }
+      },
     },
     "direct_questions_only": true,
     "action_embedding_dim": 50,
@@ -63,7 +72,7 @@
     "batch_size" : 6
   },
   "trainer": {
-    "num_epochs": 100,
+    "num_epochs": 3,
     "cuda_device": -1,
     "optimizer": {
       "type": "adam",

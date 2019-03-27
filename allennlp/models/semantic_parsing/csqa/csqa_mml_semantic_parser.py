@@ -9,7 +9,7 @@ from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.models.model import Model
 from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser
-from allennlp.modules import Attention, TextFieldEmbedder, Seq2SeqEncoder
+from allennlp.modules import Attention, TextFieldEmbedder, KgEmbedder, Seq2SeqEncoder
 from allennlp.nn import Activation
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 from allennlp.state_machines import BeamSearch
@@ -54,6 +54,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
     def __init__(self,
                  vocab: Vocabulary,
                  sentence_embedder: TextFieldEmbedder,
+                 kg_embedder: KgEmbedder,
                  action_embedding_dim: int,
                  encoder: Seq2SeqEncoder,
                  attention: Attention,
@@ -63,6 +64,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                  direct_questions_only=True) -> None:
         super(CSQAMmlSemanticParser, self).__init__(vocab=vocab,
                                                     sentence_embedder=sentence_embedder,
+                                                    kg_embedder=kg_embedder,
                                                     action_embedding_dim=action_embedding_dim,
                                                     encoder=encoder,
                                                     dropout=dropout,
@@ -85,8 +87,10 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
     def forward(self,  # type: ignore
                 qa_id,
                 question: Dict[str, torch.LongTensor],
-                question_type,
+                question_type,  # TODO add types to arguments
                 question_description,
+                question_entities,
+                question_type_entities,
                 question_predicates,
                 expected_result,
                 world: List[CSQALanguage],
@@ -101,7 +105,22 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
+
+        for i in range(1000):
+            print(i)
+
+
+        print(question['tokens'].size())
         batch_size = question['tokens'].size()[0]
+
+        # TODO: embed entities
+        # print(question)
+        # if True:
+        #     embedded_entities = self._kg_embedder(question_entities)
+        #     embedded_type_entities = self._kg_embedder(question_type_entities)
+        #     embedded_predicates = self._kg_embedder(question_predicates)
+        #     print(question_entities, question_predicates, question_type_entities)
+        #     print(embedded_entities, embedded_type_entities, embedded_predicates)
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
@@ -137,7 +156,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                                    (target_action_sequences, target_mask))
 
         if not self.training:
-            print(question_type)
+            # print(question_type)
             initial_state.debug_info = [[] for _ in range(batch_size)]
             best_final_states = self._decoder_beam_search.search(self._max_decoding_steps,
                                                                  initial_state,

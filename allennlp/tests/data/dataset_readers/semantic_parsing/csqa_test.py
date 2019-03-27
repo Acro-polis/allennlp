@@ -69,7 +69,6 @@ class CSQADatasetReaderTest(AllenNlpTestCase):
 
 def assert_dataset_correct(dataset, n_instances=19):
     instances = list(dataset)
-    print(len(instances))
     assert len(instances) == n_instances
     instance = instances[0]
     assert instance.fields.keys() == {

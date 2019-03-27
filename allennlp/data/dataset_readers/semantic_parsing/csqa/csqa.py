@@ -110,6 +110,7 @@ class CSQADatasetReader(DatasetReader):
                  kg_type_path: str = None,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
+                 entity_embedding_path: str = None,
                  skip_approximate_questions: bool = True,
                  read_only_direct: bool = True
                  ) -> None:
@@ -121,10 +122,11 @@ class CSQADatasetReader(DatasetReader):
         self._keep_if_no_dpd = keep_if_no_dpd
         self._tokenizer = tokenizer or WordTokenizer(SpacyWordSplitter(pos_tags=True))
         self._question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
-        self.entity_id2string_path = entity_id2string_path
         self.kg_path = kg_path
         self.kg_type_path = kg_type_path
+        self.entity_id2string_path = entity_id2string_path
         self.predicate_id2string_path = predicate_id2string_path
+        self.entity_embedding_path = entity_embedding_path
         self.load_direct_questions_only = read_only_direct
         self.skip_approximate_questions = skip_approximate_questions
         self.shared_kg_context = None
@@ -256,14 +258,14 @@ class CSQADatasetReader(DatasetReader):
                     qa_logical_forms = get_dummy_action_sequences(question_entities, question_type_entities)
 
                 instance = self.text_to_instance(qa_id=qa_id,
+                                                 question=question,
                                                  question_type=question_type,
                                                  question_description=question_description,
-                                                 question=question,
                                                  question_entities=question_entities,
+                                                 question_type_entities=question_type_entities,
                                                  question_predicates=qa_dict_question["relations"],
                                                  answer=qa_dict_answer["utterance"],
                                                  entities_result=qa_dict_answer["all_entities"],
-                                                 question_type_entities=question_type_entities,
                                                  kg_data=kg_data,
                                                  kg_type_data=kg_type_data,
                                                  entity_id2string=entity_id2string,
@@ -274,9 +276,9 @@ class CSQADatasetReader(DatasetReader):
 
     def text_to_instance(self,
                          qa_id: str,
+                         question: str,
                          question_type: str,
                          question_description: str,
-                         question: str,
                          question_entities: List[str],
                          question_type_entities: List[str],
                          question_predicates: List[str],
@@ -365,15 +367,17 @@ class CSQADatasetReader(DatasetReader):
                                            entities_result] if entities_result else [LabelField("none")])
 
         fields = {'qa_id': MetadataField(qa_id),
+                  'question': question_field,
                   'question_type': MetadataField(question_type),
                   'question_description': MetadataField(question_description),
-                  'question': question_field,
+                  'question_entities': MetadataField(question_entities),
+                  'question_type_entities': MetadataField(question_type_entities),
+                  'question_predicates': MetadataField(question_predicates),
                   'expected_result': expected_result_field,
                   'world': MetadataField(language),
                   'actions': action_field,
                   'metadata': MetadataField(metadata),
-                  "result_entities": result_entities_field,
-                  'question_predicates': MetadataField(question_predicates)}
+                  'result_entities': result_entities_field}
 
         def create_action_sequences_field(logical_forms, action_map_):
             return ListField([ListField([IndexField(action_map_[a], action_field) for a in l]) for l in logical_forms])
