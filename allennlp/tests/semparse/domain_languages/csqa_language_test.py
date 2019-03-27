@@ -81,12 +81,12 @@ class TestCSQALanguage(AllenNlpTestCase):
 
     def test_execute_works_with_get(self):
         logical_form = "(get Q12122755)"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q12122755"}
 
     def test_execute_works_with_find(self):
         logical_form = "(find (union (get Q274244) (get Q1253489)) P19)"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q38022", "Q262"}
 
     def test_execute_works_with_count(self):
@@ -105,99 +105,120 @@ class TestCSQALanguage(AllenNlpTestCase):
 
     def test_union(self):
         logical_form = "(union (union (get Q274244) (get Q1253489)) (union (get Q12122755) (get Q15140125)))"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q12122755", "Q274244", "Q1253489", "Q15140125"}
 
         logical_form = "(union (get Q1253489) (intersection (get Q12122755) (get Q15140125)))"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 
     def test_intersection(self):
         logical_form = "(intersection (union (get Q274244) (get Q12122755)) (union (get Q12122755) (get Q15140125)))"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q12122755"}
 
     def test_diff(self):
         logical_form = "(diff (union (get Q274244) (get Q12122755)) (union (get Q12122755) (get Q15140125)))"
-        entity_set = set([ent.name for ent in self.language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in self.language.execute(logical_form)])
         assert entity_set == {"Q274244"}
 
-    def test_larger(self):
+    def test_more(self):
         question_tokens = self.tokenizer.tokenize("which american president has more than 2 brothers?")
         question_predicates = ["P106"]
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
-        logical_form = "(larger (union (get Q274244) (get Q1253489)) P106 2)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
+        logical_form = "(more (union (get Q274244) (get Q1253489)) P106 2)"
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 
     def test_smaller(self):
         question_tokens = self.tokenizer.tokenize("which american president has less than 2 brothers?")
         question_predicates = ["P106"]
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(less (union (get Q274244) (get Q1253489)) P106 2)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q274244"}
 
     def test_equal(self):
         question_tokens = self.tokenizer.tokenize("which american president has exactly 4 brothers?")
         question_predicates = ["P106"]
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(equal (union (get Q274244) (get Q1253489)) P106 4)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 
     def test_most(self):
         question_tokens = self.tokenizer.tokenize("which american president has at most 1 brothers?")
         question_predicates = ["P106"]
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(most (union (get Q274244) (get Q1253489)) P106 1)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q274244"}
 
         question_tokens = self.tokenizer.tokenize("which american president has at most 3 brothers?")
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(most (union (get Q274244) (get Q1253489)) P106 3)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q274244"}
 
         question_tokens = self.tokenizer.tokenize("which american president has at most 4 brothers?")
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(most (union (get Q274244) (get Q1253489)) P106 4)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q274244", "Q1253489"}
 
     def test_least(self):
         question_tokens = self.tokenizer.tokenize("which american president has at least 1 brother?")
         question_predicates = ["P106"]
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(least (union (get Q274244) (get Q1253489)) P106 1)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q274244", "Q1253489"}
 
         question_tokens = self.tokenizer.tokenize("which american president has at least 2 brothers?")
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(least (union (get Q274244) (get Q1253489)) P106 2)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 
         question_tokens = self.tokenizer.tokenize("which american president has at least 4 brothers?")
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(least (union (get Q274244) (get Q1253489)) P106 4)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == {"Q1253489"}
 
         question_tokens = self.tokenizer.tokenize("which american president has at least 5 brothers?")
-        language = self._get_world_with_question_tokens_and_entities(question_tokens, question_predicates,
-                                                                     self.question_entities, [])
+        language = self._get_world_with_question_tokens_and_entities(question_tokens=question_tokens,
+                                                                     question_entities=self.question_entities,
+                                                                     question_predicates=question_predicates,
+                                                                     type_list=[])
         logical_form = "(least (union (get Q274244) (get Q1253489)) P106 5)"
-        entity_set = set([ent.name for ent in language.execute(logical_form)])
+        entity_set = set(["Q" + str(ent) for ent in language.execute(logical_form)])
         assert entity_set == set()
