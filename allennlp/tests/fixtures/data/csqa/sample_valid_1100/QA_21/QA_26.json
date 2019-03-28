@@ -1,0 +1,266 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q19509544"
+  ], 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What was the sport that Federico Valverde was a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q19509544,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q19509544"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the sex of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q2736,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q19509544"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation is the profession of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "utterance": "association football player", 
+  "active_set": [
+   "(Q6581097,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P800"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who has that occupation as their notable work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23047441"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23047441"
+  ], 
+  "utterance": "Hugh Morgan-Owen", 
+  "active_set": [
+   "(c(Q502895),P800,Q937857)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P7"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many people are that person a sibling of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q20888934"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q23047441,P7,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q24175397"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q386724"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which works did more number of people do the dubbing for than Capit\u00e1n Am\u00e9rica: El primer vengador ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q26987217", 
+   "Q26331781", 
+   "Q26701981", 
+   "Q23752771", 
+   "Q27627540", 
+   "Q26712000", 
+   "Q26390366", 
+   "Q26715049", 
+   "Q26299860", 
+   "Q25858085", 
+   "Q26457246", 
+   "Q26301623", 
+   "Q13516675", 
+   "Q26829863", 
+   "Q23894983"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13516675", 
+   "Q26331781", 
+   "Q26712000"
+  ], 
+  "utterance": "Sakura Trick, H\u00e9rcules y el examen de conducir, H\u00e9rcules y los Tecno-Griegos", 
+  "active_set": [
+   "(c(Q386724),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q13516675"
+  ], 
+  "relations": [
+   "P1441"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15619164"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many abstract beings appear in Sakura Trick ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q15990697", 
+   "Q15731593", 
+   "Q16003600", 
+   "Q15648502", 
+   "Q15648510", 
+   "Q15712269"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "6", 
+  "active_set": [
+   "(c(Q15619164),P1441,Q13516675)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q17116366"
+  ], 
+  "relations": [
+   "P1441"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15619164"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And how about Shadowdale?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q7888337"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q15619164),P1441,Q17116366)"
+  ]
+ }
+]

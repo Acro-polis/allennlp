@@ -1,0 +1,568 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q298016"
+  ], 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q163740"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nonprofit organization is Fred Thompson an alumni of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q41506"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q41506"
+  ], 
+  "utterance": "Stanford University", 
+  "active_set": [
+   "(Q298016,P69,c(Q163740))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q298016"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P26"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person is married to that one ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6182079"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6182079"
+  ], 
+  "utterance": "Jeri Kehn Thompson", 
+  "active_set": [
+   "(c(Q502895),P26,Q41506)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q6182079"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organization is that person a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29468"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29468"
+  ], 
+  "utterance": "Republican Party", 
+  "active_set": [
+   "(Q6182079,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q29468", 
+   "Q15711278", 
+   "Q30"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Is that political organization present in Gemarkung Vinxel and United States of America ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q29468,P17,Q15711278)", 
+   "(Q29468,P17,Q30)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q298016", 
+   "Q30", 
+   "Q505571"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Fred Thompson a citizen of United States of America and Thaining ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q298016,P27,Q30)", 
+   "(Q298016,P27,Q505571)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q6182079", 
+   "Q671231"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does Jeri Kehn Thompson belong to Glasewitz ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q6182079,P27,Q671231)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q41506", 
+   "Q2891993", 
+   "Q382109"
+  ], 
+  "relations": [
+   "P112"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Was Stanford University started by Jane Stanford and Leland Stanford ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q41506,P112,Q2891993)", 
+   "(Q41506,P112,Q382109)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q298016", 
+   "Q5179620", 
+   "Q503857"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Fred Thompson a native of Cowcaddens and Apensen ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q298016,P27,Q5179620)", 
+   "(Q298016,P27,Q503857)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q502895", 
+   "Q234460", 
+   "Q7725634"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P941"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many people inspired around 1 texts and literary works ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1508997", 
+   "Q273079"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q234460)|c(Q7725634),P941,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29468"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P710"
+  ], 
+  "type_list": [
+   "Q40231"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What event did Republican Party particiate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17092711"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q17092711"
+  ], 
+  "utterance": "Republican Party presidential primaries, 2016", 
+  "active_set": [
+   "(c(Q40231),P710,Q29468)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q29468"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1142"
+  ], 
+  "type_list": [
+   "Q1047113"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which special field is the ideology of that political organization ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7169"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7169"
+  ], 
+  "utterance": "conservatism", 
+  "active_set": [
+   "(Q17092711,P1142,c(Q1047113))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q105650"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q1047113", 
+   "Q1047113"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many special fields are approximately the same number of special fields a part of as urology ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q614304", 
+   "Q539690", 
+   "Q2964004", 
+   "Q794605", 
+   "Q128406", 
+   "Q5891", 
+   "Q7208", 
+   "Q60195", 
+   "Q745328", 
+   "Q170978", 
+   "Q193463", 
+   "Q186083", 
+   "Q1071", 
+   "Q131505", 
+   "Q1483649", 
+   "Q4117183", 
+   "Q394", 
+   "Q211500", 
+   "Q960543", 
+   "Q81009", 
+   "Q105650", 
+   "Q327092", 
+   "Q7754", 
+   "Q10384", 
+   "Q162555", 
+   "Q1061219", 
+   "Q631286", 
+   "Q77604", 
+   "Q837863", 
+   "Q77590", 
+   "Q7922", 
+   "Q2116549", 
+   "Q37732", 
+   "Q1335366", 
+   "Q454812", 
+   "Q11351", 
+   "Q2901245", 
+   "Q775325", 
+   "Q199655", 
+   "Q382995", 
+   "Q428691", 
+   "Q34178", 
+   "Q10379", 
+   "Q461262", 
+   "Q4917288", 
+   "Q2861470", 
+   "Q161437", 
+   "Q80006", 
+   "Q1066186", 
+   "Q201486", 
+   "Q80083", 
+   "Q145903", 
+   "Q131089", 
+   "Q207434", 
+   "Q3853781", 
+   "Q9053037", 
+   "Q1331392", 
+   "Q33521", 
+   "Q441", 
+   "Q1221899", 
+   "Q5284418", 
+   "Q2043282", 
+   "Q460162", 
+   "Q180165", 
+   "Q35395", 
+   "Q126552", 
+   "Q13420675", 
+   "Q760348", 
+   "Q852732", 
+   "Q628764", 
+   "Q1138244", 
+   "Q12128", 
+   "Q1660187", 
+   "Q207011", 
+   "Q2728012", 
+   "Q160039", 
+   "Q1601482", 
+   "Q11397", 
+   "Q23498", 
+   "Q193544", 
+   "Q164204", 
+   "Q489119", 
+   "Q170201", 
+   "Q504033", 
+   "Q141495", 
+   "Q1049976", 
+   "Q12016129", 
+   "Q52106", 
+   "Q200253"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "89", 
+  "active_set": [
+   "(c(Q1047113),P361,c(Q1047113))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q41506"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which human settlement is the headquarter location of Stanford University ?"
+ }, 
+ {
+  "all_entities": [
+   "Q173813"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q173813"
+  ], 
+  "utterance": "Stanford", 
+  "active_set": [
+   "(Q41506,P159,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q173813"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people have that human settlement as place of death ?"
+ }, 
+ {
+  "all_entities": [
+   "Q92739", 
+   "Q742974", 
+   "Q3436383", 
+   "Q91675", 
+   "Q380484", 
+   "Q129228", 
+   "Q185975", 
+   "Q163415", 
+   "Q947456", 
+   "Q3505984", 
+   "Q2133926", 
+   "Q1507260", 
+   "Q1413927", 
+   "Q1117481", 
+   "Q3378797", 
+   "Q2946731", 
+   "Q1292344", 
+   "Q7367649", 
+   "Q6369401", 
+   "Q337040", 
+   "Q573171", 
+   "Q474333", 
+   "Q1794130", 
+   "Q1334252", 
+   "Q20679075", 
+   "Q970931", 
+   "Q3436517", 
+   "Q6830865", 
+   "Q1676999", 
+   "Q1600185", 
+   "Q309997", 
+   "Q10774201", 
+   "Q951253", 
+   "Q92641", 
+   "Q1495132", 
+   "Q216809", 
+   "Q1738478", 
+   "Q290343", 
+   "Q914495", 
+   "Q19874593", 
+   "Q215964", 
+   "Q3441496", 
+   "Q1034131", 
+   "Q18155306", 
+   "Q2372953", 
+   "Q6525374", 
+   "Q6733", 
+   "Q214253", 
+   "Q1384851", 
+   "Q147338", 
+   "Q20738054", 
+   "Q710266", 
+   "Q295678", 
+   "Q130113", 
+   "Q94031", 
+   "Q6271419"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q129228", 
+   "Q295678", 
+   "Q163415"
+  ], 
+  "utterance": "Ren\u00e9 Girard, Arthur Kornberg, William Shockley", 
+  "active_set": [
+   "(c(Q502895),P20,Q173813)"
+  ]
+ }
+]

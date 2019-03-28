@@ -1,0 +1,546 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q11731249"
+  ], 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q874405"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which social group had J\u00f3zef Razowski as its member ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2092629"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2092629"
+  ], 
+  "utterance": "Polish Academy of Learning", 
+  "active_set": [
+   "(Q11731249,P463,c(Q874405))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q11731249"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which human settlement was that person born at ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1221928"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1221928"
+  ], 
+  "utterance": "Mil\u00f3wka", 
+  "active_set": [
+   "(Q2092629,P19,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q11731249"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory does J\u00f3zef Razowski belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q36"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q36"
+  ], 
+  "utterance": "Poland", 
+  "active_set": [
+   "(Q11731249,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q7803192"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Tim Bogar?"
+ }, 
+ {
+  "all_entities": [
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "utterance": "United States of America", 
+  "active_set": [
+   "(Q7803192,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q7803192"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q12973014"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sports teams are that person a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q692417", 
+   "Q1779406", 
+   "Q848117"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q692417", 
+   "Q1779406", 
+   "Q848117"
+  ], 
+  "utterance": "New York Mets, Norfolk Tides, Houston Astros", 
+  "active_set": [
+   "(Q30,P54,c(Q12973014))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q5606517"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Does Gregg Coombes play for the team named those ones ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q5606517,P54,Q692417)", 
+   "(Q5606517,P54,Q1779406)", 
+   "(Q5606517,P54,Q848117)"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q15180", 
+   "Q30"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people are civilians of United States of America and Soviet Union ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4392441", 
+   "Q4133497", 
+   "Q4057078", 
+   "Q242809", 
+   "Q507996", 
+   "Q2577851", 
+   "Q7793886", 
+   "Q2066523", 
+   "Q233463", 
+   "Q4139776", 
+   "Q2477108", 
+   "Q3990239", 
+   "Q622814", 
+   "Q1375447", 
+   "Q4249509", 
+   "Q17617290", 
+   "Q315414", 
+   "Q4230665", 
+   "Q27436687", 
+   "Q893728", 
+   "Q3154165", 
+   "Q4087048", 
+   "Q2633060", 
+   "Q4202753", 
+   "Q1990033", 
+   "Q599859", 
+   "Q730405", 
+   "Q969499", 
+   "Q366695", 
+   "Q1374180", 
+   "Q4212875", 
+   "Q3866112", 
+   "Q1754439", 
+   "Q141114", 
+   "Q381397", 
+   "Q1964487", 
+   "Q132524", 
+   "Q214702", 
+   "Q4211588", 
+   "Q2064571", 
+   "Q7361922", 
+   "Q4074697", 
+   "Q510906", 
+   "Q1458824", 
+   "Q7920805", 
+   "Q1675618", 
+   "Q3920829", 
+   "Q13553200", 
+   "Q49492", 
+   "Q2450167", 
+   "Q13377792", 
+   "Q347111", 
+   "Q893733", 
+   "Q14536294", 
+   "Q2421799", 
+   "Q4150301", 
+   "Q8522615", 
+   "Q4152580", 
+   "Q363740", 
+   "Q11300069", 
+   "Q3740314", 
+   "Q4078370", 
+   "Q4329549", 
+   "Q293156", 
+   "Q1174945", 
+   "Q156201", 
+   "Q12833", 
+   "Q4481004", 
+   "Q4391121", 
+   "Q12069286", 
+   "Q515606", 
+   "Q1332241", 
+   "Q4511981", 
+   "Q16104672", 
+   "Q1964059", 
+   "Q188128", 
+   "Q3798119", 
+   "Q369662", 
+   "Q16687873", 
+   "Q402812", 
+   "Q17908487", 
+   "Q440883", 
+   "Q2642482", 
+   "Q11208027", 
+   "Q267796", 
+   "Q170576", 
+   "Q232308", 
+   "Q19866719", 
+   "Q1391598", 
+   "Q7192884", 
+   "Q508270", 
+   "Q4177013", 
+   "Q3603087", 
+   "Q4484071", 
+   "Q4316095", 
+   "Q4256613", 
+   "Q4403501", 
+   "Q1380534", 
+   "Q5533367", 
+   "Q1174816", 
+   "Q4423423", 
+   "Q140591", 
+   "Q1396901", 
+   "Q4255696", 
+   "Q2038350", 
+   "Q195390", 
+   "Q4402294", 
+   "Q3108812", 
+   "Q92764", 
+   "Q53683", 
+   "Q334054", 
+   "Q2833146", 
+   "Q59478", 
+   "Q4526838", 
+   "Q20487010", 
+   "Q4177382", 
+   "Q1819392", 
+   "Q55208", 
+   "Q278759", 
+   "Q610532", 
+   "Q4252802", 
+   "Q471740", 
+   "Q2015215", 
+   "Q717256", 
+   "Q192506", 
+   "Q4280271", 
+   "Q1149705", 
+   "Q709886", 
+   "Q893658", 
+   "Q295420", 
+   "Q20859132", 
+   "Q942541", 
+   "Q4302422", 
+   "Q4726726", 
+   "Q4224613", 
+   "Q3859024", 
+   "Q435124", 
+   "Q2025924", 
+   "Q2387881", 
+   "Q2074839", 
+   "Q672559", 
+   "Q924883", 
+   "Q487768", 
+   "Q4256360", 
+   "Q810044", 
+   "Q2643151", 
+   "Q4077623", 
+   "Q2364423", 
+   "Q12089389", 
+   "Q4448724", 
+   "Q614454", 
+   "Q4085205", 
+   "Q1356831", 
+   "Q4290396", 
+   "Q327864", 
+   "Q4347107", 
+   "Q4390046", 
+   "Q1996364", 
+   "Q4443800", 
+   "Q4142761", 
+   "Q3815692", 
+   "Q487793", 
+   "Q504070", 
+   "Q1651028", 
+   "Q4446726", 
+   "Q4334481", 
+   "Q4062196", 
+   "Q482075", 
+   "Q2019237", 
+   "Q1566435", 
+   "Q4336617", 
+   "Q4282027", 
+   "Q131240", 
+   "Q4062807", 
+   "Q4314660", 
+   "Q8061735", 
+   "Q3098629", 
+   "Q4506145", 
+   "Q2967204", 
+   "Q4084027", 
+   "Q4522005", 
+   "Q265770", 
+   "Q525884", 
+   "Q1950207", 
+   "Q4513308", 
+   "Q4528478", 
+   "Q1969570", 
+   "Q37628", 
+   "Q2073560", 
+   "Q1805398", 
+   "Q4154537", 
+   "Q228584", 
+   "Q152672", 
+   "Q92600", 
+   "Q1963897", 
+   "Q487028", 
+   "Q4225977", 
+   "Q4135447", 
+   "Q6583959", 
+   "Q4166813", 
+   "Q2076172", 
+   "Q4130840", 
+   "Q4132883", 
+   "Q1657690", 
+   "Q1458543", 
+   "Q7940604", 
+   "Q1334420", 
+   "Q1074114", 
+   "Q15064823", 
+   "Q18810161", 
+   "Q977228", 
+   "Q4719317", 
+   "Q502771", 
+   "Q1385427", 
+   "Q1507622", 
+   "Q3952827", 
+   "Q4409470", 
+   "Q15079409", 
+   "Q246731", 
+   "Q16670789", 
+   "Q24006829", 
+   "Q24351146", 
+   "Q4461375", 
+   "Q514820", 
+   "Q1675623", 
+   "Q372097", 
+   "Q4237078", 
+   "Q15065267", 
+   "Q328995", 
+   "Q1350086", 
+   "Q213581", 
+   "Q4393678", 
+   "Q1260208", 
+   "Q1400917", 
+   "Q4084935", 
+   "Q525910", 
+   "Q4134889", 
+   "Q3609559", 
+   "Q4225592", 
+   "Q4449893", 
+   "Q4521951", 
+   "Q1819388", 
+   "Q3510684", 
+   "Q4007292", 
+   "Q478552", 
+   "Q460016", 
+   "Q593118", 
+   "Q966359", 
+   "Q40418", 
+   "Q12106285", 
+   "Q13561073", 
+   "Q525387", 
+   "Q1886485", 
+   "Q4397665", 
+   "Q16697625", 
+   "Q155474", 
+   "Q2378087", 
+   "Q1343915", 
+   "Q4088456", 
+   "Q4453170", 
+   "Q253233", 
+   "Q2468473", 
+   "Q2077014", 
+   "Q1746800", 
+   "Q4217837", 
+   "Q468829", 
+   "Q6849757", 
+   "Q13218065", 
+   "Q4177346", 
+   "Q4069765", 
+   "Q722108", 
+   "Q1373093", 
+   "Q1232856", 
+   "Q677809", 
+   "Q4535926", 
+   "Q1372925", 
+   "Q4405759", 
+   "Q1961223", 
+   "Q2587292", 
+   "Q4481976", 
+   "Q204784", 
+   "Q2676869", 
+   "Q287403", 
+   "Q862", 
+   "Q15455589", 
+   "Q4494047", 
+   "Q4085643", 
+   "Q6913804", 
+   "Q1933628", 
+   "Q1739754"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4719317", 
+   "Q40418", 
+   "Q20487010", 
+   "Q381397", 
+   "Q13218065", 
+   "Q11208027", 
+   "Q267796", 
+   "Q204784", 
+   "Q4130840", 
+   "Q4084935"
+  ], 
+  "utterance": "Some of them are Alexander Kirillov, Jr., Edward Frenkel, Georgi Derluguian, Menachem Mendel Schneerson, Boris Leskin, Burkards Dzenis, Natalia Makarova, Nikolay Kolin, Genrikh Gabay, Gary Berkovich", 
+  "active_set": [
+   "AND((c(Q502895),P27,Q30), (c(Q502895),P27,Q15180))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q186081", 
+   "Q573", 
+   "Q502895"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P841"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people have around 3 time intervals or days as principal feast day ?"
+ }, 
+ {
+  "all_entities": [
+   "Q724454", 
+   "Q18691847"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q502895),P841,c(Q186081)|c(Q573))"
+  ]
+ }
+]

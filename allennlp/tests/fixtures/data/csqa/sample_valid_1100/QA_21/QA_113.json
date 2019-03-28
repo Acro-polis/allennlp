@@ -1,0 +1,549 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q459"
+  ], 
+  "relations": [
+   "P190"
+  ], 
+  "type_list": [
+   "Q13220204"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative country subdivision is sister town of Plovdiv ?"
+ }, 
+ {
+  "all_entities": [
+   "Q192606"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q192606"
+  ], 
+  "utterance": "Leskovac", 
+  "active_set": [
+   "(Q459,P190,c(Q13220204))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q459"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organizations have their head office location at Plovdiv ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6795477", 
+   "Q1004060"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6795477", 
+   "Q1004060"
+  ], 
+  "utterance": "Maxeurope, Bulgarrenault", 
+  "active_set": [
+   "(c(Q43229),P159,Q459)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q6795477", 
+   "Q1004060"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where are the head office for those organizations located ?"
+ }, 
+ {
+  "all_entities": [
+   "Q459", 
+   "Q459"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q459", 
+   "Q459"
+  ], 
+  "utterance": "Plovdiv", 
+  "active_set": [
+   "(Q6795477,P159,c(Q56061))", 
+   "(Q1004060,P159,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q459"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q209824"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which province of Bulgaria has that administrative territory has its center of administration ?"
+ }, 
+ {
+  "all_entities": [
+   "Q187874"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q187874"
+  ], 
+  "utterance": "Plovdiv Province", 
+  "active_set": [
+   "(Q459,P1376,c(Q209824))", 
+   "(Q459,P1376,c(Q209824))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q187874", 
+   "Q4849137"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Plovdiv Province present in Baker County School District ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q187874,P17,Q4849137)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q56061", 
+   "Q83620", 
+   "Q44377"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P559"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories serve as the endpoint for atleast 1 thoroughfares and tunnels ?"
+ }, 
+ {
+  "all_entities": [
+   "Q938820", 
+   "Q9832", 
+   "Q3051477", 
+   "Q11851639", 
+   "Q23436", 
+   "Q69639", 
+   "Q1017610", 
+   "Q10084", 
+   "Q375314", 
+   "Q12439", 
+   "Q7567083", 
+   "Q723164", 
+   "Q4825403", 
+   "Q23311", 
+   "Q49550", 
+   "Q38511", 
+   "Q3001", 
+   "Q5902931", 
+   "Q986100", 
+   "Q6023", 
+   "Q7651719", 
+   "Q171357", 
+   "Q956", 
+   "Q959", 
+   "Q992420", 
+   "Q649", 
+   "Q211059", 
+   "Q18808", 
+   "Q7050868", 
+   "Q671348", 
+   "Q4093", 
+   "Q987170", 
+   "Q35433", 
+   "Q1763", 
+   "Q1449", 
+   "Q66208", 
+   "Q2796951", 
+   "Q687945", 
+   "Q782155", 
+   "Q12714367", 
+   "Q1757", 
+   "Q36989", 
+   "Q990112", 
+   "Q6820370", 
+   "Q40840", 
+   "Q542966", 
+   "Q3992", 
+   "Q1318695", 
+   "Q369947", 
+   "Q84", 
+   "Q2132", 
+   "Q2703030", 
+   "Q2133814", 
+   "Q794802", 
+   "Q7944369", 
+   "Q184383", 
+   "Q6275457", 
+   "Q263954", 
+   "Q12892", 
+   "Q6816", 
+   "Q1735", 
+   "Q466054", 
+   "Q953081", 
+   "Q180717", 
+   "Q1229951", 
+   "Q580016", 
+   "Q244289", 
+   "Q588417", 
+   "Q634172", 
+   "Q146659", 
+   "Q530309", 
+   "Q1085"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1085", 
+   "Q649", 
+   "Q956"
+  ], 
+  "utterance": "Prague, Moscow, Beijing", 
+  "active_set": [
+   "(c(Q83620)|c(Q44377),P559,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q1524"
+  ], 
+  "relations": [
+   "P190"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Athens sister town of those ones ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q1524,P190,Q1085)", 
+   "(Q1524,P190,Q649)", 
+   "(Q1524,P190,Q956)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P532"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q56061", 
+   "Q2235308"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which ship types have exactly 2 administrative territories as their base harbour ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q33209", 
+   "Q1514518", 
+   "Q2596850", 
+   "Q468026"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2596850", 
+   "Q468026", 
+   "Q33209"
+  ], 
+  "utterance": "MS Azura, SS Maxim Gorkiy, Mary Celeste", 
+  "active_set": [
+   "(c(Q2235308),P532,c(Q56061))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q649", 
+   "Q30971"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P6"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people are Moscow or French Polynesia the head of goverment of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1106890", 
+   "Q156379", 
+   "Q319497", 
+   "Q735373"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(Q649,P6,c(Q502895))", 
+   "(Q30971,P6,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q649"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which geographic location is Moscow situated in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q46"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "utterance": "Europe", 
+  "active_set": [
+   "(Q649,P30,c(Q2221906))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P101"
+  ], 
+  "type_list": [
+   "Q21114848"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which magazine genre has field of work as that geographic location ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5676464"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5676464"
+  ], 
+  "utterance": "Journal Europaischer Orchideen", 
+  "active_set": [
+   "(c(Q21114848),P101,Q46)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q649"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P915"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which works of art had Moscow as their location of filming ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1212068", 
+   "Q17363277", 
+   "Q175014", 
+   "Q911775", 
+   "Q407184", 
+   "Q1035180", 
+   "Q3522114", 
+   "Q3221540", 
+   "Q2732154", 
+   "Q628154", 
+   "Q1169399", 
+   "Q213411", 
+   "Q2529604", 
+   "Q1048846", 
+   "Q8911249", 
+   "Q4159341", 
+   "Q594307", 
+   "Q924756", 
+   "Q902672", 
+   "Q185229", 
+   "Q3429263", 
+   "Q529053", 
+   "Q964657", 
+   "Q1653341", 
+   "Q156608", 
+   "Q1753817", 
+   "Q1582584", 
+   "Q83542", 
+   "Q930936", 
+   "Q4211474", 
+   "Q3032583", 
+   "Q125772", 
+   "Q2493669", 
+   "Q14948560", 
+   "Q4096230", 
+   "Q22953531", 
+   "Q2528155", 
+   "Q17019453", 
+   "Q1045388", 
+   "Q167437", 
+   "Q662342", 
+   "Q691916", 
+   "Q570652", 
+   "Q1144962", 
+   "Q514293", 
+   "Q18218448", 
+   "Q503046", 
+   "Q535081", 
+   "Q369094"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1048846", 
+   "Q156608", 
+   "Q18218448"
+  ], 
+  "utterance": "The Sum of All Fears, The Bourne Supremacy, Citizenfour", 
+  "active_set": [
+   "(c(Q838948),P915,Q649)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1048846", 
+   "Q156608", 
+   "Q18218448"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P344"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which people are the cinematographers of The Sum of All Fears, The Bourne Supremacy and Citizenfour ?"
+ }, 
+ {
+  "all_entities": [
+   "Q709086", 
+   "Q1449586", 
+   "Q7839361", 
+   "Q21498334", 
+   "Q6416089", 
+   "Q6499321"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6499321", 
+   "Q7839361", 
+   "Q6416089"
+  ], 
+  "utterance": "Laura Poitras, Trevor Paglen, Kirsten Johnson", 
+  "active_set": [
+   "(Q1048846,P344,c(Q502895))", 
+   "(Q156608,P344,c(Q502895))", 
+   "(Q18218448,P344,c(Q502895))"
+  ]
+ }
+]

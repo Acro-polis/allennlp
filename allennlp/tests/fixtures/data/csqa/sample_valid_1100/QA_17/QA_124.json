@@ -1,0 +1,421 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1042552"
+  ], 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q15275719"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which recurring event did Lajos S\u0103tm\u0103reanu participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q132664"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q132664"
+  ], 
+  "utterance": "1970 FIFA World Cup", 
+  "active_set": [
+   "(Q1042552,P1344,c(Q15275719))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1042552"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is Lajos S\u0103tm\u0103reanu a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q168397"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q168397"
+  ], 
+  "utterance": "Romania national football team", 
+  "active_set": [
+   "(Q1042552,P54,c(Q1194951))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q101751"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1923"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q1194951", 
+   "Q15275719"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which recurring events did more number of national sports teams contest in than 1994 FIFA World Cup ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q176883", 
+   "Q37285", 
+   "Q47735", 
+   "Q101730", 
+   "Q79859"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47735", 
+   "Q79859", 
+   "Q37285"
+  ], 
+  "utterance": "2002 FIFA World Cup, 2014 FIFA World Cup, 2006 FIFA World Cup", 
+  "active_set": [
+   "(c(Q15275719),P1923,c(Q1194951))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q46934"
+  ], 
+  "relations": [
+   "P1923"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q1194951", 
+   "Q15275719"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And also tell me about 1982 FIFA World Cup?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q176883", 
+   "Q37285", 
+   "Q47735", 
+   "Q101730", 
+   "Q79859"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47735", 
+   "Q79859", 
+   "Q37285"
+  ], 
+  "utterance": "2002 FIFA World Cup, 2014 FIFA World Cup, 2006 FIFA World Cup", 
+  "active_set": [
+   "(c(Q15275719),P1923,c(Q1194951))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1042552"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P166"
+  ], 
+  "type_list": [
+   "Q618779"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which award was received by Lajos S\u0103tm\u0103reanu ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26706836"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26706836"
+  ], 
+  "utterance": "sport merit order", 
+  "active_set": [
+   "(Q1042552,P166,c(Q618779))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q26706836", 
+   "Q218"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does sport merit order belong to Romania ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q26706836,P17,Q218)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q37285", 
+   "Q557953"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is 2006 FIFA World Cup a part of Chimeneas ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q37285,P17,Q557953)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q37285"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P664"
+  ], 
+  "type_list": [
+   "Q1346006"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who was responsible for the organization of that recurring event ?"
+ }, 
+ {
+  "all_entities": [
+   "Q253414"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q253414"
+  ], 
+  "utterance": "FIFA", 
+  "active_set": []
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q37285", 
+   "Q46943"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1923"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many national sports teams participated in 2006 FIFA World Cup and 1978 FIFA World Cup ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q43310", 
+   "Q166196", 
+   "Q676899", 
+   "Q83459", 
+   "Q47050", 
+   "Q79800", 
+   "Q42267", 
+   "Q184602", 
+   "Q164089", 
+   "Q27971", 
+   "Q47774", 
+   "Q160826"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "12", 
+  "active_set": [
+   "(Q37285,P1923,c(Q1194951))", 
+   "(Q46943,P1923,c(Q1194951))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q5248117", 
+   "Q37285"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are 2006 FIFA World Cup or Deblando present in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q769", 
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q769", 
+   "Q183"
+  ], 
+  "utterance": "Grenada, Germany", 
+  "active_set": [
+   "OR((Q37285,P17,c(Q1048835)), (Q5248117,P17,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1048835", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which political territories have diplomatic relations with max number of political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q408"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q408"
+  ], 
+  "utterance": "Australia", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q408", 
+   "Q159", 
+   "Q1036"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Does that political territory have diplomatic relations with Russia and Uganda ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q408,P530,Q159)", 
+   "(Q408,P530,Q1036)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q47735", 
+   "Q639623", 
+   "Q884"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is 2002 FIFA World Cup located in Roggenstorf and South Korea ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q47735,P17,Q639623)", 
+   "(Q47735,P17,Q884)"
+  ]
+ }
+]

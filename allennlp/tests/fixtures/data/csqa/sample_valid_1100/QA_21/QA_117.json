@@ -1,0 +1,530 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3386850"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What are the job of Pierre Rolland ?"
+ }, 
+ {
+  "all_entities": [
+   "Q639669", 
+   "Q16003954", 
+   "Q1350157"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q639669", 
+   "Q16003954", 
+   "Q1350157"
+  ], 
+  "utterance": "musician, oboist, music critic", 
+  "active_set": [
+   "(Q3386850,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q3386850"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1303"
+  ], 
+  "type_list": [
+   "Q19659292"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which musical instrument part can Pierre Rolland perform with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q8377"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8377"
+  ], 
+  "utterance": "oboe", 
+  "active_set": [
+   "(Q3386850,P1303,c(Q19659292))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q264954"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q19659292"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Archie Camden?"
+ }, 
+ {
+  "all_entities": [
+   "Q159998"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q159998"
+  ], 
+  "utterance": "bassoon", 
+  "active_set": [
+   "(Q264954,P1303,c(Q19659292))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q264954"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is that person a civilian of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q145"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q145"
+  ], 
+  "utterance": "United Kingdom", 
+  "active_set": [
+   "(Q159998,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q145"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories have a diplomatic relationship with United Kingdom ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q142", 
+   "Q805", 
+   "Q801", 
+   "Q155", 
+   "Q37", 
+   "Q403", 
+   "Q38"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "7", 
+  "active_set": [
+   "(Q145,P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q230"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Georgia?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q805", 
+   "Q801", 
+   "Q800", 
+   "Q668", 
+   "Q414", 
+   "Q145", 
+   "Q262", 
+   "Q784", 
+   "Q786", 
+   "Q710", 
+   "Q252", 
+   "Q399", 
+   "Q398", 
+   "Q43", 
+   "Q155", 
+   "Q792", 
+   "Q796", 
+   "Q794", 
+   "Q954", 
+   "Q889", 
+   "Q884", 
+   "Q881", 
+   "Q986", 
+   "Q822", 
+   "Q241", 
+   "Q424", 
+   "Q921", 
+   "Q31", 
+   "Q30", 
+   "Q37", 
+   "Q38", 
+   "Q739", 
+   "Q423", 
+   "Q983", 
+   "Q851", 
+   "Q734", 
+   "Q1011", 
+   "Q736", 
+   "Q27", 
+   "Q29", 
+   "Q819", 
+   "Q189", 
+   "Q184", 
+   "Q32", 
+   "Q347", 
+   "Q227", 
+   "Q225", 
+   "Q222", 
+   "Q229", 
+   "Q228", 
+   "Q17", 
+   "Q902", 
+   "Q1008", 
+   "Q191", 
+   "Q965", 
+   "Q967", 
+   "Q963", 
+   "Q115", 
+   "Q114", 
+   "Q117", 
+   "Q750", 
+   "Q211", 
+   "Q219", 
+   "Q916", 
+   "Q1007", 
+   "Q1006", 
+   "Q1005", 
+   "Q1009", 
+   "Q974", 
+   "Q971", 
+   "Q970", 
+   "Q686", 
+   "Q874", 
+   "Q79", 
+   "Q878", 
+   "Q774", 
+   "Q810", 
+   "Q1016", 
+   "Q1013", 
+   "Q953"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "80", 
+  "active_set": [
+   "(Q230,P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Germany?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "124", 
+  "active_set": [
+   "(Q183,P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "set_op_choice": 3, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Difference|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q8377"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P21", 
+   "P1303"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people play oboe and do not have gender of male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3308085", 
+   "Q17128974", 
+   "Q11551962", 
+   "Q6552001", 
+   "Q4805416", 
+   "Q11350591", 
+   "Q2875021", 
+   "Q11661322", 
+   "Q16208930", 
+   "Q14082404", 
+   "Q4790214", 
+   "Q3129674", 
+   "Q18627717", 
+   "Q12803895", 
+   "Q8300384", 
+   "Q486059", 
+   "Q11353621", 
+   "Q11473681", 
+   "Q15105318", 
+   "Q4858763", 
+   "Q16299339", 
+   "Q242238", 
+   "Q20723092", 
+   "Q17402248", 
+   "Q6375798", 
+   "Q5353203", 
+   "Q11886958", 
+   "Q4160337", 
+   "Q292506", 
+   "Q3177101", 
+   "Q8311634", 
+   "Q15455513", 
+   "Q16018081", 
+   "Q11486479", 
+   "Q6376493", 
+   "Q22277086", 
+   "Q16989376", 
+   "Q3052991", 
+   "Q5363406", 
+   "Q5362690", 
+   "Q6759375", 
+   "Q1854508", 
+   "Q17523887", 
+   "Q5363084", 
+   "Q5702416", 
+   "Q2411818", 
+   "Q23304536", 
+   "Q17427914", 
+   "Q437085", 
+   "Q6297045"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3308085", 
+   "Q4790214", 
+   "Q16989376", 
+   "Q18627717", 
+   "Q11486479", 
+   "Q437085", 
+   "Q4160337", 
+   "Q16208930", 
+   "Q3177101", 
+   "Q5353203"
+  ], 
+  "utterance": "Some of them are Evelyn Barbirolli, Ariana Ghez, Sanna Niemikunnas, Maja Kojc, Takeharu Nobuhara, Janet Craxton, Ruth Gipps, Diana Doherty, Jennifer Paull, Elaine Douvas", 
+  "active_set": [
+   "AND((c(Q502895),P1303,Q8377), NOT((c(Q502895),P21,Q6581097)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [
+   "Q17514407", 
+   "Q264954"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P106"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations do Archie Camden or John Crane do for a living ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1231865", 
+   "Q82955", 
+   "Q16145150"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1231865", 
+   "Q82955", 
+   "Q16145150"
+  ], 
+  "utterance": "educationist, politician, music educator", 
+  "active_set": [
+   "OR((Q264954,P106,c(Q12737077)), (Q17514407,P106,c(Q12737077)))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q386724", 
+   "Q732577"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which occupations were the main subjects of exactly 1 works or publications 's work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3809586", 
+   "Q2094335", 
+   "Q9402", 
+   "Q15320003", 
+   "Q16003532"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16003532", 
+   "Q3809586", 
+   "Q2094335"
+  ], 
+  "utterance": "middle school student, Wikipedian in Residence, United States Attorney", 
+  "active_set": [
+   "(c(Q386724)|c(Q732577),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which people are the names of the patron saint of exactly 1 occupation ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q453698", 
+   "Q152457", 
+   "Q43689", 
+   "Q163900", 
+   "Q212850", 
+   "Q374822", 
+   "Q9438", 
+   "Q130997", 
+   "Q312758", 
+   "Q5575577", 
+   "Q191107", 
+   "Q242274", 
+   "Q119289", 
+   "Q360798", 
+   "Q298845", 
+   "Q48438", 
+   "Q119512", 
+   "Q44281", 
+   "Q170164", 
+   "Q43399", 
+   "Q508214", 
+   "Q9200", 
+   "Q193507", 
+   "Q463600", 
+   "Q43669", 
+   "Q40662", 
+   "Q332656", 
+   "Q320171", 
+   "Q137947", 
+   "Q80513", 
+   "Q324700", 
+   "Q44015", 
+   "Q149727", 
+   "Q232427", 
+   "Q60059", 
+   "Q17590", 
+   "Q271474", 
+   "Q276148"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9438", 
+   "Q60059", 
+   "Q44281"
+  ], 
+  "utterance": "Thomas Aquinas, Albertus Magnus, Ignatius of Loyola", 
+  "active_set": [
+   "(c(Q12737077),P417,c(Q502895))"
+  ]
+ }
+]

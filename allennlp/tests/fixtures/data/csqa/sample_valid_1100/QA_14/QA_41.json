@@ -1,0 +1,899 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q17632325"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Who were casted in Der Verteidiger hat das Wort ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1041559", 
+   "Q85051", 
+   "Q63816", 
+   "Q88841", 
+   "Q122663", 
+   "Q57288", 
+   "Q71423", 
+   "Q99719", 
+   "Q87486"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q57288", 
+   "Q85051", 
+   "Q63816"
+  ], 
+  "utterance": "Elisabeth Schwarzkopf, Eduard von Winterstein, Heinrich George", 
+  "active_set": [
+   "(Q17632325,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q57288"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1066"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person is a pupil of that one ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q63816"
+  ], 
+  "active_set": [
+   "(c(Q502895),P1066,Q57288)", 
+   "(c(Q502895),P1066,Q85051)", 
+   "(c(Q502895),P1066,Q63816)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q57288", 
+   "Q85051", 
+   "Q63816"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Heinrich George ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q57288"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Elisabeth Schwarzkopf. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q95261"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q95261"
+  ], 
+  "utterance": "Stephan Genz", 
+  "active_set": [
+   "(c(Q502895),P1066,Q57288)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q95261", 
+   "Q4461704", 
+   "Q943968"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Stephan Genz a citizen of Travneve and San Nicol\u00e1s del Puerto ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q95261,P27,Q4461704)", 
+   "(Q95261,P27,Q943968)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments can atmost 4780 people perform with ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q8338", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q8355", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q1444", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q128309", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "65", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q838948"
+  ], 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q57288"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P161", 
+   "P495"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which works of art have Elisabeth Schwarzkopf in their star cast and have Germany as their place of origin ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1257183", 
+   "Q17632325"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1257183", 
+   "Q17632325"
+  ], 
+  "utterance": "Drei Unteroffiziere, Der Verteidiger hat das Wort", 
+  "active_set": [
+   "AND((c(Q838948),P161,Q57288), (c(Q838948),P495,Q183))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P2079"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q2695280", 
+   "Q838948"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many technicss are used for fabrication of atleast 1 work of art ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1334300", 
+   "Q170593"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q838948),P2079,c(Q2695280))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q838948", 
+   "Q2342494", 
+   "Q6619679"
+  ], 
+  "entities_in_utterance": [
+   "Q7572454"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many works of art are lesser number of collectables or fictional humanoids a component of than Space Pirate Captain Harlock ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2312028", 
+   "Q1762957", 
+   "Q5723375", 
+   "Q3415280", 
+   "Q4143086", 
+   "Q127367", 
+   "Q193066", 
+   "Q206400", 
+   "Q2364709", 
+   "Q7719555", 
+   "Q372959", 
+   "Q102438", 
+   "Q10371896", 
+   "Q18547944", 
+   "Q6503493", 
+   "Q3907523", 
+   "Q3907489", 
+   "Q29478", 
+   "Q17275612", 
+   "Q6675667", 
+   "Q552002", 
+   "Q19393199", 
+   "Q10550583", 
+   "Q934970", 
+   "Q1209853", 
+   "Q18609716", 
+   "Q284184", 
+   "Q16161848", 
+   "Q215750", 
+   "Q734834", 
+   "Q222867", 
+   "Q4660040", 
+   "Q495954", 
+   "Q733065", 
+   "Q747847", 
+   "Q977372", 
+   "Q161687", 
+   "Q1534737", 
+   "Q4656518", 
+   "Q1411766", 
+   "Q205028", 
+   "Q1623056", 
+   "Q1760893", 
+   "Q753449", 
+   "Q4135545", 
+   "Q314003", 
+   "Q4110177", 
+   "Q1356770", 
+   "Q3193421", 
+   "Q16741153", 
+   "Q332368", 
+   "Q3983379", 
+   "Q478748", 
+   "Q21129836", 
+   "Q21129837", 
+   "Q2003287", 
+   "Q1752478", 
+   "Q174811", 
+   "Q945138", 
+   "Q187483", 
+   "Q6519361", 
+   "Q874496", 
+   "Q475476", 
+   "Q103569", 
+   "Q976149", 
+   "Q3907478", 
+   "Q1988321", 
+   "Q18577910", 
+   "Q3428050", 
+   "Q3346699", 
+   "Q472359", 
+   "Q971109", 
+   "Q1360347", 
+   "Q632753", 
+   "Q60072", 
+   "Q489772", 
+   "Q41567", 
+   "Q3747490", 
+   "Q1270166", 
+   "Q3395799", 
+   "Q7451782", 
+   "Q463313", 
+   "Q18217301", 
+   "Q232009", 
+   "Q309153", 
+   "Q2905386", 
+   "Q165325", 
+   "Q2626332", 
+   "Q7338317", 
+   "Q15057808", 
+   "Q22527805", 
+   "Q203443", 
+   "Q201022", 
+   "Q213053", 
+   "Q3907484", 
+   "Q4680630", 
+   "Q2089457", 
+   "Q3907512", 
+   "Q2661437", 
+   "Q79218", 
+   "Q1125687", 
+   "Q20857440", 
+   "Q24980", 
+   "Q283134", 
+   "Q93184", 
+   "Q24568939", 
+   "Q7203413", 
+   "Q16980242", 
+   "Q1230318", 
+   "Q378838", 
+   "Q928019", 
+   "Q2405799", 
+   "Q281465", 
+   "Q3907505", 
+   "Q164804", 
+   "Q16156301", 
+   "Q3992615", 
+   "Q482994", 
+   "Q3087894", 
+   "Q21340348", 
+   "Q7600677", 
+   "Q2467518", 
+   "Q10512738"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "123", 
+  "active_set": [
+   "(c(Q2342494)|c(Q6619679),P361,c(Q838948))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q838948", 
+   "Q2342494", 
+   "Q6619679"
+  ], 
+  "entities_in_utterance": [
+   "Q1297233"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Ferdinand the Bull?"
+ }, 
+ {
+  "all_entities": [
+   "Q2312028", 
+   "Q1762957", 
+   "Q5723375", 
+   "Q3415280", 
+   "Q4143086", 
+   "Q127367", 
+   "Q193066", 
+   "Q206400", 
+   "Q2364709", 
+   "Q7719555", 
+   "Q372959", 
+   "Q102438", 
+   "Q10371896", 
+   "Q18547944", 
+   "Q6503493", 
+   "Q3907523", 
+   "Q3907489", 
+   "Q29478", 
+   "Q17275612", 
+   "Q6675667", 
+   "Q552002", 
+   "Q19393199", 
+   "Q10550583", 
+   "Q934970", 
+   "Q1209853", 
+   "Q18609716", 
+   "Q284184", 
+   "Q16161848", 
+   "Q215750", 
+   "Q734834", 
+   "Q222867", 
+   "Q4660040", 
+   "Q495954", 
+   "Q733065", 
+   "Q747847", 
+   "Q977372", 
+   "Q161687", 
+   "Q1534737", 
+   "Q4656518", 
+   "Q1411766", 
+   "Q205028", 
+   "Q1623056", 
+   "Q1760893", 
+   "Q753449", 
+   "Q4135545", 
+   "Q314003", 
+   "Q4110177", 
+   "Q1356770", 
+   "Q3193421", 
+   "Q16741153", 
+   "Q332368", 
+   "Q3983379", 
+   "Q478748", 
+   "Q21129836", 
+   "Q21129837", 
+   "Q2003287", 
+   "Q1752478", 
+   "Q174811", 
+   "Q945138", 
+   "Q187483", 
+   "Q6519361", 
+   "Q874496", 
+   "Q475476", 
+   "Q103569", 
+   "Q976149", 
+   "Q3907478", 
+   "Q1988321", 
+   "Q18577910", 
+   "Q3428050", 
+   "Q3346699", 
+   "Q472359", 
+   "Q971109", 
+   "Q1360347", 
+   "Q632753", 
+   "Q60072", 
+   "Q489772", 
+   "Q41567", 
+   "Q3747490", 
+   "Q1270166", 
+   "Q3395799", 
+   "Q7451782", 
+   "Q463313", 
+   "Q18217301", 
+   "Q232009", 
+   "Q309153", 
+   "Q2905386", 
+   "Q165325", 
+   "Q2626332", 
+   "Q7338317", 
+   "Q15057808", 
+   "Q22527805", 
+   "Q203443", 
+   "Q201022", 
+   "Q213053", 
+   "Q3907484", 
+   "Q4680630", 
+   "Q2089457", 
+   "Q3907512", 
+   "Q2661437", 
+   "Q79218", 
+   "Q1125687", 
+   "Q20857440", 
+   "Q24980", 
+   "Q283134", 
+   "Q93184", 
+   "Q24568939", 
+   "Q7203413", 
+   "Q16980242", 
+   "Q1230318", 
+   "Q378838", 
+   "Q928019", 
+   "Q2405799", 
+   "Q281465", 
+   "Q3907505", 
+   "Q164804", 
+   "Q16156301", 
+   "Q3992615", 
+   "Q482994", 
+   "Q3087894", 
+   "Q21340348", 
+   "Q7600677", 
+   "Q2467518", 
+   "Q10512738"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "123", 
+  "active_set": [
+   "(c(Q2342494)|c(Q6619679),P361,c(Q838948))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q2657271"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P2079"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q2695280", 
+   "Q838948"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many technicss are used to assemble greater number of works of art than silvering ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1334300", 
+   "Q170593"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q838948),P2079,c(Q2695280))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P2079"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q2695280", 
+   "Q838948"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which technicss are used to assemble min number of works of art ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q11750728", 
+   "Q9363879", 
+   "Q173242", 
+   "Q204867", 
+   "Q192047", 
+   "Q752633", 
+   "Q26265824", 
+   "Q139106", 
+   "Q133036", 
+   "Q2657271"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q173242", 
+   "Q26265824", 
+   "Q139106"
+  ], 
+  "utterance": "woodcut technique, chasing, engraving", 
+  "active_set": [
+   "(c(Q838948),P2079,Q170593)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q57288"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many works of art have Elisabeth Schwarzkopf in their star cast ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1257183", 
+   "Q17632325"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q838948),P161,Q57288)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q3616769"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about Angela Luce?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q3829089", 
+   "Q3695052", 
+   "Q2904372", 
+   "Q3786467", 
+   "Q3282749", 
+   "Q3742607", 
+   "Q3899178", 
+   "Q3801274", 
+   "Q3824344", 
+   "Q3758740", 
+   "Q2528167", 
+   "Q1162398", 
+   "Q3714725", 
+   "Q1392700", 
+   "Q3965942", 
+   "Q3602947", 
+   "Q3148555", 
+   "Q20814652", 
+   "Q3996012", 
+   "Q720159", 
+   "Q129088", 
+   "Q3618041", 
+   "Q3282522", 
+   "Q2067859", 
+   "Q3715996", 
+   "Q3210537", 
+   "Q3818486", 
+   "Q3841847", 
+   "Q3222507", 
+   "Q3658251", 
+   "Q3824109"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "31", 
+  "active_set": [
+   "(c(Q838948),P161,Q3616769)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q170593"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P2079"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q2695280", 
+   "Q838948"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which technicss are used to fabricate less number of works of art than collage ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q11750728", 
+   "Q9363879", 
+   "Q173242", 
+   "Q204867", 
+   "Q192047", 
+   "Q752633", 
+   "Q26265824", 
+   "Q139106", 
+   "Q133036", 
+   "Q2657271"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q173242", 
+   "Q26265824", 
+   "Q139106"
+  ], 
+  "utterance": "woodcut technique, chasing, engraving", 
+  "active_set": [
+   "(c(Q838948),P2079,c(Q2695280))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q1334300"
+  ], 
+  "relations": [
+   "P2079"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q2695280", 
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about gilding?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q11750728", 
+   "Q9363879", 
+   "Q173242", 
+   "Q204867", 
+   "Q192047", 
+   "Q752633", 
+   "Q26265824", 
+   "Q139106", 
+   "Q133036", 
+   "Q2657271"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q173242", 
+   "Q26265824", 
+   "Q139106"
+  ], 
+  "utterance": "woodcut technique, chasing, engraving", 
+  "active_set": [
+   "(c(Q838948),P2079,c(Q2695280))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q186081", 
+   "Q573", 
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q241806"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P841"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which people have greater number of time intervals or days as their principal feast day than Margaret Pole, Countess of Salisbury ?"
+ }, 
+ {
+  "all_entities": [
+   "Q770633", 
+   "Q724454", 
+   "Q161775", 
+   "Q44265", 
+   "Q319319", 
+   "Q37599", 
+   "Q3189724", 
+   "Q170164", 
+   "Q158504", 
+   "Q2332287", 
+   "Q18691847"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2332287", 
+   "Q44265", 
+   "Q158504"
+  ], 
+  "utterance": "Ingegerd Olofsdotter of Sweden, Benedict of Nursia, Clement of Ohrid", 
+  "active_set": [
+   "(c(Q502895),P841,c(Q186081)|c(Q573))"
+  ]
+ }
+]

@@ -1,0 +1,846 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q6134255"
+  ], 
+  "relations": [
+   "P241"
+  ], 
+  "type_list": [
+   "Q781132"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which military branch was James French Patton a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1125021"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1125021"
+  ], 
+  "utterance": "Confederate States Army", 
+  "active_set": [
+   "(Q6134255,P241,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q6134255"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organization is that person a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29552"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29552"
+  ], 
+  "utterance": "Democratic Party", 
+  "active_set": [
+   "(Q1125021,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q1125021"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are Confederate States Army a part of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q1125021,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q12658327"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Juodup\u0117?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q37"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q12658327,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q26626776"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Poplar Farmhouse?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q26626776,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q781132", 
+   "Q811979", 
+   "Q1076486"
+  ], 
+  "entities_in_utterance": [
+   "Q4855270"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many military branches are the facility operator of less number of architectural structures or sports venues than Bangladesh Army ?"
+ }, 
+ {
+  "all_entities": [
+   "Q222595", 
+   "Q2427907", 
+   "Q169025", 
+   "Q704397", 
+   "Q6648444", 
+   "Q3510333", 
+   "Q676404", 
+   "Q246813", 
+   "Q2705826", 
+   "Q217406", 
+   "Q156649", 
+   "Q702430", 
+   "Q356359", 
+   "Q376676", 
+   "Q1652708", 
+   "Q2505986", 
+   "Q1113589", 
+   "Q3293231", 
+   "Q1076619", 
+   "Q741691", 
+   "Q19562444", 
+   "Q855186", 
+   "Q11322507", 
+   "Q2384177", 
+   "Q643834", 
+   "Q1370337", 
+   "Q465283", 
+   "Q931281", 
+   "Q3958034", 
+   "Q2531890", 
+   "Q932840", 
+   "Q3848121", 
+   "Q796754", 
+   "Q897614", 
+   "Q1815399", 
+   "Q4419309", 
+   "Q2387294", 
+   "Q56018", 
+   "Q2067603", 
+   "Q2258261", 
+   "Q56015", 
+   "Q2055634", 
+   "Q19344622", 
+   "Q952444", 
+   "Q488756", 
+   "Q16408580", 
+   "Q2071948", 
+   "Q1285655", 
+   "Q1188381", 
+   "Q2537847", 
+   "Q1774585", 
+   "Q25436", 
+   "Q2630039", 
+   "Q6479134", 
+   "Q4114459", 
+   "Q2370391", 
+   "Q2292358", 
+   "Q11218", 
+   "Q3546162", 
+   "Q5334371", 
+   "Q355771", 
+   "Q159211", 
+   "Q2074039", 
+   "Q267167", 
+   "Q702116", 
+   "Q2349884", 
+   "Q583941", 
+   "Q1322103", 
+   "Q15705369", 
+   "Q781360", 
+   "Q2408298", 
+   "Q1129369", 
+   "Q4115107", 
+   "Q16151032", 
+   "Q219712", 
+   "Q1038047", 
+   "Q833040", 
+   "Q4114435", 
+   "Q2575188", 
+   "Q889751", 
+   "Q2704661", 
+   "Q898671", 
+   "Q2566387", 
+   "Q1944482", 
+   "Q1750688", 
+   "Q7032867", 
+   "Q208711", 
+   "Q2083573", 
+   "Q755179", 
+   "Q1324290", 
+   "Q2301347", 
+   "Q9212", 
+   "Q861530", 
+   "Q1046947", 
+   "Q731647", 
+   "Q2526431", 
+   "Q2594652", 
+   "Q792296", 
+   "Q3274075", 
+   "Q17404781", 
+   "Q1141396", 
+   "Q2745472", 
+   "Q11220", 
+   "Q1062125", 
+   "Q172771", 
+   "Q2742227", 
+   "Q2006452", 
+   "Q3277832", 
+   "Q2528358", 
+   "Q4939559", 
+   "Q3848018", 
+   "Q1311627", 
+   "Q1777326", 
+   "Q2665572", 
+   "Q25387", 
+   "Q1370395", 
+   "Q1366319", 
+   "Q3293295", 
+   "Q2492012", 
+   "Q151701", 
+   "Q796411", 
+   "Q588089", 
+   "Q2383264", 
+   "Q510534", 
+   "Q1124986", 
+   "Q4303265", 
+   "Q575932", 
+   "Q569328"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "128", 
+  "active_set": [
+   "(c(Q811979)|c(Q1076486),P137,c(Q781132))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q781132", 
+   "Q811979", 
+   "Q1076486"
+  ], 
+  "entities_in_utterance": [
+   "Q2749588"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about Royal Thai Army?"
+ }, 
+ {
+  "all_entities": [
+   "Q222595", 
+   "Q2427907", 
+   "Q169025", 
+   "Q704397", 
+   "Q6648444", 
+   "Q3510333", 
+   "Q676404", 
+   "Q246813", 
+   "Q2705826", 
+   "Q217406", 
+   "Q156649", 
+   "Q702430", 
+   "Q356359", 
+   "Q376676", 
+   "Q1652708", 
+   "Q2505986", 
+   "Q1113589", 
+   "Q3293231", 
+   "Q1076619", 
+   "Q741691", 
+   "Q19562444", 
+   "Q855186", 
+   "Q11322507", 
+   "Q2384177", 
+   "Q643834", 
+   "Q1370337", 
+   "Q465283", 
+   "Q931281", 
+   "Q3958034", 
+   "Q2531890", 
+   "Q932840", 
+   "Q3848121", 
+   "Q796754", 
+   "Q897614", 
+   "Q1815399", 
+   "Q4419309", 
+   "Q2387294", 
+   "Q56018", 
+   "Q2067603", 
+   "Q2258261", 
+   "Q56015", 
+   "Q2055634", 
+   "Q19344622", 
+   "Q952444", 
+   "Q488756", 
+   "Q16408580", 
+   "Q2071948", 
+   "Q1285655", 
+   "Q1188381", 
+   "Q2537847", 
+   "Q1774585", 
+   "Q25436", 
+   "Q2630039", 
+   "Q6479134", 
+   "Q4114459", 
+   "Q2370391", 
+   "Q2292358", 
+   "Q11218", 
+   "Q3546162", 
+   "Q5334371", 
+   "Q355771", 
+   "Q159211", 
+   "Q2074039", 
+   "Q267167", 
+   "Q702116", 
+   "Q2349884", 
+   "Q583941", 
+   "Q1322103", 
+   "Q15705369", 
+   "Q781360", 
+   "Q2408298", 
+   "Q1129369", 
+   "Q4115107", 
+   "Q16151032", 
+   "Q219712", 
+   "Q1038047", 
+   "Q833040", 
+   "Q4114435", 
+   "Q2575188", 
+   "Q889751", 
+   "Q2704661", 
+   "Q898671", 
+   "Q2566387", 
+   "Q1944482", 
+   "Q1750688", 
+   "Q7032867", 
+   "Q208711", 
+   "Q2083573", 
+   "Q755179", 
+   "Q1324290", 
+   "Q2301347", 
+   "Q9212", 
+   "Q861530", 
+   "Q1046947", 
+   "Q731647", 
+   "Q2526431", 
+   "Q2594652", 
+   "Q792296", 
+   "Q3274075", 
+   "Q17404781", 
+   "Q1141396", 
+   "Q2745472", 
+   "Q11220", 
+   "Q1062125", 
+   "Q172771", 
+   "Q2742227", 
+   "Q2006452", 
+   "Q3277832", 
+   "Q2528358", 
+   "Q4939559", 
+   "Q3848018", 
+   "Q1311627", 
+   "Q1777326", 
+   "Q2665572", 
+   "Q25387", 
+   "Q1370395", 
+   "Q1366319", 
+   "Q3293295", 
+   "Q2492012", 
+   "Q151701", 
+   "Q796411", 
+   "Q588089", 
+   "Q2383264", 
+   "Q510534", 
+   "Q1124986", 
+   "Q4303265", 
+   "Q575932", 
+   "Q569328"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "128", 
+  "active_set": [
+   "(c(Q811979)|c(Q1076486),P137,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29552"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P355"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organizations are the subordinates of Democratic Party ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7008134", 
+   "Q5020399"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7008134", 
+   "Q5020399"
+  ], 
+  "utterance": "New Hampshire Democratic Party, California Democratic Party", 
+  "active_set": [
+   "(Q29552,P355,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q44687"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Schutzstaffel?"
+ }, 
+ {
+  "all_entities": [
+   "Q291031"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q291031"
+  ], 
+  "utterance": "Allgemeine SS", 
+  "active_set": [
+   "(Q44687,P355,c(Q7210356))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q781132", 
+   "Q2424752", 
+   "Q2235308"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which military branches manages min number of products and ship types ?"
+ }, 
+ {
+  "all_entities": [
+   "Q169025", 
+   "Q704397", 
+   "Q6648444", 
+   "Q246813", 
+   "Q1113589", 
+   "Q1076619", 
+   "Q11322507", 
+   "Q2384177", 
+   "Q3958034", 
+   "Q897614", 
+   "Q1815399", 
+   "Q4419309", 
+   "Q56018", 
+   "Q2055634", 
+   "Q19344622", 
+   "Q1285655", 
+   "Q1188381", 
+   "Q2537847", 
+   "Q25436", 
+   "Q2630039", 
+   "Q6479134", 
+   "Q2370391", 
+   "Q5334371", 
+   "Q355771", 
+   "Q2074039", 
+   "Q1322103", 
+   "Q2408298", 
+   "Q4115107", 
+   "Q1038047", 
+   "Q2575188", 
+   "Q889751", 
+   "Q2566387", 
+   "Q1944482", 
+   "Q4855270", 
+   "Q7032867", 
+   "Q1324290", 
+   "Q2301347", 
+   "Q2745472", 
+   "Q2742227", 
+   "Q4939559", 
+   "Q1311627", 
+   "Q2749588", 
+   "Q1370395", 
+   "Q1366319", 
+   "Q2492012", 
+   "Q796411", 
+   "Q2383264", 
+   "Q510534", 
+   "Q4303265", 
+   "Q575932", 
+   "Q569328"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4419309", 
+   "Q2074039", 
+   "Q569328"
+  ], 
+  "utterance": "Kazakh Air and Air Defence Forces, Latvian Land Forces, Air Force and Anti-Air Defence Brigade", 
+  "active_set": [
+   "(c(Q2424752)|c(Q2235308),P137,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q861792"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q781132", 
+   "Q2424752"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many products are the administrator of greater number of military branches than Gulfstream IV ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q19309813", 
+   "Q17417185", 
+   "Q17417184", 
+   "Q17364093", 
+   "Q18130299", 
+   "Q17413084", 
+   "Q15155738", 
+   "Q18059832", 
+   "Q17374751", 
+   "Q17412964", 
+   "Q17412965", 
+   "Q19768246", 
+   "Q18520692", 
+   "Q17476686", 
+   "Q17476684", 
+   "Q18129653", 
+   "Q17413023", 
+   "Q17413152", 
+   "Q17413150", 
+   "Q18059805", 
+   "Q17412958", 
+   "Q15622929", 
+   "Q18071973", 
+   "Q15412692", 
+   "Q163838", 
+   "Q576667", 
+   "Q18520645", 
+   "Q18249119", 
+   "Q3257746", 
+   "Q2825642", 
+   "Q15427803", 
+   "Q17413169", 
+   "Q17413168", 
+   "Q17413162", 
+   "Q18129627", 
+   "Q12061543", 
+   "Q17371416", 
+   "Q15411606", 
+   "Q15411601", 
+   "Q18129659", 
+   "Q15217591", 
+   "Q15622933", 
+   "Q17505523", 
+   "Q15618471", 
+   "Q17412961", 
+   "Q163051", 
+   "Q15217626", 
+   "Q17407335", 
+   "Q17407333", 
+   "Q18050432", 
+   "Q17370417", 
+   "Q17413178", 
+   "Q17375126", 
+   "Q18059689", 
+   "Q15450518", 
+   "Q18196400", 
+   "Q18060472", 
+   "Q17413170", 
+   "Q17413173", 
+   "Q17413174", 
+   "Q15413843", 
+   "Q17413071", 
+   "Q17371424", 
+   "Q17364064", 
+   "Q15618480", 
+   "Q15411566", 
+   "Q15411565", 
+   "Q17412926", 
+   "Q17371177", 
+   "Q17412970", 
+   "Q2419137", 
+   "Q3940675", 
+   "Q2053983", 
+   "Q15622918"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "74", 
+  "active_set": [
+   "(c(Q2424752),P137,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q17371424"
+  ], 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q781132", 
+   "Q2424752"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And how about F-4S Phantom II?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q17364093", 
+   "Q163838", 
+   "Q163051", 
+   "Q15450518", 
+   "Q15618480"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "5", 
+  "active_set": [
+   "(c(Q2424752),P137,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1125021"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who is a member of Confederate States Army ?"
+ }, 
+ {
+  "all_entities": [
+   "Q978931"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q978931"
+  ], 
+  "utterance": "Jack Swilling", 
+  "active_set": [
+   "(c(Q502895),P463,Q1125021)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29552"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P749"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which political organizations are owned by Democratic Party ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7008134", 
+   "Q5020399"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7008134", 
+   "Q5020399"
+  ], 
+  "utterance": "New Hampshire Democratic Party, California Democratic Party", 
+  "active_set": [
+   "(c(Q7210356),P749,Q29552)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29552"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who has a job as Democratic Party ?"
+ }, 
+ {
+  "all_entities": [
+   "Q361146"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q361146"
+  ], 
+  "utterance": "Ruby Laffoon", 
+  "active_set": [
+   "(c(Q502895),P106,Q29552)"
+  ]
+ }
+]

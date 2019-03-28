@@ -1,0 +1,414 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3973511"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation has Stig Norheim as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "utterance": "association football player", 
+  "active_set": [
+   "(Q3973511,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P800"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person has that occupation as a notable work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23047441"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23047441"
+  ], 
+  "utterance": "Hugh Morgan-Owen", 
+  "active_set": [
+   "(c(Q502895),P800,Q937857)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q502895", 
+   "Q386724"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many works had their voice dubbing done by approximately 11 people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q26987217", 
+   "Q26701981", 
+   "Q23752771", 
+   "Q27627540", 
+   "Q26712000", 
+   "Q26390366", 
+   "Q26715049", 
+   "Q26299860", 
+   "Q26457246", 
+   "Q26301623", 
+   "Q26829863", 
+   "Q23894983"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "12", 
+  "active_set": [
+   "(c(Q386724),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q1444"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments can lesser number of people perform with than organ ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q8338", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q128309", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "63", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q5994"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about piano?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q8338", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q8355", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q1444", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q128309", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "65", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q502895", 
+   "Q386724"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which works did exactly 10 people dub for ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q27627540"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q27627540"
+  ], 
+  "utterance": "Doctor Strange (Doctor Extra\u00f1o)", 
+  "active_set": [
+   "(c(Q386724),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q27627540"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P655"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person translated that work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26160700"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26160700"
+  ], 
+  "utterance": "Quico Rovira-Beleta", 
+  "active_set": [
+   "(Q27627540,P655,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P101"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who works in the domain of association football player ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2089026"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2089026"
+  ], 
+  "utterance": "Akaki Devadze", 
+  "active_set": [
+   "(c(Q502895),P101,Q937857)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23047441"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q3918"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where was Hugh Morgan-Owen educated ?"
+ }, 
+ {
+  "all_entities": [
+   "Q34433"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q34433"
+  ], 
+  "utterance": "University of Oxford", 
+  "active_set": [
+   "(Q23047441,P69,c(Q3918))"
+  ]
+ }
+]

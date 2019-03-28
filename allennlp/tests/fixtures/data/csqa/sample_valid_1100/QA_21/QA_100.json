@@ -1,0 +1,420 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q6790774"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the job of Matthew Keating ?"
+ }, 
+ {
+  "all_entities": [
+   "Q82955"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "utterance": "politician", 
+  "active_set": [
+   "(Q6790774,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6790774"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1412"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which language can Matthew Keating read ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "(Q6790774,P1412,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q3769299"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which human behaviour is associated with the field of occupation politician ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7163"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7163"
+  ], 
+  "utterance": "politics", 
+  "active_set": [
+   "(Q82955,P425,c(Q3769299))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q1184268"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q3769299"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about delinquent?"
+ }, 
+ {
+  "all_entities": [
+   "Q1184244"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1184244"
+  ], 
+  "utterance": "delict", 
+  "active_set": [
+   "(Q1184268,P425,c(Q3769299))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34770", 
+   "Q56061"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which administrative territories designates around 4 languages as their official language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q458"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q458"
+  ], 
+  "utterance": "European Union", 
+  "active_set": [
+   "(c(Q56061),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q458", 
+   "Q219"
+  ], 
+  "relations": [
+   "P47"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does Bulgaria have an adjacent border with that administrative territory ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q219,P47,Q458)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q458"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organization is a citizen of European Union ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6027461"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6027461"
+  ], 
+  "utterance": "IndustriALL European Trade Union", 
+  "active_set": [
+   "(c(Q43229),P27,Q458)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q458"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q515"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which city is center of administration for European Union ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6602"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6602"
+  ], 
+  "utterance": "Strasbourg", 
+  "active_set": [
+   "(c(Q515),P1376,Q458)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q458"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P264"
+  ], 
+  "type_list": [
+   "Q2031291"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which release has been sponsored by European Union for its recording ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1473678"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1473678"
+  ], 
+  "utterance": "Full Circle", 
+  "active_set": [
+   "(c(Q2031291),P264,Q458)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1473678"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P175"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What was presented by that release ?"
+ }, 
+ {
+  "all_entities": [
+   "Q189078"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q189078"
+  ], 
+  "utterance": "Xzibit", 
+  "active_set": [
+   "(Q1473678,P175,c(Q502895))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q8050991", 
+   "Q1473678"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P50", 
+   "P175"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people were performed by Full Circle or penned Years of Grace ?"
+ }, 
+ {
+  "all_entities": [
+   "Q768296", 
+   "Q189078"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q768296", 
+   "Q189078"
+  ], 
+  "utterance": "Margaret Ayer Barnes, Xzibit", 
+  "active_set": [
+   "OR((Q1473678,P175,c(Q502895)), (Q8050991,P50,c(Q502895)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P19"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories were that person born ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q189078"
+  ], 
+  "active_set": [
+   "(Q768296,P19,c(Q56061))", 
+   "(Q189078,P19,c(Q56061))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Xzibit ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q12439"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q189078,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q502895", 
+   "Q15961987"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which television genres had max number of people as the dubbing artist ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q22773153"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22773153"
+  ], 
+  "utterance": "Milo Murphy's Law", 
+  "active_set": [
+   "(c(Q15961987),P725,c(Q502895))"
+  ]
+ }
+]

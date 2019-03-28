@@ -1,0 +1,299 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q22319745"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the gene that encodes 23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22312503"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22312503"
+  ], 
+  "utterance": "23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808", 
+  "active_set": [
+   "(Q22319745,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q22319745"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which nucleic acid sequence encodes 23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22312503"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22312503"
+  ], 
+  "utterance": "23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808", 
+  "active_set": [
+   "(c(Q863908),P688,Q22319745)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q22312503", 
+   "Q22319745", 
+   "Q21990763"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Does that nucleic acid sequence encodes 23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808 and Trafficking protein particle complex subunit 4 ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q22312503,P688,Q22319745)", 
+   "(Q22312503,P688,Q21990763)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q22312503"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many nutrients are 23S rRNA (pseudouridine(1915)-N(3))-methyltransferase RlmH    PP_4808 an encoding of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q22319745"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q22312503,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q23351310"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about hypothetical protein    BSU14810?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q23516750"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q23351310,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q23173494"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about hypothetical protein    SAOUHSC_00837?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q23173494,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q181394", 
+   "Q8386", 
+   "Q79529"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P129"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which nutrients do approximately 68 drugs or chemical substances communicate with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4639596", 
+   "Q21108118"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4639596", 
+   "Q21108118"
+  ], 
+  "utterance": "5-hydroxytryptamine receptor 2B, 5-hydroxytryptamine receptor 2C", 
+  "active_set": [
+   "(c(Q8386)|c(Q79529),P129,c(Q181394))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q8386"
+  ], 
+  "entities_in_utterance": [
+   "Q7050954", 
+   "Q4639596"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P129"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which drugs communicates with 5-hydroxytryptamine receptor 2B or Sodium-dependent noradrenaline transporter ?"
+ }, 
+ {
+  "all_entities": [
+   "Q413581", 
+   "Q424446", 
+   "Q5399299", 
+   "Q423308", 
+   "Q411457", 
+   "Q255680", 
+   "Q61387", 
+   "Q834280", 
+   "Q269111", 
+   "Q368941", 
+   "Q417240", 
+   "Q898407", 
+   "Q58356", 
+   "Q416701", 
+   "Q2419445", 
+   "Q412226", 
+   "Q409948", 
+   "Q1747559", 
+   "Q180912", 
+   "Q424151", 
+   "Q44931", 
+   "Q7702355", 
+   "Q6824154", 
+   "Q424477", 
+   "Q419186", 
+   "Q23118", 
+   "Q58713", 
+   "Q251347", 
+   "Q408432", 
+   "Q423498", 
+   "Q416632", 
+   "Q408535", 
+   "Q411932", 
+   "Q395229", 
+   "Q422112", 
+   "Q226905", 
+   "Q424442", 
+   "Q418361", 
+   "Q58396", 
+   "Q58397", 
+   "Q221361", 
+   "Q1706418", 
+   "Q422244", 
+   "Q414463", 
+   "Q418101", 
+   "Q415752", 
+   "Q423288", 
+   "Q340139", 
+   "Q6535779"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q221361", 
+   "Q180912", 
+   "Q411932", 
+   "Q423288", 
+   "Q419186", 
+   "Q1706418", 
+   "Q409948", 
+   "Q411457", 
+   "Q340139", 
+   "Q226905"
+  ], 
+  "utterance": "Some of them are clozapine, melatonin, duloxetine, desipramine, ergotamine, Dextroamphetamine, nomifensine, trazodone, lorcaserin, zotepine", 
+  "active_set": [
+   "OR((c(Q8386),P129,Q4639596), (c(Q8386),P129,Q7050954))"
+  ]
+ }
+]

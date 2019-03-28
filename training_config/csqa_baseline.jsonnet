@@ -1,35 +1,29 @@
 {
   "dataset_reader": {
     "type": "csqa",
-
-    "kg_path": "allennlp/tests/fixtures/data/csqa/sample_kg.p",
-//    "kg_path": "/home/ubuntu/Desktop/wikidata/wikidata_short_1_2_rev.p",
-//    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
-
-     "kg_type_path": "allennlp/tests/fixtures/data/csqa/sample_par_child_dict.p",
-//    "kg_type_path": "/home/ubuntu/Desktop/wikidata/par_child_dict_full.p" ,
-//    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
-
-//    "dpd_output_file": "allennlp/tests/fixtures/data/csqa/sample_train_action_sequences.p",
-
+    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
+    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+    "dpd_output_file": "allennlp/tests/fixtures/data/csqa/sample_train_7000_logical_forms.p",
     "entity_id2string_path": "allennlp/tests/fixtures/data/csqa/sample_entity_id2string.json",
     "predicate_id2string_path": "allennlp/tests/fixtures/data/csqa/filtered_property_wikidata4.json",
     "read_only_direct": true,
     "lazy": true
   },
+//  "dataset_reader": {
+//    "type": "csqa",
+//    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
+//    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+//    "dpd_output_file": "allennlp/tests/fixtures/data/csqa/sample_train_7000_logical_forms.p",
+//    "entity_id2string_path": "allennlp/tests/fixtures/data/csqa/sample_entity_id2string.json",
+//    "predicate_id2string_path": "allennlp/tests/fixtures/data/csqa/filtered_property_wikidata4.json",
+//    "read_only_direct": true,
+//    "lazy": true
+//  },
   "vocabulary": {
     "non_padded_namespaces": ["denotations", "rule_labels"]
   },
-
-  "train_data_path": "allennlp/tests/fixtures/data/csqa/sample_train",
-//  "train_data_path": "/home/ubuntu/Desktop/CSQA_v9/train",
-//  "train_data_path": "/home/ubuntu/Desktop/CSQA_v9/train.tar.gz",
-//  "train_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/train.tar.gz",
-
-  "validation_data_path": "allennlp/tests/fixtures/data/csqa/sample_train",
-//  "validation_data_path": "/home/ubuntu/Desktop/CSQA_v9/test.tar.gz",
-//  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/valid.tar.gz",
-
+  "train_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000.tar.gz",
+  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100.tar.gz",
   "model": {
     "type": "csqa_mml_parser",
     "sentence_embedder": {
@@ -60,7 +54,7 @@
     "type": "bucket",
     "sorting_keys": [["question", "num_tokens"]],
     "padding_noise": 0.0,
-    "batch_size" : 6
+    "batch_size" : 32
   },
   "trainer": {
     "num_epochs": 100,

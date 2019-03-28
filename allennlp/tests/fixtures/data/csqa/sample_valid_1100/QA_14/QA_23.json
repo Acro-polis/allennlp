@@ -1,0 +1,747 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q8013644"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation was a position held by William John Lysley ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16707842"
+  ], 
+  "utterance": "Member of Parliament in the United Kingdom", 
+  "active_set": [
+   "(Q8013644,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q8013644"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1412"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which language does that person speak in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "(Q16707842,P1412,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 9, 
+  "type_list": [
+   "Q8192", 
+   "Q34770"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many languages use around the same number of writing systems as the writing system as that language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q7102906", 
+   "Q20832", 
+   "Q29572", 
+   "Q20831", 
+   "Q1133488", 
+   "Q13414913", 
+   "Q402878", 
+   "Q36708", 
+   "Q35470", 
+   "Q13211", 
+   "Q36741", 
+   "Q35499", 
+   "Q35668", 
+   "Q8785", 
+   "Q35726", 
+   "Q1321", 
+   "Q21161949", 
+   "Q25167", 
+   "Q33251", 
+   "Q18130932", 
+   "Q21161942", 
+   "Q1639124", 
+   "Q11732220", 
+   "Q33976", 
+   "Q856383", 
+   "Q149838", 
+   "Q47625", 
+   "Q36822", 
+   "Q2705672", 
+   "Q33879", 
+   "Q7362035", 
+   "Q36795", 
+   "Q56472", 
+   "Q6047309", 
+   "Q8752", 
+   "Q36178", 
+   "Q9056", 
+   "Q397", 
+   "Q20972034", 
+   "Q56512", 
+   "Q35505", 
+   "Q36957", 
+   "Q25164", 
+   "Q56982", 
+   "Q35308", 
+   "Q36790", 
+   "Q1860", 
+   "Q36116", 
+   "Q36751", 
+   "Q29977", 
+   "Q36464", 
+   "Q837985", 
+   "Q447117", 
+   "Q7511561", 
+   "Q652", 
+   "Q33982"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "56", 
+  "active_set": [
+   "(c(Q34770),P282,c(Q8192))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q16707842", 
+   "Q19809"
+  ], 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many works of art have Member of Parliament in the United Kingdom or Christmas as their main topic ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q189054", 
+   "Q287960", 
+   "Q975421", 
+   "Q18155444"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q838948),P921,Q16707842)", 
+   "(c(Q838948),P921,Q19809)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q68883"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34770", 
+   "Q56061"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many administrative territories designates approximately the same number of languages as their official language as Villars-Sainte-Croix ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q807", 
+   "Q64004", 
+   "Q68978", 
+   "Q689502", 
+   "Q9125", 
+   "Q678901", 
+   "Q66629", 
+   "Q9009", 
+   "Q2641849", 
+   "Q175345", 
+   "Q68124", 
+   "Q704257", 
+   "Q68965", 
+   "Q757845", 
+   "Q639054", 
+   "Q689954", 
+   "Q689691", 
+   "Q643200", 
+   "Q5576202", 
+   "Q668705", 
+   "Q69231", 
+   "Q7149", 
+   "Q66616", 
+   "Q54450", 
+   "Q3834", 
+   "Q5951348", 
+   "Q81811", 
+   "Q669310", 
+   "Q674433", 
+   "Q669411", 
+   "Q70477", 
+   "Q429962", 
+   "Q167715", 
+   "Q669254", 
+   "Q64011", 
+   "Q1990899", 
+   "Q597413", 
+   "Q390482", 
+   "Q662499", 
+   "Q669360", 
+   "Q678787", 
+   "Q68883", 
+   "Q660215", 
+   "Q7525", 
+   "Q661369", 
+   "Q669400", 
+   "Q4700013", 
+   "Q121157", 
+   "Q2094680", 
+   "Q1352", 
+   "Q128499", 
+   "Q69639", 
+   "Q662405", 
+   "Q64679", 
+   "Q70485", 
+   "Q669466", 
+   "Q141502", 
+   "Q3639927", 
+   "Q666159", 
+   "Q3951", 
+   "Q381861", 
+   "Q69256", 
+   "Q5689", 
+   "Q63964", 
+   "Q156593", 
+   "Q781354", 
+   "Q660142", 
+   "Q572380", 
+   "Q581562", 
+   "Q678991", 
+   "Q869534", 
+   "Q3702463", 
+   "Q21669478", 
+   "Q669375", 
+   "Q66208", 
+   "Q659753", 
+   "Q15077954", 
+   "Q435231", 
+   "Q2718721", 
+   "Q7172", 
+   "Q689487", 
+   "Q196357", 
+   "Q15730054", 
+   "Q1757", 
+   "Q669280", 
+   "Q5999183", 
+   "Q2492533", 
+   "Q57110", 
+   "Q66668", 
+   "Q541319", 
+   "Q68160", 
+   "Q7001862", 
+   "Q668740", 
+   "Q2152433", 
+   "Q183441", 
+   "Q689499", 
+   "Q678690", 
+   "Q21845358", 
+   "Q1034", 
+   "Q63931", 
+   "Q67812", 
+   "Q669152", 
+   "Q59117", 
+   "Q669350", 
+   "Q67097", 
+   "Q664153", 
+   "Q669292", 
+   "Q3630738", 
+   "Q289534", 
+   "Q688652", 
+   "Q258447", 
+   "Q1259122", 
+   "Q669229", 
+   "Q661817", 
+   "Q14512466", 
+   "Q70683", 
+   "Q669244", 
+   "Q68103", 
+   "Q678769", 
+   "Q669437", 
+   "Q69484", 
+   "Q611382", 
+   "Q69354", 
+   "Q64123", 
+   "Q69290", 
+   "Q25396", 
+   "Q669424", 
+   "Q1341", 
+   "Q78", 
+   "Q2801411", 
+   "Q72", 
+   "Q71", 
+   "Q70", 
+   "Q669332", 
+   "Q277674", 
+   "Q65757", 
+   "Q163798", 
+   "Q65502", 
+   "Q69940", 
+   "Q7942521", 
+   "Q64032", 
+   "Q198210", 
+   "Q869624", 
+   "Q678960", 
+   "Q1026291", 
+   "Q68692", 
+   "Q286332", 
+   "Q1895"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "148", 
+  "active_set": [
+   "(c(Q56061),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q67986"
+  ], 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34770", 
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And how about Rovio?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q2414585", 
+   "Q5813", 
+   "Q68449", 
+   "Q668625", 
+   "Q277708", 
+   "Q660999", 
+   "Q6029", 
+   "Q16644", 
+   "Q16641", 
+   "Q11703", 
+   "Q1014671", 
+   "Q25528", 
+   "Q2604700", 
+   "Q2395382", 
+   "Q123709", 
+   "Q2214906", 
+   "Q334", 
+   "Q26", 
+   "Q2532285", 
+   "Q11935", 
+   "Q1353", 
+   "Q14452", 
+   "Q677935", 
+   "Q26180", 
+   "Q16635", 
+   "Q4264", 
+   "Q25230", 
+   "Q49192", 
+   "Q67986", 
+   "Q623277", 
+   "Q2499687", 
+   "Q69041", 
+   "Q3947670", 
+   "Q668239", 
+   "Q58337", 
+   "Q334577", 
+   "Q2217474", 
+   "Q660974", 
+   "Q64044", 
+   "Q11959", 
+   "Q1025278", 
+   "Q179313", 
+   "Q2215147", 
+   "Q7024", 
+   "Q7122288", 
+   "Q67130", 
+   "Q244207", 
+   "Q1026296", 
+   "Q2215401"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "49", 
+  "active_set": [
+   "(c(Q56061),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q9779", 
+   "Q34770"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many alphabets are utilized as the script for exactly 1 language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q829464", 
+   "Q550383", 
+   "Q442244"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(c(Q34770),P282,c(Q9779))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q8192", 
+   "Q34770"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which writing systems are used as the scripts for approximately 1 language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q82946", 
+   "Q30972", 
+   "Q48332"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82946", 
+   "Q30972", 
+   "Q48332"
+  ], 
+  "utterance": "katakana, Linear A, hiragana", 
+  "active_set": [
+   "(c(Q34770),P282,c(Q8192))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many languages have writing system as that writing system ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q30972"
+  ], 
+  "active_set": [
+   "(c(Q34770),P282,Q82946)", 
+   "(c(Q34770),P282,Q30972)", 
+   "(c(Q34770),P282,Q48332)"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Linear A ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 7, 
+  "entities": [
+   "Q48332"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "No, I meant hiragana. Could you tell me the answer for that?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q182695"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q34770),P282,Q48332)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P2439"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q25295", 
+   "Q8192"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which language families are related to atmost 1 writing system ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q9288", 
+   "Q565110", 
+   "Q35518", 
+   "Q33491", 
+   "Q28244"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q565110", 
+   "Q33491", 
+   "Q28244"
+  ], 
+  "utterance": "Northern Thai, Haitian Creole, Amharic", 
+  "active_set": [
+   "(c(Q8192),P2439,c(Q25295))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q33491"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is Haitian Creole situated in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q790"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q790"
+  ], 
+  "utterance": "Haiti", 
+  "active_set": [
+   "(Q33491,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q790"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P85"
+  ], 
+  "type_list": [
+   "Q484692"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which is the national anthem of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q214459"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q214459"
+  ], 
+  "utterance": "La Dessalinienne", 
+  "active_set": [
+   "(Q790,P85,c(Q484692))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q214459", 
+   "Q505488"
+  ], 
+  "relations": [
+   "P85"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does Pfronten have that hymn as its anthem ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q505488,P85,Q214459)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q8013644", 
+   "Q145"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is United Kingdom the native country of William John Lysley ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q8013644,P27,Q145)"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q8013644", 
+   "Q1752976"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1412"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q34770"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many languages are spoken by William John Lysley or Wu Ming ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q652", 
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q8013644,P1412,c(Q34770))", 
+   "(Q1752976,P1412,c(Q34770))"
+  ]
+ }
+]

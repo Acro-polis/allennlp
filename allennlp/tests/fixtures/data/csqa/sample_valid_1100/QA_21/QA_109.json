@@ -1,0 +1,475 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q121300"
+  ], 
+  "relations": [
+   "P166"
+  ], 
+  "type_list": [
+   "Q618779"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which awards were Aloys Ruppel awarded with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q10905276", 
+   "Q10855195"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q10905276", 
+   "Q10855195"
+  ], 
+  "utterance": "Commander's Cross of the Order of Merit of the Federal Republic of Germany, Officer of the Legion of Honour", 
+  "active_set": [
+   "(Q121300,P166,c(Q618779))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q121300"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the sex of Aloys Ruppel ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q121300,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q121300"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What are the professions of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3332711", 
+   "Q17488465", 
+   "Q182436", 
+   "Q1622272", 
+   "Q635734"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q182436", 
+   "Q3332711", 
+   "Q1622272"
+  ], 
+  "utterance": "librarian, medievalist, university teacher", 
+  "active_set": [
+   "(Q6581097,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q12343976"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do Vilhelm Lunding have the profession of those occupations ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q12343976,P106,Q182436)", 
+   "(Q12343976,P106,Q3332711)", 
+   "(Q12343976,P106,Q1622272)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q10855195", 
+   "Q142"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Officer of the Legion of Honour a part of France ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q10855195,P17,Q142)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q10905276"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many political territories do Commander's Cross of the Order of Merit of the Federal Republic of Germany belong to ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q10905276,P17,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q1794430"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Kurzfeld?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q1794430,P17,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q2202772"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about R\u00f6sberg?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q2202772,P17,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q182436"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q178706"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did librarian work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7075"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7075"
+  ], 
+  "utterance": "library", 
+  "active_set": [
+   "(Q182436,P937,c(Q178706))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q7075", 
+   "Q394"
+  ], 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q1047113"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Is that institution a part of metrology ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q7075,P361,Q394)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q1615311", 
+   "Q121300"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P47", 
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are the native countriesof Aloys Ruppel or have a shared border with Villaquejida ?"
+ }, 
+ {
+  "all_entities": [
+   "Q768518", 
+   "Q1640117", 
+   "Q1765170", 
+   "Q1766901", 
+   "Q183", 
+   "Q137733", 
+   "Q137123", 
+   "Q1640171", 
+   "Q1652139", 
+   "Q1653158"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q768518", 
+   "Q1640117", 
+   "Q1765170", 
+   "Q1766901", 
+   "Q183", 
+   "Q137733", 
+   "Q137123", 
+   "Q1640171", 
+   "Q1652139", 
+   "Q1653158"
+  ], 
+  "utterance": "Valderas, Villaornate y Castro, Matilla de Arz\u00f3n, Valdescorriel, Germany, Campazas, Cimanes de la Vega, Villamandos, Fuentes de Ropel, San Crist\u00f3bal de Entrevi\u00f1as", 
+  "active_set": [
+   "OR((Q121300,P27,c(Q1048835)), (Q1615311,P47,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q768518", 
+   "Q1640117", 
+   "Q1765170", 
+   "Q1766901", 
+   "Q183", 
+   "Q137733", 
+   "Q137123", 
+   "Q1640171", 
+   "Q1652139", 
+   "Q1653158"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P1313"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupations are fulfilled by Valderas, Villaornate y Castro, Matilla de Arz\u00f3n, Valdescorriel, Germany, Campazas, Cimanes de la Vega, Villamandos, Fuentes de Ropel and San Crist\u00f3bal de Entrevi\u00f1as ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26699916", 
+   "Q26693627", 
+   "Q26695418", 
+   "Q26695576", 
+   "Q4970706", 
+   "Q26691060", 
+   "Q26690969", 
+   "Q26693642", 
+   "Q26694875", 
+   "Q26694910"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4970706", 
+   "Q26699916", 
+   "Q26693627"
+  ], 
+  "utterance": "Federal Chancellor of Germany, mayor of Valderas, mayor of Villaornate y Castro", 
+  "active_set": [
+   "(Q768518,P1313,c(Q12737077))", 
+   "(Q1640117,P1313,c(Q12737077))", 
+   "(Q1765170,P1313,c(Q12737077))", 
+   "(Q1766901,P1313,c(Q12737077))", 
+   "(Q183,P1313,c(Q12737077))", 
+   "(Q137733,P1313,c(Q12737077))", 
+   "(Q137123,P1313,c(Q12737077))", 
+   "(Q1640171,P1313,c(Q12737077))", 
+   "(Q1652139,P1313,c(Q12737077))", 
+   "(Q1653158,P1313,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q874405"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which organizations were Germany a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q41984", 
+   "Q376150", 
+   "Q782942", 
+   "Q8908", 
+   "Q8919", 
+   "Q7817"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7817", 
+   "Q41984", 
+   "Q8908"
+  ], 
+  "utterance": "World Health Organization, International Atomic Energy Agency, Council of Europe", 
+  "active_set": [
+   "(Q183,P463,c(Q874405))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "Incomplete|object parent is changed, subject and predicate remain same", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "inc_ques_type": 1, 
+  "relations": [], 
+  "type_list": [
+   "Q180516"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And which room?"
+ }, 
+ {
+  "all_entities": [
+   "Q141720"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q141720"
+  ], 
+  "utterance": "European Air Transport Command", 
+  "active_set": [
+   "(Q183,P463,c(Q180516))"
+  ]
+ }
+]

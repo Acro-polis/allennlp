@@ -1,0 +1,75 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q648796"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation has Jos\u00e9 Nicomedes Grossi as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q250867"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q250867"
+  ], 
+  "utterance": "Catholic priest", 
+  "active_set": [
+   "(Q648796,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q250867"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people were responsible for occupying the position of that occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q192315", 
+   "Q3160650", 
+   "Q18175203", 
+   "Q961586", 
+   "Q3247673", 
+   "Q21166348", 
+   "Q45158", 
+   "Q45342", 
+   "Q23719800", 
+   "Q26086606", 
+   "Q3288401", 
+   "Q532750"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q45158", 
+   "Q26086606", 
+   "Q961586"
+  ], 
+  "utterance": "Gerhard Ludwig M\u00fcller, Jacques Hamel, Alphonse-Victor Angot", 
+  "active_set": [
+   "(c(Q502895),P39,Q250867)"
+  ]
+ }
+]

@@ -1,0 +1,273 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q8074425"
+  ], 
+  "relations": [
+   "P735"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the firstname of Zoran \u0160kerjanc ?"
+ }, 
+ {
+  "all_entities": [
+   "Q220484"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q220484"
+  ], 
+  "utterance": "Zoran", 
+  "active_set": [
+   "(Q8074425,P735,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q8074425"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What was the sport that Zoran \u0160kerjanc was a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q8074425,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q349"
+  ], 
+  "entities_in_utterance": [
+   "Q429301", 
+   "Q8074425"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P641"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Or Slobodan \u017divojinovi\u0107?"
+ }, 
+ {
+  "all_entities": [
+   "Q847", 
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q847", 
+   "Q2736"
+  ], 
+  "utterance": "tennis, association football", 
+  "active_set": [
+   "OR((Q8074425,P641,c(Q349)), (Q429301,P641,c(Q349)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q8074425"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation has Zoran \u0160kerjanc as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "utterance": "association football player", 
+  "active_set": [
+   "(Q8074425,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q8074425"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the sex of Zoran \u0160kerjanc ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q8074425,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "relations": [
+   "P425"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many sports have association football player as the associated fields of occupation ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q937857,P425,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q9149093"
+  ], 
+  "relations": [
+   "P425"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about mountaineer?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q36908"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q9149093,P425,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q12299841"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about cricketer?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q12299841,P425,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P800"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person has association football player as a notable work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23047441"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23047441"
+  ], 
+  "utterance": "Hugh Morgan-Owen", 
+  "active_set": [
+   "(c(Q502895),P800,Q937857)"
+  ]
+ }
+]

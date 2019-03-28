@@ -1,0 +1,397 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1509992"
+  ], 
+  "relations": [
+   "P607"
+  ], 
+  "type_list": [
+   "Q198"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What battle were Gerald Reitlinger a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q362", 
+   "Q361"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q362", 
+   "Q361"
+  ], 
+  "utterance": "World War II, World War I", 
+  "active_set": [
+   "(Q1509992,P607,c(Q198))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q362"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P710"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who were the participants of that war ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q361"
+  ], 
+  "active_set": [
+   "(Q362,P710,c(Q15617994))", 
+   "(Q361,P710,c(Q15617994))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q362", 
+   "Q361"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean World War I ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q362"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant World War II. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q142", 
+   "Q17", 
+   "Q30", 
+   "Q38", 
+   "Q145"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142", 
+   "Q38", 
+   "Q30"
+  ], 
+  "utterance": "France, Italy, United States of America", 
+  "active_set": [
+   "(Q362,P710,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P36"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the capital of that administrative territory ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "active_set": [
+   "(Q142,P36,c(Q56061))", 
+   "(Q38,P36,c(Q56061))", 
+   "(Q30,P36,c(Q56061))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q142", 
+   "Q38", 
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean France ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "Yes"
+ }, 
+ {
+  "all_entities": [
+   "Q90"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q90"
+  ], 
+  "utterance": "Paris", 
+  "active_set": [
+   "(Q142,P36,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q90", 
+   "Q2049851", 
+   "Q17390060"
+  ], 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Is that administrative territory the county seat of Mason and Osinovka ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q90,P1376,Q2049851)", 
+   "(Q90,P1376,Q17390060)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q90"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1444"
+  ], 
+  "type_list": [
+   "Q18608583"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which recurring sporting events have that administrative territory as their destination point ?"
+ }, 
+ {
+  "all_entities": [
+   "Q643108", 
+   "Q853300", 
+   "Q580122", 
+   "Q752416", 
+   "Q579685", 
+   "Q915911", 
+   "Q591438", 
+   "Q608649", 
+   "Q224723", 
+   "Q730402", 
+   "Q260299", 
+   "Q833247", 
+   "Q546013", 
+   "Q249157", 
+   "Q847615", 
+   "Q586915", 
+   "Q915903", 
+   "Q827953", 
+   "Q734077", 
+   "Q903211", 
+   "Q849885", 
+   "Q849882", 
+   "Q221428", 
+   "Q833232", 
+   "Q217263", 
+   "Q840727", 
+   "Q513819", 
+   "Q639587", 
+   "Q669669", 
+   "Q279235", 
+   "Q842186", 
+   "Q581491", 
+   "Q654890", 
+   "Q221530", 
+   "Q830097", 
+   "Q635703", 
+   "Q842396", 
+   "Q577246", 
+   "Q754990", 
+   "Q655118", 
+   "Q754994", 
+   "Q907282", 
+   "Q261798", 
+   "Q916886", 
+   "Q847775", 
+   "Q478420", 
+   "Q776876", 
+   "Q1065480", 
+   "Q849867", 
+   "Q849864", 
+   "Q842401", 
+   "Q614452", 
+   "Q744066", 
+   "Q681694", 
+   "Q835582", 
+   "Q303422", 
+   "Q907272", 
+   "Q733200", 
+   "Q374222", 
+   "Q531422", 
+   "Q849871", 
+   "Q379467", 
+   "Q219413", 
+   "Q219414", 
+   "Q749914", 
+   "Q612937", 
+   "Q682253", 
+   "Q329877", 
+   "Q907308", 
+   "Q329871", 
+   "Q729763", 
+   "Q910610", 
+   "Q249109", 
+   "Q249102", 
+   "Q736720", 
+   "Q378886", 
+   "Q898077", 
+   "Q895853", 
+   "Q644632", 
+   "Q384895", 
+   "Q907316", 
+   "Q389982", 
+   "Q836884", 
+   "Q910171", 
+   "Q220683", 
+   "Q916617", 
+   "Q754426", 
+   "Q368629", 
+   "Q634350", 
+   "Q915918", 
+   "Q899379", 
+   "Q757405", 
+   "Q249097", 
+   "Q217287", 
+   "Q278715", 
+   "Q847630", 
+   "Q687902", 
+   "Q45664", 
+   "Q827936", 
+   "Q523804"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q279235", 
+   "Q45664", 
+   "Q754994"
+  ], 
+  "utterance": "1980 Tour de France, 2003 Tour de France, 1989 Tour de France", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q90"
+  ], 
+  "relations": [
+   "P47"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q20667921"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many french administrative divisions share border with Paris ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q135265", 
+   "Q208889", 
+   "Q18102", 
+   "Q274327", 
+   "Q253721", 
+   "Q193899", 
+   "Q234728", 
+   "Q205632", 
+   "Q234743", 
+   "Q193819", 
+   "Q193877", 
+   "Q212274", 
+   "Q175999", 
+   "Q193929", 
+   "Q640102", 
+   "Q193370", 
+   "Q201982", 
+   "Q212793", 
+   "Q256004", 
+   "Q48958", 
+   "Q208943", 
+   "Q160506", 
+   "Q166640", 
+   "Q172455", 
+   "Q189153", 
+   "Q135104", 
+   "Q209086", 
+   "Q241021", 
+   "Q609134"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "29", 
+  "active_set": [
+   "(Q90,P47,c(Q20667921))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q372812"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q20667921"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Bompas?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(Q372812,P47,c(Q20667921))"
+  ]
+ }
+]

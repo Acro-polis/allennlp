@@ -1,0 +1,397 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3132839"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Where was Henry Honiball born ?"
+ }, 
+ {
+  "all_entities": [
+   "Q985827"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q985827"
+  ], 
+  "utterance": "Estcourt", 
+  "active_set": [
+   "(Q3132839,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3132839"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q12973014"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sports teams are that person a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q498478", 
+   "Q917973", 
+   "Q744636"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q498478", 
+   "Q917973", 
+   "Q744636"
+  ], 
+  "utterance": "South Africa national rugby union team, Bristol Rugby, Natal Sharks", 
+  "active_set": [
+   "(Q985827,P54,c(Q12973014))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q216613"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P641"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q31629", 
+   "Q12973014"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many types of sport were lesser number of sports teams a part of than Nordic skiing ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q271008", 
+   "Q637186", 
+   "Q170004", 
+   "Q1666862", 
+   "Q1154336", 
+   "Q243264", 
+   "Q472827", 
+   "Q10980", 
+   "Q217108", 
+   "Q164731", 
+   "Q11706688", 
+   "Q14085739", 
+   "Q631004", 
+   "Q672066", 
+   "Q1293", 
+   "Q211155", 
+   "Q191691", 
+   "Q3817372", 
+   "Q166788", 
+   "Q326827", 
+   "Q178131", 
+   "Q187916", 
+   "Q1320458", 
+   "Q215184", 
+   "Q1031445", 
+   "Q219554", 
+   "Q32485", 
+   "Q706199", 
+   "Q919072", 
+   "Q207238", 
+   "Q2094083", 
+   "Q675770", 
+   "Q692853", 
+   "Q189472", 
+   "Q180692", 
+   "Q327223", 
+   "Q165704", 
+   "Q1049443", 
+   "Q2328286", 
+   "Q2164355", 
+   "Q917562", 
+   "Q164761", 
+   "Q1798044", 
+   "Q718", 
+   "Q1209037", 
+   "Q1707432", 
+   "Q352749", 
+   "Q1075998", 
+   "Q1141850", 
+   "Q774176", 
+   "Q159354", 
+   "Q1629556", 
+   "Q40244", 
+   "Q172809", 
+   "Q16629853", 
+   "Q520611", 
+   "Q335638", 
+   "Q1423069", 
+   "Q465014", 
+   "Q2261949", 
+   "Q11020", 
+   "Q453778", 
+   "Q163892", 
+   "Q1156722", 
+   "Q779272", 
+   "Q273285", 
+   "Q50620", 
+   "Q31987", 
+   "Q2891117", 
+   "Q179226", 
+   "Q11015", 
+   "Q428242", 
+   "Q162883", 
+   "Q5300110"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "74", 
+  "active_set": [
+   "(c(Q12973014),P641,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q985827"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is Estcourt situated in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q258"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q258"
+  ], 
+  "utterance": "South Africa", 
+  "active_set": [
+   "(Q985827,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q258"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P467"
+  ], 
+  "type_list": [
+   "Q846882"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sources of law was passed by that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q917015"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q917015"
+  ], 
+  "utterance": "Immorality Act", 
+  "active_set": [
+   "(c(Q846882),P467,Q258)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q258"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P85"
+  ], 
+  "type_list": [
+   "Q484692"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the national anthem of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q231725"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q231725"
+  ], 
+  "utterance": "National anthem of South Africa", 
+  "active_set": [
+   "(Q917015,P85,c(Q484692))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q258"
+  ], 
+  "relations": [
+   "P159"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q874405", 
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many social groups or organizations have the principal seat at South Africa ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q6368720", 
+   "Q7588872", 
+   "Q6541825", 
+   "Q5474513", 
+   "Q17010629", 
+   "Q7669410", 
+   "Q7933968", 
+   "Q6978306", 
+   "Q4689763"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "9", 
+  "active_set": [
+   "(c(Q874405),P159,Q258)", 
+   "(c(Q43229),P159,Q258)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q258"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P88"
+  ], 
+  "type_list": [
+   "Q811979"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which architectural structure has that administrative territory as its commisioner ?"
+ }, 
+ {
+  "all_entities": [
+   "Q14906466"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14906466"
+  ], 
+  "utterance": "Embassy of South Africa, Bonn", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q14906466"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P466"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who was the inhabitant of that architectural structure ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3917681"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3917681"
+  ], 
+  "utterance": "embassy", 
+  "active_set": [
+   "(Q14906466,P466,c(Q43229))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q7748066"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about The London Studios?"
+ }, 
+ {
+  "all_entities": [
+   "Q9531", 
+   "Q13477", 
+   "Q3140604", 
+   "Q501070"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9531", 
+   "Q13477", 
+   "Q3140604"
+  ], 
+  "utterance": "BBC, Al Jazeera, ITV plc", 
+  "active_set": [
+   "(Q7748066,P466,c(Q43229))"
+  ]
+ }
+]

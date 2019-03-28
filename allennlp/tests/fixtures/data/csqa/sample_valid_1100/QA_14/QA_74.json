@@ -1,0 +1,397 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q139753"
+  ], 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q163740"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nonprofit organization was James B. Pollack educated at ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13371"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "utterance": "Harvard University", 
+  "active_set": [
+   "(Q139753,P69,c(Q163740))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q139753"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1196"
+  ], 
+  "type_list": [
+   "Q1931388"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What manner did James B. Pollack die ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3739104"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3739104"
+  ], 
+  "utterance": "natural causes", 
+  "active_set": [
+   "(Q139753,P1196,c(Q1931388))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q5234405"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q1931388"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about David Grierson?"
+ }, 
+ {
+  "all_entities": [
+   "Q3739104"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3739104"
+  ], 
+  "utterance": "natural causes", 
+  "active_set": [
+   "(Q5234405,P1196,c(Q1931388))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P355"
+  ], 
+  "type_list": [
+   "Q3914"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which school serves as a subsidiary of Harvard University ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49126"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49126"
+  ], 
+  "utterance": "Harvard Business School", 
+  "active_set": [
+   "(Q13371,P355,c(Q3914))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q1368796"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q3914"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Mediacorp?"
+ }, 
+ {
+  "all_entities": [
+   "Q7523050"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7523050"
+  ], 
+  "utterance": "Singapore Media Academy", 
+  "active_set": [
+   "(Q1368796,P355,c(Q3914))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q7523050", 
+   "Q1368796", 
+   "Q4889436"
+  ], 
+  "relations": [
+   "P749"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Is Mediacorp and Lomen Company a parent organization of Q7523050 ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q7523050,P749,Q1368796)", 
+   "(Q7523050,P749,Q4889436)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q43229"
+  ], 
+  "entities_in_utterance": [
+   "Q1272541", 
+   "Q7523050"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which organizations contains Singapore Media Academy or Elmore as their subordinate ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16840677", 
+   "Q1368796"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16840677", 
+   "Q1368796"
+  ], 
+  "utterance": "Berkshire Hathaway Energy, Mediacorp", 
+  "active_set": [
+   "OR((c(Q43229),P355,Q7523050), (c(Q43229),P355,Q1272541))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P137"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q43229", 
+   "Q62447"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which aerodromes were operated by approximately 1 organization ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2449054", 
+   "Q2901042", 
+   "Q221351", 
+   "Q1360523", 
+   "Q4747210", 
+   "Q898928", 
+   "Q2161272", 
+   "Q478595", 
+   "Q4156", 
+   "Q2667407", 
+   "Q3029774", 
+   "Q4993139", 
+   "Q53080", 
+   "Q2279248", 
+   "Q4992232", 
+   "Q1836709", 
+   "Q278667", 
+   "Q186614", 
+   "Q11295440", 
+   "Q19803527", 
+   "Q3049018", 
+   "Q619825"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q278667", 
+   "Q1360523", 
+   "Q478595"
+  ], 
+  "utterance": "Rajiv Gandhi International Airport, Luis Mu\u00f1oz Mar\u00edn International Airport, Tan Son Nhat International Airport", 
+  "active_set": [
+   "(c(Q62447),P137,c(Q43229))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q6198714", 
+   "Q1368796"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P937", 
+   "P159"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are the HQ of Mediacorp or are the work locations of J\u00f6rn Svensson ?"
+ }, 
+ {
+  "all_entities": [
+   "Q334", 
+   "Q1754", 
+   "Q239"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q334", 
+   "Q1754", 
+   "Q239"
+  ], 
+  "utterance": "Singapore, Stockholm, Brussels", 
+  "active_set": [
+   "OR((Q1368796,P159,c(Q56061)), (Q6198714,P937,c(Q56061)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q26697738", 
+   "Q278667"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Rajiv Gandhi International Airport or mayor of La Floresta located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29", 
+   "Q668"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29", 
+   "Q668"
+  ], 
+  "utterance": "Spain, India", 
+  "active_set": [
+   "OR((Q278667,P17,c(Q15617994)), (Q26697738,P17,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Comparative|Count over More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P941"
+  ], 
+  "count_ques_sub_type": 9, 
+  "type_list": [
+   "Q15617994", 
+   "Q3895768"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories inspired less number of fictional locations than that administrative territory ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Comparative|Count over More/Less|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q668"
+  ], 
+  "active_set": [
+   "(c(Q3895768),P941,c(Q15617994))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean India ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 9, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q142", 
+   "Q159", 
+   "Q424", 
+   "Q55416", 
+   "Q794", 
+   "Q33", 
+   "Q954", 
+   "Q31", 
+   "Q889", 
+   "Q55"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "10", 
+  "active_set": [
+   "(c(Q3895768),P941,c(Q15617994))"
+  ]
+ }
+]

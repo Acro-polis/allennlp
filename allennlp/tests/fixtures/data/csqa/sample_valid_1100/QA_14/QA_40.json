@@ -1,0 +1,272 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1288530"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territory is the birthplace of Johann Evangelist von Pruner ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2090"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2090"
+  ], 
+  "utterance": "Nuremberg", 
+  "active_set": [
+   "(Q1288530,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2090"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P417"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person is the patron saint of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q516729"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q516729"
+  ], 
+  "utterance": "Sebaldus", 
+  "active_set": [
+   "(Q2090,P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2090"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1444"
+  ], 
+  "type_list": [
+   "Q18608583"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which recurring sporting event has Nuremberg as its destination point ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19911365"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19911365"
+  ], 
+  "utterance": "2015 Bayern-Rundfahrt", 
+  "active_set": [
+   "(c(Q18608583),P1444,Q2090)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2090"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P206"
+  ], 
+  "type_list": [
+   "Q355304"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which watercourses are located in the neighbourhood of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q153085", 
+   "Q163880"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q153085", 
+   "Q163880"
+  ], 
+  "utterance": "Rhine-Main-Danube Canal, Pegnitz", 
+  "active_set": [
+   "(Q19911365,P206,c(Q355304))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q2090"
+  ], 
+  "relations": [
+   "P206"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Nuremberg situated in the neighbourhood of those watercourses ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q2090,P206,Q153085)", 
+   "(Q2090,P206,Q163880)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q1288530", 
+   "Q6319164", 
+   "Q183"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Johann Evangelist von Pruner a citizen of Pazos District and Germany ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q1288530,P27,Q6319164)", 
+   "(Q1288530,P27,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q19911365", 
+   "Q183"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is 2015 Bayern-Rundfahrt located in Germany ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q19911365,P17,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P403"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q15324", 
+   "Q355304"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many bodies of water do around 39 watercourses drain into ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q12630", 
+   "Q1693", 
+   "Q82931", 
+   "Q38882"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q355304),P403,c(Q15324))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1288530"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P140"
+  ], 
+  "type_list": [
+   "Q879146"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which Christian denomination is the religion of Johann Evangelist von Pruner ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9592"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9592"
+  ], 
+  "utterance": "Roman Catholic Church", 
+  "active_set": [
+   "(Q1288530,P140,c(Q879146))"
+  ]
+ }
+]

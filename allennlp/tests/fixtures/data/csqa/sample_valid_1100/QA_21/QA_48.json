@@ -1,0 +1,227 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q973953"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sex does Marius Alexe belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q973953,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who studied at that sex ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4662307"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4662307"
+  ], 
+  "utterance": "Aaron Parchem", 
+  "active_set": [
+   "(c(Q502895),P69,Q6581097)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q4662307"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q15900616"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which event sequence did that person participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9672"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9672"
+  ], 
+  "utterance": "2006 Winter Olympics", 
+  "active_set": [
+   "(Q4662307,P1344,c(Q15900616))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q444449"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15900616"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Marcia Gudereit?"
+ }, 
+ {
+  "all_entities": [
+   "Q9664"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9664"
+  ], 
+  "utterance": "1998 Winter Olympics", 
+  "active_set": [
+   "(Q444449,P1344,c(Q15900616))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q16210703", 
+   "Q444449"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are Marcia Gudereit or Kieron Rogers an inhabitant of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q25228", 
+   "Q16"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q25228", 
+   "Q16"
+  ], 
+  "utterance": "Anguilla, Canada", 
+  "active_set": [
+   "OR((Q444449,P27,c(Q1048835)), (Q16210703,P27,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q1048835", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many political territories have diplomatic relations with atleast 3 political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q183", 
+   "Q408", 
+   "Q35", 
+   "Q16", 
+   "Q664"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "5", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1048835", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which administrative territories have diplomatic associations with min number of political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q805", 
+   "Q399", 
+   "Q398", 
+   "Q790", 
+   "Q236", 
+   "Q842", 
+   "Q858"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q805", 
+   "Q858", 
+   "Q842"
+  ], 
+  "utterance": "Yemen, Syria, Oman", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q1048835))"
+  ]
+ }
+]

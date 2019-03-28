@@ -1,0 +1,471 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q107056"
+  ], 
+  "relations": [
+   "P512"
+  ], 
+  "type_list": [
+   "Q3412758"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What degree does Gabriele Haefs hold ?"
+ }, 
+ {
+  "all_entities": [
+   "Q849697"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q849697"
+  ], 
+  "utterance": "doctoral degree", 
+  "active_set": [
+   "(Q107056,P512,c(Q3412758))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q107056"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P26"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person is the life partner of Gabriele Haefs ?"
+ }, 
+ {
+  "all_entities": [
+   "Q706658"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q706658"
+  ], 
+  "utterance": "Ingvar Ambj\u00f8rnsen", 
+  "active_set": [
+   "(c(Q502895),P26,Q107056)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q706658"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P166"
+  ], 
+  "type_list": [
+   "Q618779"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which awards were that person awarded with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1432919", 
+   "Q1769872", 
+   "Q1296227", 
+   "Q155424"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1769872", 
+   "Q1432919", 
+   "Q1296227"
+  ], 
+  "utterance": "Norwegian Booksellers' Prize, Norwegian Academy Prize in memory of Thorleif Dahl, Riksm\u00e5l Society Literature Prize", 
+  "active_set": [
+   "(Q706658,P166,c(Q618779))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q4133984", 
+   "Q706658"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27", 
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are the countries of citizenship of Ingvar Ambj\u00f8rnsen or do Garciems belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q20", 
+   "Q211"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q20", 
+   "Q211"
+  ], 
+  "utterance": "Norway, Latvia", 
+  "active_set": [
+   "OR((Q706658,P27,c(Q15617994)), (Q4133984,P17,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q20"
+  ], 
+  "relations": [
+   "P463"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q43229", 
+   "Q2567147"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many organizations or rapid reaction forces were Norway a member of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q340195", 
+   "Q191384", 
+   "Q1998131", 
+   "Q899770", 
+   "Q309195", 
+   "Q41550", 
+   "Q656801", 
+   "Q7825", 
+   "Q827525"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "9", 
+  "active_set": [
+   "(Q20,P463,c(Q43229))", 
+   "(Q20,P463,c(Q2567147))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q20"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P206"
+  ], 
+  "type_list": [
+   "Q15324"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which body of water is located in the neighbourhood of Norway ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1693"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1693"
+  ], 
+  "utterance": "North Sea", 
+  "active_set": [
+   "(Q20,P206,c(Q15324))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q215664"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15324"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Spratly Islands?"
+ }, 
+ {
+  "all_entities": [
+   "Q37660"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q37660"
+  ], 
+  "utterance": "South China Sea", 
+  "active_set": [
+   "(Q215664,P206,c(Q15324))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are that body of water a part of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q833", 
+   "Q424", 
+   "Q148", 
+   "Q921", 
+   "Q928", 
+   "Q881"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "6", 
+  "active_set": [
+   "(Q37660,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q20"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which geographic location is Norway located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q46"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "utterance": "Europe", 
+  "active_set": [
+   "(Q20,P30,c(Q2221906))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q107425"
+  ], 
+  "entities_in_utterance": [
+   "Q899302", 
+   "Q215664"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P361"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which landscapes are parts of Spratly Islands or Cave of Altamira and Paleolithic Cave Art of Northern Spain ?"
+ }, 
+ {
+  "all_entities": [
+   "Q361060", 
+   "Q2993079", 
+   "Q18612567", 
+   "Q5054949", 
+   "Q551647", 
+   "Q8352475"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q361060", 
+   "Q2993079", 
+   "Q18612567", 
+   "Q5054949", 
+   "Q551647", 
+   "Q8352475"
+  ], 
+  "utterance": "Cave of Altxerri, Santimami\u00f1e, North Danger Reef, Cave of Chuf\u00edn, Caves del Monte Castillo, Tito Bustillo Cave", 
+  "active_set": [
+   "OR((c(Q107425),P361,Q215664), (c(Q107425),P361,Q899302))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q337567", 
+   "Q15324", 
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P206"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which administrative territories are located next to min number of still waterss and bodies of water ?"
+ }, 
+ {
+  "all_entities": [
+   "Q505785", 
+   "Q3066319", 
+   "Q31872", 
+   "Q668", 
+   "Q525879", 
+   "Q572949", 
+   "Q267993", 
+   "Q525864", 
+   "Q487328", 
+   "Q1604782", 
+   "Q241358", 
+   "Q2316529", 
+   "Q525945", 
+   "Q14859", 
+   "Q508863", 
+   "Q1650693", 
+   "Q1009384", 
+   "Q657", 
+   "Q214", 
+   "Q622487", 
+   "Q4628", 
+   "Q503693", 
+   "Q4391124", 
+   "Q528579", 
+   "Q493924", 
+   "Q555609", 
+   "Q161258", 
+   "Q491751", 
+   "Q10903", 
+   "Q11343", 
+   "Q263451", 
+   "Q442666", 
+   "Q14825", 
+   "Q3111694", 
+   "Q216422", 
+   "Q532046", 
+   "Q7496670", 
+   "Q307508", 
+   "Q6685", 
+   "Q3352704", 
+   "Q252772", 
+   "Q519663", 
+   "Q2360428", 
+   "Q255698", 
+   "Q1984541", 
+   "Q560870", 
+   "Q621469", 
+   "Q28", 
+   "Q29", 
+   "Q3088406", 
+   "Q917406", 
+   "Q511806", 
+   "Q548982", 
+   "Q14889", 
+   "Q229", 
+   "Q347", 
+   "Q338094", 
+   "Q3939", 
+   "Q525889", 
+   "Q622456", 
+   "Q154322", 
+   "Q509998", 
+   "Q539787", 
+   "Q7042", 
+   "Q525900", 
+   "Q507258", 
+   "Q213", 
+   "Q547059", 
+   "Q269010", 
+   "Q262684", 
+   "Q573230", 
+   "Q1604772", 
+   "Q3923", 
+   "Q174307", 
+   "Q522992", 
+   "Q522677", 
+   "Q257859", 
+   "Q252320", 
+   "Q251778", 
+   "Q895413", 
+   "Q53742", 
+   "Q567984", 
+   "Q526087", 
+   "Q1604766", 
+   "Q7561974", 
+   "Q948", 
+   "Q2758", 
+   "Q1974", 
+   "Q573454", 
+   "Q509536", 
+   "Q4077862", 
+   "Q1984544", 
+   "Q494305", 
+   "Q304745", 
+   "Q542837", 
+   "Q12056", 
+   "Q4149191", 
+   "Q7942378"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q347", 
+   "Q29", 
+   "Q213"
+  ], 
+  "utterance": "Liechtenstein, Spain, Czech Republic", 
+  "active_set": [
+   "(c(Q15617994),P206,c(Q337567)|c(Q15324))"
+  ]
+ }
+]

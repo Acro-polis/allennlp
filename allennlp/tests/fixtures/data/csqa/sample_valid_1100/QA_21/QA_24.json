@@ -1,0 +1,384 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q19818461"
+  ], 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q20667921"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Where did Christiane Gilles expire ?"
+ }, 
+ {
+  "all_entities": [
+   "Q693520"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q693520"
+  ], 
+  "utterance": "Ch\u00e9cy", 
+  "active_set": [
+   "(Q19818461,P20,c(Q20667921))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q19818461"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P509"
+  ], 
+  "type_list": [
+   "Q12136"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "How did Christiane Gilles die ?"
+ }, 
+ {
+  "all_entities": [
+   "Q12078"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q12078"
+  ], 
+  "utterance": "cancer", 
+  "active_set": [
+   "(Q19818461,P509,c(Q12136))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q449239"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q12136"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Big Bill Broonzy?"
+ }, 
+ {
+  "all_entities": [
+   "Q12078"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q12078"
+  ], 
+  "utterance": "cancer", 
+  "active_set": [
+   "(Q449239,P509,c(Q12136))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q12078", 
+   "Q179996", 
+   "Q419769"
+  ], 
+  "relations": [
+   "P2176"
+  ], 
+  "type_list": [
+   "Q8386"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Does that disease requires methadone and bosentan in its treatment ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q12078,P2176,Q179996)", 
+   "(Q12078,P2176,Q419769)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q19818461", 
+   "Q536333"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Christiane Gilles a civilian of Unterreichenbach ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q19818461,P27,Q536333)"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q8386"
+  ], 
+  "entities_in_utterance": [
+   "Q187255", 
+   "Q12078"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P2176"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which drugs are used as an antidote for cancer and rheumatoid arthritis ?"
+ }, 
+ {
+  "all_entities": [
+   "Q408801", 
+   "Q422232", 
+   "Q11426176", 
+   "Q963093", 
+   "Q7699074", 
+   "Q412323", 
+   "Q186969", 
+   "Q424972"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q408801", 
+   "Q422232", 
+   "Q11426176", 
+   "Q963093", 
+   "Q7699074", 
+   "Q412323", 
+   "Q186969", 
+   "Q424972"
+  ], 
+  "utterance": "celecoxib, methotrexate, prednisolone, sulindac, temsirolimus, Rituximab, ibuprofen, prednisone", 
+  "active_set": [
+   "AND((Q12078,P2176,c(Q8386)), (Q187255,P2176,c(Q8386)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q11426176"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P129"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which nutrients can communicate with that drug ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q408801"
+  ], 
+  "active_set": [
+   "(c(Q181394),P129,Q408801)", 
+   "(c(Q181394),P129,Q422232)", 
+   "(c(Q181394),P129,Q11426176)", 
+   "(c(Q181394),P129,Q963093)", 
+   "(c(Q181394),P129,Q7699074)", 
+   "(c(Q181394),P129,Q412323)", 
+   "(c(Q181394),P129,Q186969)", 
+   "(c(Q181394),P129,Q424972)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q408801", 
+   "Q422232", 
+   "Q11426176", 
+   "Q963093", 
+   "Q7699074", 
+   "Q412323", 
+   "Q186969", 
+   "Q424972"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean celecoxib ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q11426176"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant prednisolone. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q3454531", 
+   "Q2663095"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3454531", 
+   "Q2663095"
+  ], 
+  "utterance": "Mineralocorticoid receptor, Glucocorticoid receptor", 
+  "active_set": [
+   "(c(Q181394),P129,Q11426176)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q3801326", 
+   "Q449239"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories do Big Bill Broonzy or Ioannis Thomakos belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30", 
+   "Q41"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30", 
+   "Q41"
+  ], 
+  "utterance": "United States of America, Greece", 
+  "active_set": [
+   "OR((Q449239,P27,c(Q15617994)), (Q3801326,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q105646", 
+   "Q449239"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P20"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories did Big Bill Broonzy or Harry Dember expire ?"
+ }, 
+ {
+  "all_entities": [
+   "Q138338", 
+   "Q1297"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q138338", 
+   "Q1297"
+  ], 
+  "utterance": "New Brunswick, Chicago", 
+  "active_set": [
+   "OR((Q449239,P20,c(Q56061)), (Q105646,P20,c(Q56061)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P190"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q515"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many cities are twin towns of that administrative territory ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q138338"
+  ], 
+  "active_set": [
+   "(Q138338,P190,c(Q515))", 
+   "(Q1297,P190,c(Q515))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean New Brunswick ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q734416"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q138338,P190,c(Q515))"
+  ]
+ }
+]

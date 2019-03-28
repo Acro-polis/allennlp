@@ -1,0 +1,943 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q23439824"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which gene encodes argininosuccinate synthase    VF_2304 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23156245"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23156245"
+  ], 
+  "utterance": "argininosuccinate synthase    VF_2304", 
+  "active_set": [
+   "(Q23439824,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q23156245"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which nutrient is encoded by that nucleic acid sequence ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23439824"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23439824"
+  ], 
+  "utterance": "argininosuccinate synthase    VF_2304", 
+  "active_set": [
+   "(Q23156245,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q22333144"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about 2-dehydro-3-deoxyphosphooctonate aldolase    lpg0939?"
+ }, 
+ {
+  "all_entities": [
+   "Q22336171"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22336171"
+  ], 
+  "utterance": "2-dehydro-3-deoxyphosphooctonate aldolase    lpg0939", 
+  "active_set": [
+   "(Q22333144,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q23439824"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many nucleic acid sequences encodes argininosuccinate synthase    VF_2304 ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q23156245"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q863908),P688,Q23439824)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q23496576"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about hypothetical protein    SPy_0706?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q23233856", 
+   "Q23235146"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q863908),P688,Q23496576)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q631147"
+  ], 
+  "entities_in_utterance": [
+   "Q24140897", 
+   "Q22336171"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P703"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which infraspecific names are 2-dehydro-3-deoxyphosphooctonate aldolase    lpg0939 or amidase    ECs3674 found ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102919", 
+   "Q21102930"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102919", 
+   "Q21102930"
+  ], 
+  "utterance": "Legionella pneumophila subsp. pneumophila str. Philadelphia 1, Escherichia coli O157:H7 str. Sakai", 
+  "active_set": [
+   "OR((Q22336171,P703,c(Q631147)), (Q24140897,P703,c(Q631147)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q863908"
+  ], 
+  "entities_in_utterance": [
+   "Q23571220", 
+   "Q23439824"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P688"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nucleic acid sequences encode argininosuccinate synthase    VF_2304 or two-component sensor histidine kinase    glr3562 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23269125", 
+   "Q23156245"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23269125", 
+   "Q23156245"
+  ], 
+  "utterance": "two-component sensor histidine kinase    glr3562, argininosuccinate synthase    VF_2304", 
+  "active_set": [
+   "OR((c(Q863908),P688,Q23439824), (c(Q863908),P688,Q23571220))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q181394", 
+   "Q181394", 
+   "Q79529"
+  ], 
+  "entities_in_utterance": [
+   "Q409166"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P129"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which nutrients do lesser number of nutrients and chemical substances interact with than Prothrombin ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21494718", 
+   "Q21115210", 
+   "Q21119831", 
+   "Q21108693", 
+   "Q21109971", 
+   "Q21104718", 
+   "Q21119231", 
+   "Q21115284", 
+   "Q21987850", 
+   "Q423701", 
+   "Q420930", 
+   "Q1407929", 
+   "Q21173169", 
+   "Q21497881", 
+   "Q21118791", 
+   "Q1499998", 
+   "Q1947065", 
+   "Q15335226", 
+   "Q14864142", 
+   "Q7553281", 
+   "Q4216080", 
+   "Q410142", 
+   "Q4048886", 
+   "Q21113552", 
+   "Q21137668", 
+   "Q1552797", 
+   "Q21135205", 
+   "Q424440", 
+   "Q21117208", 
+   "Q21102756", 
+   "Q3609382", 
+   "Q21113671", 
+   "Q401536", 
+   "Q258915", 
+   "Q21126218", 
+   "Q21130085", 
+   "Q21135448", 
+   "Q21173374", 
+   "Q21126810", 
+   "Q21984557", 
+   "Q7861688", 
+   "Q21118909", 
+   "Q21136517", 
+   "Q21496578", 
+   "Q21496575", 
+   "Q21496576", 
+   "Q2042529", 
+   "Q21109974", 
+   "Q21985924", 
+   "Q5038044", 
+   "Q14905270", 
+   "Q5201199", 
+   "Q905736", 
+   "Q21135975", 
+   "Q21172213", 
+   "Q14914580", 
+   "Q5198252", 
+   "Q21109744", 
+   "Q21124458", 
+   "Q21111742", 
+   "Q21123239", 
+   "Q15324125", 
+   "Q21115204", 
+   "Q21110467", 
+   "Q254943", 
+   "Q21119828", 
+   "Q21118920", 
+   "Q6414726", 
+   "Q22680153", 
+   "Q21108482", 
+   "Q21116513", 
+   "Q21499436", 
+   "Q21097491", 
+   "Q21111162", 
+   "Q21116946", 
+   "Q21115906", 
+   "Q21114332", 
+   "Q21119851", 
+   "Q417149", 
+   "Q5611730", 
+   "Q21154430", 
+   "Q412483", 
+   "Q1493174", 
+   "Q11071131", 
+   "Q21497887", 
+   "Q22676679", 
+   "Q5514257", 
+   "Q3459294", 
+   "Q21119672", 
+   "Q21987843", 
+   "Q21118732", 
+   "Q21110396", 
+   "Q419999", 
+   "Q21135949", 
+   "Q21096262", 
+   "Q21135943", 
+   "Q21135945", 
+   "Q21117235", 
+   "Q21108844", 
+   "Q21119704", 
+   "Q21111803", 
+   "Q22679015", 
+   "Q15322943", 
+   "Q21174687", 
+   "Q21105060", 
+   "Q21125240", 
+   "Q21118356", 
+   "Q21117300", 
+   "Q21175110", 
+   "Q21175111", 
+   "Q4036865", 
+   "Q21983261", 
+   "Q21102300", 
+   "Q21139123", 
+   "Q21108338", 
+   "Q21496918", 
+   "Q21117407", 
+   "Q21110752", 
+   "Q408305", 
+   "Q21097237", 
+   "Q21120955", 
+   "Q14911895", 
+   "Q3721138", 
+   "Q21108487", 
+   "Q14905748", 
+   "Q21102136", 
+   "Q5014947", 
+   "Q423572", 
+   "Q12746111", 
+   "Q21499210", 
+   "Q21100639", 
+   "Q21119156", 
+   "Q2819188", 
+   "Q21119157", 
+   "Q21115989", 
+   "Q21118919", 
+   "Q7136149", 
+   "Q21106693", 
+   "Q21103198", 
+   "Q5464652", 
+   "Q356093", 
+   "Q21119847", 
+   "Q22677167", 
+   "Q21132917", 
+   "Q21132915", 
+   "Q21135411", 
+   "Q21113504", 
+   "Q14912057", 
+   "Q21989670", 
+   "Q21127300", 
+   "Q21111553", 
+   "Q21108161", 
+   "Q21172884", 
+   "Q21172886", 
+   "Q1436420", 
+   "Q21111833", 
+   "Q21106691", 
+   "Q6981557", 
+   "Q14914198", 
+   "Q21138907", 
+   "Q21172286", 
+   "Q21122921", 
+   "Q21121233", 
+   "Q21159525", 
+   "Q22678664", 
+   "Q5446457", 
+   "Q5446456", 
+   "Q21106737", 
+   "Q5446453", 
+   "Q14914104", 
+   "Q3271142", 
+   "Q21992684", 
+   "Q21109026", 
+   "Q21113832", 
+   "Q21123416", 
+   "Q21121086", 
+   "Q21984578", 
+   "Q21133205", 
+   "Q21102082", 
+   "Q21984577", 
+   "Q904925", 
+   "Q3415811", 
+   "Q21131101", 
+   "Q5014958", 
+   "Q2521094", 
+   "Q5014957", 
+   "Q415718", 
+   "Q21982203", 
+   "Q21113540", 
+   "Q423561", 
+   "Q21120051", 
+   "Q21115996", 
+   "Q22676802", 
+   "Q21109157", 
+   "Q21115998", 
+   "Q21988427", 
+   "Q21991039", 
+   "Q411791", 
+   "Q21118884", 
+   "Q21127141", 
+   "Q21111265", 
+   "Q15327766", 
+   "Q21118970", 
+   "Q21118976", 
+   "Q416336", 
+   "Q21173608", 
+   "Q21136134", 
+   "Q21129997", 
+   "Q6592976", 
+   "Q423628", 
+   "Q21113510", 
+   "Q424693", 
+   "Q21123223", 
+   "Q410434", 
+   "Q6449560", 
+   "Q21111520", 
+   "Q21984381", 
+   "Q21125499", 
+   "Q21499447", 
+   "Q5201201", 
+   "Q21495791", 
+   "Q21121496", 
+   "Q21123220", 
+   "Q21134814", 
+   "Q21113683", 
+   "Q21118710", 
+   "Q418781"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5446456", 
+   "Q15335226", 
+   "Q254943"
+  ], 
+  "utterance": "Fibroblast growth factor receptor 2, D(2) dopamine receptor, Retinoic acid receptor alpha", 
+  "active_set": [
+   "(c(Q181394)|c(Q79529),P129,c(Q181394))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q181394", 
+   "Q181394", 
+   "Q79529"
+  ], 
+  "entities_in_utterance": [
+   "Q21123241"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P129"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Calcium/calmodulin-dependent 3',5'-cyclic nucleotide phosphodiesterase 1B?"
+ }, 
+ {
+  "all_entities": [
+   "Q21494718", 
+   "Q21115210", 
+   "Q21119831", 
+   "Q21108693", 
+   "Q21109971", 
+   "Q21104718", 
+   "Q21119231", 
+   "Q21115284", 
+   "Q21987850", 
+   "Q423701", 
+   "Q420930", 
+   "Q1407929", 
+   "Q21173169", 
+   "Q21497881", 
+   "Q21118791", 
+   "Q1499998", 
+   "Q1947065", 
+   "Q15335226", 
+   "Q14864142", 
+   "Q7553281", 
+   "Q4216080", 
+   "Q410142", 
+   "Q4048886", 
+   "Q21113552", 
+   "Q21137668", 
+   "Q1552797", 
+   "Q21135205", 
+   "Q424440", 
+   "Q21117208", 
+   "Q21102756", 
+   "Q3609382", 
+   "Q21113671", 
+   "Q401536", 
+   "Q258915", 
+   "Q21126218", 
+   "Q21130085", 
+   "Q21135448", 
+   "Q21173374", 
+   "Q21126810", 
+   "Q21984557", 
+   "Q7861688", 
+   "Q21118909", 
+   "Q21136517", 
+   "Q21496578", 
+   "Q21496575", 
+   "Q21496576", 
+   "Q2042529", 
+   "Q21109974", 
+   "Q21985924", 
+   "Q5038044", 
+   "Q14905270", 
+   "Q5201199", 
+   "Q905736", 
+   "Q21135975", 
+   "Q21172213", 
+   "Q14914580", 
+   "Q5198252", 
+   "Q21109744", 
+   "Q21124458", 
+   "Q21111742", 
+   "Q21123239", 
+   "Q15324125", 
+   "Q21115204", 
+   "Q21110467", 
+   "Q254943", 
+   "Q21119828", 
+   "Q21118920", 
+   "Q6414726", 
+   "Q22680153", 
+   "Q21108482", 
+   "Q21116513", 
+   "Q21499436", 
+   "Q21097491", 
+   "Q21111162", 
+   "Q21116946", 
+   "Q21115906", 
+   "Q21114332", 
+   "Q21119851", 
+   "Q417149", 
+   "Q5611730", 
+   "Q21154430", 
+   "Q412483", 
+   "Q1493174", 
+   "Q11071131", 
+   "Q21497887", 
+   "Q22676679", 
+   "Q5514257", 
+   "Q3459294", 
+   "Q21119672", 
+   "Q21987843", 
+   "Q21118732", 
+   "Q21110396", 
+   "Q419999", 
+   "Q21135949", 
+   "Q21096262", 
+   "Q21135943", 
+   "Q21135945", 
+   "Q21117235", 
+   "Q21108844", 
+   "Q21119704", 
+   "Q21111803", 
+   "Q22679015", 
+   "Q15322943", 
+   "Q21174687", 
+   "Q21105060", 
+   "Q21125240", 
+   "Q21118356", 
+   "Q21117300", 
+   "Q21175110", 
+   "Q21175111", 
+   "Q4036865", 
+   "Q21983261", 
+   "Q21102300", 
+   "Q21139123", 
+   "Q21108338", 
+   "Q21496918", 
+   "Q21117407", 
+   "Q21110752", 
+   "Q408305", 
+   "Q21097237", 
+   "Q21120955", 
+   "Q14911895", 
+   "Q3721138", 
+   "Q21108487", 
+   "Q14905748", 
+   "Q21102136", 
+   "Q5014947", 
+   "Q423572", 
+   "Q12746111", 
+   "Q21499210", 
+   "Q21100639", 
+   "Q21119156", 
+   "Q2819188", 
+   "Q21119157", 
+   "Q21115989", 
+   "Q21118919", 
+   "Q7136149", 
+   "Q21106693", 
+   "Q21103198", 
+   "Q5464652", 
+   "Q356093", 
+   "Q21119847", 
+   "Q22677167", 
+   "Q21132917", 
+   "Q21132915", 
+   "Q21135411", 
+   "Q21113504", 
+   "Q14912057", 
+   "Q21989670", 
+   "Q21127300", 
+   "Q21111553", 
+   "Q21108161", 
+   "Q21172884", 
+   "Q21172886", 
+   "Q1436420", 
+   "Q21111833", 
+   "Q21106691", 
+   "Q6981557", 
+   "Q14914198", 
+   "Q21138907", 
+   "Q21172286", 
+   "Q21122921", 
+   "Q21121233", 
+   "Q21159525", 
+   "Q22678664", 
+   "Q5446457", 
+   "Q5446456", 
+   "Q21106737", 
+   "Q5446453", 
+   "Q14914104", 
+   "Q3271142", 
+   "Q21992684", 
+   "Q21109026", 
+   "Q21113832", 
+   "Q21123416", 
+   "Q21121086", 
+   "Q21984578", 
+   "Q21133205", 
+   "Q21102082", 
+   "Q21984577", 
+   "Q904925", 
+   "Q3415811", 
+   "Q21131101", 
+   "Q5014958", 
+   "Q2521094", 
+   "Q5014957", 
+   "Q415718", 
+   "Q21982203", 
+   "Q21113540", 
+   "Q423561", 
+   "Q21120051", 
+   "Q21115996", 
+   "Q22676802", 
+   "Q21109157", 
+   "Q21115998", 
+   "Q21988427", 
+   "Q21991039", 
+   "Q411791", 
+   "Q21118884", 
+   "Q21127141", 
+   "Q21111265", 
+   "Q15327766", 
+   "Q21118970", 
+   "Q21118976", 
+   "Q416336", 
+   "Q21173608", 
+   "Q21136134", 
+   "Q21129997", 
+   "Q6592976", 
+   "Q423628", 
+   "Q21113510", 
+   "Q424693", 
+   "Q21123223", 
+   "Q410434", 
+   "Q6449560", 
+   "Q21111520", 
+   "Q21984381", 
+   "Q21125499", 
+   "Q21499447", 
+   "Q5201201", 
+   "Q21495791", 
+   "Q21121496", 
+   "Q21123220", 
+   "Q21134814", 
+   "Q21113683", 
+   "Q21118710", 
+   "Q418781"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5446456", 
+   "Q15335226", 
+   "Q254943"
+  ], 
+  "utterance": "Fibroblast growth factor receptor 2, D(2) dopamine receptor, Retinoic acid receptor alpha", 
+  "active_set": [
+   "(c(Q181394)|c(Q79529),P129,c(Q181394))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q631147"
+  ], 
+  "entities_in_utterance": [
+   "Q23439459", 
+   "Q23439824"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P703"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which infraspecific names are argininosuccinate synthase    VF_2304 and nucleoprotein/polynucleotide-associated enzyme    VF_A0295 a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102946"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102946"
+  ], 
+  "utterance": "Vibrio fischeri ES114", 
+  "active_set": [
+   "AND((Q23439824,P703,c(Q631147)), (Q23439459,P703,c(Q631147)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23439459"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is a component of nucleoprotein/polynucleotide-associated enzyme    VF_A0295 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21116315"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21116315"
+  ], 
+  "utterance": "viral nucleocapsid", 
+  "active_set": [
+   "(Q23439459,P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q27551043"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about COPII subunit SFB2 YNL049C?"
+ }, 
+ {
+  "all_entities": [
+   "Q14329032", 
+   "Q79927"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14329032", 
+   "Q79927"
+  ], 
+  "utterance": "endoplasmic reticulum membrane, endoplasmic reticulum", 
+  "active_set": [
+   "(Q27551043,P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q24152385"
+  ], 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do nicotinic acid mononucleotide adenylyltransferase    NRG857_02910 have those ones as cell component ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q24152385,P681,Q14329032)", 
+   "(Q24152385,P681,Q79927)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q14329032"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which cellular components are parts of endoplasmic reticulum membrane ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21971286", 
+   "Q21107992", 
+   "Q22326943", 
+   "Q21115425", 
+   "Q22326802", 
+   "Q21469807"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21107992", 
+   "Q21971286", 
+   "Q22326943"
+  ], 
+  "utterance": "ER ubiquitin ligase complex, oligosaccharyltransferase complex, fatty acid elongase complex", 
+  "active_set": [
+   "(c(Q5058355),P361,Q14329032)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q21107992", 
+   "Q21971286", 
+   "Q22326943"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which cellular components are ER ubiquitin ligase complex, oligosaccharyltransferase complex and fatty acid elongase complex a component of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q79927", 
+   "Q14329032", 
+   "Q14329032", 
+   "Q14329032"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q79927", 
+   "Q14329032", 
+   "Q14329032"
+  ], 
+  "utterance": "endoplasmic reticulum for 1st, endoplasmic reticulum membrane for 2nd, 3rd", 
+  "active_set": [
+   "(Q21107992,P361,c(Q5058355))", 
+   "(Q21971286,P361,c(Q5058355))", 
+   "(Q22326943,P361,c(Q5058355))"
+  ]
+ }
+]

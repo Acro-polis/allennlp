@@ -1,0 +1,376 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q9015920"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations were the positions for which Juan Ram\u00f3n Ferreira were appointed ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30185", 
+   "Q22999968"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30185", 
+   "Q22999968"
+  ], 
+  "utterance": "mayor, Member of the Assembly of Extremadura", 
+  "active_set": [
+   "(Q9015920,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9015920"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the birthplace of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1628817"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1628817"
+  ], 
+  "utterance": "Herv\u00e1s", 
+  "active_set": [
+   "(Q30185,P19,c(Q56061))", 
+   "(Q22999968,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q895526", 
+   "Q1752346", 
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P748"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which occupations did approximately 1 authority organs or assemblies appoint ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2666591", 
+   "Q1072417", 
+   "Q2287650", 
+   "Q5333410", 
+   "Q261746", 
+   "Q1029955", 
+   "Q642859", 
+   "Q967762", 
+   "Q15305714", 
+   "Q842386", 
+   "Q19056310", 
+   "Q890030", 
+   "Q796593", 
+   "Q940135", 
+   "Q2305968", 
+   "Q7444340", 
+   "Q2419581", 
+   "Q25863345", 
+   "Q2747647", 
+   "Q13645132", 
+   "Q636207", 
+   "Q7574264", 
+   "Q2003296", 
+   "Q967750", 
+   "Q783785", 
+   "Q1072415", 
+   "Q3409203", 
+   "Q327948", 
+   "Q1763459", 
+   "Q1591470", 
+   "Q735015", 
+   "Q1029968", 
+   "Q2297543", 
+   "Q967737", 
+   "Q1370482", 
+   "Q6542448", 
+   "Q2301213", 
+   "Q1658460", 
+   "Q628102", 
+   "Q786242", 
+   "Q1434880"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q25863345", 
+   "Q842386", 
+   "Q967750"
+  ], 
+  "utterance": "Secretary of State for International Trade, Prime Minister of Russia, United States Secretary of Labor", 
+  "active_set": [
+   "(c(Q12737077),P748,c(Q895526)|c(Q1752346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9015920"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political party is Juan Ram\u00f3n Ferreira a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q138198"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q138198"
+  ], 
+  "utterance": "Spanish Socialist Workers' Party", 
+  "active_set": [
+   "(Q9015920,P102,c(Q7278))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9015920"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the country of citizenship of Juan Ram\u00f3n Ferreira ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "utterance": "Spain", 
+  "active_set": [
+   "(Q9015920,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q16854164"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Marie-H\u00e9l\u00e8ne Schiffers?"
+ }, 
+ {
+  "all_entities": [
+   "Q31"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q31"
+  ], 
+  "utterance": "Belgium", 
+  "active_set": [
+   "(Q16854164,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q31", 
+   "Q6982932"
+  ], 
+  "relations": [
+   "P36"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Is Nawnghkun the capital of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q31,P36,Q6982932)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q9015920", 
+   "Q743519"
+  ], 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Did Juan Ram\u00f3n Ferreira expire Slavi\u0107ka ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q9015920,P20,Q743519)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q842386", 
+   "Q159", 
+   "Q40635"
+  ], 
+  "relations": [
+   "P1001"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Does Prime Minister of Russia have jurisdiction over Russia and Aicurzio ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q842386,P1001,Q159)", 
+   "(Q842386,P1001,Q40635)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q31", 
+   "Q782942", 
+   "Q6972596"
+  ], 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q874405"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Belgium a member of Australia Group and National Federation of Fish Friers ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q31,P463,Q782942)", 
+   "(Q31,P463,Q6972596)"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q31"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q184876", 
+   "Q11024"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many frames of reference and communications are present in Belgium ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q21995970", 
+   "Q15877679"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1 frames of reference and 1 communications", 
+  "active_set": [
+   "(c(Q184876),P17,Q31)", 
+   "(c(Q11024),P17,Q31)"
+  ]
+ }
+]

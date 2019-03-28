@@ -1,0 +1,600 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q23444289"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nucleic acid sequence encodes hypothetical protein    VPA1306 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23165502"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23165502"
+  ], 
+  "utterance": "hypothetical protein    VPA1306", 
+  "active_set": [
+   "(Q23444289,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q23444289"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q631147"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which infraspecific name is that nutrient found in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102947"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102947"
+  ], 
+  "utterance": "Vibrio parahaemolyticus RIMD 2210633", 
+  "active_set": [
+   "(Q23165502,P703,c(Q631147))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23444289"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the nucleic acid sequence that is encoded by hypothetical protein    VPA1306 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23165502"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23165502"
+  ], 
+  "utterance": "hypothetical protein    VPA1306", 
+  "active_set": [
+   "(c(Q863908),P688,Q23444289)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23444289"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is a component of hypothetical protein    VPA1306 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548"
+  ], 
+  "utterance": "plasma membrane", 
+  "active_set": [
+   "(Q23444289,P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q21133619"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about TRIO and F-actin-binding protein?"
+ }, 
+ {
+  "all_entities": [
+   "Q14762605"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14762605"
+  ], 
+  "utterance": "midbody", 
+  "active_set": [
+   "(Q21133619,P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P681"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q5058355", 
+   "Q181394"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which cellular components are components of around the same number of nutrients as that cellular component ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q7322268", 
+   "Q21106124", 
+   "Q21978575", 
+   "Q21116315", 
+   "Q14912978", 
+   "Q14864171", 
+   "Q21108229", 
+   "Q22328732", 
+   "Q21110192", 
+   "Q21146508", 
+   "Q14878067", 
+   "Q14864978", 
+   "Q24629101", 
+   "Q14864977", 
+   "Q14864971", 
+   "Q1604780", 
+   "Q21124326", 
+   "Q21116899", 
+   "Q14860843", 
+   "Q22327688", 
+   "Q22327479", 
+   "Q22327686", 
+   "Q14330626", 
+   "Q22327683", 
+   "Q21172343", 
+   "Q21172341", 
+   "Q24576567", 
+   "Q21108045", 
+   "Q671136", 
+   "Q22326188", 
+   "Q21469807", 
+   "Q14877465", 
+   "Q189094", 
+   "Q14876131", 
+   "Q24629096", 
+   "Q22328493", 
+   "Q21120634", 
+   "Q14864391", 
+   "Q14864390", 
+   "Q14914004", 
+   "Q21095183", 
+   "Q14873624", 
+   "Q14329032", 
+   "Q21199165", 
+   "Q14905221", 
+   "Q22326802", 
+   "Q21199358", 
+   "Q21759948", 
+   "Q21097473", 
+   "Q21105647", 
+   "Q21198643", 
+   "Q21106212", 
+   "Q21423046", 
+   "Q14864382", 
+   "Q14353100", 
+   "Q22326799", 
+   "Q14911512", 
+   "Q22325164", 
+   "Q26253851", 
+   "Q21136996", 
+   "Q21103154", 
+   "Q14863372", 
+   "Q21181370", 
+   "Q420927", 
+   "Q22327404", 
+   "Q22327654", 
+   "Q22327015", 
+   "Q21109092", 
+   "Q22327525", 
+   "Q14905147", 
+   "Q22329412", 
+   "Q180436", 
+   "Q22327092", 
+   "Q21763002", 
+   "Q15320191", 
+   "Q21971414", 
+   "Q21095089", 
+   "Q22327884", 
+   "Q14819352", 
+   "Q21118409", 
+   "Q14762605", 
+   "Q14864266", 
+   "Q21108411", 
+   "Q21750262", 
+   "Q21468808", 
+   "Q21198990", 
+   "Q21104759", 
+   "Q14876059", 
+   "Q21484280", 
+   "Q21758669", 
+   "Q22329407", 
+   "Q22328605", 
+   "Q14877492", 
+   "Q14873267", 
+   "Q22327128", 
+   "Q21760978", 
+   "Q21107992", 
+   "Q22328801", 
+   "Q5419646", 
+   "Q21126899", 
+   "Q14819441", 
+   "Q1640852", 
+   "Q21107481", 
+   "Q21105674", 
+   "Q21097505", 
+   "Q22327033", 
+   "Q14864663", 
+   "Q14863683", 
+   "Q21102478", 
+   "Q14349538", 
+   "Q22328819", 
+   "Q138639", 
+   "Q21120639", 
+   "Q14330629", 
+   "Q776995", 
+   "Q21971286", 
+   "Q21105988", 
+   "Q21095308", 
+   "Q21115425", 
+   "Q14864857", 
+   "Q14888035", 
+   "Q1065756", 
+   "Q22326843", 
+   "Q180951", 
+   "Q7168931", 
+   "Q14906187", 
+   "Q22327475", 
+   "Q14864520", 
+   "Q21112489", 
+   "Q22328743", 
+   "Q22328105", 
+   "Q14860546", 
+   "Q14860540", 
+   "Q14864866", 
+   "Q22328121", 
+   "Q899827", 
+   "Q6414172", 
+   "Q21109697", 
+   "Q22327736", 
+   "Q14906135", 
+   "Q22326919", 
+   "Q14882095", 
+   "Q21095620", 
+   "Q193825", 
+   "Q22327423"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14912978", 
+   "Q24576567", 
+   "Q22326799"
+  ], 
+  "utterance": "mitochondrial nucleoid, perisynaptic extracellular matrix, alpha-1,6-mannosyltransferase complex", 
+  "active_set": [
+   "(c(Q181394),P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q22327500"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q5058355", 
+   "Q5058355"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which cellular components are approximately the same number of cellular components a component of as presynaptic endocytic zone ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q22329450", 
+   "Q15320191", 
+   "Q14912978", 
+   "Q14864171", 
+   "Q14876131", 
+   "Q14878067", 
+   "Q1604780", 
+   "Q22327994", 
+   "Q22327622", 
+   "Q14860843", 
+   "Q22327686", 
+   "Q22327683", 
+   "Q22330482", 
+   "Q671136", 
+   "Q22326188", 
+   "Q22330431", 
+   "Q189094", 
+   "Q24576572", 
+   "Q3824358", 
+   "Q22329021", 
+   "Q14864391", 
+   "Q14864390", 
+   "Q22328085", 
+   "Q21095183", 
+   "Q14905221", 
+   "Q21199358", 
+   "Q22327411", 
+   "Q22327418", 
+   "Q22329159", 
+   "Q22329397", 
+   "Q14864382", 
+   "Q14353100", 
+   "Q22327884", 
+   "Q21423046", 
+   "Q47263", 
+   "Q22327652", 
+   "Q22329848", 
+   "Q180436", 
+   "Q22329846", 
+   "Q22329160", 
+   "Q24570682", 
+   "Q22330051", 
+   "Q22327498", 
+   "Q14911512", 
+   "Q14819352", 
+   "Q22327494", 
+   "Q22327889", 
+   "Q14762605", 
+   "Q14864266", 
+   "Q21750262", 
+   "Q21198990", 
+   "Q776995", 
+   "Q22329401", 
+   "Q24570673", 
+   "Q14349538", 
+   "Q22328884", 
+   "Q22329076", 
+   "Q22330231", 
+   "Q5419646", 
+   "Q21126899", 
+   "Q22325459", 
+   "Q22327714", 
+   "Q22327805", 
+   "Q21107481", 
+   "Q22327505", 
+   "Q21102478", 
+   "Q22327502", 
+   "Q22327500", 
+   "Q138639", 
+   "Q22329104", 
+   "Q21095308", 
+   "Q14864857", 
+   "Q1065756", 
+   "Q79927", 
+   "Q180951", 
+   "Q14864520", 
+   "Q29548", 
+   "Q22328105", 
+   "Q14860546", 
+   "Q14860540", 
+   "Q14864866", 
+   "Q6414172", 
+   "Q193825"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548", 
+   "Q14912978", 
+   "Q22329159"
+  ], 
+  "utterance": "plasma membrane, mitochondrial nucleoid, ventral disc microtubule array", 
+  "active_set": [
+   "(c(Q5058355),P361,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q14865766"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about ciliary membrane?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q14865766,P361,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q5058355", 
+   "Q5058355"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which cellular components are a part of min number of cellular components ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q22327392", 
+   "Q22328737", 
+   "Q14912978", 
+   "Q21108229", 
+   "Q22327015", 
+   "Q22327805", 
+   "Q14864978", 
+   "Q14864971", 
+   "Q22327396", 
+   "Q22326356", 
+   "Q22327622", 
+   "Q24570686", 
+   "Q22327479", 
+   "Q22327475", 
+   "Q21172343", 
+   "Q21172341", 
+   "Q22326870", 
+   "Q22327043", 
+   "Q22326188", 
+   "Q22326831", 
+   "Q14877465", 
+   "Q22327676", 
+   "Q22326089", 
+   "Q22327469", 
+   "Q24576579", 
+   "Q14914004", 
+   "Q21095183", 
+   "Q14905221", 
+   "Q22327389", 
+   "Q21105647", 
+   "Q15320191", 
+   "Q21106212", 
+   "Q22326799", 
+   "Q22328904", 
+   "Q22329850", 
+   "Q26253851", 
+   "Q22328035", 
+   "Q22327397", 
+   "Q22329249", 
+   "Q22327525", 
+   "Q22327526", 
+   "Q22329848", 
+   "Q22329843", 
+   "Q22329844", 
+   "Q22329845", 
+   "Q22329846", 
+   "Q24570682", 
+   "Q14911512", 
+   "Q24570689", 
+   "Q22327468", 
+   "Q22327061", 
+   "Q22327803", 
+   "Q24576582", 
+   "Q22329409", 
+   "Q22326951", 
+   "Q22328884", 
+   "Q22328762", 
+   "Q22327083", 
+   "Q14873267", 
+   "Q22329076", 
+   "Q22328801", 
+   "Q22330049", 
+   "Q2914458", 
+   "Q22325454", 
+   "Q21097505", 
+   "Q16949578", 
+   "Q22327686", 
+   "Q22327108", 
+   "Q22329467", 
+   "Q22327341", 
+   "Q6414172", 
+   "Q22327736", 
+   "Q193825", 
+   "Q22327423"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14912978", 
+   "Q22327015", 
+   "Q22326799"
+  ], 
+  "utterance": "mitochondrial nucleoid, photosystem II oxygen evolving complex, alpha-1,6-mannosyltransferase complex", 
+  "active_set": [
+   "(c(Q5058355),P361,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q22330238"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about polar ring of apical complex?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q22330238,P361,c(Q5058355))"
+  ]
+ }
+]

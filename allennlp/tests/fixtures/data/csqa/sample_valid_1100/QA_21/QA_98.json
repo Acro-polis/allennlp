@@ -1,0 +1,263 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3219152"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q20667921"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which french administrative division was Laurent D'Jaffo born at ?"
+ }, 
+ {
+  "all_entities": [
+   "Q208427"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q208427"
+  ], 
+  "utterance": "Bazas", 
+  "active_set": [
+   "(Q3219152,P19,c(Q20667921))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q208427"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people expired at that french administrative division ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23019130", 
+   "Q21406182", 
+   "Q27070710", 
+   "Q16027251", 
+   "Q3163828", 
+   "Q5967826", 
+   "Q3171093"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3163828", 
+   "Q21406182", 
+   "Q16027251"
+  ], 
+  "utterance": "Jean-Baptiste Am\u00e9d\u00e9e de Gr\u00e9goire de Saint-Sauveur, Louis Burgade, Jean Servi\u00e8re", 
+  "active_set": [
+   "(c(Q502895),P20,Q208427)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q16027251"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What was the position held by that person ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q3163828"
+  ], 
+  "active_set": [
+   "(Q3163828,P39,c(Q12737077))", 
+   "(Q21406182,P39,c(Q12737077))", 
+   "(Q16027251,P39,c(Q12737077))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q3163828", 
+   "Q21406182", 
+   "Q16027251"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Jean-Baptiste Am\u00e9d\u00e9e de Gr\u00e9goire de Saint-Sauveur ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q16027251"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Jean Servi\u00e8re. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q3044918"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3044918"
+  ], 
+  "utterance": "member of the French\u00a0National Assembly", 
+  "active_set": [
+   "(Q16027251,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q3044918", 
+   "Q142"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is member of the French\u00a0National Assembly present in France ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q3044918,P17,Q142)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3044918"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1001"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is linked to that occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q142"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "utterance": "France", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "How many administrative territories are known to have diplomatic connections with approximately 60 administrative territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q155"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q208427"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P19", 
+   "P21"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people were born at Bazas and are a male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3219152", 
+   "Q27070710", 
+   "Q16027251", 
+   "Q3898807", 
+   "Q1670037", 
+   "Q2829191", 
+   "Q2845619", 
+   "Q2756217"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3219152", 
+   "Q27070710", 
+   "Q16027251", 
+   "Q3898807", 
+   "Q1670037", 
+   "Q2829191", 
+   "Q2845619", 
+   "Q2756217"
+  ], 
+  "utterance": "Laurent D'Jaffo, Etienne Jacques Servi\u00e8re, Jean Servi\u00e8re, Peire de Ladils, Louis Bayle, Al'Covial, Anatole de Monzie, Vital du Four", 
+  "active_set": [
+   "AND((c(Q502895),P19,Q208427), (c(Q502895),P21,Q6581097))"
+  ]
+ }
+]

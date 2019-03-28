@@ -1,0 +1,266 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q23433933"
+  ], 
+  "relations": [
+   "P682"
+  ], 
+  "type_list": [
+   "Q1190554"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the event that hypothetical protein    VCA0121 is involved in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2996394"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2996394"
+  ], 
+  "utterance": "biological process", 
+  "active_set": [
+   "(Q23433933,P682,c(Q1190554))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23433933"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which nucleic acid sequence encodes hypothetical protein    VCA0121 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23127025"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23127025"
+  ], 
+  "utterance": "hypothetical protein    VCA0121", 
+  "active_set": [
+   "(c(Q863908),P688,Q23433933)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q23127025"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q16521"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where is that nucleic acid sequence found ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102945"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102945"
+  ], 
+  "utterance": "Vibrio cholerae O1 biovar El Tor str. N16961", 
+  "active_set": [
+   "(Q23127025,P703,c(Q16521))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q18031990"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q16521"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about KLF10?"
+ }, 
+ {
+  "all_entities": [
+   "Q15978631"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "utterance": "Homo sapiens", 
+  "active_set": [
+   "(Q18031990,P703,c(Q16521))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P427"
+  ], 
+  "type_list": [
+   "Q3343211"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which zoological nomenclature is the taxonomic type of that taxon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1043"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1043"
+  ], 
+  "utterance": "Carl Linnaeus", 
+  "active_set": [
+   "(Q15978631,P427,c(Q3343211))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q1043", 
+   "Q6891326"
+  ], 
+  "relations": [
+   "P184"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Was Mohamed Khorshid the doctoral superviser of that zoological nomenclature ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q1043,P184,Q6891326)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1043"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P119"
+  ], 
+  "type_list": [
+   "Q16970"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where was that zoological nomenclature buried ?"
+ }, 
+ {
+  "all_entities": [
+   "Q850042"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q850042"
+  ], 
+  "utterance": "Uppsala Cathedral", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q850042", 
+   "Q73395"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Uppsala Cathedral a part of Stammbach ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q850042,P17,Q73395)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q850042"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P186"
+  ], 
+  "type_list": [
+   "Q214609"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which material is used to produce Uppsala Cathedral ?"
+ }, 
+ {
+  "all_entities": [
+   "Q40089"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q40089"
+  ], 
+  "utterance": "brick", 
+  "active_set": [
+   "(Q850042,P186,c(Q214609))"
+  ]
+ }
+]

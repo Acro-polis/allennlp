@@ -1,0 +1,198 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q24101189"
+  ], 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q15989253"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which is the cell component of pyridine nucleotide transhydrogenase subunit beta    NGR_b14790 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q14349455"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14349455"
+  ], 
+  "utterance": "membrane", 
+  "active_set": [
+   "(Q24101189,P681,c(Q15989253))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q24101189"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q631147"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the taxon to which pyridine nucleotide transhydrogenase subunit beta    NGR_b14790 belongs to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23309229"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23309229"
+  ], 
+  "utterance": "Sinorhizobium fredii NGR234", 
+  "active_set": [
+   "(Q24101189,P703,c(Q631147))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q24101189"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which gene encodes that nutrient ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23313048"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23313048"
+  ], 
+  "utterance": "pyridine nucleotide transhydrogenase subunit beta    NGR_b14790", 
+  "active_set": [
+   "(Q23309229,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q181394", 
+   "Q79529", 
+   "Q8386"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P129"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many nutrients do approximately 47 chemical substances or drugs interact with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q309513", 
+   "Q288797", 
+   "Q21115051", 
+   "Q21109355", 
+   "Q21110872", 
+   "Q21109363", 
+   "Q2034004"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "7", 
+  "active_set": [
+   "(c(Q79529)|c(Q8386),P129,c(Q181394))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q863908"
+  ], 
+  "entities_in_utterance": [
+   "Q24108196", 
+   "Q24101189"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P688"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nucleic acid sequences encode pyridine nucleotide transhydrogenase subunit beta    NGR_b14790 or transposase    SMa1610 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23165579", 
+   "Q23313048"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23165579", 
+   "Q23313048"
+  ], 
+  "utterance": "transposase    SMa1610, pyridine nucleotide transhydrogenase subunit beta    NGR_b14790", 
+  "active_set": [
+   "OR((c(Q863908),P688,Q24101189), (c(Q863908),P688,Q24108196))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q23165579", 
+   "Q5529366"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many nutrients do transposase    SMa1610 or serine/threonine-protein kinase GCN2 YDR283C encode ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q24108196", 
+   "Q5529366"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q181394),P702,Q23165579)", 
+   "(c(Q181394),P702,Q5529366)"
+  ]
+ }
+]

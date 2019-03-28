@@ -1,0 +1,528 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q10514305"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the profession of Kim Eun-Hu ?"
+ }, 
+ {
+  "all_entities": [
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "utterance": "association football player", 
+  "active_set": [
+   "(Q10514305,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q10514305"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sport was Kim Eun-Hu a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q10514305,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q1876896"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Lukas Grozurek?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q1876896,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people are the names of person who are the patron saints of exactly 1 occupation ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q453698", 
+   "Q152457", 
+   "Q43689", 
+   "Q163900", 
+   "Q212850", 
+   "Q374822", 
+   "Q9438", 
+   "Q130997", 
+   "Q312758", 
+   "Q5575577", 
+   "Q191107", 
+   "Q242274", 
+   "Q119289", 
+   "Q360798", 
+   "Q298845", 
+   "Q48438", 
+   "Q119512", 
+   "Q44281", 
+   "Q170164", 
+   "Q43399", 
+   "Q508214", 
+   "Q9200", 
+   "Q193507", 
+   "Q463600", 
+   "Q43669", 
+   "Q40662", 
+   "Q332656", 
+   "Q320171", 
+   "Q137947", 
+   "Q80513", 
+   "Q324700", 
+   "Q44015", 
+   "Q149727", 
+   "Q232427", 
+   "Q60059", 
+   "Q17590", 
+   "Q271474", 
+   "Q276148"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "38", 
+  "active_set": [
+   "(c(Q12737077),P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which people are the patron saints of min number of occupations ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2366998", 
+   "Q561838", 
+   "Q380092", 
+   "Q129674", 
+   "Q133704", 
+   "Q43945", 
+   "Q3922154", 
+   "Q172390", 
+   "Q1050218", 
+   "Q464959", 
+   "Q394727", 
+   "Q268087", 
+   "Q1141472", 
+   "Q61914", 
+   "Q2916248", 
+   "Q516729", 
+   "Q349086", 
+   "Q315640", 
+   "Q3893243", 
+   "Q719683", 
+   "Q331697", 
+   "Q1553720", 
+   "Q351635", 
+   "Q732865", 
+   "Q3759661", 
+   "Q696682", 
+   "Q118087", 
+   "Q320199", 
+   "Q1281133", 
+   "Q236974", 
+   "Q378656", 
+   "Q61620", 
+   "Q3776432", 
+   "Q128267", 
+   "Q2987904", 
+   "Q2574015", 
+   "Q101090", 
+   "Q1834624", 
+   "Q174044", 
+   "Q1284098", 
+   "Q1249745", 
+   "Q47144", 
+   "Q240610", 
+   "Q31966", 
+   "Q603655", 
+   "Q44024", 
+   "Q314700", 
+   "Q3940728", 
+   "Q44020", 
+   "Q313807", 
+   "Q149315", 
+   "Q676555", 
+   "Q2360539", 
+   "Q244383", 
+   "Q3615108", 
+   "Q244380", 
+   "Q235857", 
+   "Q287916", 
+   "Q192236", 
+   "Q539890", 
+   "Q102131", 
+   "Q505937", 
+   "Q44091", 
+   "Q181715", 
+   "Q2617668", 
+   "Q670456", 
+   "Q1346958", 
+   "Q243122", 
+   "Q51885", 
+   "Q238744", 
+   "Q3747052", 
+   "Q153024", 
+   "Q3949261", 
+   "Q234697", 
+   "Q1284971", 
+   "Q132797", 
+   "Q132100", 
+   "Q188411", 
+   "Q727316", 
+   "Q4011186", 
+   "Q233067", 
+   "Q3838743", 
+   "Q686948", 
+   "Q733308", 
+   "Q309953", 
+   "Q118081", 
+   "Q358325", 
+   "Q537686", 
+   "Q312057", 
+   "Q357093", 
+   "Q115550", 
+   "Q1502088", 
+   "Q8413", 
+   "Q558148", 
+   "Q160373", 
+   "Q515953", 
+   "Q1274242", 
+   "Q443392", 
+   "Q379685", 
+   "Q191479", 
+   "Q42887", 
+   "Q3745904", 
+   "Q4210004", 
+   "Q4282480", 
+   "Q177903", 
+   "Q3859960", 
+   "Q2697247", 
+   "Q203437", 
+   "Q457903", 
+   "Q207113", 
+   "Q8018", 
+   "Q315312", 
+   "Q43675", 
+   "Q618214", 
+   "Q216946", 
+   "Q728245", 
+   "Q384364", 
+   "Q132113", 
+   "Q33923", 
+   "Q81634", 
+   "Q161775", 
+   "Q221522", 
+   "Q43954", 
+   "Q44047", 
+   "Q37599", 
+   "Q316599", 
+   "Q232975", 
+   "Q122376", 
+   "Q145746", 
+   "Q15284282", 
+   "Q167477", 
+   "Q380345", 
+   "Q288295", 
+   "Q297742", 
+   "Q218921", 
+   "Q316295", 
+   "Q183332", 
+   "Q4014956", 
+   "Q159834", 
+   "Q63070", 
+   "Q134666", 
+   "Q867765", 
+   "Q914115", 
+   "Q1289858", 
+   "Q379914", 
+   "Q3906150", 
+   "Q3876580", 
+   "Q189776", 
+   "Q339541", 
+   "Q965463", 
+   "Q196527", 
+   "Q160922", 
+   "Q1115725", 
+   "Q336731", 
+   "Q913528", 
+   "Q231256", 
+   "Q560531", 
+   "Q4161703", 
+   "Q174880", 
+   "Q1270991", 
+   "Q235863", 
+   "Q346", 
+   "Q131159", 
+   "Q190388", 
+   "Q3924139", 
+   "Q180936", 
+   "Q83198", 
+   "Q2142772", 
+   "Q2182480", 
+   "Q7226", 
+   "Q2005417", 
+   "Q243427", 
+   "Q2456880", 
+   "Q417686", 
+   "Q185117", 
+   "Q303640", 
+   "Q241423", 
+   "Q43999", 
+   "Q447384", 
+   "Q1747656", 
+   "Q6732208", 
+   "Q1393825", 
+   "Q64196", 
+   "Q2824511", 
+   "Q3887342", 
+   "Q310686", 
+   "Q359259", 
+   "Q12871", 
+   "Q9156208", 
+   "Q336704", 
+   "Q181489", 
+   "Q369691", 
+   "Q44269", 
+   "Q587596", 
+   "Q372668", 
+   "Q831571", 
+   "Q3779522", 
+   "Q2456500", 
+   "Q2352076", 
+   "Q977571", 
+   "Q232453", 
+   "Q58559", 
+   "Q445357", 
+   "Q359878", 
+   "Q190240", 
+   "Q210096", 
+   "Q1976199", 
+   "Q3724316", 
+   "Q1343711", 
+   "Q3663117", 
+   "Q534691", 
+   "Q160374", 
+   "Q442516", 
+   "Q920226", 
+   "Q283447", 
+   "Q26486", 
+   "Q158504", 
+   "Q130005", 
+   "Q740907", 
+   "Q44258", 
+   "Q70991", 
+   "Q318974", 
+   "Q312314", 
+   "Q254896", 
+   "Q3947956", 
+   "Q11905449", 
+   "Q1172641", 
+   "Q3738578", 
+   "Q4026158", 
+   "Q367208", 
+   "Q469978", 
+   "Q164294", 
+   "Q2270111", 
+   "Q103556", 
+   "Q129603", 
+   "Q3561124", 
+   "Q1110905", 
+   "Q335127", 
+   "Q651226", 
+   "Q355884", 
+   "Q42827", 
+   "Q159862", 
+   "Q543320", 
+   "Q318347", 
+   "Q3958514", 
+   "Q317131", 
+   "Q257960", 
+   "Q234689", 
+   "Q385253", 
+   "Q208961", 
+   "Q235619", 
+   "Q523662", 
+   "Q284323", 
+   "Q59071", 
+   "Q1383532", 
+   "Q160445", 
+   "Q1269112", 
+   "Q2424767", 
+   "Q459032", 
+   "Q131945", 
+   "Q9682", 
+   "Q127385", 
+   "Q470608", 
+   "Q196157", 
+   "Q310633", 
+   "Q208331"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9682", 
+   "Q191479", 
+   "Q346"
+  ], 
+  "utterance": "Elizabeth II, Tadeusz Ko\u015bciuszko, Louis IX of France", 
+  "active_set": [
+   "(c(Q12737077),P417,Q208331)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q3754304", 
+   "Q10514305"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Kim Eun-Hu or Fulvio Galimi an inhabitant of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q884", 
+   "Q414"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q884", 
+   "Q414"
+  ], 
+  "utterance": "South Korea, Argentina", 
+  "active_set": [
+   "OR((Q10514305,P27,c(Q15617994)), (Q3754304,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q884", 
+   "Q414"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P1532"
+  ], 
+  "type_list": [
+   "Q6979593"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which national association football teams represent those administrative territories ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7567717", 
+   "Q495350", 
+   "Q1418509", 
+   "Q7567721", 
+   "Q23501509", 
+   "Q645918"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1418509", 
+   "Q495350", 
+   "Q7567717"
+  ], 
+  "utterance": "South-Korea olympic football team, South Korea women's national association football team, South Korea women's national under-17 football team", 
+  "active_set": [
+   "(c(Q6979593),P1532,Q884)", 
+   "(c(Q6979593),P1532,Q414)"
+  ]
+ }
+]

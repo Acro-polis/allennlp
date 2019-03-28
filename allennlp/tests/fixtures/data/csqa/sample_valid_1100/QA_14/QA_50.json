@@ -1,0 +1,426 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3813689"
+  ], 
+  "relations": [
+   "P1412"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which language can Alberto Alcocer y Ribacoba understand ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1321"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1321"
+  ], 
+  "utterance": "Spanish", 
+  "active_set": [
+   "(Q3813689,P1412,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q3813689"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the work location of Alberto Alcocer y Ribacoba ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2807"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2807"
+  ], 
+  "utterance": "Madrid", 
+  "active_set": [
+   "(Q3813689,P937,c(Q56061))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q34770", 
+   "Q14795564", 
+   "Q82799"
+  ], 
+  "entities_in_utterance": [
+   "Q35505"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P407"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which languages are more number of determinators for date of periodic occurrence and names composed in than Old Norse language ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860", 
+   "Q1321", 
+   "Q397", 
+   "Q9056", 
+   "Q8752", 
+   "Q652"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860", 
+   "Q397", 
+   "Q9056"
+  ], 
+  "utterance": "English, Latin, Czech", 
+  "active_set": [
+   "(c(Q14795564)|c(Q82799),P407,c(Q34770))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q34770", 
+   "Q14795564", 
+   "Q82799"
+  ], 
+  "entities_in_utterance": [
+   "Q18130932"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P407"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Traditional Chinese?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860", 
+   "Q8785", 
+   "Q1321", 
+   "Q397", 
+   "Q9056", 
+   "Q8752", 
+   "Q652", 
+   "Q35505", 
+   "Q56982", 
+   "Q35308"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860", 
+   "Q397", 
+   "Q9056"
+  ], 
+  "utterance": "English, Latin, Czech", 
+  "active_set": [
+   "(c(Q14795564)|c(Q82799),P407,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9056"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P364"
+  ], 
+  "type_list": [
+   "Q15850590"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What were originally created in Czech language ?"
+ }, 
+ {
+  "all_entities": [
+   "Q10857219", 
+   "Q12024579", 
+   "Q1171538", 
+   "Q12024575", 
+   "Q3069266", 
+   "Q3401137", 
+   "Q8012060", 
+   "Q3068704", 
+   "Q15726881", 
+   "Q15631198", 
+   "Q15534316", 
+   "Q12050971", 
+   "Q10577168", 
+   "Q3486930", 
+   "Q6412175", 
+   "Q15119858", 
+   "Q12056898", 
+   "Q12058613", 
+   "Q12036366", 
+   "Q12031399", 
+   "Q7767095", 
+   "Q522313", 
+   "Q12047491", 
+   "Q15951728", 
+   "Q1216736", 
+   "Q1216733", 
+   "Q15631205", 
+   "Q12040718", 
+   "Q3489036", 
+   "Q15146591", 
+   "Q7484737", 
+   "Q10502313", 
+   "Q15054187", 
+   "Q10577371", 
+   "Q1322339", 
+   "Q907745", 
+   "Q15457840", 
+   "Q1167948", 
+   "Q12042251", 
+   "Q10578231", 
+   "Q12028646", 
+   "Q1194594", 
+   "Q831255", 
+   "Q12055804", 
+   "Q12039542", 
+   "Q10502343", 
+   "Q10579582", 
+   "Q21044924", 
+   "Q11882900", 
+   "Q10861685", 
+   "Q10577719", 
+   "Q3312234", 
+   "Q11081715", 
+   "Q777727", 
+   "Q2547832", 
+   "Q12046368", 
+   "Q15640241", 
+   "Q19602615", 
+   "Q12042467", 
+   "Q12039200", 
+   "Q15726852", 
+   "Q12029856", 
+   "Q15124217", 
+   "Q3064060", 
+   "Q12021581", 
+   "Q12055142", 
+   "Q12040843", 
+   "Q232134", 
+   "Q1211710", 
+   "Q11082591", 
+   "Q12056450", 
+   "Q12037101", 
+   "Q1142221", 
+   "Q3069261", 
+   "Q10577514", 
+   "Q4637869", 
+   "Q15626892", 
+   "Q3133339", 
+   "Q11866520", 
+   "Q14565272", 
+   "Q3073322", 
+   "Q1196783", 
+   "Q6372637", 
+   "Q7448985", 
+   "Q20639617", 
+   "Q15534366", 
+   "Q15631241", 
+   "Q12021490", 
+   "Q21998492", 
+   "Q3133498", 
+   "Q3265120", 
+   "Q8012852", 
+   "Q10861170", 
+   "Q80934", 
+   "Q12032902", 
+   "Q15712636", 
+   "Q12033428", 
+   "Q15124215", 
+   "Q15124190", 
+   "Q7449163", 
+   "Q5151499", 
+   "Q15490922", 
+   "Q1195062", 
+   "Q21012468", 
+   "Q12033195", 
+   "Q12033196", 
+   "Q12041003", 
+   "Q15715653", 
+   "Q12056281", 
+   "Q600572", 
+   "Q1157925", 
+   "Q10861652", 
+   "Q15626866", 
+   "Q15626865", 
+   "Q8012888", 
+   "Q10503554", 
+   "Q15626904", 
+   "Q3496414", 
+   "Q12043550", 
+   "Q12051274", 
+   "Q15631183", 
+   "Q5277544", 
+   "Q565663", 
+   "Q2749020", 
+   "Q10282575"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q907745", 
+   "Q777727", 
+   "Q3064060"
+  ], 
+  "utterance": "The Bartered Bride, From the House of the Dead, Le testament de la tante Caroline", 
+  "active_set": [
+   "(c(Q15850590),P364,Q9056)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3064060"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P86"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who composed that theatrical genre ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q907745"
+  ], 
+  "active_set": [
+   "(Q907745,P86,c(Q502895))", 
+   "(Q777727,P86,c(Q502895))", 
+   "(Q3064060,P86,c(Q502895))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q907745", 
+   "Q777727", 
+   "Q3064060"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean The Bartered Bride ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q3064060"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Le testament de la tante Caroline. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q313376"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q313376"
+  ], 
+  "utterance": "Albert Roussel", 
+  "active_set": [
+   "(Q3064060,P86,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q502895", 
+   "Q838948"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which works of art had max number of people as the dubbing artist ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q19263748"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19263748"
+  ], 
+  "utterance": "The Anthem of the Heart", 
+  "active_set": [
+   "(c(Q838948),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q19263748", 
+   "Q6127820"
+  ], 
+  "relations": [
+   "P725"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Was The Anthem of the Heart dubbed by Marie Miyake ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q19263748,P725,Q6127820)"
+  ]
+ }
+]

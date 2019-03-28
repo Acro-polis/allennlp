@@ -1,0 +1,466 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q509421"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territory is the native country of Monique Sullivan ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16"
+  ], 
+  "utterance": "Canada", 
+  "active_set": [
+   "(Q509421,P27,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q16"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1313"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation serves as the political office that is fulfilled by the head of the government of that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q839078"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q839078"
+  ], 
+  "utterance": "Prime Minister of Canada", 
+  "active_set": [
+   "(Q16,P1313,c(Q12737077))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q484692", 
+   "Q7725634", 
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P85"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which political territories have atleast 2 hymns and literary works as their national anthem ?"
+ }, 
+ {
+  "all_entities": [
+   "Q769", 
+   "Q766", 
+   "Q781", 
+   "Q35", 
+   "Q408"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q408", 
+   "Q35", 
+   "Q769"
+  ], 
+  "utterance": "Australia, Denmark, Grenada", 
+  "active_set": [
+   "(c(Q1048835),P85,c(Q484692)|c(Q7725634))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1048835", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which political territories have diplomatic associations with min number of political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1000", 
+   "Q781", 
+   "Q778", 
+   "Q769", 
+   "Q685", 
+   "Q691", 
+   "Q766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1000", 
+   "Q769", 
+   "Q691"
+  ], 
+  "utterance": "Gabon, Grenada, Papua New Guinea", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q408"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P101"
+  ], 
+  "type_list": [
+   "Q2668072"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who works in the domain of Australia ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17004409"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q17004409"
+  ], 
+  "utterance": "Jessie Street National Women's Library", 
+  "active_set": [
+   "(c(Q2668072),P101,Q408)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1000"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P6"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is the head of the government of Gabon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q57856"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q57856"
+  ], 
+  "utterance": "Raymond Ndong Sima", 
+  "active_set": [
+   "(Q1000,P6,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q57856", 
+   "Q19798976"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Was Member of the National Assembly of Gabon a position held by Raymond Ndong Sima ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q57856,P39,Q19798976)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q1000", 
+   "Q57521"
+  ], 
+  "relations": [
+   "P35"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Ali Bongo Ondimba the head of state of Gabon ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q1000,P35,Q57521)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q691", 
+   "Q2028684"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does Piquet Carneiro have a diplomatic relationship with Papua New Guinea ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q691,P530,Q2028684)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1000"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P610"
+  ], 
+  "type_list": [
+   "Q14524493"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which is the zenith of Gabon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3210770"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3210770"
+  ], 
+  "utterance": "Mont Bengou\u00e9", 
+  "active_set": [
+   "(Q1000,P610,c(Q14524493))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1532"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people play for Canada ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21620679", 
+   "Q20313225", 
+   "Q21858369", 
+   "Q3011484", 
+   "Q25915753", 
+   "Q23771112", 
+   "Q23419269", 
+   "Q23419252", 
+   "Q22978771", 
+   "Q22083626", 
+   "Q23316755", 
+   "Q23799855", 
+   "Q22669100", 
+   "Q21777839", 
+   "Q21593062", 
+   "Q22095892", 
+   "Q21858406", 
+   "Q22666018", 
+   "Q21858000", 
+   "Q21858382"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22669100", 
+   "Q21858369", 
+   "Q21777839"
+  ], 
+  "utterance": "Yvonne Saunders, Donalda Duprey, Robyn Meagher", 
+  "active_set": [
+   "(c(Q502895),P1532,Q16)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P137"
+  ], 
+  "type_list": [
+   "Q2424752"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which products are the administrator of Canada ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17538815", 
+   "Q17486186", 
+   "Q17486185", 
+   "Q17912769", 
+   "Q18019748", 
+   "Q2894583", 
+   "Q18075475"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2894583", 
+   "Q17912769", 
+   "Q18075475"
+  ], 
+  "utterance": "CH-146 Griffon, Harvard I, CSR-110 Albatros", 
+  "active_set": [
+   "(c(Q2424752),P137,Q16)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q17912769"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P516"
+  ], 
+  "type_list": [
+   "Q2107998"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What powers that product ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q18075475"
+  ], 
+  "active_set": [
+   "(Q2894583,P516,c(Q2107998))", 
+   "(Q17912769,P516,c(Q2107998))", 
+   "(Q18075475,P516,c(Q2107998))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q2894583", 
+   "Q17912769", 
+   "Q18075475"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean CSR-110 Albatros ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q17912769"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Harvard I. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q1852043"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1852043"
+  ], 
+  "utterance": "R-1340 Wasp", 
+  "active_set": [
+   "(Q17912769,P516,c(Q2107998))"
+  ]
+ }
+]

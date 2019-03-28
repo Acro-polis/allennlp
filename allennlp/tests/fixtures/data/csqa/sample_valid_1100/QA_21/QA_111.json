@@ -1,0 +1,462 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1631663"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people were casted in The Misadventures of Sheriff Lobo ?"
+ }, 
+ {
+  "all_entities": [
+   "Q739542", 
+   "Q2895379", 
+   "Q662186", 
+   "Q3111305"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q662186", 
+   "Q739542", 
+   "Q2895379"
+  ], 
+  "utterance": "Brian Kerwin, Claude Akins, Ben Cooper", 
+  "active_set": [
+   "(Q1631663,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1631663"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P364"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which language was used originally for the creation of that television program ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "(Q662186,P364,c(Q34770))", 
+   "(Q739542,P364,c(Q34770))", 
+   "(Q2895379,P364,c(Q34770))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q34770"
+  ], 
+  "entities_in_utterance": [
+   "Q27318222", 
+   "Q1631663"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P364"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Or Longitudinal Brain Magnetic Resonance Imaging CO2 Stress Testing in Individual Adolescent Sports-Related Concussion Patients:\u2009A Pilot Study?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "OR((Q1631663,P364,c(Q34770)), (Q27318222,P364,c(Q34770)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34770", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which political territories are atleast 2 languages associated to as the official language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q757"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q757"
+  ], 
+  "utterance": "Saint Vincent and the Grenadines", 
+  "active_set": [
+   "(c(Q1048835),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q757", 
+   "Q23755061"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Is Morel a citizen of that political territory ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q23755061,P27,Q757)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q757"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P6"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is the head of the government of that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q57800"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q57800"
+  ], 
+  "utterance": "Ralph Gonsalves", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q16875637"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments can greater number of people perform with than transverse flute ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q80019", 
+   "Q2563510", 
+   "Q5994", 
+   "Q3574843", 
+   "Q81982", 
+   "Q182718", 
+   "Q206987", 
+   "Q189737", 
+   "Q8338", 
+   "Q8371", 
+   "Q8355", 
+   "Q213461", 
+   "Q3382191", 
+   "Q862501", 
+   "Q213100", 
+   "Q537750", 
+   "Q626035", 
+   "Q742180", 
+   "Q1300012", 
+   "Q1444", 
+   "Q220971", 
+   "Q128309", 
+   "Q726306", 
+   "Q483994", 
+   "Q1343007", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "30", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q626035"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about glockenspiel?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q80019", 
+   "Q2563510", 
+   "Q5994", 
+   "Q81982", 
+   "Q206987", 
+   "Q189737", 
+   "Q8338", 
+   "Q8371", 
+   "Q8355", 
+   "Q213461", 
+   "Q3382191", 
+   "Q213100", 
+   "Q742180", 
+   "Q1444", 
+   "Q220971", 
+   "Q128309", 
+   "Q1343007", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "20", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are English a component of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "utterance": "Anglic languages, Anglo-Frisian languages", 
+  "active_set": [
+   "(Q1860,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are Anglic languages and Anglo-Frisian languages a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26721", 
+   "Q5329170", 
+   "Q26721", 
+   "Q30134"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5329170", 
+   "Q26721", 
+   "Q26721"
+  ], 
+  "utterance": "West Germanic languages for 2nd, 3rd, Anglo-Frisian languages for 1st", 
+  "active_set": [
+   "(Q1346342,P361,c(Q5962346))", 
+   "(Q5329170,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q662186"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P162"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What has been developed by Brian Kerwin ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3278133"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3278133"
+  ], 
+  "utterance": "Common Ground", 
+  "active_set": [
+   "(c(Q838948),P162,Q662186)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P725"
+  ], 
+  "type_list": [
+   "Q11424"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which film did English do the dubbing for ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9019373"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9019373"
+  ], 
+  "utterance": "The Legend of the North Wind", 
+  "active_set": [
+   "(c(Q11424),P725,Q1860)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q662186"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P175"
+  ], 
+  "type_list": [
+   "Q95074"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who performed Brian Kerwin ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23938893"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23938893"
+  ], 
+  "utterance": "Ben Dryer", 
+  "active_set": [
+   "(c(Q95074),P175,Q662186)"
+  ]
+ }
+]

@@ -1,0 +1,232 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q5575123"
+  ], 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which name is associated with Sven Peter Bexell ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23134014"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23134014"
+  ], 
+  "utterance": "Bexell", 
+  "active_set": [
+   "(Q5575123,P734,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q23134014", 
+   "Q5575118"
+  ], 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does Oloph Bexell have that one as last name ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q5575118,P734,Q23134014)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q5575123", 
+   "Q34"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Sven Peter Bexell a civilian of Sweden ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q5575123,P27,Q34)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q5868370", 
+   "Q5575123"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Sven Peter Bexell or Franco Gonz\u00e1lez an inhabitant of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29", 
+   "Q34"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29", 
+   "Q34"
+  ], 
+  "utterance": "Spain, Sweden", 
+  "active_set": [
+   "OR((Q5575123,P27,c(Q15617994)), (Q5868370,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q34", 
+   "Q13298"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P6"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people are the head of government of Sweden or Graz ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2740012", 
+   "Q1379391", 
+   "Q1712668", 
+   "Q53747", 
+   "Q1582324", 
+   "Q94129", 
+   "Q53740", 
+   "Q15298970", 
+   "Q1289998", 
+   "Q1556354", 
+   "Q1593449", 
+   "Q361563", 
+   "Q1341964", 
+   "Q1260114", 
+   "Q52920", 
+   "Q2527294"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "16", 
+  "active_set": [
+   "(Q34,P6,c(Q502895))", 
+   "(Q13298,P6,c(Q502895))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q34", 
+   "Q846"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many political territories holds diplomatic relationship with Sweden and Qatar ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q16", 
+   "Q408"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q34,P530,c(Q1048835))", 
+   "(Q846,P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the capital of Spain ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2807"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2807"
+  ], 
+  "utterance": "Madrid", 
+  "active_set": [
+   "(c(Q56061),P1376,Q29)"
+  ]
+ }
+]

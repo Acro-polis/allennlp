@@ -1,0 +1,242 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q4231126"
+  ], 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political party is Aleksandr Konopatov a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q79854"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q79854"
+  ], 
+  "utterance": "Communist Party of the Soviet Union", 
+  "active_set": [
+   "(Q4231126,P102,c(Q7278))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q4231126"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P108"
+  ], 
+  "type_list": [
+   "Q31855"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which research institute is the workplace of Aleksandr Konopatov ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4231576"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4231576"
+  ], 
+  "utterance": "Chemical Automatics Design Bureau", 
+  "active_set": [
+   "(Q4231126,P108,c(Q31855))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q4374243"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q31855"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Alexey Postnikov?"
+ }, 
+ {
+  "all_entities": [
+   "Q4201531"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4201531"
+  ], 
+  "utterance": "S.I. Vavilov Institute for the History of Science and Technology", 
+  "active_set": [
+   "(Q4374243,P108,c(Q31855))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q4374243"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What are the professions of Alexey Postnikov ?"
+ }, 
+ {
+  "all_entities": [
+   "Q901402", 
+   "Q201788"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q901402", 
+   "Q201788"
+  ], 
+  "utterance": "geographer, historian", 
+  "active_set": [
+   "(Q4374243,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q3246175"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do Yuji Oe have a job as those occupations ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q3246175,P106,Q901402)", 
+   "(Q3246175,P106,Q201788)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q4231126"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did the expiration of Aleksandr Konopatov occur ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3426"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3426"
+  ], 
+  "utterance": "Voronezh", 
+  "active_set": [
+   "(Q4231126,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q26212681", 
+   "Q4231126"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Aleksandr Konopatov or Lauren Arnouts an inhabitant of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29999", 
+   "Q159"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29999", 
+   "Q159"
+  ], 
+  "utterance": "Kingdom of the Netherlands, Russia", 
+  "active_set": [
+   "OR((Q4231126,P27,c(Q15617994)), (Q26212681,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q12671137"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Regina Zita Vi\u0161kelien\u0117 a citizen of those administrative territories ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q12671137,P27,Q29999)", 
+   "(Q12671137,P27,Q159)"
+  ]
+ }
+]

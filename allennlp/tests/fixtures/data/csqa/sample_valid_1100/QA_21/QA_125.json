@@ -1,0 +1,294 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1875067"
+  ], 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sport was Elpidio Coppa a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q1875067,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1875067"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the native country of Elpidio Coppa ?"
+ }, 
+ {
+  "all_entities": [
+   "Q38"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "utterance": "Italy", 
+  "active_set": [
+   "(Q1875067,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q701632", 
+   "Q11204", 
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P194"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which administrative territories have max number of municipal councils or legislatures as their council ?"
+ }, 
+ {
+  "all_entities": [
+   "Q948"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q948"
+  ], 
+  "utterance": "Tunisia", 
+  "active_set": [
+   "(c(Q15617994),P194,c(Q701632)|c(Q11204))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q778"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q15617994", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which political territories are known to have diplomatic connections with more number of administrative territories than The Bahamas ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q40", 
+   "Q183", 
+   "Q408", 
+   "Q35", 
+   "Q16", 
+   "Q664", 
+   "Q766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q408", 
+   "Q35"
+  ], 
+  "utterance": "Germany, Australia, Denmark", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q781"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q15617994", 
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about Antigua and Barbuda?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q40", 
+   "Q183", 
+   "Q408", 
+   "Q35", 
+   "Q16", 
+   "Q664", 
+   "Q766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q408", 
+   "Q35"
+  ], 
+  "utterance": "Germany, Australia, Denmark", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do Italy have diplomatic relations with those political territories ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q38,P530,Q183)", 
+   "(Q38,P530,Q408)", 
+   "(Q38,P530,Q35)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q145"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P6"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which people do United Kingdom serve as the head of government for ?"
+ }, 
+ {
+  "all_entities": [
+   "Q192", 
+   "Q264766"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q192", 
+   "Q264766"
+  ], 
+  "utterance": "David Cameron, Theresa May", 
+  "active_set": [
+   "(Q145,P6,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q264766"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P108"
+  ], 
+  "type_list": [
+   "Q22687"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which bank is the employer of that person ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q264766"
+  ], 
+  "active_set": [
+   "(Q192,P108,c(Q22687))", 
+   "(Q264766,P108,c(Q22687))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q192", 
+   "Q264766"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Theresa May ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "Yes"
+ }, 
+ {
+  "all_entities": [
+   "Q183231"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183231"
+  ], 
+  "utterance": "Bank of England", 
+  "active_set": [
+   "(Q264766,P108,c(Q22687))"
+  ]
+ }
+]

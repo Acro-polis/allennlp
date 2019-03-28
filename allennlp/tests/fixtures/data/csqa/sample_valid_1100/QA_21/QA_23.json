@@ -1,0 +1,282 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q5344123"
+  ], 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which party is Edward Lessing affiliated with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q622441"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q622441"
+  ], 
+  "utterance": "Liberal Party", 
+  "active_set": [
+   "(Q5344123,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q5344123"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation was a position for which that person was appointed ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16707842"
+  ], 
+  "utterance": "Member of Parliament in the United Kingdom", 
+  "active_set": [
+   "(Q622441,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q16707842", 
+   "Q16264866"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Did Keisuke Oyama hold the position of that occupation ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q16264866,P39,Q16707842)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q622441", 
+   "Q5177105", 
+   "Q145"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Liberal Party located in Counthorpe and United Kingdom ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q622441,P17,Q5177105)", 
+   "(Q622441,P17,Q145)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q537717", 
+   "Q5177105"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Counthorpe or Ethiopian Football Federation a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q115", 
+   "Q145"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q115", 
+   "Q145"
+  ], 
+  "utterance": "Ethiopia, United Kingdom", 
+  "active_set": [
+   "OR((Q5177105,P17,c(Q15617994)), (Q537717,P17,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q145"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P551"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who lives in that administrative territory ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q145"
+  ], 
+  "active_set": [
+   "(c(Q502895),P551,Q115)", 
+   "(c(Q502895),P551,Q145)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q115", 
+   "Q145"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean United Kingdom ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "Yes"
+ }, 
+ {
+  "all_entities": [
+   "Q15401744", 
+   "Q41548", 
+   "Q25915543", 
+   "Q712851", 
+   "Q21468469", 
+   "Q19845625", 
+   "Q18534257", 
+   "Q20820956", 
+   "Q26258404", 
+   "Q5671358", 
+   "Q93826", 
+   "Q21196395"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19845625", 
+   "Q41548", 
+   "Q712851"
+  ], 
+  "utterance": "Andra Waagmeester, Antonio Banderas, Oliver Wallace", 
+  "active_set": [
+   "(c(Q502895),P551,Q145)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q712851"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P162"
+  ], 
+  "type_list": [
+   "Q201658"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What has been developed by that person ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q19845625"
+  ], 
+  "active_set": [
+   "(c(Q201658),P162,Q19845625)", 
+   "(c(Q201658),P162,Q41548)", 
+   "(c(Q201658),P162,Q712851)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q19845625", 
+   "Q41548", 
+   "Q712851"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Andra Waagmeester ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q712851"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Oliver Wallace. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q3324417"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3324417"
+  ], 
+  "utterance": "Morris the Midget Moose", 
+  "active_set": [
+   "(c(Q201658),P162,Q712851)"
+  ]
+ }
+]

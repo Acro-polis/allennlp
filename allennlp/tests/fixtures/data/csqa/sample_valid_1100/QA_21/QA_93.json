@@ -1,0 +1,535 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q982237"
+  ], 
+  "relations": [
+   "P1196"
+  ], 
+  "type_list": [
+   "Q1931388"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What situation did Charles Davenport die in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3739104"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3739104"
+  ], 
+  "utterance": "natural causes", 
+  "active_set": [
+   "(Q982237,P1196,c(Q1931388))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q982237"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q163740"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which nonprofit organization is that person an alumni of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13371"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "utterance": "Harvard University", 
+  "active_set": [
+   "(Q3739104,P69,c(Q163740))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P355"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q3914", 
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many schools or organizations are an auxiliary of that nonprofit organization ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q5676489", 
+   "Q49126"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q13371,P355,c(Q3914))", 
+   "(Q13371,P355,c(Q43229))", 
+   "(Q13371,P355,c(Q3914))", 
+   "(Q13371,P355,c(Q43229))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P740"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organization was formed at Harvard University ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5676582"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5676582"
+  ], 
+  "utterance": "Harvard Student Agencies", 
+  "active_set": [
+   "(c(Q43229),P740,Q13371)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which occupations are a component of Harvard University ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19588706", 
+   "Q19637559"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19588706", 
+   "Q19637559"
+  ], 
+  "utterance": "President of Harvard University, President of Harvard University", 
+  "active_set": [
+   "(c(Q12737077),P361,Q13371)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q19588706", 
+   "Q19637559"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who held the position of those occupations ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6145003", 
+   "Q15524896"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6145003", 
+   "Q15524896"
+  ], 
+  "utterance": "James Walker, John Rogers", 
+  "active_set": [
+   "(c(Q502895),P39,Q19588706)", 
+   "(c(Q502895),P39,Q19637559)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P127"
+  ], 
+  "type_list": [
+   "Q1076486"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sports venues belongs to Harvard University ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7081069", 
+   "Q1587879", 
+   "Q7557389"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7081069", 
+   "Q1587879", 
+   "Q7557389"
+  ], 
+  "utterance": "Ohiri Field, Harvard Stadium, Soldiers Field Soccer Stadium", 
+  "active_set": [
+   "(c(Q1076486),P127,Q13371)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P749"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organization is owned by that nonprofit organization ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5676489"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5676489"
+  ], 
+  "utterance": "Harvard Management Company", 
+  "active_set": [
+   "(c(Q43229),P749,Q7081069)", 
+   "(c(Q43229),P749,Q1587879)", 
+   "(c(Q43229),P749,Q7557389)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13371"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P485"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person has its archives at that nonprofit organization ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21079026"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21079026"
+  ], 
+  "utterance": "Roscoe Simmons", 
+  "active_set": [
+   "(c(Q502895),P485,Q5676489)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q21079026", 
+   "Q2477704"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Does that person belong to Ust-Shchuger ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q21079026,P27,Q2477704)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments are played by max number of people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q5994"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5994"
+  ], 
+  "utterance": "piano", 
+  "active_set": [
+   "(c(Q502895),P1303,Q3623688)"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q213439", 
+   "Q13371"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P69"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people were a student at Harvard University and University of Virginia ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1804720", 
+   "Q16192812", 
+   "Q5497472", 
+   "Q14948693", 
+   "Q7651964", 
+   "Q1306766", 
+   "Q14324789", 
+   "Q7493382", 
+   "Q7004982", 
+   "Q5218929", 
+   "Q3020814", 
+   "Q3710014", 
+   "Q7934302", 
+   "Q7183112", 
+   "Q1058570", 
+   "Q4778619", 
+   "Q6790537", 
+   "Q21592490", 
+   "Q6485758", 
+   "Q6830020", 
+   "Q7380750", 
+   "Q1687359", 
+   "Q7327322", 
+   "Q5241933", 
+   "Q5498476", 
+   "Q7381111", 
+   "Q5494537", 
+   "Q20200020", 
+   "Q8033176", 
+   "Q6389903", 
+   "Q7807339", 
+   "Q1747459", 
+   "Q8017927", 
+   "Q5415555", 
+   "Q5218203", 
+   "Q5538395", 
+   "Q8018873", 
+   "Q6835188", 
+   "Q4719027", 
+   "Q5393551", 
+   "Q16927807", 
+   "Q5606421", 
+   "Q7680242", 
+   "Q7335497", 
+   "Q906562", 
+   "Q5342507"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6485758", 
+   "Q1687359", 
+   "Q5218929", 
+   "Q1306766", 
+   "Q5497472", 
+   "Q6835188", 
+   "Q5342507", 
+   "Q21592490", 
+   "Q7651964", 
+   "Q7335497"
+  ], 
+  "utterance": "Some of them are Langbourne Meade Williams, Jr., William Elliott, Daniel Tobin, Daniel Barringer, Frederick C. Mosher, Michael Wallace, Edward D. Robertson, Jr., Paul G. Halpern, Sven Erik Holmes, Rip Gerber", 
+  "active_set": [
+   "AND((c(Q502895),P69,Q13371), (c(Q502895),P69,Q213439))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments can atmost 4535 people perform with ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q8338", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q8355", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q1444", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q128309", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1178361", 
+   "Q81982", 
+   "Q1759986"
+  ], 
+  "utterance": "davul, harpsichord, Wurlitzer electric piano", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }
+]

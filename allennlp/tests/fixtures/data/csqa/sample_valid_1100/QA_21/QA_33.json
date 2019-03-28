@@ -1,0 +1,615 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q7788040"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation was a position for which Thomas Burden, 1st Baron Burden was appointed ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16707842"
+  ], 
+  "utterance": "Member of Parliament in the United Kingdom", 
+  "active_set": [
+   "(Q7788040,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q7788040"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the sex of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q16707842,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q5572465", 
+   "Q7788040"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are the countries of citizenship of Thomas Burden, 1st Baron Burden or Rune Berglund ?"
+ }, 
+ {
+  "all_entities": [
+   "Q145", 
+   "Q34"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q145", 
+   "Q34"
+  ], 
+  "utterance": "United Kingdom, Sweden", 
+  "active_set": [
+   "OR((Q7788040,P27,c(Q15617994)), (Q5572465,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q14723512", 
+   "Q34"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P47", 
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories share border with Sweden or are Sidomukti located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q33", 
+   "Q20", 
+   "Q252"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q33", 
+   "Q20", 
+   "Q252"
+  ], 
+  "utterance": "Finland, Norway, Indonesia", 
+  "active_set": [
+   "OR((Q34,P47,c(Q15617994)), (Q14723512,P17,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Comparative|More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P941"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q15617994", 
+   "Q3895768"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories were around the same number of fictional locations inspired by as that administrative territory ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Comparative|More/Less|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q252"
+  ], 
+  "active_set": [
+   "(c(Q3895768),P941,c(Q15617994))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Indonesia ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "count_ques_sub_type": 8, 
+  "entities": [
+   "Q33"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "No, I meant Finland. Could you tell me the answer for that?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q142", 
+   "Q159", 
+   "Q424", 
+   "Q794", 
+   "Q33", 
+   "Q954", 
+   "Q31", 
+   "Q889", 
+   "Q55"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q159", 
+   "Q55", 
+   "Q142"
+  ], 
+  "utterance": "Russia, Netherlands, France", 
+  "active_set": [
+   "(c(Q3895768),P941,c(Q15617994))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q159"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q6619679", 
+   "Q14514600"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many fictional humanoids and groups of fictional characters are a citizen of Russia ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q951379", 
+   "Q279876", 
+   "Q3082479", 
+   "Q18238849", 
+   "Q2461109", 
+   "Q13574172", 
+   "Q24068252", 
+   "Q1638898", 
+   "Q14915728", 
+   "Q10388886", 
+   "Q23900364"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "10 fictional humanoids and 1 groups of fictional characters", 
+  "active_set": [
+   "(c(Q6619679),P27,Q159)", 
+   "(c(Q14514600),P27,Q159)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories have diplomatic relationships with exactly 2 administrative territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q800", 
+   "Q419", 
+   "Q55", 
+   "Q717", 
+   "Q398", 
+   "Q958", 
+   "Q33", 
+   "Q924", 
+   "Q983", 
+   "Q733", 
+   "Q734", 
+   "Q236", 
+   "Q230", 
+   "Q233", 
+   "Q28", 
+   "Q189", 
+   "Q184", 
+   "Q1029", 
+   "Q736", 
+   "Q225", 
+   "Q221", 
+   "Q96", 
+   "Q229", 
+   "Q902", 
+   "Q1030", 
+   "Q191", 
+   "Q963", 
+   "Q750", 
+   "Q217", 
+   "Q214", 
+   "Q219", 
+   "Q1009", 
+   "Q1008", 
+   "Q971", 
+   "Q874", 
+   "Q77", 
+   "Q858", 
+   "Q878", 
+   "Q869"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q230", 
+   "Q55", 
+   "Q184"
+  ], 
+  "utterance": "Georgia, Netherlands, Belarus", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q184"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which administrative territory is center of administration for Belarus ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2280"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2280"
+  ], 
+  "utterance": "Minsk", 
+  "active_set": [
+   "(c(Q56061),P1376,Q184)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q184"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P137"
+  ], 
+  "type_list": [
+   "Q3084961"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which product linings can be described as facility operator of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q608997", 
+   "Q142549", 
+   "Q744635", 
+   "Q173680", 
+   "Q39699", 
+   "Q317288", 
+   "Q155899", 
+   "Q17416448", 
+   "Q155635", 
+   "Q155651"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q155635", 
+   "Q142549", 
+   "Q39699"
+  ], 
+  "utterance": "Mi-8, Il-76, AS355 \u00c9cureuil 2", 
+  "active_set": [
+   "(c(Q3084961),P137,Q2280)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q2020210", 
+   "Q20"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P47", 
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are bordered by Norway or are the native countriesof Oliver Frank ?"
+ }, 
+ {
+  "all_entities": [
+   "Q183", 
+   "Q35"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q35"
+  ], 
+  "utterance": "Germany, Denmark", 
+  "active_set": [
+   "OR((Q20,P47,c(Q1048835)), (Q2020210,P27,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q34770"
+  ], 
+  "entities_in_utterance": [
+   "Q24807249", 
+   "Q7788040"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P1412", 
+   "P364"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which languages can Thomas Burden, 1st Baron Burden understand or are the original languages of creation of Nucleus accumbens core lesions retard instrumental learning and performance with delayed reinforcement in the rat ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "OR((Q7788040,P1412,c(Q34770)), (Q24807249,P364,c(Q34770)))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q701632", 
+   "Q11204", 
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P194"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many administrative territories have approximately 2 municipal councils or legislatures as their representative body ?"
+ }, 
+ {
+  "all_entities": [
+   "Q948"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q15617994),P194,c(Q701632)|c(Q11204))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q2001982", 
+   "Q34770"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which notations are utilized as the script for min number of languages ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q3544702", 
+   "Q2003257", 
+   "Q1828555", 
+   "Q321083", 
+   "Q473725", 
+   "Q209764", 
+   "Q187659", 
+   "Q208503", 
+   "Q13586477", 
+   "Q26978", 
+   "Q1089000", 
+   "Q752854", 
+   "Q185083", 
+   "Q806024", 
+   "Q2479183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2003257", 
+   "Q473725", 
+   "Q1089000"
+  ], 
+  "utterance": "Cirth, Tengwar, Sarati", 
+  "active_set": [
+   "(c(Q34770),P282,Q2479183)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q1078858", 
+   "Q35"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P6", 
+   "P175"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people do Denmark serve as the head of government for or were presented by Leroy Jethro Gibbs ?"
+ }, 
+ {
+  "all_entities": [
+   "Q441330", 
+   "Q1040851", 
+   "Q1037599", 
+   "Q491280", 
+   "Q918287", 
+   "Q57652", 
+   "Q503087", 
+   "Q725118", 
+   "Q264340", 
+   "Q727237", 
+   "Q1634992", 
+   "Q1274220", 
+   "Q782403", 
+   "Q351178", 
+   "Q367557", 
+   "Q1375737", 
+   "Q1343866", 
+   "Q721358", 
+   "Q1375094", 
+   "Q966436", 
+   "Q1343877", 
+   "Q312881", 
+   "Q46052", 
+   "Q1335084", 
+   "Q1744787", 
+   "Q1576188", 
+   "Q182397", 
+   "Q327190", 
+   "Q348901", 
+   "Q572189", 
+   "Q664052", 
+   "Q710950", 
+   "Q311063", 
+   "Q1874069", 
+   "Q296774", 
+   "Q947789", 
+   "Q591189", 
+   "Q1375050", 
+   "Q947911", 
+   "Q694093", 
+   "Q731504", 
+   "Q982328"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q947789", 
+   "Q348901", 
+   "Q710950", 
+   "Q947911", 
+   "Q1274220", 
+   "Q182397", 
+   "Q1343877", 
+   "Q591189", 
+   "Q1343866", 
+   "Q1744787"
+  ], 
+  "utterance": "Some of them are Carl Christoffer Georg Andr\u00e6, Poul Hartling, Erik Eriksen, Christian Albrecht Bluhme, Jens Christian Christensen, Lars L\u00f8kke Rasmussen, Jacob Br\u00f8nnum Scavenius Estrup, Peter Georg Bang, Ludvig Holstein-Holsteinborg, Otto Liebe", 
+  "active_set": [
+   "OR((Q35,P6,c(Q502895)), (Q1078858,P175,c(Q502895)))"
+  ]
+ }
+]

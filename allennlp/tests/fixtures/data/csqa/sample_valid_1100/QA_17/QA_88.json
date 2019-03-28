@@ -1,0 +1,565 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q5423370"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation has Ezra Johnson as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19204627"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19204627"
+  ], 
+  "utterance": "American football player", 
+  "active_set": [
+   "(Q5423370,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5423370"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who has the surname Ezra Johnson ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1158485"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1158485"
+  ], 
+  "utterance": "Johnson", 
+  "active_set": [
+   "(Q5423370,P734,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q5423370"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the place of birth of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q80517"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q80517"
+  ], 
+  "utterance": "Shreveport", 
+  "active_set": [
+   "(Q1158485,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q24027402"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P532"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q56061", 
+   "Q2235308"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which ship types have more number of administrative territories as their base harbour than M.A. Jones ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2992316", 
+   "Q2301456", 
+   "Q983141", 
+   "Q133606", 
+   "Q26988086", 
+   "Q168474", 
+   "Q300311", 
+   "Q20489530", 
+   "Q5338632", 
+   "Q7499755", 
+   "Q2124429", 
+   "Q1293488", 
+   "Q1017179", 
+   "Q7120838", 
+   "Q7393546", 
+   "Q25173", 
+   "Q14493958", 
+   "Q18128240", 
+   "Q664284", 
+   "Q26988094", 
+   "Q21196329", 
+   "Q10659251", 
+   "Q477173", 
+   "Q130373", 
+   "Q19608222", 
+   "Q11707059", 
+   "Q1026780", 
+   "Q22342351", 
+   "Q15662618", 
+   "Q33209", 
+   "Q1514518", 
+   "Q2596850", 
+   "Q16854668", 
+   "Q1325547", 
+   "Q761593", 
+   "Q26883829", 
+   "Q2124449", 
+   "Q778649", 
+   "Q3952367", 
+   "Q11705702", 
+   "Q24039469", 
+   "Q751584", 
+   "Q6930211", 
+   "Q16629249", 
+   "Q497065", 
+   "Q3053251", 
+   "Q468026", 
+   "Q1439419", 
+   "Q23579589", 
+   "Q4686475", 
+   "Q26987769", 
+   "Q11891639", 
+   "Q321007", 
+   "Q6720006", 
+   "Q741803", 
+   "Q338340", 
+   "Q7120888", 
+   "Q215692", 
+   "Q917188", 
+   "Q18213370", 
+   "Q1129910", 
+   "Q2714360", 
+   "Q16852551", 
+   "Q1514126", 
+   "Q18711004", 
+   "Q1339472", 
+   "Q3558075", 
+   "Q192381", 
+   "Q493616", 
+   "Q35462"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2596850", 
+   "Q468026", 
+   "Q35462"
+  ], 
+  "utterance": "MS Azura, SS Maxim Gorkiy, RMS Aquitania", 
+  "active_set": [
+   "(c(Q2235308),P532,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q19875522"
+  ], 
+  "relations": [
+   "P532"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q56061", 
+   "Q2235308"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about Big Fish?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q2992316", 
+   "Q2301456", 
+   "Q983141", 
+   "Q133606", 
+   "Q26988086", 
+   "Q168474", 
+   "Q300311", 
+   "Q20489530", 
+   "Q5338632", 
+   "Q7499755", 
+   "Q2124429", 
+   "Q1293488", 
+   "Q1017179", 
+   "Q7120838", 
+   "Q7393546", 
+   "Q25173", 
+   "Q14493958", 
+   "Q18128240", 
+   "Q664284", 
+   "Q26988094", 
+   "Q21196329", 
+   "Q10659251", 
+   "Q477173", 
+   "Q130373", 
+   "Q19608222", 
+   "Q11707059", 
+   "Q1026780", 
+   "Q22342351", 
+   "Q15662618", 
+   "Q33209", 
+   "Q1514518", 
+   "Q2596850", 
+   "Q16854668", 
+   "Q1325547", 
+   "Q761593", 
+   "Q26883829", 
+   "Q2124449", 
+   "Q778649", 
+   "Q3952367", 
+   "Q11705702", 
+   "Q24039469", 
+   "Q751584", 
+   "Q6930211", 
+   "Q16629249", 
+   "Q497065", 
+   "Q3053251", 
+   "Q468026", 
+   "Q1439419", 
+   "Q23579589", 
+   "Q4686475", 
+   "Q26987769", 
+   "Q11891639", 
+   "Q321007", 
+   "Q6720006", 
+   "Q741803", 
+   "Q338340", 
+   "Q7120888", 
+   "Q215692", 
+   "Q917188", 
+   "Q18213370", 
+   "Q1129910", 
+   "Q2714360", 
+   "Q16852551", 
+   "Q1514126", 
+   "Q18711004", 
+   "Q1339472", 
+   "Q3558075", 
+   "Q192381", 
+   "Q493616", 
+   "Q35462"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2596850", 
+   "Q468026", 
+   "Q35462"
+  ], 
+  "utterance": "MS Azura, SS Maxim Gorkiy, RMS Aquitania", 
+  "active_set": [
+   "(c(Q2235308),P532,c(Q56061))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q2221906", 
+   "Q56061", 
+   "Q82799"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P138"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which names have min number of geographic locations and administrative territories as their namesake ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18335877", 
+   "Q25212228", 
+   "Q6501864", 
+   "Q27022433", 
+   "Q18198499", 
+   "Q16281329", 
+   "Q25368020", 
+   "Q23727105", 
+   "Q18043344", 
+   "Q16428618", 
+   "Q1069827", 
+   "Q46767", 
+   "Q1061262", 
+   "Q19558843", 
+   "Q25115046", 
+   "Q16871796", 
+   "Q23599481", 
+   "Q1158323", 
+   "Q1370531", 
+   "Q16869665", 
+   "Q1158446", 
+   "Q1158882", 
+   "Q8046631", 
+   "Q11231408", 
+   "Q24699545", 
+   "Q13099004", 
+   "Q17747435", 
+   "Q15785531", 
+   "Q21508058", 
+   "Q16869754", 
+   "Q5352294", 
+   "Q20747163", 
+   "Q813701", 
+   "Q17847495", 
+   "Q15629400", 
+   "Q1746111", 
+   "Q23885849", 
+   "Q1812295", 
+   "Q25343999", 
+   "Q21161805", 
+   "Q21449089", 
+   "Q23783070", 
+   "Q1643088", 
+   "Q21507928", 
+   "Q2909103", 
+   "Q24529820", 
+   "Q807882", 
+   "Q21448754", 
+   "Q23995126", 
+   "Q25058808", 
+   "Q21501910", 
+   "Q18198433", 
+   "Q13553585", 
+   "Q24805372", 
+   "Q24451619", 
+   "Q21491852", 
+   "Q19847573", 
+   "Q568872", 
+   "Q25303577", 
+   "Q1260304", 
+   "Q714189", 
+   "Q18309769", 
+   "Q17643158", 
+   "Q21506697", 
+   "Q2160221", 
+   "Q16865178", 
+   "Q26985935", 
+   "Q179234", 
+   "Q21517798", 
+   "Q18198435", 
+   "Q688520", 
+   "Q928249", 
+   "Q318363", 
+   "Q24566045", 
+   "Q1724227", 
+   "Q26262632", 
+   "Q23773623", 
+   "Q20027829", 
+   "Q18578754", 
+   "Q25201582", 
+   "Q1882407", 
+   "Q24035235", 
+   "Q22738156", 
+   "Q13626156", 
+   "Q19831835", 
+   "Q16965278", 
+   "Q20818054", 
+   "Q16883336", 
+   "Q16860286", 
+   "Q25326750", 
+   "Q16865812", 
+   "Q20963077", 
+   "Q612479", 
+   "Q1755217", 
+   "Q17625919", 
+   "Q26247962", 
+   "Q24689291", 
+   "Q23301520", 
+   "Q16865123", 
+   "Q16148136", 
+   "Q20727079", 
+   "Q16881199", 
+   "Q21491815", 
+   "Q19899706", 
+   "Q24229341"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q318363", 
+   "Q1069827", 
+   "Q1746111"
+  ], 
+  "utterance": "Abel, Rosario, Michael Gregorio", 
+  "active_set": [
+   "(c(Q82799),P138,c(Q2221906)|c(Q56061))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q79529", 
+   "Q2472587", 
+   "Q82799"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P138"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which names have exactly 1 chemical substances and peoples as their namesake ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13553585", 
+   "Q20027829"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13553585", 
+   "Q20027829"
+  ], 
+  "utterance": "Gold, Saxon", 
+  "active_set": [
+   "(c(Q82799),P138,c(Q79529)|c(Q2472587))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2596850"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P289"
+  ], 
+  "type_list": [
+   "Q2235308"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which ship type does the vessel class of MS Azura belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3114654"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3114654"
+  ], 
+  "utterance": "Grand-class cruise ship", 
+  "active_set": [
+   "(Q2596850,P289,c(Q2235308))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2596850"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P516"
+  ], 
+  "type_list": [
+   "Q16058315"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is used to power MS Azura ?"
+ }, 
+ {
+  "all_entities": [
+   "Q174174"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q174174"
+  ], 
+  "utterance": "diesel engine", 
+  "active_set": [
+   "(Q2596850,P516,c(Q16058315))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q22675979"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q16058315"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about single-engine bomber biplane?"
+ }, 
+ {
+  "all_entities": [
+   "Q743004"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q743004"
+  ], 
+  "utterance": "aircraft engine", 
+  "active_set": [
+   "(Q22675979,P516,c(Q16058315))"
+  ]
+ }
+]

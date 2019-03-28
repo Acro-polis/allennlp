@@ -1,0 +1,376 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q5541358"
+  ], 
+  "relations": [
+   "P509"
+  ], 
+  "type_list": [
+   "Q2057971"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which health problem was the cause of death of George Kirgo ?"
+ }, 
+ {
+  "all_entities": [
+   "Q476921"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q476921"
+  ], 
+  "utterance": "kidney failure", 
+  "active_set": [
+   "(Q5541358,P509,c(Q2057971))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q476921"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1050"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person suffers from that health problem ?"
+ }, 
+ {
+  "all_entities": [
+   "Q263241"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q263241"
+  ], 
+  "utterance": "Mary Wickes", 
+  "active_set": [
+   "(c(Q502895),P1050,Q476921)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q21847089"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q95074"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which fictional characters did greater number of people dub for than Kenji ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q21847058", 
+   "Q11623287", 
+   "Q3256697", 
+   "Q21837397", 
+   "Q21837021", 
+   "Q21837027", 
+   "Q3471289", 
+   "Q12400", 
+   "Q2340460"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q12400", 
+   "Q3471289", 
+   "Q2340460"
+  ], 
+  "utterance": "Samus Aran, Samurai Goroh, Captain Falcon", 
+  "active_set": [
+   "(c(Q95074),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q12400", 
+   "Q3471289", 
+   "Q2340460"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P725"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which people did the dubbing for Samus Aran, Samurai Goroh and Captain Falcon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4696487", 
+   "Q195041", 
+   "Q4738855", 
+   "Q21153142", 
+   "Q11475468", 
+   "Q2285386", 
+   "Q418649", 
+   "Q21142647", 
+   "Q2440809", 
+   "Q5241187", 
+   "Q21141783", 
+   "Q2540053"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q195041", 
+   "Q418649", 
+   "Q2440809"
+  ], 
+  "utterance": "Jennifer Hale, Akio \u014ctsuka, Hideyuki Tanaka", 
+  "active_set": [
+   "(Q12400,P725,c(Q502895))", 
+   "(Q3471289,P725,c(Q502895))", 
+   "(Q2340460,P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are English a portion of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "utterance": "Anglic languages, Anglo-Frisian languages", 
+  "active_set": [
+   "(Q1860,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are Anglic languages and Anglo-Frisian languages a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26721", 
+   "Q5329170", 
+   "Q26721", 
+   "Q30134"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5329170", 
+   "Q26721", 
+   "Q26721"
+  ], 
+  "utterance": "West Germanic languages for 2nd, 3rd, Anglo-Frisian languages for 1st", 
+  "active_set": [
+   "(Q1346342,P361,c(Q5962346))", 
+   "(Q5329170,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q12400"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P287"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who designed Samus Aran ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3136254"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3136254"
+  ], 
+  "utterance": "Hiroji Kiyotake", 
+  "active_set": [
+   "(Q12400,P287,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q12400"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P170"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person is credited with creation of Samus Aran ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3280923"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3280923"
+  ], 
+  "utterance": "Makoto Kano", 
+  "active_set": [
+   "(Q12400,P170,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q418649"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P26"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person is married to Akio \u014ctsuka ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1067105"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1067105"
+  ], 
+  "utterance": "Yoko Soumi", 
+  "active_set": [
+   "(c(Q502895),P26,Q418649)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1067105"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the native country of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q17"
+  ], 
+  "utterance": "Japan", 
+  "active_set": [
+   "(Q1067105,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q16065459"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Josiah T. Everest?"
+ }, 
+ {
+  "all_entities": [
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "utterance": "United States of America", 
+  "active_set": [
+   "(Q16065459,P27,c(Q15617994))"
+  ]
+ }
+]

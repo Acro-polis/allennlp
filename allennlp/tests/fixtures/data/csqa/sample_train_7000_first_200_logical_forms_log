@@ -1,0 +1,16 @@
+200 qa turns in total, found 176 (88.00%)
+took 876.8291666507721 seconds
+
+Simple Question (Direct) : 119
+Quantitative Reasoning (Count) (All) : 23
+Logical Reasoning (All) : 21
+Comparative Reasoning (All) : 8
+Quantitative Reasoning (All) : 13
+Comparative Reasoning (Count) (All) : 8
+Verification (Boolean) (All) : 8
+
+wikidata_directory : /home/ubuntu/Desktop/wikidata/wikidata_short_1_2_rev.p
+wikidata_type_directory : /home/ubuntu/Desktop/wikidata/par_child_dict_full.p
+csqa_directory : allennlp/tests/fixtures/data/csqa/sample_train_1300
+instance_limit : 200
+initial_dict : None

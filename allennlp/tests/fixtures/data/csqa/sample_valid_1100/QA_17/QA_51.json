@@ -1,0 +1,395 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2461394"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What are the professions of Francesco Carafa di Trajetto ?"
+ }, 
+ {
+  "all_entities": [
+   "Q193391", 
+   "Q42603"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q193391", 
+   "Q42603"
+  ], 
+  "utterance": "diplomat, priest", 
+  "active_set": [
+   "(Q2461394,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2461394"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P53"
+  ], 
+  "type_list": [
+   "Q8436"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which family did Francesco Carafa di Trajetto belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q351733"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q351733"
+  ], 
+  "utterance": "House of Carafa", 
+  "active_set": [
+   "(Q2461394,P53,c(Q8436))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2461394"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did Francesco Carafa di Trajetto die ?"
+ }, 
+ {
+  "all_entities": [
+   "Q220"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q220"
+  ], 
+  "utterance": "Rome", 
+  "active_set": [
+   "(Q2461394,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q220"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which geographic location is that administrative territory located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q46"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "utterance": "Europe", 
+  "active_set": [
+   "(Q220,P30,c(Q2221906))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is that one a portion of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5401"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5401"
+  ], 
+  "utterance": "Eurasia", 
+  "active_set": [
+   "(Q46,P361,c(Q2221906))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q5401"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P276"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is located at that one ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2469395"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2469395"
+  ], 
+  "utterance": "History of Bashkortostan", 
+  "active_set": [
+   "(c(Q2221906),P276,Q5401)"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q5401"
+  ], 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q2221906", 
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many geographic locations and administrative territories are a part of Eurasia ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q46", 
+   "Q159", 
+   "Q48"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2 geographic locations and 1 administrative territories", 
+  "active_set": [
+   "(c(Q2221906),P361,Q5401)", 
+   "(c(Q15617994),P361,Q5401)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q2221906", 
+   "Q14660", 
+   "Q340169"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many geographic locations are depicted in atmost 4 flags and medias ?"
+ }, 
+ {
+  "all_entities": [
+   "Q60142", 
+   "Q37654", 
+   "Q40357", 
+   "Q190928", 
+   "Q102911", 
+   "Q1049440", 
+   "Q7673159", 
+   "Q325358", 
+   "Q483242", 
+   "Q153809", 
+   "Q264458", 
+   "Q3404466", 
+   "Q48", 
+   "Q170552", 
+   "Q10717939", 
+   "Q2010516", 
+   "Q220032", 
+   "Q463871", 
+   "Q1468519", 
+   "Q51", 
+   "Q1690211", 
+   "Q1210950", 
+   "Q18857007", 
+   "Q798436", 
+   "Q2915499", 
+   "Q5683864", 
+   "Q39816", 
+   "Q12511", 
+   "Q828", 
+   "Q1030086", 
+   "Q43501", 
+   "Q18691599", 
+   "Q385557", 
+   "Q107679", 
+   "Q8072", 
+   "Q203751", 
+   "Q19870552", 
+   "Q631305", 
+   "Q2915691", 
+   "Q23397", 
+   "Q107425", 
+   "Q132646", 
+   "Q1322263", 
+   "Q721931", 
+   "Q6343615", 
+   "Q1507", 
+   "Q3853432", 
+   "Q1415635", 
+   "Q15", 
+   "Q23792", 
+   "Q1544257", 
+   "Q106259", 
+   "Q863454", 
+   "Q1607773", 
+   "Q828909", 
+   "Q7248258", 
+   "Q954501", 
+   "Q207326", 
+   "Q6554910", 
+   "Q46", 
+   "Q1123749", 
+   "Q32047", 
+   "Q948878", 
+   "Q15324", 
+   "Q27381", 
+   "Q8614", 
+   "Q4854162", 
+   "Q10832530", 
+   "Q148571", 
+   "Q8502", 
+   "Q1781097", 
+   "Q188040", 
+   "Q1034267", 
+   "Q135028", 
+   "Q215635", 
+   "Q24694968", 
+   "Q747957", 
+   "Q23442", 
+   "Q7653725", 
+   "Q19866352"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "80", 
+  "active_set": [
+   "(c(Q14660)|c(Q340169),P180,c(Q2221906))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5401"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P376"
+  ], 
+  "type_list": [
+   "Q16889133"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where is Eurasia situated ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2"
+  ], 
+  "utterance": "Earth", 
+  "active_set": [
+   "(Q5401,P376,c(Q16889133))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P610"
+  ], 
+  "type_list": [
+   "Q15324"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the highest point of that class ?"
+ }, 
+ {
+  "all_entities": [
+   "Q14081"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14081"
+  ], 
+  "utterance": "Chimborazo", 
+  "active_set": [
+   "(Q2,P610,c(Q15324))"
+  ]
+ }
+]

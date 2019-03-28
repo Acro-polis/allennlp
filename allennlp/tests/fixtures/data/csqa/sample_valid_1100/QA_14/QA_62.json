@@ -1,0 +1,552 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q19973718"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q12973014"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is Rashad Vaughn a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q169637"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q169637"
+  ], 
+  "utterance": "Milwaukee Bucks", 
+  "active_set": [
+   "(Q19973718,P54,c(Q12973014))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q169637"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P118"
+  ], 
+  "type_list": [
+   "Q48204"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which voluntary association does that sports team play in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q155223"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q155223"
+  ], 
+  "utterance": "National Basketball Association", 
+  "active_set": [
+   "(Q169637,P118,c(Q48204))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q155223"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What did that voluntary association participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5372"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5372"
+  ], 
+  "utterance": "basketball", 
+  "active_set": [
+   "(Q155223,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q14624950"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Casey Ramirez?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q14624950,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P101"
+  ], 
+  "count_ques_sub_type": 9, 
+  "type_list": [
+   "Q349", 
+   "Q2342494"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many sports do approximately the same number of collectables belong to as that sport ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q10962", 
+   "Q136851", 
+   "Q43450", 
+   "Q4543", 
+   "Q170737", 
+   "Q5375", 
+   "Q22857", 
+   "Q14300548", 
+   "Q1734", 
+   "Q31920", 
+   "Q12100", 
+   "Q8418", 
+   "Q15991265", 
+   "Q2215841", 
+   "Q500050", 
+   "Q108429", 
+   "Q592031", 
+   "Q7707", 
+   "Q809831", 
+   "Q847", 
+   "Q3177899", 
+   "Q2736", 
+   "Q177275", 
+   "Q42486", 
+   "Q5372", 
+   "Q2167372", 
+   "Q130949", 
+   "Q1497658", 
+   "Q178678", 
+   "Q41466", 
+   "Q114466", 
+   "Q328716", 
+   "Q131359", 
+   "Q201965", 
+   "Q2922870", 
+   "Q204686", 
+   "Q11420", 
+   "Q124100", 
+   "Q1541373", 
+   "Q41323"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "40", 
+  "active_set": [
+   "(c(Q2342494),P101,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q155223"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is National Basketball Association a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "utterance": "United States of America", 
+  "active_set": [
+   "(Q155223,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q1500458"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Zendstation Ugchelen?"
+ }, 
+ {
+  "all_entities": [
+   "Q55"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q55"
+  ], 
+  "utterance": "Netherlands", 
+  "active_set": [
+   "(Q1500458,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q55", 
+   "Q19323767"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q34442"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Is Leeuwerikstraat present in that administrative territory ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q19323767,P17,Q55)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories have diplomatic relations with atleast 35 administrative territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q155", 
+   "Q38"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q218"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories have diplomatic relationships with around the same number of administrative territories as Romania ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q702", 
+   "Q804", 
+   "Q800", 
+   "Q419", 
+   "Q668", 
+   "Q414", 
+   "Q55", 
+   "Q262", 
+   "Q783", 
+   "Q784", 
+   "Q265", 
+   "Q37", 
+   "Q712", 
+   "Q711", 
+   "Q710", 
+   "Q717", 
+   "Q837", 
+   "Q252", 
+   "Q399", 
+   "Q398", 
+   "Q657", 
+   "Q258", 
+   "Q45", 
+   "Q41", 
+   "Q792", 
+   "Q790", 
+   "Q796", 
+   "Q794", 
+   "Q954", 
+   "Q889", 
+   "Q884", 
+   "Q958", 
+   "Q881", 
+   "Q986", 
+   "Q822", 
+   "Q241", 
+   "Q242", 
+   "Q244", 
+   "Q811", 
+   "Q33", 
+   "Q32", 
+   "Q31", 
+   "Q924", 
+   "Q36", 
+   "Q34", 
+   "Q928", 
+   "Q929", 
+   "Q39", 
+   "Q739", 
+   "Q423", 
+   "Q983", 
+   "Q851", 
+   "Q733", 
+   "Q29999", 
+   "Q854", 
+   "Q734", 
+   "Q819", 
+   "Q424", 
+   "Q730", 
+   "Q1013", 
+   "Q236", 
+   "Q230", 
+   "Q232", 
+   "Q233", 
+   "Q238", 
+   "Q20", 
+   "Q1045", 
+   "Q1041", 
+   "Q27", 
+   "Q28", 
+   "Q921", 
+   "Q1049", 
+   "Q1027", 
+   "Q1020", 
+   "Q189", 
+   "Q843", 
+   "Q842", 
+   "Q184", 
+   "Q1029", 
+   "Q1028", 
+   "Q736", 
+   "Q786", 
+   "Q228", 
+   "Q227", 
+   "Q225", 
+   "Q224", 
+   "Q222", 
+   "Q221", 
+   "Q96", 
+   "Q229", 
+   "Q347", 
+   "Q902", 
+   "Q1036", 
+   "Q1037", 
+   "Q974", 
+   "Q1032", 
+   "Q1033", 
+   "Q1030", 
+   "Q191", 
+   "Q965", 
+   "Q967", 
+   "Q962", 
+   "Q963", 
+   "Q697", 
+   "Q298", 
+   "Q695", 
+   "Q115", 
+   "Q114", 
+   "Q117", 
+   "Q754", 
+   "Q750", 
+   "Q212", 
+   "Q213", 
+   "Q211", 
+   "Q217", 
+   "Q214", 
+   "Q215", 
+   "Q218", 
+   "Q219", 
+   "Q912", 
+   "Q917", 
+   "Q916", 
+   "Q1007", 
+   "Q1006", 
+   "Q1005", 
+   "Q833", 
+   "Q977", 
+   "Q1009", 
+   "Q1008", 
+   "Q971", 
+   "Q970", 
+   "Q683", 
+   "Q34020", 
+   "Q686", 
+   "Q836", 
+   "Q574", 
+   "Q874", 
+   "Q77", 
+   "Q858", 
+   "Q878", 
+   "Q774", 
+   "Q948", 
+   "Q817", 
+   "Q810", 
+   "Q1019", 
+   "Q1016", 
+   "Q945", 
+   "Q678", 
+   "Q29", 
+   "Q33788", 
+   "Q869", 
+   "Q953"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q230", 
+   "Q55", 
+   "Q36"
+  ], 
+  "utterance": "Georgia, Netherlands, Poland", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q230"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P840"
+  ], 
+  "type_list": [
+   "Q2342494"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which collectable has a setting location of that administrative territory ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q36"
+  ], 
+  "active_set": [
+   "(c(Q2342494),P840,Q230)", 
+   "(c(Q2342494),P840,Q55)", 
+   "(c(Q2342494),P840,Q36)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q230", 
+   "Q55", 
+   "Q36"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Poland ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q230"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Georgia. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q654562"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q654562"
+  ], 
+  "utterance": "The Travels of Marco Polo", 
+  "active_set": [
+   "(c(Q2342494),P840,Q230)"
+  ]
+ }
+]

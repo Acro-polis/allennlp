@@ -1,0 +1,231 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q108296"
+  ], 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the location where Gabriele Kuby worked ?"
+ }, 
+ {
+  "all_entities": [
+   "Q532970"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q532970"
+  ], 
+  "utterance": "Rimsting", 
+  "active_set": [
+   "(Q108296,P937,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q532970"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who have location of birth at that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q581327", 
+   "Q1395221"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q581327", 
+   "Q1395221"
+  ], 
+  "utterance": "Reinhart Heinsdorff, Thomas Gambke", 
+  "active_set": [
+   "(c(Q502895),P19,Q532970)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q532970"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people have that administrative territory as the location of death ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1372606", 
+   "Q1579778", 
+   "Q268977", 
+   "Q104412", 
+   "Q1612068", 
+   "Q1746482"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q104412", 
+   "Q268977", 
+   "Q1746482"
+  ], 
+  "utterance": "Robert Ernst, Kaspar von Zumbusch, Leo Zumbusch", 
+  "active_set": [
+   "(c(Q502895),P20,Q581327)", 
+   "(c(Q502895),P20,Q1395221)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1746482"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation is the profession of that person ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q104412"
+  ], 
+  "active_set": [
+   "(Q104412,P106,c(Q12737077))", 
+   "(Q268977,P106,c(Q12737077))", 
+   "(Q1746482,P106,c(Q12737077))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q104412", 
+   "Q268977", 
+   "Q1746482"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Robert Ernst ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q1746482"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Leo Zumbusch. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q13178418"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13178418"
+  ], 
+  "utterance": "dermatologist", 
+  "active_set": [
+   "(Q1746482,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13178418"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q1047113"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who has that one as the associated field of occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q171171"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q171171"
+  ], 
+  "utterance": "dermatology", 
+  "active_set": [
+   "(Q13178418,P425,c(Q1047113))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q532970", 
+   "Q44302"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people have location of birth at Rimsting or Nagorno-Karabakh ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q581327", 
+   "Q501855", 
+   "Q1395221", 
+   "Q204033"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q502895),P19,Q532970)", 
+   "(c(Q502895),P19,Q44302)"
+  ]
+ }
+]

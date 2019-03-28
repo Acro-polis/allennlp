@@ -1,0 +1,355 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1897525"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sex does Marie Zettler have ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581072"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581072"
+  ], 
+  "utterance": "female", 
+  "active_set": [
+   "(Q1897525,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1897525"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political territory does that person belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "utterance": "Germany", 
+  "active_set": [
+   "(Q6581072,P27,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q1007"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Does Guinea-Bissau have diplomatic relationships with that political territory ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q183,P530,Q1007)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q15617994", 
+   "Q1048835"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories have a diplomatic relationship with approximately 3 political territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q801", 
+   "Q142", 
+   "Q145", 
+   "Q711", 
+   "Q252", 
+   "Q403", 
+   "Q258", 
+   "Q159", 
+   "Q43", 
+   "Q884", 
+   "Q33", 
+   "Q30", 
+   "Q36", 
+   "Q34", 
+   "Q39", 
+   "Q739", 
+   "Q423", 
+   "Q851", 
+   "Q20", 
+   "Q843", 
+   "Q1029", 
+   "Q229", 
+   "Q1030", 
+   "Q115", 
+   "Q114", 
+   "Q212", 
+   "Q218", 
+   "Q833", 
+   "Q79", 
+   "Q77", 
+   "Q878", 
+   "Q953"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "32", 
+  "active_set": [
+   "(c(Q1048835),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q846"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many political territories have diplomatic relations with Germany and Qatar ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q16", 
+   "Q408"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(Q183,P530,c(Q1048835))", 
+   "(Q846,P530,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P176"
+  ], 
+  "type_list": [
+   "Q81103"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which cannon was produced by that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q813702"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q813702"
+  ], 
+  "utterance": "Becker Type M2", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q813702"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P607"
+  ], 
+  "type_list": [
+   "Q198"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What was was that cannon a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q361"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q361"
+  ], 
+  "utterance": "World War I", 
+  "active_set": [
+   "(Q813702,P607,c(Q198))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q361", 
+   "Q2960454"
+  ], 
+  "relations": [
+   "P607"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Did that war participate in Charles Oatley ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q2960454,P607,Q361)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q1897525", 
+   "Q1197488", 
+   "Q7315008"
+  ], 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Does Marie Zettler have Xiangyang District and Rescue Union School District as the area of death ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q1897525,P20,Q1197488)", 
+   "(Q1897525,P20,Q7315008)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q4804836"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does Asher Independent School District have diplomatic relationships with Germany ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q183,P530,Q4804836)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P30"
+  ], 
+  "type_list": [
+   "Q2221906"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which geographic location is that political territory a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q46"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q46"
+  ], 
+  "utterance": "Europe", 
+  "active_set": []
+ }
+]

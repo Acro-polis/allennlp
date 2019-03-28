@@ -1,0 +1,495 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2060885"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q1785271"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which cycling teams are Frans Van Looy a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q20108071", 
+   "Q20109105"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q20108071", 
+   "Q20109105"
+  ], 
+  "utterance": "Europ Decor, Vermeer-Thijs", 
+  "active_set": [
+   "(Q2060885,P54,c(Q1785271))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q20108071", 
+   "Q20109105"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q1785271"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What are a component of Europ Decor and Vermeer-Thijs ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26920970", 
+   "Q26920969", 
+   "Q26920967", 
+   "Q26962494"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26920970", 
+   "Q26920967", 
+   "Q26920969"
+  ], 
+  "utterance": "Europ Decor-Boule d'Or 1984, Europ Decor 1982, Europ Decor-Dries 1983", 
+  "active_set": [
+   "(c(Q1785271),P361,Q20108071)", 
+   "(c(Q1785271),P361,Q20109105)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q26920969"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q31629"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What did that cycling team participate in ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q26920969"
+  ], 
+  "active_set": [
+   "(Q26920970,P641,c(Q31629))", 
+   "(Q26920967,P641,c(Q31629))", 
+   "(Q26920969,P641,c(Q31629))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q26920970", 
+   "Q26920967", 
+   "Q26920969"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Europ Decor-Dries 1983 ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "Yes"
+ }, 
+ {
+  "all_entities": [
+   "Q3609"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3609"
+  ], 
+  "utterance": "road bicycle racing", 
+  "active_set": [
+   "(Q26920969,P641,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q26920970"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are Europ Decor-Boule d'Or 1984 a part of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q31"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q26920970,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q26647430"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about 115 And 116, Northgate Street?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q26647430,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q1785271", 
+   "Q12973014", 
+   "Q1785271"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many cycling teams are a portion of atmost 1 cycling teams or sports teams ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26962494", 
+   "Q2732652", 
+   "Q23888174", 
+   "Q24255488", 
+   "Q15848108", 
+   "Q18124826", 
+   "Q27019771", 
+   "Q27824531", 
+   "Q27019772", 
+   "Q26819683", 
+   "Q3046965", 
+   "Q26832760", 
+   "Q26832761", 
+   "Q26832762", 
+   "Q26832763", 
+   "Q26832764", 
+   "Q26832765", 
+   "Q26869418", 
+   "Q26869419", 
+   "Q20875183", 
+   "Q26869417", 
+   "Q16675053", 
+   "Q20875185", 
+   "Q22266263", 
+   "Q26869555", 
+   "Q27002493", 
+   "Q27506660", 
+   "Q24063178", 
+   "Q27504655", 
+   "Q24237730", 
+   "Q24287354", 
+   "Q23016267", 
+   "Q24175573", 
+   "Q24175572", 
+   "Q26832759", 
+   "Q27504425", 
+   "Q20727526", 
+   "Q24045566", 
+   "Q24174253", 
+   "Q26988396", 
+   "Q24287470", 
+   "Q20011346", 
+   "Q24045567", 
+   "Q20649021", 
+   "Q27506687", 
+   "Q24248367", 
+   "Q24927162", 
+   "Q26904141", 
+   "Q2675417", 
+   "Q20875194", 
+   "Q20743619", 
+   "Q20875192", 
+   "Q20875193", 
+   "Q20826561", 
+   "Q24255842", 
+   "Q20826563", 
+   "Q20826562", 
+   "Q20826564", 
+   "Q26832750", 
+   "Q26856816", 
+   "Q26869345", 
+   "Q26856811", 
+   "Q26832755", 
+   "Q26819676", 
+   "Q20730344", 
+   "Q20730343", 
+   "Q20730342", 
+   "Q27019757", 
+   "Q2210376", 
+   "Q26832758", 
+   "Q24287482", 
+   "Q18124861", 
+   "Q26832756", 
+   "Q17513257", 
+   "Q24927170", 
+   "Q16675043", 
+   "Q20656071", 
+   "Q20826560", 
+   "Q2302915", 
+   "Q24174646", 
+   "Q26832624", 
+   "Q26832751", 
+   "Q27002675", 
+   "Q24045568", 
+   "Q24045569", 
+   "Q26904142", 
+   "Q2020383", 
+   "Q24045564", 
+   "Q24045565", 
+   "Q24237831", 
+   "Q24089067", 
+   "Q15850223", 
+   "Q24255505", 
+   "Q1972692", 
+   "Q24089068", 
+   "Q15713609", 
+   "Q26856860", 
+   "Q2843274", 
+   "Q26988393", 
+   "Q24237835", 
+   "Q24199895", 
+   "Q17514169", 
+   "Q26920970", 
+   "Q27506678", 
+   "Q2243712", 
+   "Q20875173", 
+   "Q26818012", 
+   "Q26818013", 
+   "Q20875174", 
+   "Q24284164", 
+   "Q23795338", 
+   "Q15646588", 
+   "Q20872287", 
+   "Q20872286", 
+   "Q26921297", 
+   "Q26921296", 
+   "Q3212372", 
+   "Q27824885", 
+   "Q18701965", 
+   "Q2913946", 
+   "Q21011822", 
+   "Q26921298", 
+   "Q24237702", 
+   "Q2351688", 
+   "Q26920969", 
+   "Q27504689", 
+   "Q20875184", 
+   "Q17514072", 
+   "Q15841506", 
+   "Q20826558", 
+   "Q20826559", 
+   "Q26869517", 
+   "Q24251134", 
+   "Q20875638", 
+   "Q20826556", 
+   "Q26877830", 
+   "Q26819680", 
+   "Q26819681", 
+   "Q26819682", 
+   "Q20706473", 
+   "Q2670184", 
+   "Q24042131", 
+   "Q26988398", 
+   "Q26922412", 
+   "Q20706475", 
+   "Q20875172", 
+   "Q24082964", 
+   "Q20311982", 
+   "Q20875641", 
+   "Q26856818", 
+   "Q27793362", 
+   "Q26920498", 
+   "Q26920499", 
+   "Q26819679", 
+   "Q24255564", 
+   "Q24175574", 
+   "Q24255569", 
+   "Q24255568", 
+   "Q26819677", 
+   "Q24817395", 
+   "Q20727527", 
+   "Q27811367", 
+   "Q20727525", 
+   "Q20727524", 
+   "Q26832614", 
+   "Q26832615", 
+   "Q26877827", 
+   "Q26877828", 
+   "Q26877829", 
+   "Q26832753", 
+   "Q20875175", 
+   "Q26920967", 
+   "Q26832754", 
+   "Q26832757", 
+   "Q20727528", 
+   "Q26921378", 
+   "Q26921379", 
+   "Q15789176", 
+   "Q24237644", 
+   "Q27002589", 
+   "Q27506667", 
+   "Q15854381", 
+   "Q24045514", 
+   "Q24287445", 
+   "Q24174612", 
+   "Q26839612", 
+   "Q18124871", 
+   "Q26856853", 
+   "Q26856854", 
+   "Q26856856", 
+   "Q1398007", 
+   "Q24255570", 
+   "Q24255571", 
+   "Q2282133", 
+   "Q26832752", 
+   "Q27002985", 
+   "Q20743635", 
+   "Q20743634", 
+   "Q20743637", 
+   "Q26832749", 
+   "Q2372661", 
+   "Q20743630", 
+   "Q24082895", 
+   "Q26832742", 
+   "Q1566031", 
+   "Q26869472", 
+   "Q26832746", 
+   "Q26832747", 
+   "Q26832744", 
+   "Q26962501", 
+   "Q26921381", 
+   "Q26921383", 
+   "Q26921382", 
+   "Q26869079", 
+   "Q26838673", 
+   "Q2013127", 
+   "Q26869489", 
+   "Q24287536", 
+   "Q27506642", 
+   "Q23992247", 
+   "Q24237833", 
+   "Q24237832", 
+   "Q23992249", 
+   "Q23992248", 
+   "Q26832748", 
+   "Q15847737", 
+   "Q24237834", 
+   "Q24255316", 
+   "Q17199698", 
+   "Q17514252", 
+   "Q24251310", 
+   "Q24255318", 
+   "Q24256343", 
+   "Q20743626", 
+   "Q20743627", 
+   "Q20743625", 
+   "Q20875176", 
+   "Q20743620", 
+   "Q20743621", 
+   "Q27003137", 
+   "Q20743628", 
+   "Q20743629", 
+   "Q2736809", 
+   "Q26832743", 
+   "Q24200003", 
+   "Q2129930", 
+   "Q24251311", 
+   "Q24287326", 
+   "Q26819678"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "249", 
+  "active_set": [
+   "(c(Q1785271),P361,c(Q1785271)|c(Q12973014))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q19281963", 
+   "Q20108071"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27", 
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Europ Decor situated in and are Kim de Baat a civilian of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q31"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q31"
+  ], 
+  "utterance": "Belgium", 
+  "active_set": [
+   "AND((Q20108071,P17,c(Q15617994)), (Q19281963,P27,c(Q15617994)))"
+  ]
+ }
+]

@@ -1,0 +1,133 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q966212"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Where was Heinrich Bacht born ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2066"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2066"
+  ], 
+  "utterance": "Essen", 
+  "active_set": [
+   "(Q966212,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q966212"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P611"
+  ], 
+  "type_list": [
+   "Q1530022"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What religion is that person affiliated to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q36380"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q36380"
+  ], 
+  "utterance": "Society of Jesus", 
+  "active_set": [
+   "(Q2066,P611,c(Q1530022))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q1530022"
+  ], 
+  "entities_in_utterance": [
+   "Q5482011", 
+   "Q966212"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P611"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also Francis Neale"
+ }, 
+ {
+  "all_entities": [
+   "Q36380"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q36380"
+  ], 
+  "utterance": "Society of Jesus", 
+  "active_set": [
+   "AND((Q966212,P611,c(Q1530022)), (Q5482011,P611,c(Q1530022)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q2901494", 
+   "Q36380"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P161", 
+   "P417"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people are the patron saint of Society of Jesus or were casted in My universities ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4365375", 
+   "Q1980678", 
+   "Q44281", 
+   "Q1967513"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4365375", 
+   "Q1980678", 
+   "Q44281", 
+   "Q1967513"
+  ], 
+  "utterance": "Nikolai Plotnikov, Stepan Kayukov, Ignatius of Loyola, Lev Sverdline", 
+  "active_set": [
+   "OR((Q36380,P417,c(Q502895)), (Q2901494,P161,c(Q502895)))"
+  ]
+ }
+]

@@ -1,0 +1,349 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1376173"
+  ], 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q101352"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which family name is associated with Yuan Muzhi ?"
+ }, 
+ {
+  "all_entities": [
+   "Q716212"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q716212"
+  ], 
+  "utterance": "Yuan", 
+  "active_set": [
+   "(Q1376173,P734,c(Q101352))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1376173"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupations have Yuan Muzhi as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q82955", 
+   "Q33999"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82955", 
+   "Q33999"
+  ], 
+  "utterance": "politician, actor", 
+  "active_set": [
+   "(Q1376173,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "Incomplete|object parent is changed, subject and predicate remain same", 
+  "entities_in_utterance": [
+   "Q1376173"
+  ], 
+  "inc_ques_type": 1, 
+  "relations": [], 
+  "type_list": [
+   "Q28640"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And which profession?"
+ }, 
+ {
+  "all_entities": [
+   "Q2526255", 
+   "Q28389"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2526255", 
+   "Q28389"
+  ], 
+  "utterance": "film director, screenwriter", 
+  "active_set": [
+   "(Q1376173,P106,c(Q28640))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2526255"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P136"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which work of art as that profession as its type ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q28389"
+  ], 
+  "active_set": [
+   "(c(Q838948),P136,Q2526255)", 
+   "(c(Q838948),P136,Q28389)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q2526255", 
+   "Q28389"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean screenwriter ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q2526255"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant film director. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q21000942"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21000942"
+  ], 
+  "utterance": "Singende Frauen Women", 
+  "active_set": [
+   "(c(Q838948),P136,Q2526255)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q21000942"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P161"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who starred in that work of art ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4914460", 
+   "Q7183135", 
+   "Q2511663", 
+   "Q470307", 
+   "Q23905811", 
+   "Q463473"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2511663", 
+   "Q463473", 
+   "Q7183135"
+  ], 
+  "utterance": "Vedat Erincin, Kevork Malikyan, Philip Arditti", 
+  "active_set": [
+   "(Q21000942,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q2511663", 
+   "Q463473", 
+   "Q7183135"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territories are the birthplace of those people ?"
+ }, 
+ {
+  "all_entities": [
+   "Q406", 
+   "Q83387", 
+   "Q71"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q406", 
+   "Q83387", 
+   "Q71"
+  ], 
+  "utterance": "Istanbul, Diyarbak\u0131r, Geneva", 
+  "active_set": [
+   "(Q2511663,P19,c(Q56061))", 
+   "(Q463473,P19,c(Q56061))", 
+   "(Q7183135,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q406"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P915"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which works of art were filmed at that administrative territory ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q71"
+  ], 
+  "active_set": [
+   "(c(Q838948),P915,Q406)", 
+   "(c(Q838948),P915,Q83387)", 
+   "(c(Q838948),P915,Q71)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q406", 
+   "Q83387", 
+   "Q71"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Geneva ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q406"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Istanbul. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q558297", 
+   "Q1361018", 
+   "Q4663809", 
+   "Q17523636", 
+   "Q2581918", 
+   "Q3766013", 
+   "Q7559789", 
+   "Q17434124", 
+   "Q12811143", 
+   "Q3472837", 
+   "Q232053", 
+   "Q1578702", 
+   "Q4167177", 
+   "Q6084899", 
+   "Q639228", 
+   "Q5423075", 
+   "Q212145", 
+   "Q11967418", 
+   "Q681962", 
+   "Q4807991", 
+   "Q4808148", 
+   "Q673627", 
+   "Q59687", 
+   "Q5423540", 
+   "Q6427858", 
+   "Q494719", 
+   "Q7744599", 
+   "Q770074", 
+   "Q635848", 
+   "Q1057015", 
+   "Q7958577", 
+   "Q1219034", 
+   "Q4830743", 
+   "Q12208610", 
+   "Q573156", 
+   "Q367228", 
+   "Q6091325", 
+   "Q927259", 
+   "Q3241699", 
+   "Q3275371", 
+   "Q18110036", 
+   "Q6692252", 
+   "Q6099129", 
+   "Q691916", 
+   "Q4941", 
+   "Q3523132", 
+   "Q2884335", 
+   "Q12811331", 
+   "Q6427861", 
+   "Q1516287", 
+   "Q928436", 
+   "Q106571", 
+   "Q7737410", 
+   "Q1769370", 
+   "Q6081026", 
+   "Q59653", 
+   "Q1481681"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q106571", 
+   "Q59653", 
+   "Q681962"
+  ], 
+  "utterance": "From Russia with Love, Argo, Tinker Tailor Soldier Spy", 
+  "active_set": [
+   "(c(Q838948),P915,Q406)"
+  ]
+ }
+]

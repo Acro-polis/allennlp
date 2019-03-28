@@ -1,0 +1,240 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q5340558"
+  ], 
+  "relations": [
+   "P1196"
+  ], 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which activity best describes with type of death of Eduardo Castro Luque ?"
+ }, 
+ {
+  "all_entities": [
+   "Q149086"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q149086"
+  ], 
+  "utterance": "homicide", 
+  "active_set": [
+   "(Q5340558,P1196,c(Q1914636))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5340558"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation is the profession of Eduardo Castro Luque ?"
+ }, 
+ {
+  "all_entities": [
+   "Q82955"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "utterance": "politician", 
+  "active_set": [
+   "(Q5340558,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P921"
+  ], 
+  "type_list": [
+   "Q223393"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which literary genre has that occupation as its main topic ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21815179"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21815179"
+  ], 
+  "utterance": "worldstatesmen", 
+  "active_set": [
+   "(c(Q223393),P921,Q82955)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q21815179", 
+   "Q26695074"
+  ], 
+  "relations": [
+   "P921"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Was mayor of Herreruela the main subject of worldstatesmen 's work ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q21815179,P921,Q26695074)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5340558"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organization is Eduardo Castro Luque a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q682969"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q682969"
+  ], 
+  "utterance": "Institutional Revolutionary Party", 
+  "active_set": [
+   "(Q5340558,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q682969"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1142"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person believes in that political organization ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21772619"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21772619"
+  ], 
+  "utterance": "Jes\u00fas Gerardo Izquierdo Rojas", 
+  "active_set": [
+   "(c(Q502895),P1142,Q682969)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q682969"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q163740"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which nonprofit organization had Institutional Revolutionary Party as its member ?"
+ }, 
+ {
+  "all_entities": [
+   "Q159454"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q159454"
+  ], 
+  "utterance": "Socialist International", 
+  "active_set": [
+   "(Q682969,P463,c(Q163740))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q159454", 
+   "Q151917"
+  ], 
+  "relations": [
+   "P488"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Was George Papandreou the chairperson of that nonprofit organization ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q159454,P488,Q151917)"
+  ]
+ }
+]

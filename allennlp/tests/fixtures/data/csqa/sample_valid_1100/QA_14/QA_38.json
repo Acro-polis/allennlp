@@ -1,0 +1,275 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q23534015"
+  ], 
+  "relations": [
+   "P682"
+  ], 
+  "type_list": [
+   "Q2996394"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which biological process is methionyl-tRNA formyltransferase    CD630_25840 involved in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q14914008"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14914008"
+  ], 
+  "utterance": "biosynthetic process", 
+  "active_set": [
+   "(Q23534015,P682,c(Q2996394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23534015"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q631147"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where is methionyl-tRNA formyltransferase    CD630_25840 found ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102976"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102976"
+  ], 
+  "utterance": "Peptoclostridium difficile 630", 
+  "active_set": [
+   "(Q23534015,P703,c(Q631147))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q24139225"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q631147"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about transcriptional activator of rhaSR    b3906?"
+ }, 
+ {
+  "all_entities": [
+   "Q21102938"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21102938"
+  ], 
+  "utterance": "Escherichia coli str. K-12 substr. MG1655", 
+  "active_set": [
+   "(Q24139225,P703,c(Q631147))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q181394"
+  ], 
+  "entities_in_utterance": [
+   "Q518328", 
+   "Q14914008"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P682"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nutrients are a part of the biological process biosynthetic process and methylation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23469601", 
+   "Q23470840", 
+   "Q23550039"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23469601", 
+   "Q23470840", 
+   "Q23550039"
+  ], 
+  "utterance": "magnesium chelatase subunit H    CT1957, magnesium-protoporphyrin methyltransferase    CT1295, serine hydroxymethyltransferase    THEYE_A0594", 
+  "active_set": [
+   "AND((c(Q181394),P682,Q14914008), (c(Q181394),P682,Q518328))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23469601"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the gene that encodes magnesium chelatase subunit H    CT1957 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q24085501"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q24085501"
+  ], 
+  "utterance": "magnesium chelatase subunit H    CT1957", 
+  "active_set": [
+   "(Q23469601,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q24085501"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which nutrient is that nucleic acid sequence an encoding of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23469601"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23469601"
+  ], 
+  "utterance": "magnesium chelatase subunit H    CT1957", 
+  "active_set": [
+   "(Q24085501,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q23469601", 
+   "Q18035932"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does DHRS4 encode that nutrient ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q18035932,P688,Q23469601)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q23470840"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many nucleic acid sequences genes encode magnesium-protoporphyrin methyltransferase    CT1295 ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q24086666"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q23470840,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q24139563"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about branched-chain amino acid ABC transporter ATPase    b3455?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q23088243"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q24139563,P702,c(Q863908))"
+  ]
+ }
+]

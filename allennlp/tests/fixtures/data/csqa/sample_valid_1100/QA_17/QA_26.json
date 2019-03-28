@@ -1,0 +1,474 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3495948"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the sex of Toussaint-Bernard \u00c9meric-David ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q3495948,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3495948"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What were the positions for which that person were appointed ?"
+ }, 
+ {
+  "all_entities": [
+   "Q382617", 
+   "Q3044918", 
+   "Q1055894"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q382617", 
+   "Q3044918", 
+   "Q1055894"
+  ], 
+  "utterance": "maire, member of the French\u00a0National Assembly, deputy", 
+  "active_set": [
+   "(Q6581097,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q2847335"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Did Andr\u00e9 Borel hold the position of those occupations ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q2847335,P39,Q382617)", 
+   "(Q2847335,P39,Q3044918)", 
+   "(Q2847335,P39,Q1055894)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q3516658", 
+   "Q2342494"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which occupations are demonstrated in exactly 1 heraldic symbols or collectables ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1250916", 
+   "Q11900058", 
+   "Q843281", 
+   "Q170779"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q170779", 
+   "Q1250916", 
+   "Q11900058"
+  ], 
+  "utterance": "Kassandra, warrior, explorer", 
+  "active_set": [
+   "(c(Q3516658)|c(Q2342494),P180,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q170779"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q17444909"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which astronomical object type is named after Kassandra ?"
+ }, 
+ {
+  "all_entities": [
+   "Q136402"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q136402"
+  ], 
+  "utterance": "114 Kassandra", 
+  "active_set": [
+   "(c(Q17444909),P138,Q170779)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q170779"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P144"
+  ], 
+  "type_list": [
+   "Q6619679"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which fictional humanoid is adapted from Kassandra ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26272994"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26272994"
+  ], 
+  "utterance": "Cassandra", 
+  "active_set": [
+   "(c(Q6619679),P144,Q170779)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q26272994"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q14623646"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where was that fictional humanoid educated ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26713109"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26713109"
+  ], 
+  "utterance": "Prometheus Academy", 
+  "active_set": [
+   "(Q26272994,P69,c(Q14623646))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q170779"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P22"
+  ], 
+  "type_list": [
+   "Q22988604"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who was the father of Kassandra ?"
+ }, 
+ {
+  "all_entities": [
+   "Q170473"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q170473"
+  ], 
+  "utterance": "Priam", 
+  "active_set": [
+   "(Q170779,P22,c(Q22988604))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q170779"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P674"
+  ], 
+  "type_list": [
+   "Q223393"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the literary genre that has Kassandra as a character ?"
+ }, 
+ {
+  "all_entities": [
+   "Q8275"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8275"
+  ], 
+  "utterance": "Iliad", 
+  "active_set": [
+   "(c(Q223393),P674,Q170779)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q170779"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P40"
+  ], 
+  "type_list": [
+   "Q22988604"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Whose child are that occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q170473", 
+   "Q193433"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q170473", 
+   "Q193433"
+  ], 
+  "utterance": "Priam, Hecuba", 
+  "active_set": [
+   "(c(Q22988604),P40,Q8275)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q170473", 
+   "Q193433"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P674"
+  ], 
+  "type_list": [
+   "Q223393"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which literary genres have the character those mythological Greek characters ?"
+ }, 
+ {
+  "all_entities": [
+   "Q8275"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8275"
+  ], 
+  "utterance": "Iliad", 
+  "active_set": [
+   "(c(Q223393),P674,Q170473)", 
+   "(c(Q223393),P674,Q193433)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q8275"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P629"
+  ], 
+  "type_list": [
+   "Q571"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which are an edition or translation of that literary genre ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17566229", 
+   "Q19090444", 
+   "Q17559055", 
+   "Q19828573", 
+   "Q19090449", 
+   "Q16547641", 
+   "Q19090438"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q17566229", 
+   "Q17559055", 
+   "Q19090444"
+  ], 
+  "utterance": "Ilias, Iliad, The Iliad", 
+  "active_set": [
+   "(c(Q571),P629,Q8275)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q223393", 
+   "Q571", 
+   "Q571"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many books are a component of approximately 1 literary genres and books ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21175474", 
+   "Q21096043", 
+   "Q21096047", 
+   "Q21096039", 
+   "Q21096042", 
+   "Q21096035", 
+   "Q21096032", 
+   "Q21096041", 
+   "Q41180", 
+   "Q21096048", 
+   "Q21096050", 
+   "Q21096049", 
+   "Q21096057", 
+   "Q21096056", 
+   "Q21096055", 
+   "Q21096054", 
+   "Q21096052", 
+   "Q21096059"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "18", 
+  "active_set": [
+   "(c(Q571),P361,c(Q223393)|c(Q571))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q16343597", 
+   "Q382617"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are maire or Mai Rut situated in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q142", 
+   "Q869"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142", 
+   "Q869"
+  ], 
+  "utterance": "France, Thailand", 
+  "active_set": [
+   "OR((Q382617,P17,c(Q15617994)), (Q16343597,P17,c(Q15617994)))"
+  ]
+ }
+]

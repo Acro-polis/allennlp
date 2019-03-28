@@ -1,0 +1,321 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1718862"
+  ], 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q1499496"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which German presidential election did Katrin Sch\u00fctz participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q707063"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q707063"
+  ], 
+  "utterance": "German presidential election, 2010", 
+  "active_set": [
+   "(Q1718862,P1344,c(Q1499496))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1718862"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P710"
+  ], 
+  "type_list": [
+   "Q1499496"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which German presidential election has that person as its participant ?"
+ }, 
+ {
+  "all_entities": [
+   "Q707063"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q707063"
+  ], 
+  "utterance": "German presidential election, 2010", 
+  "active_set": [
+   "(c(Q1499496),P710,Q707063)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments do max number of people know to play ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q5994"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5994"
+  ], 
+  "utterance": "piano", 
+  "active_set": [
+   "(c(Q502895),P1303,Q3623688)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Indirect", 
+  "type_list": [
+   "Q34379", 
+   "Q188451", 
+   "Q838948"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P870"
+  ], 
+  "count_ques_sub_type": 10, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments were used in the composition of lesser number of music genres and works of art than that musical instrument ?"
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q8371", 
+   "Q213461", 
+   "Q46185", 
+   "Q845193", 
+   "Q190172", 
+   "Q189737", 
+   "Q626035", 
+   "Q593995", 
+   "Q521151", 
+   "Q8338", 
+   "Q320341", 
+   "Q1444", 
+   "Q39777", 
+   "Q8355", 
+   "Q11404", 
+   "Q206987", 
+   "Q81982"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "18", 
+  "active_set": [
+   "(c(Q188451)|c(Q838948),P870,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1718862"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political party is Katrin Sch\u00fctz a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49762"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49762"
+  ], 
+  "utterance": "Christian Democratic Union", 
+  "active_set": [
+   "(Q1718862,P102,c(Q7278))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q15822835"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Karl-Heinz Kniestedt?"
+ }, 
+ {
+  "all_entities": [
+   "Q49750", 
+   "Q76867"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49750", 
+   "Q76867"
+  ], 
+  "utterance": "Socialist Unity Party of Germany, Socialist Unity Party of West Berlin", 
+  "active_set": [
+   "(Q15822835,P102,c(Q7278))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q11851296", 
+   "Q1718862"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories do Katrin Sch\u00fctz or Ana\u00efs Oyembo belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1000", 
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1000", 
+   "Q183"
+  ], 
+  "utterance": "Gabon, Germany", 
+  "active_set": [
+   "OR((Q1718862,P27,c(Q1048835)), (Q11851296,P27,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q16879024"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q930933"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Germany-Gabon relations located in those political territories ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q16879024,P17,Q1000)", 
+   "(Q16879024,P17,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q1718862", 
+   "Q183"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Germany the country of citizenship of Katrin Sch\u00fctz ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q1718862,P27,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q49762"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1416"
+  ], 
+  "type_list": [
+   "Q19335303"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which German business organization is affiliated to Christian Democratic Union ?"
+ }, 
+ {
+  "all_entities": [
+   "Q324555"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q324555"
+  ], 
+  "utterance": "Konrad Adenauer Foundation", 
+  "active_set": [
+   "(c(Q19335303),P1416,Q49762)"
+  ]
+ }
+]

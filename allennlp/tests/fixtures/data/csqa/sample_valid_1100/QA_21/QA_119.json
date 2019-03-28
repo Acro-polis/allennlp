@@ -1,0 +1,438 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q24149059"
+  ], 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is a component of GTP-binding protein LepA    ECUMN_2891 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548"
+  ], 
+  "utterance": "plasma membrane", 
+  "active_set": [
+   "(Q24149059,P681,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q24149059"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which gene encodes that nutrient ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23147164"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23147164"
+  ], 
+  "utterance": "GTP-binding protein LepA    ECUMN_2891", 
+  "active_set": [
+   "(Q29548,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q23147164", 
+   "Q22575062", 
+   "Q23621745"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Does GTP-binding protein LepA    ECUMN_2891 encode hypothetical protein YPO2345 and hypothetical protein    BL0837 ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q23147164,P688,Q22575062)", 
+   "(Q23147164,P688,Q23621745)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q79529", 
+   "Q8386", 
+   "Q181394"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P129"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which nutrients can communicate with max number of chemical substances or drugs ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1949517"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1949517"
+  ], 
+  "utterance": "5-hydroxytryptamine receptor 2A", 
+  "active_set": [
+   "(c(Q181394),P129,c(Q79529)|c(Q8386))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29548"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which cellular components are a component of plasma membrane ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22327518", 
+   "Q14864977", 
+   "Q22327343"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22327518", 
+   "Q14864977", 
+   "Q22327343"
+  ], 
+  "utterance": "plasma membrane region, plasma membrane part, plasma membrane-derived photosystem I", 
+  "active_set": [
+   "(c(Q5058355),P361,Q29548)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q22327518", 
+   "Q14864977", 
+   "Q22327343"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5058355"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which cellular components are those ones a component of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29548", 
+   "Q14353100", 
+   "Q29548", 
+   "Q29548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548", 
+   "Q29548", 
+   "Q29548"
+  ], 
+  "utterance": "plasma membrane", 
+  "active_set": [
+   "(Q22327518,P361,c(Q5058355))", 
+   "(Q14864977,P361,c(Q5058355))", 
+   "(Q22327343,P361,c(Q5058355))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1949517"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q16521"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which taxon is 5-hydroxytryptamine receptor 2A found in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15978631"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "utterance": "Homo sapiens", 
+  "active_set": [
+   "(Q1949517,P703,c(Q16521))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P689"
+  ], 
+  "type_list": [
+   "Q2057971"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What can afflict that taxon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q403463"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q403463"
+  ], 
+  "utterance": "Aicardi syndrome", 
+  "active_set": [
+   "(c(Q2057971),P689,Q15978631)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P427"
+  ], 
+  "type_list": [
+   "Q3343211"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which zoological nomenclature is the taxonomic type of Homo sapiens ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1043"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1043"
+  ], 
+  "utterance": "Carl Linnaeus", 
+  "active_set": [
+   "(Q15978631,P427,c(Q3343211))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1043"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P737"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who was influenced by that zoological nomenclature ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1094656"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1094656"
+  ], 
+  "utterance": "Clas Alstr\u00f6mer", 
+  "active_set": [
+   "(c(Q502895),P737,Q1043)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q5058355", 
+   "Q223557", 
+   "Q5058355"
+  ], 
+  "entities_in_utterance": [
+   "Q22327654"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which cellular components are parts of greater number of cellular components or physical objects than annulate lamellae ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22329451", 
+   "Q21107992", 
+   "Q22329159", 
+   "Q22327531", 
+   "Q22327518", 
+   "Q29548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548", 
+   "Q22329451", 
+   "Q21107992"
+  ], 
+  "utterance": "plasma membrane, basolateral part of cell, ER ubiquitin ligase complex", 
+  "active_set": [
+   "(c(Q5058355),P361,c(Q5058355)|c(Q223557))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q5058355", 
+   "Q223557", 
+   "Q5058355"
+  ], 
+  "entities_in_utterance": [
+   "Q22328655"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about cell septum part?"
+ }, 
+ {
+  "all_entities": [
+   "Q22329451", 
+   "Q21107992", 
+   "Q22329159", 
+   "Q22327531", 
+   "Q22327518", 
+   "Q29548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29548", 
+   "Q22329451", 
+   "Q21107992"
+  ], 
+  "utterance": "plasma membrane, basolateral part of cell, ER ubiquitin ligase complex", 
+  "active_set": [
+   "(c(Q5058355),P361,c(Q5058355)|c(Q223557))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1094656"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q16521"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which taxon has Clas Alstr\u00f6mer as its toponym ?"
+ }, 
+ {
+  "all_entities": [
+   "Q917833"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q917833"
+  ], 
+  "utterance": "Alstroemeria", 
+  "active_set": [
+   "(c(Q16521),P138,Q1094656)"
+  ]
+ }
+]

@@ -1,0 +1,351 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3075631"
+  ], 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q811430"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which construction had Thomas Jaggar as its member ?"
+ }, 
+ {
+  "all_entities": [
+   "Q463303"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q463303"
+  ], 
+  "utterance": "American Academy of Arts and Sciences", 
+  "active_set": [
+   "(Q3075631,P463,c(Q811430))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q463303"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P166"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people were awarded with that construction ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4706834", 
+   "Q6829484"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4706834", 
+   "Q6829484"
+  ], 
+  "utterance": "Alan Hastings, Michael Cosmopoulos", 
+  "active_set": [
+   "(c(Q502895),P166,Q463303)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q4706834", 
+   "Q6829484"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What are the sex of Alan Hastings and Michael Cosmopoulos ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097", 
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q4706834,P21,c(Q290))", 
+   "(Q6829484,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q4706834"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P184"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person was the doctoral superviser of Alan Hastings ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3819820"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3819820"
+  ], 
+  "utterance": "Simon A. Levin", 
+  "active_set": [
+   "(Q4706834,P184,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3819820"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1066"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person was advised by that one ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4706834"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4706834"
+  ], 
+  "utterance": "Alan Hastings", 
+  "active_set": [
+   "(c(Q502895),P1066,Q3819820)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q4706834"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P108"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is the employer of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q129421"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q129421"
+  ], 
+  "utterance": "University of California, Davis", 
+  "active_set": [
+   "(Q4706834,P108,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q129421", 
+   "Q267261", 
+   "Q648603"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Is that human settlement present in Lorsica and Oberhausen an der Appel ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q129421,P17,Q267261)", 
+   "(Q129421,P17,Q648603)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q486972", 
+   "Q83620", 
+   "Q12280"
+  ], 
+  "entities_in_utterance": [
+   "Q664293"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P609"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many human settlements are the destination of lesser number of thoroughfares or bridges than Gerasdorf bei Wien ?"
+ }, 
+ {
+  "all_entities": [
+   "Q81186", 
+   "Q154048", 
+   "Q1502741", 
+   "Q9879", 
+   "Q81159", 
+   "Q3303930", 
+   "Q81100", 
+   "Q12344051", 
+   "Q279675", 
+   "Q3196540", 
+   "Q14389109", 
+   "Q2616736", 
+   "Q4736244", 
+   "Q192508", 
+   "Q465833", 
+   "Q81220", 
+   "Q2473420", 
+   "Q311849"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "18", 
+  "active_set": [
+   "(c(Q83620)|c(Q12280),P609,c(Q486972))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q486972", 
+   "Q83620", 
+   "Q12280"
+  ], 
+  "entities_in_utterance": [
+   "Q7074391"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P609"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about Oasis?"
+ }, 
+ {
+  "all_entities": [
+   "Q81186", 
+   "Q154048", 
+   "Q1502741", 
+   "Q9879", 
+   "Q81159", 
+   "Q3303930", 
+   "Q81100", 
+   "Q12344051", 
+   "Q279675", 
+   "Q3196540", 
+   "Q14389109", 
+   "Q2616736", 
+   "Q4736244", 
+   "Q192508", 
+   "Q465833", 
+   "Q81220", 
+   "Q2473420", 
+   "Q311849"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "18", 
+  "active_set": [
+   "(c(Q83620)|c(Q12280),P609,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q4706834"
+  ], 
+  "relations": [
+   "P802"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people were a notable student of Alan Hastings ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q3819820"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q502895),P802,Q4706834)"
+  ]
+ }
+]

@@ -1,0 +1,251 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q4302"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What are the professions of Chr\u00e9tien de Troyes ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49757", 
+   "Q36834", 
+   "Q6625963", 
+   "Q36180"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q36834", 
+   "Q49757", 
+   "Q6625963"
+  ], 
+  "utterance": "composer, poet, novelist", 
+  "active_set": [
+   "(Q4302,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q36834"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the occupation that composer belongs to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2936875"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2936875"
+  ], 
+  "utterance": "Cantore al liuto", 
+  "active_set": [
+   "(c(Q12737077),P425,Q36834)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q36834"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P417"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person is the patron saint of composer ?"
+ }, 
+ {
+  "all_entities": [
+   "Q80513"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q80513"
+  ], 
+  "utterance": "Saint Cecilia", 
+  "active_set": [
+   "(Q36834,P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q80513"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P841"
+  ], 
+  "type_list": [
+   "Q186081"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "When does the feast day of that person occur ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3025"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3025"
+  ], 
+  "utterance": "November 22", 
+  "active_set": [
+   "(Q80513,P841,c(Q186081))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q2342494", 
+   "Q191067"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many occupations were the main subjects of exactly 3 collectables or articles 's work ?"
+ }, 
+ {
+  "all_entities": [
+   "Q39631", 
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q2342494)|c(Q191067),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q26924948"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q186081"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Spring?"
+ }, 
+ {
+  "all_entities": [
+   "Q1312"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1312"
+  ], 
+  "utterance": "spring", 
+  "active_set": [
+   "(Q26924948,P921,c(Q186081))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q9332", 
+   "Q186081"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which behaviors are max number of time intervals a portion of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q9347372"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9347372"
+  ], 
+  "utterance": "studies", 
+  "active_set": [
+   "(c(Q186081),P361,Q629329)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q80513"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P411"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the name of Saint Cecilia ?"
+ }, 
+ {
+  "all_entities": [
+   "Q43115"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q43115"
+  ], 
+  "utterance": "saint", 
+  "active_set": [
+   "(Q80513,P411,c(Q82799))"
+  ]
+ }
+]

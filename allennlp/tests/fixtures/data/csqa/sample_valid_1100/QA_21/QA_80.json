@@ -1,0 +1,514 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1261875"
+  ], 
+  "relations": [
+   "P161"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people starred in Django Kill ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2092897", 
+   "Q432638", 
+   "Q463023", 
+   "Q1544772", 
+   "Q676455", 
+   "Q2159451", 
+   "Q14747", 
+   "Q3370080", 
+   "Q3858821", 
+   "Q460710", 
+   "Q1009088", 
+   "Q5699354"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q676455", 
+   "Q1544772", 
+   "Q2092897"
+  ], 
+  "utterance": "Miguel Serrano, Milo Quesada, Piero Lulli", 
+  "active_set": [
+   "(Q1261875,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1261875"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P162"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is the producer of Django Kill ?"
+ }, 
+ {
+  "all_entities": [
+   "Q938124"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q938124"
+  ], 
+  "utterance": "Giulio Questi", 
+  "active_set": [
+   "(Q1261875,P162,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1261875"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P364"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which language was used originally for the creation of Django Kill ?"
+ }, 
+ {
+  "all_entities": [
+   "Q652"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q652"
+  ], 
+  "utterance": "Italian", 
+  "active_set": [
+   "(Q1261875,P364,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1261875"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P136"
+  ], 
+  "type_list": [
+   "Q1792379"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What can be considered as category for that work of art ?"
+ }, 
+ {
+  "all_entities": [
+   "Q212781"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q212781"
+  ], 
+  "utterance": "spaghetti western", 
+  "active_set": [
+   "(Q652,P136,c(Q1792379))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q1261875", 
+   "Q7490688"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P161"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people starred in Django Kill or Shatterday ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2680", 
+   "Q5699354", 
+   "Q2092897", 
+   "Q463023", 
+   "Q432638", 
+   "Q1544772", 
+   "Q676455", 
+   "Q2159451", 
+   "Q14747", 
+   "Q3858821", 
+   "Q460710", 
+   "Q1009088", 
+   "Q3370080"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "13", 
+  "active_set": [
+   "(Q1261875,P161,c(Q502895))", 
+   "(Q7490688,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q34770", 
+   "Q15617994", 
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which languages are considered to be the official language of lesser number of administrative territories and administrative territories than English ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9056", 
+   "Q33251", 
+   "Q13211", 
+   "Q3110592", 
+   "Q36206", 
+   "Q652", 
+   "Q8752", 
+   "Q1321", 
+   "Q36880", 
+   "Q33976", 
+   "Q35499", 
+   "Q397", 
+   "Q35726", 
+   "Q8785", 
+   "Q25164"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9056", 
+   "Q33251", 
+   "Q8752"
+  ], 
+  "utterance": "Czech, Church Slavonic, Basque", 
+  "active_set": [
+   "(c(Q15617994)|c(Q56061),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q34770", 
+   "Q15617994", 
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q9056"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Czech?"
+ }, 
+ {
+  "all_entities": [
+   "Q33251", 
+   "Q13211", 
+   "Q3110592", 
+   "Q36206", 
+   "Q8752", 
+   "Q36880", 
+   "Q33976", 
+   "Q35499", 
+   "Q35726", 
+   "Q25164"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q33251", 
+   "Q8752", 
+   "Q35499"
+  ], 
+  "utterance": "Church Slavonic, Basque, Old Church Slavonic", 
+  "active_set": [
+   "(c(Q15617994)|c(Q56061),P37,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P1412"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people use that language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q8752"
+  ], 
+  "active_set": [
+   "(c(Q502895),P1412,Q33251)", 
+   "(c(Q502895),P1412,Q8752)", 
+   "(c(Q502895),P1412,Q35499)"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Basque ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 7, 
+  "entities": [
+   "Q35499"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "No, I meant Old Church Slavonic. Could you tell me the answer for that?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q650558", 
+   "Q723304", 
+   "Q1146725"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(c(Q502895),P1412,Q35499)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q540987"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q9779", 
+   "Q34770"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which alphabets are used as the alphabet set for around the same number of languages as Portuguese alphabet ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q164436", 
+   "Q754989", 
+   "Q792216", 
+   "Q606972", 
+   "Q187846", 
+   "Q829464", 
+   "Q13405127", 
+   "Q550383", 
+   "Q1937113", 
+   "Q442244", 
+   "Q2092163", 
+   "Q540987", 
+   "Q2712936", 
+   "Q83942"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q792216", 
+   "Q13405127", 
+   "Q540987"
+  ], 
+  "utterance": "Belarusian alphabet, Rusyn alphabet, Portuguese alphabet", 
+  "active_set": [
+   "(c(Q34770),P282,c(Q9779))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q34770", 
+   "Q7725634", 
+   "Q1002697"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P407"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many languages are the languages of work for around 119 literary works or periodical literatures ?"
+ }, 
+ {
+  "all_entities": [
+   "Q132659", 
+   "Q18130932", 
+   "Q13414913", 
+   "Q21161942", 
+   "Q35499", 
+   "Q37015", 
+   "Q8785", 
+   "Q35726", 
+   "Q34909", 
+   "Q27403", 
+   "Q1420587", 
+   "Q36206", 
+   "Q1321", 
+   "Q33976", 
+   "Q33879", 
+   "Q10498031", 
+   "Q397", 
+   "Q9056", 
+   "Q8752", 
+   "Q37041", 
+   "Q652", 
+   "Q35505", 
+   "Q25167", 
+   "Q25164", 
+   "Q56982", 
+   "Q35308", 
+   "Q36790", 
+   "Q447117"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "28", 
+  "active_set": [
+   "(c(Q7725634)|c(Q1002697),P407,c(Q34770))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q1792379", 
+   "Q502895", 
+   "Q15416"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P136"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which art genres are the genre for around 496 people and television programs ?"
+ }, 
+ {
+  "all_entities": [
+   "Q214127", 
+   "Q742333", 
+   "Q1257444", 
+   "Q158607", 
+   "Q130232"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q214127", 
+   "Q742333", 
+   "Q158607"
+  ], 
+  "utterance": "genre painting, history painting, marine art", 
+  "active_set": [
+   "(c(Q502895)|c(Q15416),P136,c(Q1792379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q938124"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q28640"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which professions have Giulio Questi as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2526255", 
+   "Q28389"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2526255", 
+   "Q28389"
+  ], 
+  "utterance": "film director, screenwriter", 
+  "active_set": [
+   "(Q938124,P106,c(Q28640))"
+  ]
+ }
+]

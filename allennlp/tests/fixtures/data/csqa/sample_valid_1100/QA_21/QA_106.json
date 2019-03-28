@@ -1,0 +1,373 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q7881009"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the sex of Uma Chowdhry ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581072"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581072"
+  ], 
+  "utterance": "female", 
+  "active_set": [
+   "(Q7881009,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q811430", 
+   "Q3305213"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many constructions and paintings depict that sex ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q18346971", 
+   "Q707669"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1 constructions and 1 paintings", 
+  "active_set": [
+   "(c(Q811430),P180,Q6581072)", 
+   "(c(Q3305213),P180,Q6581072)", 
+   "(c(Q811430),P180,Q6581072)", 
+   "(c(Q3305213),P180,Q6581072)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q7881009"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where was Uma Chowdhry born ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1156"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1156"
+  ], 
+  "utterance": "Mumbai", 
+  "active_set": [
+   "(Q7881009,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q5041559"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Carlo Moscatiello?"
+ }, 
+ {
+  "all_entities": [
+   "Q2634"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2634"
+  ], 
+  "utterance": "Naples", 
+  "active_set": [
+   "(Q5041559,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q8044484", 
+   "Q7881009"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are Uma Chowdhry or Xin Tong an inhabitant of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q148", 
+   "Q30", 
+   "Q668"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q148", 
+   "Q30", 
+   "Q668"
+  ], 
+  "utterance": "People's Republic of China, United States of America, India", 
+  "active_set": [
+   "OR((Q7881009,P27,c(Q15617994)), (Q8044484,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q5656665"
+  ], 
+  "relations": [
+   "P530"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do Hardyston Township School District have diplomatic associations with those ones ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q5656665,P530,Q148)", 
+   "(Q5656665,P530,Q30)", 
+   "(Q5656665,P530,Q668)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q2634", 
+   "Q5838683", 
+   "Q3067098"
+  ], 
+  "relations": [
+   "P190"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Is Naples partner town of Ab Barik-e Jonubi and Fulton ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q2634,P190,Q5838683)", 
+   "(Q2634,P190,Q3067098)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q49236", 
+   "Q3067098"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P19"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people were born at Fulton or St. Petersburg ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3182864", 
+   "Q861198", 
+   "Q5585498", 
+   "Q6713042", 
+   "Q845223", 
+   "Q6377536", 
+   "Q5214110", 
+   "Q5171526", 
+   "Q5485087", 
+   "Q6709152", 
+   "Q15293141", 
+   "Q1658604", 
+   "Q7823312", 
+   "Q1248054", 
+   "Q4755255", 
+   "Q7358355", 
+   "Q2904693", 
+   "Q24178", 
+   "Q1273565", 
+   "Q8016519", 
+   "Q279816", 
+   "Q20962337", 
+   "Q5195712", 
+   "Q1647301", 
+   "Q717506", 
+   "Q8063833", 
+   "Q271772", 
+   "Q17523802", 
+   "Q2077563", 
+   "Q128238", 
+   "Q16875949", 
+   "Q3247194", 
+   "Q4732770", 
+   "Q16106286", 
+   "Q293082", 
+   "Q441677", 
+   "Q20974065", 
+   "Q27057421", 
+   "Q5066188", 
+   "Q7437195", 
+   "Q4909021", 
+   "Q5170379", 
+   "Q25849605", 
+   "Q25999318", 
+   "Q1656883", 
+   "Q16204522", 
+   "Q175396", 
+   "Q1933507", 
+   "Q7025779", 
+   "Q951541", 
+   "Q1507233", 
+   "Q5225325", 
+   "Q764569", 
+   "Q6162632", 
+   "Q6432186", 
+   "Q1206920", 
+   "Q17523901", 
+   "Q3228918", 
+   "Q3635225", 
+   "Q3530270", 
+   "Q6326476", 
+   "Q5085098", 
+   "Q5387197", 
+   "Q5300981", 
+   "Q970478", 
+   "Q20715566", 
+   "Q23772529", 
+   "Q7148987", 
+   "Q3163252", 
+   "Q19665611", 
+   "Q4886023", 
+   "Q3351810", 
+   "Q5490496", 
+   "Q16215708", 
+   "Q20188607", 
+   "Q5567724", 
+   "Q950221", 
+   "Q10328249", 
+   "Q3339772", 
+   "Q3837607", 
+   "Q6106879", 
+   "Q4963440", 
+   "Q7615194", 
+   "Q253674", 
+   "Q2925776", 
+   "Q4778051", 
+   "Q16221771", 
+   "Q7613756", 
+   "Q1570138", 
+   "Q23871059", 
+   "Q6768859", 
+   "Q712063", 
+   "Q7437094", 
+   "Q1812245", 
+   "Q5242575", 
+   "Q8985480", 
+   "Q5000902", 
+   "Q7812486", 
+   "Q20894974", 
+   "Q1566335", 
+   "Q11704029", 
+   "Q15986549", 
+   "Q6110976", 
+   "Q4352649", 
+   "Q17513029", 
+   "Q746999", 
+   "Q1168793", 
+   "Q22911589", 
+   "Q2924919", 
+   "Q10557531", 
+   "Q7815225", 
+   "Q5003551", 
+   "Q4923939", 
+   "Q16194297", 
+   "Q7597858", 
+   "Q3308385"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5085098", 
+   "Q3530270", 
+   "Q8016519", 
+   "Q3228918", 
+   "Q17513029", 
+   "Q2924919", 
+   "Q3182864", 
+   "Q6709152", 
+   "Q1647301", 
+   "Q19665611"
+  ], 
+  "utterance": "Some of them are Charlie Justice, Todd Redmond, William Packer, Lee Perkins, Dante Fowler, Brian Lee, Johnny Brown, Lynn Norenberg Barry, Tom Graves, Speedy Smith", 
+  "active_set": [
+   "OR((c(Q502895),P19,Q3067098), (c(Q502895),P19,Q49236))"
+  ]
+ }
+]

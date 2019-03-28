@@ -1,0 +1,482 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q6227186"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is the sex of John Corrie ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q6227186,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6227186"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What are the work locations of John Corrie ?"
+ }, 
+ {
+  "all_entities": [
+   "Q239", 
+   "Q84"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q239", 
+   "Q84"
+  ], 
+  "utterance": "Brussels, London", 
+  "active_set": [
+   "(Q6227186,P937,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6227186"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organization is John Corrie a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9626"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9626"
+  ], 
+  "utterance": "Conservative Party", 
+  "active_set": [
+   "(Q6227186,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9626"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P462"
+  ], 
+  "type_list": [
+   "Q1075"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which color is that political organization associated with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1088"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1088"
+  ], 
+  "utterance": "blue", 
+  "active_set": [
+   "(Q9626,P462,c(Q1075))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q84"
+  ], 
+  "relations": [
+   "P190"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q515", 
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many cities and administrative territories are twin towns of London ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q8686", 
+   "Q1353", 
+   "Q649", 
+   "Q472", 
+   "Q1865", 
+   "Q34820", 
+   "Q9248", 
+   "Q19660", 
+   "Q1486", 
+   "Q987", 
+   "Q1156", 
+   "Q3630", 
+   "Q3616", 
+   "Q466221", 
+   "Q3561", 
+   "Q64", 
+   "Q23564", 
+   "Q1850", 
+   "Q585", 
+   "Q406", 
+   "Q34647", 
+   "Q956", 
+   "Q159273", 
+   "Q1490", 
+   "Q65", 
+   "Q60"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4 cities and 22 administrative territories", 
+  "active_set": [
+   "(Q84,P190,c(Q515))", 
+   "(Q84,P190,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q84"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P206"
+  ], 
+  "type_list": [
+   "Q355304"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which watercourse is situated in the neighbourhood of that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19686"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19686"
+  ], 
+  "utterance": "River Thames", 
+  "active_set": []
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q19686"
+  ], 
+  "relations": [
+   "P206"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q271669", 
+   "Q83620"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many landforms and thoroughfares are located nearby River Thames ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2276190", 
+   "Q1129199", 
+   "Q926214", 
+   "Q7571171", 
+   "Q1524847"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2 landforms and 3 thoroughfares", 
+  "active_set": [
+   "(c(Q271669),P206,Q19686)", 
+   "(c(Q83620),P206,Q19686)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q19686"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who died in River Thames ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16859296", 
+   "Q3437136", 
+   "Q1606334"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16859296", 
+   "Q3437136", 
+   "Q1606334"
+  ], 
+  "utterance": "Charles Dryden, Simon Forman, Henrika Fa\u00dfbender", 
+  "active_set": [
+   "(c(Q502895),P20,Q19686)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q16859296", 
+   "Q3437136", 
+   "Q1606334"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What are the sex of those people ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097", 
+   "Q6581097", 
+   "Q6581072"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q6581097", 
+   "Q6581072"
+  ], 
+  "utterance": "male for 1st, 2nd, female for 3rd", 
+  "active_set": [
+   "(Q16859296,P21,c(Q290))", 
+   "(Q3437136,P21,c(Q290))", 
+   "(Q1606334,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16859296"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P22"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which male person was the parent of Charles Dryden ?"
+ }, 
+ {
+  "all_entities": [
+   "Q213355"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q213355"
+  ], 
+  "utterance": "John Dryden", 
+  "active_set": [
+   "(Q16859296,P22,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q213355"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P69"
+  ], 
+  "type_list": [
+   "Q2385804"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which educational institution was that person educated at ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1341516"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1341516"
+  ], 
+  "utterance": "Westminster School", 
+  "active_set": [
+   "(Q213355,P69,c(Q2385804))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q213355"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P119"
+  ], 
+  "type_list": [
+   "Q16970"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which church is the resting place of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5933"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5933"
+  ], 
+  "utterance": "Westminster Abbey", 
+  "active_set": [
+   "(Q1341516,P119,c(Q16970))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q16970"
+  ], 
+  "entities_in_utterance": [
+   "Q63163", 
+   "Q213355"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P119"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Or Ernest, Duke of Bavaria?"
+ }, 
+ {
+  "all_entities": [
+   "Q5933", 
+   "Q167193"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5933", 
+   "Q167193"
+  ], 
+  "utterance": "Westminster Abbey, Frauenkirche", 
+  "active_set": [
+   "OR((Q213355,P119,c(Q16970)), (Q63163,P119,c(Q16970)))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q502895", 
+   "Q4830453", 
+   "Q16970"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P84"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many churches were designed by around 6 people or business enterprises ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5901"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q16970),P84,c(Q502895)|c(Q4830453))"
+  ]
+ }
+]

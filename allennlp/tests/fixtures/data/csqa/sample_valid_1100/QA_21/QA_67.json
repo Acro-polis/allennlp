@@ -1,0 +1,244 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q23483577"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which gene encodes dGTP triphosphohydrolase-like protein    DR_1006 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23183795"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23183795"
+  ], 
+  "utterance": "dGTP triphosphohydrolase-like protein    DR_1006", 
+  "active_set": [
+   "(Q23483577,P702,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q23483577"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which nucleic acid sequence encodes that nutrient ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23183795"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23183795"
+  ], 
+  "utterance": "dGTP triphosphohydrolase-like protein    DR_1006", 
+  "active_set": [
+   "(c(Q863908),P688,Q23183795)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P688"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many nutrients do that nucleic acid sequence encode ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q23483577"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q23183795,P688,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q23183795"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many nutrients do dGTP triphosphohydrolase-like protein    DR_1006 encode ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q23483577"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q181394),P702,Q23183795)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23483577"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P680"
+  ], 
+  "type_list": [
+   "Q44424"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which chemical bond represents molecular function of dGTP triphosphohydrolase-like protein    DR_1006 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q14860850"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q14860850"
+  ], 
+  "utterance": "magnesium ion binding", 
+  "active_set": [
+   "(Q23483577,P680,c(Q44424))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q181394"
+  ], 
+  "entities_in_utterance": [
+   "Q27543771", 
+   "Q23183795"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P688"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which nutrients are encoded by dGTP triphosphohydrolase-like protein    DR_1006 or Bro1p YPL084W ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23483577", 
+   "Q27550836"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23483577", 
+   "Q27550836"
+  ], 
+  "utterance": "dGTP triphosphohydrolase-like protein    DR_1006, Bro1p YPL084W", 
+  "active_set": [
+   "OR((Q23183795,P688,c(Q181394)), (Q27543771,P688,c(Q181394)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q27550836"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q631147"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which taxon is that nutrient a part of ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q23483577"
+  ], 
+  "active_set": [
+   "(Q23483577,P703,c(Q631147))", 
+   "(Q27550836,P703,c(Q631147))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q23483577", 
+   "Q27550836"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean dGTP triphosphohydrolase-like protein    DR_1006 ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q27550836"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Bro1p YPL084W. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q27510868"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q27510868"
+  ], 
+  "utterance": "Saccharomyces cerevisiae S288c", 
+  "active_set": [
+   "(Q27550836,P703,c(Q631147))"
+  ]
+ }
+]

@@ -1,0 +1,298 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3106236"
+  ], 
+  "relations": [
+   "P7"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Who are Gilles Fouquet a sibling of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3573643", 
+   "Q13510947", 
+   "Q312794", 
+   "Q3084640", 
+   "Q3261913"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q312794", 
+   "Q3084640", 
+   "Q13510947"
+  ], 
+  "utterance": "Nicolas Fouquet, Fran\u00e7ois Fouquet, Basile Fouquet", 
+  "active_set": [
+   "(Q3106236,P7,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13510947"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P40"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Whose child are that one ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q312794"
+  ], 
+  "active_set": [
+   "(c(Q502895),P40,Q312794)", 
+   "(c(Q502895),P40,Q3084640)", 
+   "(c(Q502895),P40,Q13510947)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q312794", 
+   "Q3084640", 
+   "Q13510947"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Nicolas Fouquet ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q13510947"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Basile Fouquet. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q2645942", 
+   "Q3084917"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2645942", 
+   "Q3084917"
+  ], 
+  "utterance": "Marie Fouquet, Fran\u00e7ois IV Fouquet", 
+  "active_set": [
+   "(c(Q502895),P40,Q13510947)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q537750"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments can less number of people perform with than Djembe ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q890073", 
+   "Q1178361", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q678090", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q1879664", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q1024685", 
+   "Q816793", 
+   "Q244976", 
+   "Q1179017", 
+   "Q320341", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q173453", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1178361", 
+   "Q1759986", 
+   "Q816793"
+  ], 
+  "utterance": "davul, Wurlitzer electric piano, Bendir", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q644440"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Lap steel guitar?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "utterance": "spoon, caj\u00f3n, wind instrument", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6686900"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q101352"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which family name is associated with Louis Cheung ?"
+ }, 
+ {
+  "all_entities": [
+   "Q804909"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q804909"
+  ], 
+  "utterance": "Zhang", 
+  "active_set": [
+   "(Q6686900,P734,c(Q101352))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q438549"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q101352"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Rena Wang?"
+ }, 
+ {
+  "all_entities": [
+   "Q804943"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q804943"
+  ], 
+  "utterance": "Wang", 
+  "active_set": [
+   "(Q438549,P734,c(Q101352))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q7307511", 
+   "Q1759986"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories do Wurlitzer electric piano and Reformed Dutch Church of Wyckoff belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30"
+  ], 
+  "utterance": "United States of America", 
+  "active_set": [
+   "AND((Q1759986,P17,c(Q15617994)), (Q7307511,P17,c(Q15617994)))"
+  ]
+ }
+]

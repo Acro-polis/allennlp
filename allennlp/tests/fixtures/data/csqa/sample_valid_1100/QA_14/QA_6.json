@@ -1,0 +1,456 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3384428"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupation was a position occupied by Pierre Chiffelle ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18510612"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18510612"
+  ], 
+  "utterance": "Member of the Swiss National Council", 
+  "active_set": [
+   "(Q3384428,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q3384428"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political organization is Pierre Chiffelle a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q303745"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q303745"
+  ], 
+  "utterance": "Social Democratic Party of Switzerland", 
+  "active_set": [
+   "(Q3384428,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q23048906"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q7210356"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Uwe Junge?"
+ }, 
+ {
+  "all_entities": [
+   "Q559282", 
+   "Q6721203"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q559282", 
+   "Q6721203"
+  ], 
+  "utterance": "German Freedom Party, Alternative for Germany", 
+  "active_set": [
+   "(Q23048906,P102,c(Q7210356))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q23048906"
+  ], 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Are Uwe Junge members of those political organizations ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q23048906,P102,Q559282)", 
+   "(Q23048906,P102,Q6721203)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q1586172", 
+   "Q559282"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are German Freedom Party or Harrington Sound, Bermuda present in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23635", 
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23635", 
+   "Q183"
+  ], 
+  "utterance": "Bermuda, Germany", 
+  "active_set": [
+   "OR((Q559282,P17,c(Q1048835)), (Q1586172,P17,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q183", 
+   "Q540432"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P36"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q56061"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are the capitals of Germany or Scordisci ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q64", 
+   "Q586", 
+   "Q1309687"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(Q183,P36,c(Q56061))", 
+   "(Q540432,P36,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P163"
+  ], 
+  "type_list": [
+   "Q14660"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is associated with that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q48160"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q48160"
+  ], 
+  "utterance": "flag of Germany", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q23048906"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P410"
+  ], 
+  "type_list": [
+   "Q4189293"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which is the title held by Uwe Junge ?"
+ }, 
+ {
+  "all_entities": [
+   "Q493898"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q493898"
+  ], 
+  "utterance": "lieutenant colonel", 
+  "active_set": [
+   "(Q23048906,P410,c(Q4189293))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P276"
+  ], 
+  "type_list": [
+   "Q1190554"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What are located at Germany ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15197283", 
+   "Q4872062", 
+   "Q4871838"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15197283", 
+   "Q4872062", 
+   "Q4871838"
+  ], 
+  "utterance": "Battle of Kesternich, Battle of Platzberg, Battle of M\u00f6erskirch", 
+  "active_set": [
+   "(c(Q1190554),P276,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P35"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who are the heads of state of that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2569", 
+   "Q2594", 
+   "Q2573", 
+   "Q2563", 
+   "Q2571", 
+   "Q2538", 
+   "Q2551", 
+   "Q2567", 
+   "Q2540", 
+   "Q2582", 
+   "Q2542"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2567", 
+   "Q2571", 
+   "Q2594"
+  ], 
+  "utterance": "Richard von Weizs\u00e4cker, Walter Scheel, Theodor Heuss", 
+  "active_set": [
+   "(Q15197283,P35,c(Q502895))", 
+   "(Q4872062,P35,c(Q502895))", 
+   "(Q4871838,P35,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q593995"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments can more number of people perform with than player piano ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q80019", 
+   "Q2563510", 
+   "Q5994", 
+   "Q3574843", 
+   "Q81982", 
+   "Q182718", 
+   "Q206987", 
+   "Q189737", 
+   "Q8338", 
+   "Q8371", 
+   "Q8355", 
+   "Q213461", 
+   "Q3382191", 
+   "Q862501", 
+   "Q213100", 
+   "Q537750", 
+   "Q626035", 
+   "Q742180", 
+   "Q1300012", 
+   "Q1444", 
+   "Q220971", 
+   "Q128309", 
+   "Q726306", 
+   "Q483994", 
+   "Q1343007", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5994", 
+   "Q81982", 
+   "Q862501"
+  ], 
+  "utterance": "piano, harpsichord, ondes Martenot", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q669370"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about gusle?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q201129", 
+   "Q424017", 
+   "Q80019", 
+   "Q2563510", 
+   "Q5994", 
+   "Q3574843", 
+   "Q81982", 
+   "Q182718", 
+   "Q206987", 
+   "Q189737", 
+   "Q8338", 
+   "Q8371", 
+   "Q8355", 
+   "Q213461", 
+   "Q3382191", 
+   "Q862501", 
+   "Q213100", 
+   "Q537750", 
+   "Q626035", 
+   "Q742180", 
+   "Q1300012", 
+   "Q1444", 
+   "Q220971", 
+   "Q128309", 
+   "Q726306", 
+   "Q483994", 
+   "Q1343007", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5994", 
+   "Q81982", 
+   "Q862501"
+  ], 
+  "utterance": "piano, harpsichord, ondes Martenot", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }
+]

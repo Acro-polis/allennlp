@@ -1,0 +1,509 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q719780"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territory was Caio Alves born in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1645072"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1645072"
+  ], 
+  "utterance": "Mirand\u00f3polis", 
+  "active_set": [
+   "(Q719780,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q719780"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is associated with that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4737994"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4737994"
+  ], 
+  "utterance": "Alves dos Santos", 
+  "active_set": [
+   "(Q1645072,P734,c(Q82799))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q82799"
+  ], 
+  "entities_in_utterance": [
+   "Q15787645", 
+   "Q719780"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P734"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Or Benedikt Fontana?"
+ }, 
+ {
+  "all_entities": [
+   "Q4737994", 
+   "Q1435795"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4737994", 
+   "Q1435795"
+  ], 
+  "utterance": "Alves dos Santos, Fontana", 
+  "active_set": [
+   "OR((Q719780,P734,c(Q82799)), (Q15787645,P734,c(Q82799)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q34770"
+  ], 
+  "entities_in_utterance": [
+   "Q17655219", 
+   "Q1435795"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P407"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which languages are Fontana or Malaysian Prime Minister dissolves Parliament in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q652", 
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q652", 
+   "Q1860"
+  ], 
+  "utterance": "Italian, English", 
+  "active_set": [
+   "OR((Q1435795,P407,c(Q34770)), (Q17655219,P407,c(Q34770)))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q4737994"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P734", 
+   "P21"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people have Alves dos Santos as surname and have the gender as male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4021154", 
+   "Q633586", 
+   "Q516765", 
+   "Q719780", 
+   "Q3806090"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4021154", 
+   "Q633586", 
+   "Q516765", 
+   "Q719780", 
+   "Q3806090"
+  ], 
+  "utterance": "W\u00e1gner Alves dos Santos, Rafael Alves dos Santos, Andre Alves, Caio Alves, Jadson Alves dos Santos", 
+  "active_set": [
+   "AND((c(Q502895),P734,Q4737994), (c(Q502895),P21,Q6581097))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q502895", 
+   "Q35798", 
+   "Q7275"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P35"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many people are elected as the head of state of approximately 11 executive branches or states ?"
+ }, 
+ {
+  "all_entities": [
+   "Q45068", 
+   "Q1233", 
+   "Q1235", 
+   "Q269412"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q35798)|c(Q7275),P35,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are played by around 73 people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "60", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q3574843"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are played by more number of people than tonbak ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q46185", 
+   "Q80019", 
+   "Q2563510", 
+   "Q5994", 
+   "Q81982", 
+   "Q206987", 
+   "Q189737", 
+   "Q8338", 
+   "Q8371", 
+   "Q8355", 
+   "Q213461", 
+   "Q3382191", 
+   "Q213100", 
+   "Q626035", 
+   "Q742180", 
+   "Q1444", 
+   "Q220971", 
+   "Q128309", 
+   "Q726306", 
+   "Q1343007", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "22", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P725"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q502895", 
+   "Q386724"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which works had max number of people as the dubbing artist ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q26331781"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26331781"
+  ], 
+  "utterance": "H\u00e9rcules y el examen de conducir", 
+  "active_set": [
+   "(c(Q386724),P725,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are English a portion of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "utterance": "Anglic languages, Anglo-Frisian languages", 
+  "active_set": [
+   "(Q1860,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are Anglic languages and Anglo-Frisian languages a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26721", 
+   "Q5329170", 
+   "Q26721", 
+   "Q30134"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5329170", 
+   "Q26721", 
+   "Q26721"
+  ], 
+  "utterance": "West Germanic languages for 2nd, 3rd, Anglo-Frisian languages for 1st", 
+  "active_set": [
+   "(Q1346342,P361,c(Q5962346))", 
+   "(Q5329170,P361,c(Q5962346))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q516765"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P3279"
+  ], 
+  "type_list": [
+   "Q13406554"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sport competition is Andre Alves the statistical leader of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19906304"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19906304"
+  ], 
+  "utterance": "2015\u201316 Cypriot First Division", 
+  "active_set": [
+   "(c(Q13406554),P3279,Q516765)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q516765"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation has that person as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q937857"
+  ], 
+  "utterance": "association football player", 
+  "active_set": [
+   "(Q19906304,P106,c(Q12737077))"
+  ]
+ }
+]

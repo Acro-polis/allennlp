@@ -1,0 +1,600 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q6138428"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What are the professions of James M. Gaylord ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16533", 
+   "Q82955"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16533", 
+   "Q82955"
+  ], 
+  "utterance": "judge, politician", 
+  "active_set": [
+   "(Q6138428,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16533"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P921"
+  ], 
+  "type_list": [
+   "Q4894405"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which journalism genre is judge a main subject of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21965925"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21965925"
+  ], 
+  "utterance": "Der Zorn des Georg Zanger", 
+  "active_set": [
+   "(c(Q4894405),P921,Q16533)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q16533"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who held the position of that occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16104843", 
+   "Q1716914", 
+   "Q463824", 
+   "Q25931074", 
+   "Q2838761", 
+   "Q26098205", 
+   "Q12044291", 
+   "Q17325636", 
+   "Q20752961", 
+   "Q8018535", 
+   "Q11774059", 
+   "Q20729887", 
+   "Q20870783", 
+   "Q22337798", 
+   "Q239235", 
+   "Q12022513", 
+   "Q2563", 
+   "Q16617878", 
+   "Q1079816", 
+   "Q20870759", 
+   "Q19309108", 
+   "Q16484626", 
+   "Q1203647", 
+   "Q17513548", 
+   "Q26309250", 
+   "Q17113548", 
+   "Q1608398", 
+   "Q10395805", 
+   "Q6243592", 
+   "Q1281364", 
+   "Q11878277", 
+   "Q21816212", 
+   "Q12025988"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2563", 
+   "Q239235", 
+   "Q1716914"
+  ], 
+  "utterance": "Roman Herzog, Louise Arbour, Karl Korinek", 
+  "active_set": [
+   "(c(Q502895),P39,Q21965925)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2563"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P35"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which political territory has Roman Herzog as its chief of state ?"
+ }, 
+ {
+  "all_entities": [
+   "Q183"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "utterance": "Germany", 
+  "active_set": [
+   "(c(Q1048835),P35,Q2563)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P276"
+  ], 
+  "type_list": [
+   "Q13365595"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is located at that political territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q555931"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q555931"
+  ], 
+  "utterance": "German federal election, 2013", 
+  "active_set": [
+   "(c(Q13365595),P276,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q183"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P610"
+  ], 
+  "type_list": [
+   "Q14524493"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which terrain is the highest point of Germany ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3375"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3375"
+  ], 
+  "utterance": "Zugspitze", 
+  "active_set": [
+   "(Q183,P610,c(Q14524493))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q3375", 
+   "Q183"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Zugspitze located in Germany ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q3375,P17,Q183)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q701632", 
+   "Q12737077", 
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [
+   "Q3564227"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P748"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which occupations were appointed by less number of municipal councils and occupations than Auditor General of Canada ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7643465", 
+   "Q27650845", 
+   "Q373548", 
+   "Q4011167", 
+   "Q17018201", 
+   "Q2666591", 
+   "Q191954", 
+   "Q1846384", 
+   "Q11793630", 
+   "Q1072417", 
+   "Q27650822", 
+   "Q1355456", 
+   "Q2631987", 
+   "Q735575", 
+   "Q2287650", 
+   "Q1507619", 
+   "Q5333410", 
+   "Q376006", 
+   "Q26209348", 
+   "Q39021", 
+   "Q261746", 
+   "Q20867494", 
+   "Q740126", 
+   "Q21013163", 
+   "Q14984399", 
+   "Q7241304", 
+   "Q910308", 
+   "Q1029955", 
+   "Q1753754", 
+   "Q2484309", 
+   "Q642859", 
+   "Q2012061", 
+   "Q20890902", 
+   "Q1140848", 
+   "Q15730802", 
+   "Q7444357", 
+   "Q967762", 
+   "Q7444352", 
+   "Q943379", 
+   "Q15305714", 
+   "Q3246797", 
+   "Q1371091", 
+   "Q3315116", 
+   "Q655407", 
+   "Q3477307", 
+   "Q1369302", 
+   "Q27531658", 
+   "Q842386", 
+   "Q48894", 
+   "Q835586", 
+   "Q12376089", 
+   "Q19056310", 
+   "Q4970706", 
+   "Q890030", 
+   "Q27516521", 
+   "Q1161813", 
+   "Q796593", 
+   "Q6865833", 
+   "Q2660943", 
+   "Q940135", 
+   "Q20172329", 
+   "Q531471", 
+   "Q2305968", 
+   "Q596123", 
+   "Q7444340", 
+   "Q1476165", 
+   "Q2914452", 
+   "Q2636053", 
+   "Q464103", 
+   "Q3058109", 
+   "Q3858507", 
+   "Q2419581", 
+   "Q1124265", 
+   "Q273884", 
+   "Q25863345", 
+   "Q3477306", 
+   "Q866756", 
+   "Q20130623", 
+   "Q1054799", 
+   "Q2747647", 
+   "Q2390270", 
+   "Q13527933", 
+   "Q583809", 
+   "Q565424", 
+   "Q15731141", 
+   "Q313383", 
+   "Q1043568", 
+   "Q912994", 
+   "Q27531790", 
+   "Q19328352", 
+   "Q862559", 
+   "Q13645132", 
+   "Q636207", 
+   "Q475658", 
+   "Q7574264", 
+   "Q2003296", 
+   "Q182762", 
+   "Q20859386", 
+   "Q967750", 
+   "Q2962001", 
+   "Q500282", 
+   "Q473984", 
+   "Q73341", 
+   "Q19842743", 
+   "Q8882", 
+   "Q1060844", 
+   "Q3397406", 
+   "Q467926", 
+   "Q813403", 
+   "Q27516596", 
+   "Q691615", 
+   "Q866680", 
+   "Q20181946", 
+   "Q21098108", 
+   "Q838380", 
+   "Q783785", 
+   "Q5096847", 
+   "Q4818607", 
+   "Q152814", 
+   "Q1072415", 
+   "Q26000995", 
+   "Q3409203", 
+   "Q213107", 
+   "Q195965", 
+   "Q327948", 
+   "Q1763459", 
+   "Q19364214", 
+   "Q1753094", 
+   "Q1975365", 
+   "Q1591470", 
+   "Q609884", 
+   "Q2741486", 
+   "Q3315112", 
+   "Q1123764", 
+   "Q735015", 
+   "Q2708520", 
+   "Q22955080", 
+   "Q7240368", 
+   "Q3297079", 
+   "Q6865995", 
+   "Q319145", 
+   "Q3111221", 
+   "Q29558", 
+   "Q1044136", 
+   "Q1029968", 
+   "Q2297543", 
+   "Q4122271", 
+   "Q967737", 
+   "Q13423495", 
+   "Q795477", 
+   "Q1370482", 
+   "Q6866148", 
+   "Q1071117", 
+   "Q34071", 
+   "Q25223", 
+   "Q20872267", 
+   "Q5261065", 
+   "Q3315134", 
+   "Q162754", 
+   "Q1819381", 
+   "Q1052201", 
+   "Q7574256", 
+   "Q6542448", 
+   "Q2301213", 
+   "Q20748654", 
+   "Q19328451", 
+   "Q217217", 
+   "Q3777749", 
+   "Q111784", 
+   "Q20992511", 
+   "Q27334799", 
+   "Q634291", 
+   "Q6468838", 
+   "Q1362216", 
+   "Q839139", 
+   "Q1074656", 
+   "Q735587", 
+   "Q592866", 
+   "Q1281611", 
+   "Q81066", 
+   "Q1658460", 
+   "Q628102", 
+   "Q17058425", 
+   "Q20128098", 
+   "Q1752225", 
+   "Q687908", 
+   "Q786242", 
+   "Q25860233", 
+   "Q1434880", 
+   "Q1072341"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q655407", 
+   "Q22955080", 
+   "Q81066"
+  ], 
+  "utterance": "President of the People's Republic of China, president of FIFA, United Nations Secretary-General", 
+  "active_set": [
+   "(c(Q12737077),P748,c(Q701632)|c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q655407", 
+   "Q22955080", 
+   "Q81066"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people held the position of those occupations ?"
+ }, 
+ {
+  "all_entities": [
+   "Q311413", 
+   "Q17132", 
+   "Q377935", 
+   "Q15031", 
+   "Q15029", 
+   "Q16988", 
+   "Q968038", 
+   "Q5816", 
+   "Q16597", 
+   "Q116277", 
+   "Q124138", 
+   "Q312664", 
+   "Q207358", 
+   "Q311250", 
+   "Q218270", 
+   "Q199642", 
+   "Q312662", 
+   "Q483437", 
+   "Q1259", 
+   "Q1257", 
+   "Q1254", 
+   "Q1253", 
+   "Q1260", 
+   "Q1267", 
+   "Q1264", 
+   "Q1271", 
+   "Q1275", 
+   "Q311440"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5816", 
+   "Q1254", 
+   "Q1260"
+  ], 
+  "utterance": "Mao Zedong, Kofi Annan, Kurt Waldheim", 
+  "active_set": [
+   "(c(Q502895),P39,Q655407)", 
+   "(c(Q502895),P39,Q22955080)", 
+   "(c(Q502895),P39,Q81066)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q5816"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P119"
+  ], 
+  "type_list": [
+   "Q811979"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which architectural structure is the place of burial of that person ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q1260"
+  ], 
+  "active_set": [
+   "(Q5816,P119,c(Q811979))", 
+   "(Q1254,P119,c(Q811979))", 
+   "(Q1260,P119,c(Q811979))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q5816", 
+   "Q1254", 
+   "Q1260"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Kurt Waldheim ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q5816"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Mao Zedong. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q1154819"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1154819"
+  ], 
+  "utterance": "Mausoleum of Mao Zedong", 
+  "active_set": [
+   "(Q5816,P119,c(Q811979))"
+  ]
+ }
+]

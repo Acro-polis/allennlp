@@ -1,0 +1,333 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2312525"
+  ], 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Where did James Langley Dalton die ?"
+ }, 
+ {
+  "all_entities": [
+   "Q125434"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q125434"
+  ], 
+  "utterance": "Port Elizabeth", 
+  "active_set": [
+   "(Q2312525,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q125434"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organizations have their head office location at that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1617134", 
+   "Q5313316", 
+   "Q5532053", 
+   "Q2070124"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1617134", 
+   "Q5313316", 
+   "Q5532053"
+  ], 
+  "utterance": "Superformance, Dulce Caf\u00e9, General Motors South Africa", 
+  "active_set": [
+   "(c(Q43229),P159,Q125434)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q1617134", 
+   "Q5313316", 
+   "Q5532053"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territories are the HQ of those organizations ?"
+ }, 
+ {
+  "all_entities": [
+   "Q125434", 
+   "Q125434", 
+   "Q125434"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q125434", 
+   "Q125434", 
+   "Q125434"
+  ], 
+  "utterance": "Port Elizabeth", 
+  "active_set": [
+   "(Q1617134,P159,c(Q56061))", 
+   "(Q5313316,P159,c(Q56061))", 
+   "(Q5532053,P159,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q125434"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory has Port Elizabeth has its first city ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1024985"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1024985"
+  ], 
+  "utterance": "Cacadu District Municipality", 
+  "active_set": [
+   "(Q125434,P1376,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "Incomplete|object parent is changed, subject and predicate remain same", 
+  "entities_in_utterance": [
+   "Q125434"
+  ], 
+  "inc_ques_type": 1, 
+  "relations": [], 
+  "type_list": [
+   "Q1530824"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And which metropolitan municipality of South Africa?"
+ }, 
+ {
+  "all_entities": [
+   "Q1856565"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1856565"
+  ], 
+  "utterance": "Nelson Mandela Bay Metropolitan Municipality", 
+  "active_set": [
+   "(Q125434,P1376,c(Q1530824))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories have diplomatic relationships with max number of administrative territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q38"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q38"
+  ], 
+  "utterance": "Italy", 
+  "active_set": [
+   "(c(Q15617994),P530,Q953)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q38", 
+   "Q3942535"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Is Ruggero Pierantoni a citizen of that administrative territory ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q3942535,P27,Q38)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q2312525", 
+   "Q145"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is United Kingdom the native country of James Langley Dalton ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q2312525,P27,Q145)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q1024985", 
+   "Q258"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does Cacadu District Municipality belong to South Africa ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q1024985,P17,Q258)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1024985"
+  ], 
+  "relations": [
+   "P36"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 1, 
+  "utterance": "Which administrative territory is called the capital of Cacadu District Municipality ?"
+ }, 
+ {
+  "all_entities": [
+   "Q125434"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q125434"
+  ], 
+  "utterance": "Port Elizabeth", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q125434", 
+   "Q4362705"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Was Marc Lootens born at that administrative territory ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q4362705,P19,Q125434)"
+  ]
+ }
+]

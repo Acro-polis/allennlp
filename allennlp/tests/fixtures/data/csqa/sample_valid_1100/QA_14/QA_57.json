@@ -1,0 +1,217 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3378816"
+  ], 
+  "relations": [
+   "P40"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Who is a child of Phil Mulloy ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6698429"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6698429"
+  ], 
+  "utterance": "Lucy Mulloy", 
+  "active_set": [
+   "(Q3378816,P40,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q6698429"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P58"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is that person a screwriter of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1233119"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1233119"
+  ], 
+  "utterance": "Una Noche", 
+  "active_set": [
+   "(c(Q838948),P58,Q6698429)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6698429"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q28640"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which professions have Lucy Mulloy as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2526255", 
+   "Q3282637", 
+   "Q28389"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2526255", 
+   "Q3282637", 
+   "Q28389"
+  ], 
+  "utterance": "film director, film producer, screenwriter", 
+  "active_set": [
+   "(Q6698429,P106,c(Q28640))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q15371202"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Do Rina Bovrisse have career as those professions ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q15371202,P106,Q2526255)", 
+   "(Q15371202,P106,Q3282637)", 
+   "(Q15371202,P106,Q28389)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q1233119", 
+   "Q30"
+  ], 
+  "relations": [
+   "P495"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Did Una Noche originate United States of America ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q1233119,P495,Q30)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q2526255", 
+   "Q2876213", 
+   "Q932586"
+  ], 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q268592"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Does aerospace and filmmaking belong to film director ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q2526255,P425,Q2876213)", 
+   "(Q2526255,P425,Q932586)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q1177405", 
+   "Q1233119"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P162"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people are the creators of Una Noche or David and Bathsheba ?"
+ }, 
+ {
+  "all_entities": [
+   "Q364342", 
+   "Q6698429", 
+   "Q5218207"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q364342", 
+   "Q6698429", 
+   "Q5218207"
+  ], 
+  "utterance": "Darryl F. Zanuck, Lucy Mulloy, Daniel Mulloy", 
+  "active_set": [
+   "OR((Q1233119,P162,c(Q502895)), (Q1177405,P162,c(Q502895)))"
+  ]
+ }
+]

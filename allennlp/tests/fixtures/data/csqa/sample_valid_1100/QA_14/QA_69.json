@@ -1,0 +1,811 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2475161"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations are the professions of Ulla Wagener ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2405480", 
+   "Q33999", 
+   "Q2259451"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2405480", 
+   "Q33999", 
+   "Q2259451"
+  ], 
+  "utterance": "voice actor, actor, stage actor", 
+  "active_set": [
+   "(Q2475161,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q33999"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P921"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which works of art have actor as their principal topic ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7354481", 
+   "Q1493156", 
+   "Q6967915", 
+   "Q17014102", 
+   "Q16249471", 
+   "Q6763489", 
+   "Q6534023", 
+   "Q7522740", 
+   "Q3824444", 
+   "Q19881856", 
+   "Q6945014", 
+   "Q479455", 
+   "Q258126", 
+   "Q5073244", 
+   "Q10271690", 
+   "Q3414468", 
+   "Q15944402", 
+   "Q6346446", 
+   "Q2996397", 
+   "Q4677083", 
+   "Q1550654", 
+   "Q3845638", 
+   "Q7208837", 
+   "Q18150884", 
+   "Q4876099", 
+   "Q3498669", 
+   "Q17145438", 
+   "Q4101775", 
+   "Q5505677", 
+   "Q7750101", 
+   "Q7728271", 
+   "Q15728502", 
+   "Q19866616", 
+   "Q4885932", 
+   "Q6544705", 
+   "Q6580816", 
+   "Q5120735", 
+   "Q18152725", 
+   "Q18703492", 
+   "Q611137", 
+   "Q1999059", 
+   "Q3488987", 
+   "Q592300", 
+   "Q7721295", 
+   "Q151937", 
+   "Q7644217", 
+   "Q3369396", 
+   "Q6690938", 
+   "Q4877691", 
+   "Q16250107", 
+   "Q7711198", 
+   "Q7680202", 
+   "Q7232271", 
+   "Q5123703", 
+   "Q2928788", 
+   "Q18150429", 
+   "Q1145421", 
+   "Q15052313", 
+   "Q17426190", 
+   "Q7774830"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1550654", 
+   "Q5123703", 
+   "Q3488987"
+  ], 
+  "utterance": "I Knew It Was You, City of God \u2013 10 Years Later, Sois belle et tais-toi", 
+  "active_set": [
+   "(c(Q838948),P921,Q33999)"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1550654"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P136"
+  ], 
+  "type_list": [
+   "Q1792379"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What can be considered as category for that work of art ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q5123703"
+  ], 
+  "active_set": [
+   "(Q1550654,P136,c(Q1792379))", 
+   "(Q5123703,P136,c(Q1792379))", 
+   "(Q3488987,P136,c(Q1792379))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q1550654", 
+   "Q5123703", 
+   "Q3488987"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean City of God \u2013 10 Years Later ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q1550654"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant I Knew It Was You. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q93204"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q93204"
+  ], 
+  "utterance": "documentary film", 
+  "active_set": [
+   "(Q1550654,P136,c(Q1792379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q4770723"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1028"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q502895", 
+   "Q1792379"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people donated to less number of art genres than A. Conger Goodyear ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q43720", 
+   "Q3133098", 
+   "Q26459473", 
+   "Q2637616", 
+   "Q676301", 
+   "Q23016142", 
+   "Q26359798", 
+   "Q27450423", 
+   "Q1699735", 
+   "Q26459024", 
+   "Q26262410", 
+   "Q213963", 
+   "Q222458", 
+   "Q5407510", 
+   "Q1461924", 
+   "Q26270023", 
+   "Q26208057", 
+   "Q17305789", 
+   "Q4785964", 
+   "Q23828909", 
+   "Q18718742", 
+   "Q2172853", 
+   "Q2677", 
+   "Q18529818", 
+   "Q18681578", 
+   "Q52930", 
+   "Q23719193", 
+   "Q26155343", 
+   "Q26254144", 
+   "Q7240564", 
+   "Q382439", 
+   "Q164500", 
+   "Q2667", 
+   "Q51056", 
+   "Q18691655", 
+   "Q272476", 
+   "Q18711324", 
+   "Q18676928", 
+   "Q26262436", 
+   "Q77210", 
+   "Q37134", 
+   "Q26290195", 
+   "Q26289878", 
+   "Q23055273", 
+   "Q1460119", 
+   "Q2914083", 
+   "Q453523", 
+   "Q26262301", 
+   "Q26266175", 
+   "Q134817", 
+   "Q984", 
+   "Q15433875", 
+   "Q26262414", 
+   "Q18676673", 
+   "Q26270295", 
+   "Q22815714", 
+   "Q165568", 
+   "Q26154073", 
+   "Q8479", 
+   "Q170398", 
+   "Q15525738", 
+   "Q365930", 
+   "Q26262395", 
+   "Q27431382", 
+   "Q237463", 
+   "Q233198", 
+   "Q16018042", 
+   "Q7459175", 
+   "Q62196", 
+   "Q12322315", 
+   "Q18674610", 
+   "Q747341", 
+   "Q18681522", 
+   "Q150652", 
+   "Q26260039", 
+   "Q19754058", 
+   "Q27450503", 
+   "Q22925473", 
+   "Q26270343", 
+   "Q27230873", 
+   "Q3174202", 
+   "Q7183322", 
+   "Q95946", 
+   "Q452811", 
+   "Q876414", 
+   "Q438322", 
+   "Q26262455", 
+   "Q18674603", 
+   "Q6968011", 
+   "Q26289675", 
+   "Q764443", 
+   "Q26266139", 
+   "Q6688106", 
+   "Q11919354", 
+   "Q183226", 
+   "Q4233718", 
+   "Q154912", 
+   "Q159416", 
+   "Q26313983", 
+   "Q18713952", 
+   "Q269412", 
+   "Q26282942", 
+   "Q26520314", 
+   "Q26492743", 
+   "Q26254109", 
+   "Q26216791", 
+   "Q16860467", 
+   "Q9013205", 
+   "Q20683951", 
+   "Q26207985", 
+   "Q57538", 
+   "Q207384", 
+   "Q43922", 
+   "Q1373397", 
+   "Q26254138", 
+   "Q1377426", 
+   "Q26218064", 
+   "Q6712648", 
+   "Q18711061", 
+   "Q26160551", 
+   "Q9439", 
+   "Q2551", 
+   "Q26260093", 
+   "Q1348898", 
+   "Q22686", 
+   "Q26689742", 
+   "Q22829116", 
+   "Q26476068", 
+   "Q1106973", 
+   "Q21125090", 
+   "Q26266192", 
+   "Q152935", 
+   "Q18691646", 
+   "Q26266198", 
+   "Q26415672", 
+   "Q26254121", 
+   "Q57986", 
+   "Q2594", 
+   "Q589876", 
+   "Q26262463", 
+   "Q5088246", 
+   "Q26262467", 
+   "Q5396194", 
+   "Q6141615", 
+   "Q7399967", 
+   "Q4924916"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "146", 
+  "active_set": [
+   "(c(Q1792379),P1028,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q33999"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P178"
+  ], 
+  "type_list": [
+   "Q166142"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What was manufactured by actor ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5242936"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5242936"
+  ], 
+  "utterance": "Day of Love", 
+  "active_set": [
+   "(c(Q166142),P178,Q33999)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5123703"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P136"
+  ], 
+  "type_list": [
+   "Q1792379"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What can be considered as category for City of God \u2013 10 Years Later ?"
+ }, 
+ {
+  "all_entities": [
+   "Q93204"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q93204"
+  ], 
+  "utterance": "documentary film", 
+  "active_set": [
+   "(Q5123703,P136,c(Q1792379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q5123703"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P57"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who were that work of art directed by ?"
+ }, 
+ {
+  "all_entities": [
+   "Q943776", 
+   "Q2348479", 
+   "Q230903", 
+   "Q953450", 
+   "Q1252503"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2348479", 
+   "Q953450", 
+   "Q943776"
+  ], 
+  "utterance": "Thiago Martins, Seu Jorge, Leandro Firmino", 
+  "active_set": [
+   "(Q93204,P57,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q2348479", 
+   "Q953450", 
+   "Q943776"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P57"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which works of art did those people direct ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5123703"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5123703"
+  ], 
+  "utterance": "City of God \u2013 10 Years Later", 
+  "active_set": [
+   "(c(Q838948),P57,Q2348479)", 
+   "(c(Q838948),P57,Q953450)", 
+   "(c(Q838948),P57,Q943776)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2348479"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory was Thiago Martins born in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q174"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q174"
+  ], 
+  "utterance": "S\u00e3o Paulo", 
+  "active_set": [
+   "(Q2348479,P19,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q174"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P36"
+  ], 
+  "type_list": [
+   "Q19953632"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which former administrative territory has that administrative territory as its capital ?"
+ }, 
+ {
+  "all_entities": [
+   "Q10354757"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q10354757"
+  ], 
+  "utterance": "S\u00e3o Paulo Province", 
+  "active_set": [
+   "(c(Q19953632),P36,Q174)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q10354757"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is that former administrative territory present in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q155"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q155"
+  ], 
+  "utterance": "Brazil", 
+  "active_set": [
+   "(Q10354757,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q11204", 
+   "Q15617994", 
+   "Q838948"
+  ], 
+  "entities_in_utterance": [
+   "Q15716339"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P88"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many works of art did lesser number of legislatures and administrative territories commission than Chaufferie avec chemin\u00e9e ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5539462", 
+   "Q4945054", 
+   "Q952817", 
+   "Q21856944", 
+   "Q2887541", 
+   "Q945850", 
+   "Q4091869", 
+   "Q3344733", 
+   "Q12432989", 
+   "Q3647650", 
+   "Q1094083", 
+   "Q18156247", 
+   "Q17530350", 
+   "Q19801071", 
+   "Q17451496", 
+   "Q2859883", 
+   "Q1345100", 
+   "Q5887388", 
+   "Q18201640", 
+   "Q23693632", 
+   "Q12347248", 
+   "Q1760522", 
+   "Q18156272", 
+   "Q19693349", 
+   "Q18156279", 
+   "Q14626964", 
+   "Q7404187", 
+   "Q26908500", 
+   "Q4866787", 
+   "Q1026644", 
+   "Q1231464", 
+   "Q3068259", 
+   "Q2627551", 
+   "Q786001", 
+   "Q20178465", 
+   "Q17442691", 
+   "Q7604500", 
+   "Q15731486", 
+   "Q16060284", 
+   "Q2887491", 
+   "Q2182509", 
+   "Q3225815", 
+   "Q1893353", 
+   "Q3047015", 
+   "Q2879984", 
+   "Q18156280", 
+   "Q3533222", 
+   "Q27477357", 
+   "Q2415504", 
+   "Q18156273", 
+   "Q766487", 
+   "Q6572993", 
+   "Q22330289", 
+   "Q179900", 
+   "Q27032019", 
+   "Q2928781", 
+   "Q18156282", 
+   "Q5309288", 
+   "Q19681517", 
+   "Q18385381", 
+   "Q19753109", 
+   "Q5509283", 
+   "Q359256", 
+   "Q2963060", 
+   "Q826947", 
+   "Q1093113", 
+   "Q27477315", 
+   "Q5002067", 
+   "Q27525226", 
+   "Q5447226", 
+   "Q19421785", 
+   "Q1988321", 
+   "Q2659575", 
+   "Q2352789", 
+   "Q3206679", 
+   "Q16014270", 
+   "Q19243728", 
+   "Q19730417"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "78", 
+  "active_set": [
+   "(c(Q838948),P88,c(Q11204)|c(Q15617994))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q11204", 
+   "Q15617994", 
+   "Q838948"
+  ], 
+  "entities_in_utterance": [
+   "Q2418237"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P88"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And what about The Kiss?"
+ }, 
+ {
+  "all_entities": [
+   "Q5539462", 
+   "Q4945054", 
+   "Q952817", 
+   "Q21856944", 
+   "Q2887541", 
+   "Q945850", 
+   "Q4091869", 
+   "Q3344733", 
+   "Q12432989", 
+   "Q3647650", 
+   "Q1094083", 
+   "Q18156247", 
+   "Q17530350", 
+   "Q19801071", 
+   "Q17451496", 
+   "Q2859883", 
+   "Q1345100", 
+   "Q5887388", 
+   "Q18201640", 
+   "Q23693632", 
+   "Q12347248", 
+   "Q1760522", 
+   "Q18156272", 
+   "Q19693349", 
+   "Q18156279", 
+   "Q14626964", 
+   "Q7404187", 
+   "Q26908500", 
+   "Q4866787", 
+   "Q1026644", 
+   "Q1231464", 
+   "Q3068259", 
+   "Q2627551", 
+   "Q786001", 
+   "Q20178465", 
+   "Q17442691", 
+   "Q7604500", 
+   "Q15731486", 
+   "Q16060284", 
+   "Q2887491", 
+   "Q2182509", 
+   "Q3225815", 
+   "Q1893353", 
+   "Q3047015", 
+   "Q2879984", 
+   "Q18156280", 
+   "Q3533222", 
+   "Q27477357", 
+   "Q2415504", 
+   "Q18156273", 
+   "Q766487", 
+   "Q6572993", 
+   "Q22330289", 
+   "Q179900", 
+   "Q27032019", 
+   "Q2928781", 
+   "Q18156282", 
+   "Q5309288", 
+   "Q19681517", 
+   "Q18385381", 
+   "Q19753109", 
+   "Q5509283", 
+   "Q359256", 
+   "Q2963060", 
+   "Q826947", 
+   "Q1093113", 
+   "Q27477315", 
+   "Q5002067", 
+   "Q27525226", 
+   "Q5447226", 
+   "Q19421785", 
+   "Q1988321", 
+   "Q2659575", 
+   "Q2352789", 
+   "Q3206679", 
+   "Q16014270", 
+   "Q19243728", 
+   "Q19730417"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "78", 
+  "active_set": [
+   "(c(Q838948),P88,c(Q11204)|c(Q15617994))"
+  ]
+ }
+]

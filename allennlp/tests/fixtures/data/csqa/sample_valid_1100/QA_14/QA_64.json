@@ -1,0 +1,426 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q4427082"
+  ], 
+  "relations": [
+   "P1066"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Who were the teachers of Aleksey Sokolov ?"
+ }, 
+ {
+  "all_entities": [
+   "Q983607", 
+   "Q60024"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q983607", 
+   "Q60024"
+  ], 
+  "utterance": "Aleksandr Stoletov, Hermann von Helmholtz", 
+  "active_set": [
+   "(Q4427082,P1066,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q4427082"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P802"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who were a notable student of Aleksey Sokolov ?"
+ }, 
+ {
+  "all_entities": [
+   "Q60024", 
+   "Q983607"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q60024", 
+   "Q983607"
+  ], 
+  "utterance": "Hermann von Helmholtz, Aleksandr Stoletov", 
+  "active_set": [
+   "(c(Q502895),P802,Q4427082)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q60024"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P61"
+  ], 
+  "type_list": [
+   "Q39546"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which tool was invented or discovered by Hermann von Helmholtz ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1758711"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1758711"
+  ], 
+  "utterance": "Keratometer", 
+  "active_set": [
+   "(c(Q39546),P61,Q60024)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1758711"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P366"
+  ], 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the main use of that tool ?"
+ }, 
+ {
+  "all_entities": [
+   "Q991265"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q991265"
+  ], 
+  "utterance": "keratometry", 
+  "active_set": [
+   "(Q1758711,P366,c(Q1914636))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "entities_in_utterance": [
+   "Q23900711", 
+   "Q1758711"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P366"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Or Aston Martin Vantage GTE?"
+ }, 
+ {
+  "all_entities": [
+   "Q22940089", 
+   "Q991265"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22940089", 
+   "Q991265"
+  ], 
+  "utterance": "automobile endurance racing, keratometry", 
+  "active_set": [
+   "OR((Q1758711,P366,c(Q1914636)), (Q23900711,P366,c(Q1914636)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Comparative|More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q1656682", 
+   "Q1914636"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which activities are a portion of more number of events than that activity ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Comparative|More/Less|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q991265"
+  ], 
+  "active_set": [
+   "(c(Q1914636),P361,c(Q1656682))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean keratometry ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "count_ques_sub_type": 8, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q8074593"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8074593"
+  ], 
+  "utterance": "Zoti", 
+  "active_set": [
+   "(c(Q1914636),P361,c(Q1656682))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P17"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are that activity a part of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q668"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q8074593,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q60024"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q515"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did the expiration of Hermann von Helmholtz occur ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1711"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1711"
+  ], 
+  "utterance": "Potsdam", 
+  "active_set": [
+   "(Q60024,P20,c(Q515))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q60024"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P463"
+  ], 
+  "type_list": [
+   "Q811430"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which construction was Hermann von Helmholtz a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q463303"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q463303"
+  ], 
+  "utterance": "American Academy of Arts and Sciences", 
+  "active_set": [
+   "(Q60024,P463,c(Q811430))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q18524020"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q811430"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Max M. Burger?"
+ }, 
+ {
+  "all_entities": [
+   "Q463303"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q463303"
+  ], 
+  "utterance": "American Academy of Arts and Sciences", 
+  "active_set": [
+   "(Q18524020,P463,c(Q811430))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1711"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P6"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person is the head of government of Potsdam ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1682855"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1682855"
+  ], 
+  "utterance": "Jann Jakobs", 
+  "active_set": [
+   "(Q1711,P6,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q1682855"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation was a position for which that person was appointed ?"
+ }, 
+ {
+  "all_entities": [
+   "Q30185"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q30185"
+  ], 
+  "utterance": "mayor", 
+  "active_set": [
+   "(Q1682855,P39,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1682855"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political party is Jann Jakobs a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49768"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49768"
+  ], 
+  "utterance": "Social Democratic Party of Germany", 
+  "active_set": [
+   "(Q1682855,P102,c(Q7278))"
+  ]
+ }
+]

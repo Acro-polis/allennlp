@@ -1,0 +1,284 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q9149876"
+  ], 
+  "relations": [
+   "P2416"
+  ], 
+  "type_list": [
+   "Q31629"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which type of sport did Amel Tuka participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q271008"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q271008"
+  ], 
+  "utterance": "800 metres", 
+  "active_set": [
+   "(Q9149876,P2416,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9149876"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P735"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which name is that person known by ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16164391"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16164391"
+  ], 
+  "utterance": "Amel", 
+  "active_set": [
+   "(Q271008,P735,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9149876"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q2312410"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sport discipline did that person participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18193712"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18193712"
+  ], 
+  "utterance": "athletics at the 2016 Summer Olympics", 
+  "active_set": [
+   "(Q16164391,P1344,c(Q2312410))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9149876"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q31629"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What did Amel Tuka participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q542"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q542"
+  ], 
+  "utterance": "athletics", 
+  "active_set": [
+   "(Q9149876,P641,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q18683787"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q31629"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about Herman Adam?"
+ }, 
+ {
+  "all_entities": [
+   "Q542"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q542"
+  ], 
+  "utterance": "athletics", 
+  "active_set": [
+   "(Q18683787,P641,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q18683787"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are the countries of citizenship of Herman Adam ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q96"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q18683787,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q7297538"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Ray Gordinier?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q7297538,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q18193712"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q16510064"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sporting events are parts of athletics at the 2016 Summer Olympics ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26208755", 
+   "Q26208442", 
+   "Q26234119", 
+   "Q26214545", 
+   "Q26233995", 
+   "Q26219840", 
+   "Q21858018", 
+   "Q26219842", 
+   "Q26219843", 
+   "Q26234091", 
+   "Q26219862", 
+   "Q26219861", 
+   "Q26233320", 
+   "Q26208467", 
+   "Q26233122", 
+   "Q26219841", 
+   "Q26234144", 
+   "Q26234145", 
+   "Q25397537", 
+   "Q26233103", 
+   "Q26203840", 
+   "Q26223026", 
+   "Q26225938", 
+   "Q26086643", 
+   "Q25930657", 
+   "Q26215594", 
+   "Q26225492", 
+   "Q26233318", 
+   "Q26233319", 
+   "Q26219856", 
+   "Q26215191", 
+   "Q26229344", 
+   "Q26212202", 
+   "Q26219859", 
+   "Q26219858", 
+   "Q26233317", 
+   "Q26212225", 
+   "Q26224939", 
+   "Q26229306", 
+   "Q26219839", 
+   "Q26208457", 
+   "Q26229325", 
+   "Q26233297", 
+   "Q21858030", 
+   "Q26208447", 
+   "Q26234051"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26208442", 
+   "Q26234119", 
+   "Q26214545"
+  ], 
+  "utterance": "Athletics at the 2016 Summer Olympics \u2013 Men's high jump, Athletics at the 2016 Summer Olympics \u2013 Women's hammer throw, Athletics at the 2016 Summer Olympics \u2013 Men's discus throw", 
+  "active_set": [
+   "(c(Q16510064),P361,Q18193712)"
+  ]
+ }
+]

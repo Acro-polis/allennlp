@@ -1,0 +1,323 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q92761"
+  ], 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Who has the surname Ian Murdock ?"
+ }, 
+ {
+  "all_entities": [
+   "Q353576"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q353576"
+  ], 
+  "utterance": "Murdock", 
+  "active_set": [
+   "(Q92761,P734,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q92761"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P800"
+  ], 
+  "type_list": [
+   "Q386724"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What was notable work done by Ian Murdock ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3176995"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3176995"
+  ], 
+  "utterance": "Debian Manifesto", 
+  "active_set": [
+   "(Q92761,P800,c(Q386724))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "Incomplete|object parent is changed, subject and predicate remain same", 
+  "entities_in_utterance": [
+   "Q92761"
+  ], 
+  "inc_ques_type": 1, 
+  "relations": [], 
+  "type_list": [
+   "Q3251801"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And which GNU/Linux?"
+ }, 
+ {
+  "all_entities": [
+   "Q7593"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7593"
+  ], 
+  "utterance": "Debian", 
+  "active_set": [
+   "(Q92761,P800,c(Q3251801))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P306"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q68"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many Computers are using that GNU/Linux as the operating system ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q245"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q68),P306,Q7593)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type", 
+  "type_list": [
+   "Q386724", 
+   "Q317623", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [
+   "Q24169953"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P2860"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which works are mentioned by more number of technical standards or works than Changes in specific IgE and IgG and monocyte chemoattractant protein-1 in workers with occupational asthma caused by diisocyanates and removed from exposure ?"
+ }, 
+ {
+  "all_entities": [
+   "Q23921415", 
+   "Q26888512", 
+   "Q23921085", 
+   "Q26890176", 
+   "Q26868693"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23921415", 
+   "Q26888512", 
+   "Q23921085"
+  ], 
+  "utterance": "Blueberry Rakers' Tendinitis, Colorimetry, 2nd edition, What is the true prevalence of carpal tunnel syndrome among US workers?", 
+  "active_set": [
+   "(c(Q317623)|c(Q386724),P2860,c(Q386724))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q386724", 
+   "Q317623", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [
+   "Q23923402"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P2860"
+  ], 
+  "count_ques_sub_type": 5, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Commentary: Protecting nanotechnology workers while waiting for godot?"
+ }, 
+ {
+  "all_entities": [
+   "Q23921415", 
+   "Q26888512", 
+   "Q23921085", 
+   "Q26890176", 
+   "Q26868693"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q23921415", 
+   "Q26888512", 
+   "Q23921085"
+  ], 
+  "utterance": "Blueberry Rakers' Tendinitis, Colorimetry, 2nd edition, What is the true prevalence of carpal tunnel syndrome among US workers?", 
+  "active_set": [
+   "(c(Q317623)|c(Q386724),P2860,c(Q386724))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q386724", 
+   "Q49848", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P2860"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many works are quoted by around 1 documents or works ?"
+ }, 
+ {
+  "all_entities": [
+   "Q27089517", 
+   "Q23921415", 
+   "Q23921085", 
+   "Q27089399"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q49848)|c(Q386724),P2860,c(Q386724))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q7593"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P275"
+  ], 
+  "type_list": [
+   "Q340169"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which media safeguards Debian against piracy ?"
+ }, 
+ {
+  "all_entities": [
+   "Q903054"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q903054"
+  ], 
+  "utterance": "Debian Free Software Guidelines", 
+  "active_set": [
+   "(Q7593,P275,c(Q340169))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q903054"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P144"
+  ], 
+  "type_list": [
+   "Q340169"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which media is based on that one ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2367020"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2367020"
+  ], 
+  "utterance": "The Open Source Definition", 
+  "active_set": [
+   "(c(Q340169),P144,Q903054)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q2367020", 
+   "Q92653"
+  ], 
+  "relations": [
+   "P50"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Did Bruce Perens authore that media ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q2367020,P50,Q92653)"
+  ]
+ }
+]

@@ -1,0 +1,419 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q6844992"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q151885"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which concept is the profession of Miha Pirih ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13382576"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13382576"
+  ], 
+  "utterance": "rower", 
+  "active_set": [
+   "(Q6844992,P106,c(Q151885))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13382576"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q31629"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who has that concept as the associated field of occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q159354"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q159354"
+  ], 
+  "utterance": "rowing", 
+  "active_set": [
+   "(Q13382576,P425,c(Q31629))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Single_Relation", 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "entities_in_utterance": [
+   "Q5353405", 
+   "Q6844992"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P27"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are the native countriesof Miha Pirih or Elana Hill ?"
+ }, 
+ {
+  "all_entities": [
+   "Q954", 
+   "Q215"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q954", 
+   "Q215"
+  ], 
+  "utterance": "Zimbabwe, Slovenia", 
+  "active_set": [
+   "OR((Q6844992,P27,c(Q15617994)), (Q5353405,P27,c(Q15617994)))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q271669", 
+   "Q15617994", 
+   "Q151885"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P138"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which concepts are named after min number of landforms and administrative territories ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1154021", 
+   "Q367704", 
+   "Q314639", 
+   "Q7202432", 
+   "Q207182", 
+   "Q13409799", 
+   "Q2332687", 
+   "Q575396", 
+   "Q2064825", 
+   "Q17125263", 
+   "Q2036267", 
+   "Q1536466", 
+   "Q15472169", 
+   "Q7996763", 
+   "Q1154017", 
+   "Q831336", 
+   "Q318756", 
+   "Q911141", 
+   "Q1816952", 
+   "Q8066794", 
+   "Q6797944", 
+   "Q1053997", 
+   "Q687230", 
+   "Q693549", 
+   "Q1121344", 
+   "Q6535335", 
+   "Q1508613", 
+   "Q211188", 
+   "Q1187191", 
+   "Q21042436", 
+   "Q1540562", 
+   "Q139965", 
+   "Q1816967", 
+   "Q3229348", 
+   "Q700039", 
+   "Q2478141", 
+   "Q1041623", 
+   "Q10363580", 
+   "Q2625916", 
+   "Q855546", 
+   "Q11660484", 
+   "Q1282276", 
+   "Q4181995", 
+   "Q1859432", 
+   "Q5588468", 
+   "Q1728968", 
+   "Q6354030", 
+   "Q773818", 
+   "Q896513", 
+   "Q6914275", 
+   "Q570798", 
+   "Q571515", 
+   "Q2710557", 
+   "Q378100", 
+   "Q3229339", 
+   "Q3229352", 
+   "Q1688286", 
+   "Q169349", 
+   "Q2732554", 
+   "Q7974787", 
+   "Q169451", 
+   "Q203549", 
+   "Q785653", 
+   "Q2115578", 
+   "Q259118", 
+   "Q127455", 
+   "Q1090851", 
+   "Q672010", 
+   "Q871703", 
+   "Q2896863", 
+   "Q1137778", 
+   "Q5266831", 
+   "Q3115494", 
+   "Q113965", 
+   "Q3485378", 
+   "Q2126650", 
+   "Q6401692", 
+   "Q739604", 
+   "Q1886212", 
+   "Q1503556", 
+   "Q134178", 
+   "Q2216194", 
+   "Q1088939", 
+   "Q2252048", 
+   "Q1207347", 
+   "Q1707076", 
+   "Q1759091", 
+   "Q4508563", 
+   "Q1423912", 
+   "Q668742", 
+   "Q1421436", 
+   "Q1002169", 
+   "Q775614", 
+   "Q916387", 
+   "Q7540131", 
+   "Q5967435", 
+   "Q6268577", 
+   "Q20830227", 
+   "Q624580", 
+   "Q3115519", 
+   "Q1703597", 
+   "Q961596", 
+   "Q862203", 
+   "Q1586067", 
+   "Q5319218", 
+   "Q556036", 
+   "Q2226746", 
+   "Q1017984", 
+   "Q2526246", 
+   "Q5876138", 
+   "Q1808482", 
+   "Q1062400", 
+   "Q2061755", 
+   "Q1234153", 
+   "Q5638607", 
+   "Q1139760", 
+   "Q1208706", 
+   "Q1241067", 
+   "Q6552215", 
+   "Q208247", 
+   "Q3258351", 
+   "Q1816937", 
+   "Q2995537", 
+   "Q1816932", 
+   "Q746287", 
+   "Q221901", 
+   "Q1755265", 
+   "Q48584", 
+   "Q6868046", 
+   "Q38433", 
+   "Q309187", 
+   "Q675717", 
+   "Q82029", 
+   "Q502702", 
+   "Q3509098", 
+   "Q169320", 
+   "Q5867319", 
+   "Q847163", 
+   "Q26473", 
+   "Q819095", 
+   "Q900337", 
+   "Q303479", 
+   "Q2612317", 
+   "Q1068118", 
+   "Q5776002", 
+   "Q206793", 
+   "Q484179", 
+   "Q611017", 
+   "Q260801", 
+   "Q1189968"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q48584", 
+   "Q611017", 
+   "Q1207347"
+  ], 
+  "utterance": "Rosetta Stone, Lusatian culture, Shibuya-kei", 
+  "active_set": [
+   "(c(Q151885),P138,c(Q271669)|c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q583990"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P706"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q271669", 
+   "Q151885"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many landforms are greater number of concepts located on than Thurston Island ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q193264", 
+   "Q12837", 
+   "Q23522", 
+   "Q34374"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q151885),P706,c(Q271669))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q1503402"
+  ], 
+  "relations": [
+   "P706"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q271669", 
+   "Q151885"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Poro Island?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q193264", 
+   "Q12837", 
+   "Q23522", 
+   "Q34374"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "4", 
+  "active_set": [
+   "(c(Q151885),P706,c(Q271669))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q31629", 
+   "Q12973014", 
+   "Q502895"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P641"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which types of sport did max number of sports teams or people participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q542"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q542"
+  ], 
+  "utterance": "athletics", 
+  "active_set": [
+   "(c(Q12973014)|c(Q502895),P641,c(Q31629))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q542"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P366"
+  ], 
+  "type_list": [
+   "Q1076486"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sports venues have their main utilization as that type of sport ?"
+ }, 
+ {
+  "all_entities": [
+   "Q824352", 
+   "Q175960", 
+   "Q1453337", 
+   "Q2093297", 
+   "Q10540509", 
+   "Q501184"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q824352", 
+   "Q175960", 
+   "Q10540509"
+  ], 
+  "utterance": "Ullevi, Malm\u00f6 stadion, Johanneshovs IP", 
+  "active_set": [
+   "(c(Q1076486),P366,Q542)"
+  ]
+ }
+]

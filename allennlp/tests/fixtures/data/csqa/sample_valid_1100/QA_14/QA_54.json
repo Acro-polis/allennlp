@@ -1,0 +1,634 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1227151"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territory is the country of citizenship of Joan Monleon ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "utterance": "Spain", 
+  "active_set": [
+   "(Q1227151,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1313"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation is fulfilled by that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q844587"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q844587"
+  ], 
+  "utterance": "Prime Minister of Spain", 
+  "active_set": [
+   "(Q29,P1313,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q844587", 
+   "Q633580"
+  ], 
+  "relations": [
+   "P1001"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Does Neu Bartelshagen apply to jurisdiction of Prime Minister of Spain ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q844587,P1001,Q633580)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 5, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many people are the patron saint of atmost 5 occupations ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2366998", 
+   "Q453698", 
+   "Q561838", 
+   "Q380092", 
+   "Q129674", 
+   "Q133704", 
+   "Q229190", 
+   "Q43945", 
+   "Q3922154", 
+   "Q152457", 
+   "Q172390", 
+   "Q1050218", 
+   "Q464959", 
+   "Q394727", 
+   "Q268087", 
+   "Q1141472", 
+   "Q61914", 
+   "Q2916248", 
+   "Q516729", 
+   "Q349086", 
+   "Q315640", 
+   "Q3893243", 
+   "Q719683", 
+   "Q331697", 
+   "Q1553720", 
+   "Q351635", 
+   "Q732865", 
+   "Q3759661", 
+   "Q696682", 
+   "Q118087", 
+   "Q320199", 
+   "Q43689", 
+   "Q1281133", 
+   "Q236974", 
+   "Q378656", 
+   "Q61620", 
+   "Q3776432", 
+   "Q128267", 
+   "Q2987904", 
+   "Q2574015", 
+   "Q101090", 
+   "Q1834624", 
+   "Q328804", 
+   "Q174044", 
+   "Q1284098", 
+   "Q1249745", 
+   "Q47144", 
+   "Q240610", 
+   "Q166876", 
+   "Q163900", 
+   "Q31966", 
+   "Q170547", 
+   "Q603655", 
+   "Q44024", 
+   "Q314700", 
+   "Q3940728", 
+   "Q44020", 
+   "Q313807", 
+   "Q149315", 
+   "Q676555", 
+   "Q2360539", 
+   "Q244383", 
+   "Q3615108", 
+   "Q244380", 
+   "Q235857", 
+   "Q287916", 
+   "Q192236", 
+   "Q539890", 
+   "Q102131", 
+   "Q505937", 
+   "Q44091", 
+   "Q181715", 
+   "Q212850", 
+   "Q2617668", 
+   "Q670456", 
+   "Q1346958", 
+   "Q243122", 
+   "Q51885", 
+   "Q238744", 
+   "Q3747052", 
+   "Q153024", 
+   "Q3949261", 
+   "Q234697", 
+   "Q1284971", 
+   "Q132797", 
+   "Q132100", 
+   "Q188411", 
+   "Q727316", 
+   "Q4011186", 
+   "Q233067", 
+   "Q3838743", 
+   "Q374822", 
+   "Q686948", 
+   "Q733308", 
+   "Q309953", 
+   "Q118081", 
+   "Q358325", 
+   "Q537686", 
+   "Q312057", 
+   "Q357093", 
+   "Q115550", 
+   "Q9438", 
+   "Q1502088", 
+   "Q8413", 
+   "Q558148", 
+   "Q160373", 
+   "Q130997", 
+   "Q515953", 
+   "Q1274242", 
+   "Q312758", 
+   "Q443392", 
+   "Q5575577", 
+   "Q379685", 
+   "Q191479", 
+   "Q42887", 
+   "Q3745904", 
+   "Q191107", 
+   "Q4210004", 
+   "Q4282480", 
+   "Q177903", 
+   "Q3859960", 
+   "Q2697247", 
+   "Q203437", 
+   "Q457903", 
+   "Q207113", 
+   "Q8018", 
+   "Q315312", 
+   "Q43675", 
+   "Q618214", 
+   "Q242274", 
+   "Q216946", 
+   "Q728245", 
+   "Q384364", 
+   "Q132113", 
+   "Q33923", 
+   "Q81634", 
+   "Q161775", 
+   "Q221522", 
+   "Q43954", 
+   "Q44047", 
+   "Q128538", 
+   "Q37599", 
+   "Q316599", 
+   "Q232975", 
+   "Q183240", 
+   "Q122376", 
+   "Q119289", 
+   "Q145746", 
+   "Q15284282", 
+   "Q360798", 
+   "Q298845", 
+   "Q167477", 
+   "Q380345", 
+   "Q288295", 
+   "Q297742", 
+   "Q218921", 
+   "Q316295", 
+   "Q183332", 
+   "Q4014956", 
+   "Q48438", 
+   "Q159834", 
+   "Q119512", 
+   "Q44281", 
+   "Q63070", 
+   "Q134666", 
+   "Q170164", 
+   "Q43399", 
+   "Q867765", 
+   "Q914115", 
+   "Q1289858", 
+   "Q379914", 
+   "Q3906150", 
+   "Q3876580", 
+   "Q189776", 
+   "Q339541", 
+   "Q965463", 
+   "Q196527", 
+   "Q160922", 
+   "Q1115725", 
+   "Q336731", 
+   "Q913528", 
+   "Q231256", 
+   "Q196653", 
+   "Q560531", 
+   "Q4161703", 
+   "Q508214", 
+   "Q9200", 
+   "Q174880", 
+   "Q1270991", 
+   "Q235863", 
+   "Q346", 
+   "Q131159", 
+   "Q190388", 
+   "Q3924139", 
+   "Q193507", 
+   "Q180936", 
+   "Q83198", 
+   "Q2142772", 
+   "Q2182480", 
+   "Q7226", 
+   "Q2005417", 
+   "Q463600", 
+   "Q243427", 
+   "Q2456880", 
+   "Q417686", 
+   "Q185117", 
+   "Q303640", 
+   "Q241423", 
+   "Q43999", 
+   "Q447384", 
+   "Q1747656", 
+   "Q6732208", 
+   "Q1393825", 
+   "Q64196", 
+   "Q2824511", 
+   "Q3887342", 
+   "Q310686", 
+   "Q359259", 
+   "Q12871", 
+   "Q43669", 
+   "Q9156208", 
+   "Q336704", 
+   "Q181489", 
+   "Q369691", 
+   "Q44269", 
+   "Q587596", 
+   "Q372668", 
+   "Q831571", 
+   "Q3779522", 
+   "Q2456500", 
+   "Q2352076", 
+   "Q977571", 
+   "Q44265", 
+   "Q232453", 
+   "Q192816", 
+   "Q43982", 
+   "Q58559", 
+   "Q445357", 
+   "Q40662", 
+   "Q359878", 
+   "Q190240", 
+   "Q332656", 
+   "Q210096", 
+   "Q1976199", 
+   "Q320171", 
+   "Q3724316", 
+   "Q1343711", 
+   "Q3663117", 
+   "Q137947", 
+   "Q534691", 
+   "Q160374", 
+   "Q442516", 
+   "Q920226", 
+   "Q80513", 
+   "Q43600", 
+   "Q283447", 
+   "Q26486", 
+   "Q324700", 
+   "Q158504", 
+   "Q744884", 
+   "Q130005", 
+   "Q740907", 
+   "Q44015", 
+   "Q44258", 
+   "Q70991", 
+   "Q318974", 
+   "Q151967", 
+   "Q312314", 
+   "Q149727", 
+   "Q254896", 
+   "Q3947956", 
+   "Q11905449", 
+   "Q1172641", 
+   "Q3738578", 
+   "Q4026158", 
+   "Q367208", 
+   "Q469978", 
+   "Q232427", 
+   "Q164294", 
+   "Q2270111", 
+   "Q103556", 
+   "Q129603", 
+   "Q3561124", 
+   "Q1110905", 
+   "Q60059", 
+   "Q335127", 
+   "Q651226", 
+   "Q355884", 
+   "Q42827", 
+   "Q159862", 
+   "Q543320", 
+   "Q17590", 
+   "Q318347", 
+   "Q271474", 
+   "Q3958514", 
+   "Q317131", 
+   "Q257960", 
+   "Q234689", 
+   "Q385253", 
+   "Q208961", 
+   "Q235619", 
+   "Q200895", 
+   "Q523662", 
+   "Q284323", 
+   "Q59071", 
+   "Q1383532", 
+   "Q160445", 
+   "Q44248", 
+   "Q1269112", 
+   "Q2424767", 
+   "Q459032", 
+   "Q276148", 
+   "Q131945", 
+   "Q9682", 
+   "Q127385", 
+   "Q470608", 
+   "Q196157", 
+   "Q310633", 
+   "Q208331"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "319", 
+  "active_set": [
+   "(c(Q12737077),P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q811979"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which architectural structures come from Spain ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2013874", 
+   "Q956018", 
+   "Q1326261"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2013874", 
+   "Q956018", 
+   "Q1326261"
+  ], 
+  "utterance": "Pla\u00e7a d'Espanya, Plaza de Espa\u00f1a, plaza de Espa\u00f1a", 
+  "active_set": [
+   "(c(Q811979),P138,Q29)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q2013874", 
+   "Q956018", 
+   "Q1326261"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territories are those architectural structures named after ?"
+ }, 
+ {
+  "all_entities": [
+   "Q29", 
+   "Q29", 
+   "Q29"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q29", 
+   "Q29", 
+   "Q29"
+  ], 
+  "utterance": "Spain", 
+  "active_set": [
+   "(Q2013874,P138,c(Q15617994))", 
+   "(Q956018,P138,c(Q15617994))", 
+   "(Q1326261,P138,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q29"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P36"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is associated to Spain as the capital ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2807"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2807"
+  ], 
+  "utterance": "Madrid", 
+  "active_set": [
+   "(Q29,P36,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2807"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1376"
+  ], 
+  "type_list": [
+   "Q13220204"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What has that administrative territory as its capital ?"
+ }, 
+ {
+  "all_entities": [
+   "Q24069437"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q24069437"
+  ], 
+  "utterance": "Madrid Province", 
+  "active_set": [
+   "(Q2807,P1376,c(Q13220204))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q24069437"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1382"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which political territory is concurrent with that administrative country subdivision ?"
+ }, 
+ {
+  "all_entities": [
+   "Q5756"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q5756"
+  ], 
+  "utterance": "Community of Madrid", 
+  "active_set": [
+   "(Q24069437,P1382,c(Q1048835))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q24069437"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person has Madrid Province as the location of death ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9001525"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9001525"
+  ], 
+  "utterance": "Gustavo Pittaluga", 
+  "active_set": [
+   "(c(Q502895),P20,Q24069437)"
+  ]
+ }
+]

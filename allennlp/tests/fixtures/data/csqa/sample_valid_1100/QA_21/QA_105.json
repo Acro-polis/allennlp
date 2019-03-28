@@ -1,0 +1,808 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q3380173"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territory is the country of citizenship of Philippe Le Maux ?"
+ }, 
+ {
+  "all_entities": [
+   "Q142"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "utterance": "France", 
+  "active_set": [
+   "(Q3380173,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3380173"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did that person die ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2927291"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2927291"
+  ], 
+  "utterance": "Br\u00e9l\u00e9venez", 
+  "active_set": [
+   "(Q142,P20,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q3380173"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the profession of Philippe Le Maux ?"
+ }, 
+ {
+  "all_entities": [
+   "Q82955"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "utterance": "politician", 
+  "active_set": [
+   "(Q3380173,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation|Incomplete", 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [
+   "Q5698649", 
+   "Q3380173"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also Antonio Horvath"
+ }, 
+ {
+  "all_entities": [
+   "Q82955"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "utterance": "politician", 
+  "active_set": [
+   "AND((Q3380173,P106,c(Q12737077)), (Q5698649,P106,c(Q12737077)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q5698649"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 1, 
+  "utterance": "What is the sex of Antonio Horvath ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q82955,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q732577", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [
+   "Q3809586"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many occupations were the main subjects in the work less number of publications and works than Wikipedian in Residence ?"
+ }, 
+ {
+  "all_entities": [
+   "Q172907", 
+   "Q15637082", 
+   "Q911554", 
+   "Q9045502", 
+   "Q2666591", 
+   "Q39631", 
+   "Q1124183", 
+   "Q11631", 
+   "Q5185440", 
+   "Q765778", 
+   "Q33999", 
+   "Q36180", 
+   "Q774306", 
+   "Q3315094", 
+   "Q83307", 
+   "Q622807", 
+   "Q4610556", 
+   "Q18145518", 
+   "Q7358", 
+   "Q131512", 
+   "Q1708232", 
+   "Q82955", 
+   "Q842782", 
+   "Q730242", 
+   "Q378622", 
+   "Q42973", 
+   "Q19627913", 
+   "Q18534408", 
+   "Q1930187", 
+   "Q16267607", 
+   "Q212238", 
+   "Q6337803", 
+   "Q202883", 
+   "Q14948018", 
+   "Q11642", 
+   "Q20065408", 
+   "Q937857", 
+   "Q618536", 
+   "Q2961580", 
+   "Q43845", 
+   "Q14128148", 
+   "Q814356", 
+   "Q101539", 
+   "Q168559", 
+   "Q316070", 
+   "Q1058375", 
+   "Q16556694", 
+   "Q4991371", 
+   "Q29182", 
+   "Q486839", 
+   "Q510373", 
+   "Q899758", 
+   "Q131524", 
+   "Q19185341", 
+   "Q23810528", 
+   "Q2306431", 
+   "Q15958185", 
+   "Q205375", 
+   "Q164236", 
+   "Q654291", 
+   "Q14373094", 
+   "Q483501", 
+   "Q152002", 
+   "Q1114448", 
+   "Q16533", 
+   "Q18220900", 
+   "Q936969", 
+   "Q3658608", 
+   "Q1028181", 
+   "Q19204627", 
+   "Q15987302", 
+   "Q36834", 
+   "Q133485", 
+   "Q1477129", 
+   "Q158852", 
+   "Q16003605", 
+   "Q245068", 
+   "Q33231", 
+   "Q838811", 
+   "Q219477", 
+   "Q1006696", 
+   "Q639669", 
+   "Q732358", 
+   "Q49757", 
+   "Q17143199", 
+   "Q384593", 
+   "Q2095549", 
+   "Q372436", 
+   "Q1238570", 
+   "Q182436", 
+   "Q2259532", 
+   "Q1674312", 
+   "Q361593", 
+   "Q1856798", 
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "95", 
+  "active_set": [
+   "(c(Q732577)|c(Q386724),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q3809586"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q5292"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which encyclopedia has that one as thier associated field of occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q52"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q52"
+  ], 
+  "utterance": "Wikipedia", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q52", 
+   "Q2248290", 
+   "Q181"
+  ], 
+  "relations": [
+   "P112"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Was that encyclopedia founded by Minori Aoi and Jimmy Wales ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q52,P112,Q2248290)", 
+   "(Q52,P112,Q181)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q3380173", 
+   "Q3044918"
+  ], 
+  "relations": [
+   "P39"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Was member of the French\u00a0National Assembly the position for which Philippe Le Maux was appointed ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q3380173,P39,Q3044918)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q508214"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which people are the patron saint of less number of occupations than Cyriacus ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2366998", 
+   "Q561838", 
+   "Q380092", 
+   "Q129674", 
+   "Q133704", 
+   "Q43945", 
+   "Q3922154", 
+   "Q172390", 
+   "Q1050218", 
+   "Q464959", 
+   "Q394727", 
+   "Q268087", 
+   "Q1141472", 
+   "Q61914", 
+   "Q2916248", 
+   "Q516729", 
+   "Q349086", 
+   "Q315640", 
+   "Q3893243", 
+   "Q719683", 
+   "Q331697", 
+   "Q1553720", 
+   "Q351635", 
+   "Q732865", 
+   "Q3759661", 
+   "Q696682", 
+   "Q118087", 
+   "Q320199", 
+   "Q1281133", 
+   "Q236974", 
+   "Q378656", 
+   "Q61620", 
+   "Q3776432", 
+   "Q128267", 
+   "Q2987904", 
+   "Q2574015", 
+   "Q101090", 
+   "Q1834624", 
+   "Q174044", 
+   "Q1284098", 
+   "Q1249745", 
+   "Q47144", 
+   "Q240610", 
+   "Q31966", 
+   "Q603655", 
+   "Q44024", 
+   "Q314700", 
+   "Q3940728", 
+   "Q44020", 
+   "Q313807", 
+   "Q149315", 
+   "Q676555", 
+   "Q2360539", 
+   "Q244383", 
+   "Q3615108", 
+   "Q244380", 
+   "Q235857", 
+   "Q287916", 
+   "Q192236", 
+   "Q539890", 
+   "Q102131", 
+   "Q505937", 
+   "Q44091", 
+   "Q181715", 
+   "Q2617668", 
+   "Q670456", 
+   "Q1346958", 
+   "Q243122", 
+   "Q51885", 
+   "Q238744", 
+   "Q3747052", 
+   "Q153024", 
+   "Q3949261", 
+   "Q234697", 
+   "Q1284971", 
+   "Q132797", 
+   "Q132100", 
+   "Q188411", 
+   "Q727316", 
+   "Q4011186", 
+   "Q233067", 
+   "Q3838743", 
+   "Q686948", 
+   "Q733308", 
+   "Q309953", 
+   "Q118081", 
+   "Q358325", 
+   "Q537686", 
+   "Q312057", 
+   "Q357093", 
+   "Q115550", 
+   "Q1502088", 
+   "Q8413", 
+   "Q558148", 
+   "Q160373", 
+   "Q515953", 
+   "Q1274242", 
+   "Q443392", 
+   "Q379685", 
+   "Q191479", 
+   "Q42887", 
+   "Q3745904", 
+   "Q4210004", 
+   "Q4282480", 
+   "Q177903", 
+   "Q3859960", 
+   "Q2697247", 
+   "Q203437", 
+   "Q457903", 
+   "Q207113", 
+   "Q8018", 
+   "Q315312", 
+   "Q43675", 
+   "Q618214", 
+   "Q216946", 
+   "Q728245", 
+   "Q384364", 
+   "Q132113", 
+   "Q33923", 
+   "Q81634", 
+   "Q161775", 
+   "Q221522", 
+   "Q43954", 
+   "Q44047", 
+   "Q37599", 
+   "Q316599", 
+   "Q232975", 
+   "Q122376", 
+   "Q145746", 
+   "Q15284282", 
+   "Q167477", 
+   "Q380345", 
+   "Q288295", 
+   "Q297742", 
+   "Q218921", 
+   "Q316295", 
+   "Q183332", 
+   "Q4014956", 
+   "Q159834", 
+   "Q63070", 
+   "Q134666", 
+   "Q867765", 
+   "Q914115", 
+   "Q1289858", 
+   "Q379914", 
+   "Q3906150", 
+   "Q3876580", 
+   "Q189776", 
+   "Q339541", 
+   "Q965463", 
+   "Q196527", 
+   "Q160922", 
+   "Q1115725", 
+   "Q336731", 
+   "Q913528", 
+   "Q231256", 
+   "Q560531", 
+   "Q4161703", 
+   "Q174880", 
+   "Q1270991", 
+   "Q235863", 
+   "Q346", 
+   "Q131159", 
+   "Q190388", 
+   "Q3924139", 
+   "Q180936", 
+   "Q83198", 
+   "Q2142772", 
+   "Q2182480", 
+   "Q7226", 
+   "Q2005417", 
+   "Q243427", 
+   "Q2456880", 
+   "Q417686", 
+   "Q185117", 
+   "Q303640", 
+   "Q241423", 
+   "Q43999", 
+   "Q447384", 
+   "Q1747656", 
+   "Q6732208", 
+   "Q1393825", 
+   "Q64196", 
+   "Q2824511", 
+   "Q3887342", 
+   "Q310686", 
+   "Q359259", 
+   "Q12871", 
+   "Q9156208", 
+   "Q336704", 
+   "Q181489", 
+   "Q369691", 
+   "Q44269", 
+   "Q587596", 
+   "Q372668", 
+   "Q831571", 
+   "Q3779522", 
+   "Q2456500", 
+   "Q2352076", 
+   "Q977571", 
+   "Q232453", 
+   "Q58559", 
+   "Q445357", 
+   "Q359878", 
+   "Q190240", 
+   "Q210096", 
+   "Q1976199", 
+   "Q3724316", 
+   "Q1343711", 
+   "Q3663117", 
+   "Q534691", 
+   "Q160374", 
+   "Q442516", 
+   "Q920226", 
+   "Q283447", 
+   "Q26486", 
+   "Q158504", 
+   "Q130005", 
+   "Q740907", 
+   "Q44258", 
+   "Q70991", 
+   "Q318974", 
+   "Q312314", 
+   "Q254896", 
+   "Q3947956", 
+   "Q11905449", 
+   "Q1172641", 
+   "Q3738578", 
+   "Q4026158", 
+   "Q367208", 
+   "Q469978", 
+   "Q164294", 
+   "Q2270111", 
+   "Q103556", 
+   "Q129603", 
+   "Q3561124", 
+   "Q1110905", 
+   "Q335127", 
+   "Q651226", 
+   "Q355884", 
+   "Q42827", 
+   "Q159862", 
+   "Q543320", 
+   "Q318347", 
+   "Q3958514", 
+   "Q317131", 
+   "Q257960", 
+   "Q234689", 
+   "Q385253", 
+   "Q208961", 
+   "Q235619", 
+   "Q523662", 
+   "Q284323", 
+   "Q59071", 
+   "Q1383532", 
+   "Q160445", 
+   "Q1269112", 
+   "Q2424767", 
+   "Q459032", 
+   "Q131945", 
+   "Q9682", 
+   "Q127385", 
+   "Q470608", 
+   "Q196157", 
+   "Q310633", 
+   "Q208331"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9682", 
+   "Q191479", 
+   "Q346"
+  ], 
+  "utterance": "Elizabeth II, Tadeusz Ko\u015bciuszko, Louis IX of France", 
+  "active_set": [
+   "(c(Q12737077),P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q2342494", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many occupations were the main subjects in the work atleast 1 collectables and works ?"
+ }, 
+ {
+  "all_entities": [
+   "Q39631", 
+   "Q11631", 
+   "Q774306", 
+   "Q83307", 
+   "Q4610556", 
+   "Q18145518", 
+   "Q82955", 
+   "Q730242", 
+   "Q42973", 
+   "Q937857", 
+   "Q9402", 
+   "Q43845", 
+   "Q29182", 
+   "Q131524", 
+   "Q14373094", 
+   "Q18220900", 
+   "Q16746569", 
+   "Q16003605", 
+   "Q49757", 
+   "Q1238570", 
+   "Q2259532", 
+   "Q16003532"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "22", 
+  "active_set": [
+   "(c(Q2342494)|c(Q386724),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Single_Relation", 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [
+   "Q3010497", 
+   "Q3380173"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P39"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations were a position held by Philippe Le Maux and C\u00e9sar Sirot ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3044918"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3044918"
+  ], 
+  "utterance": "member of the French\u00a0National Assembly", 
+  "active_set": [
+   "AND((Q3380173,P39,c(Q12737077)), (Q3010497,P39,c(Q12737077)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q3044918", 
+   "Q557768", 
+   "Q142"
+  ], 
+  "relations": [
+   "P1001"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Does that occupation have jurisdiction over Grafenau and France ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q3044918,P1001,Q557768)", 
+   "(Q3044918,P1001,Q142)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q2927291", 
+   "Q58637"
+  ], 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Is Br\u00e9l\u00e9venez located in Gricignano di Aversa ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q2927291,P17,Q58637)"
+  ]
+ }
+]

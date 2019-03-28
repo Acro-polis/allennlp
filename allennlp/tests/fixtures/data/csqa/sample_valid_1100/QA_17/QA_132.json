@@ -1,0 +1,506 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1444452"
+  ], 
+  "relations": [
+   "P140"
+  ], 
+  "type_list": [
+   "Q879146"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which Christian denomination is the religion of Josef Rosenegger ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9592"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9592"
+  ], 
+  "utterance": "Roman Catholic Church", 
+  "active_set": [
+   "(Q1444452,P140,c(Q879146))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9592"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P112"
+  ], 
+  "type_list": [
+   "Q15619164"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which abstract being was the founder of that Christian denomination ?"
+ }, 
+ {
+  "all_entities": [
+   "Q302"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q302"
+  ], 
+  "utterance": "Jesus Christ", 
+  "active_set": [
+   "(Q9592,P112,c(Q15619164))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P22"
+  ], 
+  "count_ques_sub_type": 7, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many people were the father of that abstract being ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q128267"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q302,P22,c(Q502895))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q182025", 
+   "Q302"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P19", 
+   "P190"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories were Jesus Christ born in or are the sister cities of Aksaray ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15917", 
+   "Q641", 
+   "Q6509", 
+   "Q25409", 
+   "Q7951", 
+   "Q40104", 
+   "Q144983", 
+   "Q430776"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15917", 
+   "Q641", 
+   "Q6509", 
+   "Q25409", 
+   "Q7951", 
+   "Q40104", 
+   "Q144983", 
+   "Q430776"
+  ], 
+  "utterance": "Slovenska Bistrica, Venice, Burgas, Ko\u0161ice, Petropavlovsk-Kamchatsky, Ajaccio, Bansk\u00e1 Bystrica, Nazareth", 
+  "active_set": [
+   "OR((Q302,P19,c(Q56061)), (Q182025,P190,c(Q56061)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q641"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P551"
+  ], 
+  "type_list": [
+   "Q6619679"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who lives in Venice ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18518736", 
+   "Q18518735", 
+   "Q18518734", 
+   "Q18518733", 
+   "Q18518732", 
+   "Q18518731", 
+   "Q18518730", 
+   "Q18518806", 
+   "Q18516276", 
+   "Q18544985", 
+   "Q3119417", 
+   "Q18510587", 
+   "Q18516519", 
+   "Q18516397", 
+   "Q18544988", 
+   "Q18524116", 
+   "Q18519993", 
+   "Q18524086", 
+   "Q18518748", 
+   "Q18518746", 
+   "Q18518747", 
+   "Q18518744", 
+   "Q18518745", 
+   "Q18518742", 
+   "Q18518743", 
+   "Q18520010", 
+   "Q18544974", 
+   "Q18516591", 
+   "Q18518998", 
+   "Q18516543", 
+   "Q18516409", 
+   "Q18516506", 
+   "Q18544991", 
+   "Q18516401", 
+   "Q18516407", 
+   "Q18516665", 
+   "Q18516712", 
+   "Q18524078", 
+   "Q18524104", 
+   "Q18518755", 
+   "Q18518754", 
+   "Q18518756", 
+   "Q18518751", 
+   "Q18518753", 
+   "Q18518752"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q3119417", 
+   "Q18510587", 
+   "Q18516409"
+  ], 
+  "utterance": "Guido Brunetti, Paola Brunetti, Chiara Brunetti", 
+  "active_set": [
+   "(c(Q6619679),P551,Q641)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q3119417", 
+   "Q18510587", 
+   "Q18516409"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which names are associated with those fictional humanoids ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18510575", 
+   "Q18510575", 
+   "Q18510575"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18510575", 
+   "Q18510575", 
+   "Q18510575"
+  ], 
+  "utterance": "Brunetti", 
+  "active_set": [
+   "(Q3119417,P734,c(Q82799))", 
+   "(Q18510587,P734,c(Q82799))", 
+   "(Q18516409,P734,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q641"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P176"
+  ], 
+  "type_list": [
+   "Q2235308"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which ship types were produced by Venice ?"
+ }, 
+ {
+  "all_entities": [
+   "Q656204", 
+   "Q5631793", 
+   "Q6093066", 
+   "Q3749978"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q656204", 
+   "Q5631793", 
+   "Q6093066"
+  ], 
+  "utterance": "Italian battleship Ammiraglio di Saint Bon, HMS Carrere, Italian battleship Francesco Morosini", 
+  "active_set": [
+   "(c(Q2235308),P176,Q641)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q641"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P47"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which administrative territories share border with that administrative territory ?"
+ }, 
+ {
+  "all_entities": [
+   "Q46771", 
+   "Q55416", 
+   "Q48144", 
+   "Q47389", 
+   "Q46810", 
+   "Q46759", 
+   "Q46761", 
+   "Q47449", 
+   "Q48039", 
+   "Q47995"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q55416", 
+   "Q48039", 
+   "Q46810"
+  ], 
+  "utterance": "Chioggia, Mogliano Veneto, Campagna Lupia", 
+  "active_set": [
+   "(c(Q15617994),P47,Q656204)", 
+   "(c(Q15617994),P47,Q5631793)", 
+   "(c(Q15617994),P47,Q6093066)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P530"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q15617994", 
+   "Q15617994"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which administrative territories holds diplomatic relationship with exactly 27 administrative territories ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q159", 
+   "Q30"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q159", 
+   "Q30"
+  ], 
+  "utterance": "Russia, United States of America", 
+  "active_set": [
+   "(c(Q15617994),P530,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q641"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q43229"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which organizations have HQ at Venice ?"
+ }, 
+ {
+  "all_entities": [
+   "Q3686182", 
+   "Q3661936", 
+   "Q847141", 
+   "Q6039168", 
+   "Q7505898", 
+   "Q548005", 
+   "Q7334797"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q847141", 
+   "Q3661936", 
+   "Q548005"
+  ], 
+  "utterance": "Thello, Cassa di Risparmio di Venezia, Azienda del Consorzio Trasporti Veneziano", 
+  "active_set": [
+   "(c(Q43229),P159,Q641)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q847141", 
+   "Q3661936", 
+   "Q548005"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P159"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where are the headquarters of those organizations located ?"
+ }, 
+ {
+  "all_entities": [
+   "Q641", 
+   "Q90", 
+   "Q641", 
+   "Q641"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q90", 
+   "Q641", 
+   "Q641"
+  ], 
+  "utterance": "Venice for 2nd, 3rd, Paris for 1st", 
+  "active_set": [
+   "(Q847141,P159,c(Q56061))", 
+   "(Q3661936,P159,c(Q56061))", 
+   "(Q548005,P159,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q90"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P931"
+  ], 
+  "type_list": [
+   "Q62447"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What city is served by that administrative territory ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q641"
+  ], 
+  "active_set": [
+   "(c(Q62447),P931,Q90)", 
+   "(c(Q62447),P931,Q641)", 
+   "(c(Q62447),P931,Q641)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q90", 
+   "Q641", 
+   "Q641"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Venice ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q90"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant Paris. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q223416"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q223416"
+  ], 
+  "utterance": "Orly Airport", 
+  "active_set": [
+   "(c(Q62447),P931,Q90)"
+  ]
+ }
+]

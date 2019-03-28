@@ -1,0 +1,383 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q11784675"
+  ], 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What did Mohd Sahan Mumtazali participate in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2736"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "utterance": "association football", 
+  "active_set": [
+   "(Q11784675,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q11784675"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which sex does Mohd Sahan Mumtazali have ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q11784675,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q27524517"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And how about Guillermo Di Benedetto?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q27524517,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q6110090"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does Jaber Abu Hussein have that sex as the sex ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q6110090,P21,Q6581097)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2736"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P101"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people have specialisation in association football ?"
+ }, 
+ {
+  "all_entities": [
+   "Q860276", 
+   "Q2091463", 
+   "Q6116226", 
+   "Q189587", 
+   "Q2639740"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q189587", 
+   "Q860276", 
+   "Q2091463"
+  ], 
+  "utterance": "Bobby Robson, Bilal G\u00fclden, Anthony Martial", 
+  "active_set": [
+   "(c(Q502895),P101,Q2736)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Mult. Entity", 
+  "entities_in_utterance": [
+   "Q189587", 
+   "Q860276", 
+   "Q2091463"
+  ], 
+  "sec_ques_sub_type": 3, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupations are the professions of those people ?"
+ }, 
+ {
+  "all_entities": [
+   "Q628099", 
+   "Q937857", 
+   "Q937857", 
+   "Q937857"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q628099", 
+   "Q937857", 
+   "Q937857"
+  ], 
+  "utterance": "association football manager for 1st, association football player for 2nd, 3rd", 
+  "active_set": [
+   "(Q189587,P106,c(Q12737077))", 
+   "(Q860276,P106,c(Q12737077))", 
+   "(Q2091463,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q189587"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P509"
+  ], 
+  "type_list": [
+   "Q2057971"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What caused the death of Bobby Robson ?"
+ }, 
+ {
+  "all_entities": [
+   "Q47912"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47912"
+  ], 
+  "utterance": "lung cancer", 
+  "active_set": [
+   "(Q189587,P509,c(Q2057971))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q18554000"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P828"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q2057971", 
+   "Q2057971"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which health problems do greater number of health problems lead to than Brucella suis brucellosis ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q147778", 
+   "Q623031", 
+   "Q52856", 
+   "Q127724", 
+   "Q19972185", 
+   "Q18555052", 
+   "Q5038165", 
+   "Q1097957", 
+   "Q3153686", 
+   "Q16831900", 
+   "Q124604", 
+   "Q4366062", 
+   "Q4797639", 
+   "Q1713499", 
+   "Q16242812", 
+   "Q1693598", 
+   "Q1890194", 
+   "Q1016605", 
+   "Q18557427", 
+   "Q7205992", 
+   "Q2339038", 
+   "Q18395602", 
+   "Q2933021", 
+   "Q16775468", 
+   "Q1409081", 
+   "Q1724539", 
+   "Q6279182", 
+   "Q585011", 
+   "Q3089469", 
+   "Q47912", 
+   "Q14375936", 
+   "Q9376235", 
+   "Q17126040", 
+   "Q18558134", 
+   "Q632522", 
+   "Q4651856", 
+   "Q7850856", 
+   "Q18554229", 
+   "Q5182155", 
+   "Q3508771", 
+   "Q3108587", 
+   "Q298278", 
+   "Q826522", 
+   "Q18558124", 
+   "Q18554306"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47912", 
+   "Q147778", 
+   "Q127724"
+  ], 
+  "utterance": "lung cancer, liver cirrhosis, cataract", 
+  "active_set": [
+   "(c(Q2057971),P828,c(Q2057971))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q1750104"
+  ], 
+  "relations": [
+   "P828"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q2057971", 
+   "Q2057971"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "And how about Carrion's disease?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q147778", 
+   "Q623031", 
+   "Q52856", 
+   "Q127724", 
+   "Q19972185", 
+   "Q18555052", 
+   "Q5038165", 
+   "Q1097957", 
+   "Q3153686", 
+   "Q16831900", 
+   "Q124604", 
+   "Q4366062", 
+   "Q4797639", 
+   "Q1713499", 
+   "Q16242812", 
+   "Q1693598", 
+   "Q1890194", 
+   "Q1016605", 
+   "Q18557427", 
+   "Q7205992", 
+   "Q2339038", 
+   "Q18395602", 
+   "Q2933021", 
+   "Q16775468", 
+   "Q1409081", 
+   "Q1724539", 
+   "Q6279182", 
+   "Q585011", 
+   "Q3089469", 
+   "Q47912", 
+   "Q14375936", 
+   "Q9376235", 
+   "Q17126040", 
+   "Q18558134", 
+   "Q632522", 
+   "Q4651856", 
+   "Q7850856", 
+   "Q18554229", 
+   "Q5182155", 
+   "Q3508771", 
+   "Q3108587", 
+   "Q298278", 
+   "Q826522", 
+   "Q18558124", 
+   "Q18554306"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47912", 
+   "Q147778", 
+   "Q127724"
+  ], 
+  "utterance": "lung cancer, liver cirrhosis, cataract", 
+  "active_set": [
+   "(c(Q2057971),P828,c(Q2057971))"
+  ]
+ }
+]

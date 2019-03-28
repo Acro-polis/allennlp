@@ -1,0 +1,389 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1386837"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations have Theodor Goerlitz as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q201788", 
+   "Q82955", 
+   "Q1622272"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q201788", 
+   "Q82955", 
+   "Q1622272"
+  ], 
+  "utterance": "historian, politician, university teacher", 
+  "active_set": [
+   "(Q1386837,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q201788"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which activity has that one as thier associated field of occupation ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q82955"
+  ], 
+  "active_set": [
+   "(Q201788,P425,c(Q1914636))", 
+   "(Q82955,P425,c(Q1914636))", 
+   "(Q1622272,P425,c(Q1914636))"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q201788", 
+   "Q82955", 
+   "Q1622272"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean politician ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q201788"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant historian. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q50675"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q50675"
+  ], 
+  "utterance": "historiography", 
+  "active_set": [
+   "(Q201788,P425,c(Q1914636))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q50675"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P921"
+  ], 
+  "type_list": [
+   "Q571"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which book has that activity as its main topic ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26157365"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q26157365"
+  ], 
+  "utterance": "Inaugural Lecture on The Study of History", 
+  "active_set": [
+   "(c(Q571),P921,Q50675)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q26157365", 
+   "Q7609323", 
+   "Q29031"
+  ], 
+  "relations": [
+   "P50"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Is that book written by Stephen Glass and Charles Oman ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO and YES respectively", 
+  "active_set": [
+   "(Q26157365,P50,Q7609323)", 
+   "(Q26157365,P50,Q29031)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q1307214", 
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P748"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Which occupations did approximately 8 forms of government or people appoint ?"
+ }, 
+ {
+  "all_entities": [
+   "Q4970706"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4970706"
+  ], 
+  "utterance": "Federal Chancellor of Germany", 
+  "active_set": [
+   "(c(Q12737077),P748,c(Q1307214)|c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q4970706"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q35798"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is that occupation a portion of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q313827"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q313827"
+  ], 
+  "utterance": "Cabinet of Germany", 
+  "active_set": [
+   "(Q4970706,P361,c(Q35798))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q313827", 
+   "Q183"
+  ], 
+  "relations": [
+   "P1001"
+  ], 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Does Germany come under the supervision of that executive branch ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q313827,P1001,Q183)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q26702447"
+  ], 
+  "relations": [
+   "P1313"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many political territories have mayor of La Victoria de Acentejo as title of head of government ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q985601"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(c(Q1048835),P1313,Q26702447)"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q732577", 
+   "Q2342494"
+  ], 
+  "entities_in_utterance": [
+   "Q765778"
+  ], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many occupations were the main subjects of greater number of publications or collectables 's work than organist ?"
+ }, 
+ {
+  "all_entities": [
+   "Q39631", 
+   "Q11631", 
+   "Q774306", 
+   "Q3809586", 
+   "Q83307", 
+   "Q4610556", 
+   "Q18145518", 
+   "Q2094335", 
+   "Q82955", 
+   "Q730242", 
+   "Q42973", 
+   "Q937857", 
+   "Q9402", 
+   "Q43845", 
+   "Q29182", 
+   "Q131524", 
+   "Q14373094", 
+   "Q18220900", 
+   "Q16746569", 
+   "Q15320003", 
+   "Q16003605", 
+   "Q49757", 
+   "Q1238570", 
+   "Q2259532"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "24", 
+  "active_set": [
+   "(c(Q732577)|c(Q2342494),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Incomplete", 
+  "type_list": [
+   "Q12737077", 
+   "Q732577", 
+   "Q2342494"
+  ], 
+  "entities_in_utterance": [
+   "Q18534408"
+  ], 
+  "is_incomplete": 1, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 7, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about member of the Victorian Legislative Assembly?"
+ }, 
+ {
+  "all_entities": [
+   "Q39631", 
+   "Q11631", 
+   "Q774306", 
+   "Q3809586", 
+   "Q83307", 
+   "Q4610556", 
+   "Q18145518", 
+   "Q2094335", 
+   "Q82955", 
+   "Q730242", 
+   "Q42973", 
+   "Q937857", 
+   "Q9402", 
+   "Q43845", 
+   "Q29182", 
+   "Q131524", 
+   "Q14373094", 
+   "Q18220900", 
+   "Q16746569", 
+   "Q15320003", 
+   "Q16003605", 
+   "Q49757", 
+   "Q1238570", 
+   "Q2259532"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "24", 
+  "active_set": [
+   "(c(Q732577)|c(Q2342494),P921,c(Q12737077))"
+  ]
+ }
+]

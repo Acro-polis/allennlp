@@ -1,0 +1,240 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q16739471"
+  ], 
+  "relations": [
+   "P102"
+  ], 
+  "type_list": [
+   "Q7278"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political party is G\u00fcnter Kelbg a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q49758"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q49758"
+  ], 
+  "utterance": "National Democratic Party of Germany", 
+  "active_set": [
+   "(Q16739471,P102,c(Q7278))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16739471"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did G\u00fcnter Kelbg expire ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2861"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2861"
+  ], 
+  "utterance": "Rostock", 
+  "active_set": [
+   "(Q16739471,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q16739471"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q7275"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which state is the native country of that person ?"
+ }, 
+ {
+  "all_entities": [
+   "Q16957"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q16957"
+  ], 
+  "utterance": "East Germany", 
+  "active_set": [
+   "(Q2861,P27,c(Q7275))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P194"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1752346", 
+   "Q7275"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which assemblies are the representative bodies for max number of states ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q632552"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q632552"
+  ], 
+  "utterance": "French Parliament", 
+  "active_set": [
+   "(c(Q7275),P194,Q701632)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q632552"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P17"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is that assembly located in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q142"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "utterance": "France", 
+  "active_set": [
+   "(Q632552,P17,c(Q15617994))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P1071"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q3305213", 
+   "Q2235308"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many paintings and ship types have that administrative territory as their location of final assembly ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q18591537", 
+   "Q18343261", 
+   "Q21012673", 
+   "Q18591430"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3 paintings and 1 ship types", 
+  "active_set": [
+   "(c(Q3305213),P1071,Q142)", 
+   "(c(Q2235308),P1071,Q142)", 
+   "(c(Q3305213),P1071,Q142)", 
+   "(c(Q2235308),P1071,Q142)"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q56061"
+  ], 
+  "entities_in_utterance": [
+   "Q6241914", 
+   "Q2861"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P190", 
+   "P937"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which administrative territories are sister towns of Rostock or are the work locations of John Johnsen Wold ?"
+ }, 
+ {
+  "all_entities": [
+   "Q546", 
+   "Q1829", 
+   "Q38511", 
+   "Q6506", 
+   "Q12892", 
+   "Q585", 
+   "Q41087", 
+   "Q25319", 
+   "Q393"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q546", 
+   "Q1829", 
+   "Q38511", 
+   "Q6506", 
+   "Q12892", 
+   "Q585", 
+   "Q41087", 
+   "Q25319", 
+   "Q393"
+  ], 
+  "utterance": "Trieste, Kaliningrad, Turku, Varna, Antwerp, Oslo, Raleigh, Aarhus, Szczecin", 
+  "active_set": [
+   "OR((Q2861,P190,c(Q56061)), (Q6241914,P937,c(Q56061)))"
+  ]
+ }
+]

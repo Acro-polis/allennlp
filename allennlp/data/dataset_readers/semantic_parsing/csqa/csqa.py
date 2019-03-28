@@ -28,12 +28,13 @@ from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
+VERIFICATION_QUESTION_STRING = "Verification (Boolean) (All)"
 
 RETRIEVAL_QUESTION_TYPES_DIRECT = ["Simple Question (Direct)", "Logical Reasoning (All)",
                                    "Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
 RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Question (Ellipsis)", "Clarification"]
 COUNT_QUESTION_TYPES = ["Quantitative Reasoning (Count) (All)", "Comparative Reasoning (Count) (All)"]
-OTHER_QUESTION_TYPES = ["Verification (Boolean) (All)"]
+OTHER_QUESTION_TYPES = [VERIFICATION_QUESTION_STRING]
 
 
 # noinspection PyTypeChecker
@@ -100,6 +101,7 @@ class CSQADatasetReader(DatasetReader):
     def __init__(self,
                  lazy: bool = False,
                  dpd_output_file: str = None,
+                 dpd_output_file_valid: str = None,
                  max_dpd_logical_forms: int = 10,
                  sort_dpd_logical_forms: bool = True,
                  max_dpd_tries: int = 20,
@@ -111,10 +113,12 @@ class CSQADatasetReader(DatasetReader):
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
                  skip_approximate_questions: bool = True,
+                 add_entities_to_sentence: bool = False,
                  read_only_direct: bool = True
                  ) -> None:
         super().__init__(lazy=lazy)
         self._dpd_output_file = dpd_output_file
+        self._dpd_output_file_valid = dpd_output_file_valid
         self._max_dpd_logical_forms = max_dpd_logical_forms
         self._sort_dpd_logical_forms = sort_dpd_logical_forms
         self._max_dpd_tries = max_dpd_tries
@@ -129,6 +133,8 @@ class CSQADatasetReader(DatasetReader):
         self.skip_approximate_questions = skip_approximate_questions
         self.shared_kg_context = None
         self.dpd_logical_form_dict = None
+        self.add_entities_to_sentence = add_entities_to_sentence
+        self.data_path = None
 
     def init_shared_kg_context(self):
         if not self.shared_kg_context:
@@ -139,8 +145,27 @@ class CSQADatasetReader(DatasetReader):
 
     def init_dpd_dict(self):
         if not self.dpd_logical_form_dict and self._dpd_output_file:
-            with open(self._dpd_output_file, 'rb') as input_file:
+            path = cached_path(self._dpd_output_file)
+            with open(path, 'rb') as input_file:
                 self.dpd_logical_form_dict = pickle.load(input_file)
+
+    def maybe_add_entities(self,
+
+                           question,
+                           question_entities,
+                           question_type_entities,
+                           entity_id2string=None,
+                           separator=" [SEP] "):
+        """
+        maybe add entities to question to enable BERT to attend entities
+        """
+
+        entity_id2string = self.shared_kg_context.entity_id2string if not entity_id2string else entity_id2string
+        if self.add_entities_to_sentence:
+            all_q_entities_string = [entity_id2string[ent] for ent in question_entities + question_type_entities]
+            if all_q_entities_string:
+                question += separator + separator.join(all_q_entities_string)
+        return question
 
     @staticmethod
     def parse_answer(answer, entities_result, language):
@@ -162,6 +187,7 @@ class CSQADatasetReader(DatasetReader):
 
     @overrides
     def _read(self, path: str):
+        self.data_path = path
         path = cached_path(path)
         if path.endswith('.json'):
             file_id = 'sample.json'
@@ -171,7 +197,6 @@ class CSQADatasetReader(DatasetReader):
         elif tarfile.is_tarfile(path):
             qa_path_dir = path.split('.')[:-2][0] if path.split('.')[-1] == 'gz' else path + "_dir"
             if os.path.isdir(qa_path_dir):
-                print("Target folder for extraction already exists: ", qa_path_dir)
                 yield from self._read_from_directory(qa_path_dir)
             else:
                 print("Extracting into directory: ", qa_path_dir)
@@ -328,6 +353,7 @@ class CSQADatasetReader(DatasetReader):
             duplicate that work. You might, for example, do batch processing on the questions in
             the whole dataset, then pass the result in here.
         """
+        question = self.maybe_add_entities(question, question_entities, question_type_entities)
         tokenized_question = tokenized_question or self._tokenizer.tokenize(question.lower())
         question_field = TextField(tokenized_question, self._question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
@@ -361,8 +387,7 @@ class CSQADatasetReader(DatasetReader):
             return None
 
         expected_result_field = MetadataField(expected_result)
-        result_entities_field = ListField([LabelField(result_entity, label_namespace='denotations') for result_entity in
-                                           entities_result] if entities_result else [LabelField("none")])
+        result_entities_field = MetadataField([language.get_entity_from_question_id(e) for e in entities_result])
 
         fields = {'qa_id': MetadataField(qa_id),
                   'question_type': MetadataField(question_type),

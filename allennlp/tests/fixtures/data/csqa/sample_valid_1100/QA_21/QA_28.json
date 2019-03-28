@@ -1,0 +1,284 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q4750436"
+  ], 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sport was Ana Mar\u00eda Penas a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q213934"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q213934"
+  ], 
+  "utterance": "canoeing and kayaking", 
+  "active_set": [
+   "(Q4750436,P641,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q213934"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which sport is a portion of that one ?"
+ }, 
+ {
+  "all_entities": [
+   "Q20856109"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q20856109"
+  ], 
+  "utterance": "canoeing", 
+  "active_set": [
+   "(c(Q349),P361,Q213934)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q20856109", 
+   "Q1628415"
+  ], 
+  "relations": [
+   "P641"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Is Oswald Grill associated with playing that sport ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q1628415,P641,Q20856109)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q178933"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are played by less number of people than Hardanger fiddle ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q16155191"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about Saraswati veena?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q424017"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments are played by approximately the same number of people as acoustic bass guitar ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1178361", 
+   "Q81982", 
+   "Q1759986"
+  ], 
+  "utterance": "davul, harpsichord, Wurlitzer electric piano", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "set_op_choice": 2, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Intersection|Multiple_Relation", 
+  "type_list": [
+   "Q502895"
+  ], 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q424017"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P21", 
+   "P1303"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which people can play acoustic bass guitar and have the gender as male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q7542", 
+   "Q3756607"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q7542", 
+   "Q3756607"
+  ], 
+  "utterance": "Prince, Gabriele Greco", 
+  "active_set": [
+   "AND((c(Q502895),P1303,Q424017), (c(Q502895),P21,Q6581097))"
+  ]
+ }
+]

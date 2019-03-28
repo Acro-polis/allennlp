@@ -1,0 +1,277 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q45610"
+  ], 
+  "relations": [
+   "P241"
+  ], 
+  "type_list": [
+   "Q781132"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which military branch is Acker Bilk affiliated to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q222595"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q222595"
+  ], 
+  "utterance": "British Army", 
+  "active_set": [
+   "(Q45610,P241,c(Q781132))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q222595"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which person is the etymology of that military branch ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9682"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9682"
+  ], 
+  "utterance": "Elizabeth II", 
+  "active_set": [
+   "(Q222595,P138,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments are played by min number of people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1879664", 
+   "Q748455", 
+   "Q173453"
+  ], 
+  "utterance": "spoon, caj\u00f3n, wind instrument", 
+  "active_set": [
+   "(c(Q502895),P1303,Q3623688)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments are played by exactly 3 people ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q626035", 
+   "Q726306"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q626035", 
+   "Q726306"
+  ], 
+  "utterance": "glockenspiel, erhu", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "question-type": "Clarification", 
+  "description": "Comparative|Count over More/Less|Mult. entity type|Indirect", 
+  "type_list": [
+   "Q34379", 
+   "Q188451", 
+   "Q15850590"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 3, 
+  "relations": [
+   "P870"
+  ], 
+  "count_ques_sub_type": 10, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are used as instrumentation in less number of music genres or theatrical genres than that musical instrument ?"
+ }, 
+ {
+  "description": "Comparative|Count over More/Less|Mult. entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q626035"
+  ], 
+  "active_set": [
+   "(c(Q188451)|c(Q15850590),P870,c(Q34379))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean glockenspiel ?"
+ }, 
+ {
+  "ques_type_id": 8, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 10, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "0", 
+  "active_set": [
+   "(c(Q188451)|c(Q15850590),P870,c(Q34379))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q34379", 
+   "Q340169", 
+   "Q1792379"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are demonstrated in approximately 1 medias or art genres ?"
+ }, 
+ {
+  "all_entities": [
+   "Q80019", 
+   "Q8355", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "3", 
+  "active_set": [
+   "(c(Q340169)|c(Q1792379),P180,c(Q34379))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q34379", 
+   "Q1792379", 
+   "Q3305213"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments are demonstrated in around 2 art genres or paintings ?"
+ }, 
+ {
+  "all_entities": [
+   "Q201129", 
+   "Q11404"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q1792379)|c(Q3305213),P180,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9682"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P108"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person has Elizabeth II as its employer ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1670833"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1670833"
+  ], 
+  "utterance": "Patric Laurence Dickinson", 
+  "active_set": [
+   "(c(Q502895),P108,Q9682)"
+  ]
+ }
+]

@@ -1,0 +1,301 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1642375"
+  ], 
+  "relations": [
+   "P735"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is forename of Cecil Haig ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15731759"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15731759"
+  ], 
+  "utterance": "Cecil", 
+  "active_set": [
+   "(Q1642375,P735,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1642375"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q151885"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What is the profession of Cecil Haig ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13381863"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q13381863"
+  ], 
+  "utterance": "fencer", 
+  "active_set": [
+   "(Q1642375,P106,c(Q151885))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q13381863"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q349"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is associated with the field of occupation that concept ?"
+ }, 
+ {
+  "all_entities": [
+   "Q12100"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q12100"
+  ], 
+  "utterance": "fencing", 
+  "active_set": [
+   "(Q13381863,P425,c(Q349))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q15731759"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1533"
+  ], 
+  "type_list": [
+   "Q82799"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which name is same as Cecil ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15731758"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15731758"
+  ], 
+  "utterance": "Cecil", 
+  "active_set": [
+   "(Q15731759,P1533,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P407"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34770", 
+   "Q82799"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which languages are the languages of work for atleast 21 names ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1860", 
+   "Q1321", 
+   "Q652"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860", 
+   "Q1321", 
+   "Q652"
+  ], 
+  "utterance": "English, Spanish, Italian", 
+  "active_set": [
+   "(c(Q82799),P407,c(Q34770))"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q652"
+  ], 
+  "relations": [
+   "P37"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q79913", 
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many non-governmental organizations or human settlements are Italian the official language of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1026065", 
+   "Q3550306"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "2", 
+  "active_set": [
+   "(c(Q79913),P37,Q652)", 
+   "(c(Q486972),P37,Q652)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q82799", 
+   "Q3305213", 
+   "Q386724"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P180"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which names are depicted in min number of paintings or works ?"
+ }, 
+ {
+  "all_entities": [
+   "Q13219075", 
+   "Q134609", 
+   "Q6453151", 
+   "Q3736439", 
+   "Q41692", 
+   "Q3711329", 
+   "Q732775", 
+   "Q36940", 
+   "Q1517781", 
+   "Q7369", 
+   "Q11946202", 
+   "Q2258881", 
+   "Q4767951", 
+   "Q16529344", 
+   "Q24067392", 
+   "Q713019", 
+   "Q1807269", 
+   "Q8331", 
+   "Q846664", 
+   "Q3116510", 
+   "Q1865281", 
+   "Q1367", 
+   "Q1192868", 
+   "Q9394", 
+   "Q2495957", 
+   "Q1953597", 
+   "Q15629245", 
+   "Q25894", 
+   "Q1466321", 
+   "Q858243", 
+   "Q190294", 
+   "Q7378", 
+   "Q123120", 
+   "Q214169", 
+   "Q538906", 
+   "Q308841", 
+   "Q1360763", 
+   "Q83931", 
+   "Q9458574", 
+   "Q5070208", 
+   "Q10968813"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1807269", 
+   "Q134609", 
+   "Q11946202"
+  ], 
+  "utterance": "leek, Cynara scolymus, butterfly", 
+  "active_set": [
+   "(c(Q3305213)|c(Q386724),P180,c(Q82799))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which classification schemes are English a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1346342", 
+   "Q5329170"
+  ], 
+  "utterance": "Anglic languages, Anglo-Frisian languages", 
+  "active_set": [
+   "(Q1860,P361,c(Q5962346))"
+  ]
+ }
+]

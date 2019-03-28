@@ -1,0 +1,315 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q371766"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q12973014"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is Vladimir Konstantinov a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q194116"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q194116"
+  ], 
+  "utterance": "Detroit Red Wings", 
+  "active_set": [
+   "(Q371766,P54,c(Q12973014))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q371766"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupation has that person as his/her 's career ?"
+ }, 
+ {
+  "all_entities": [
+   "Q11774891"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q11774891"
+  ], 
+  "utterance": "ice hockey player", 
+  "active_set": [
+   "(Q194116,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q346"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P417"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q502895", 
+   "Q12737077"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which people are the patron saint of greater number of occupations than Louis IX of France ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q453698", 
+   "Q229190", 
+   "Q152457", 
+   "Q43689", 
+   "Q328804", 
+   "Q166876", 
+   "Q163900", 
+   "Q170547", 
+   "Q212850", 
+   "Q374822", 
+   "Q9438", 
+   "Q130997", 
+   "Q312758", 
+   "Q5575577", 
+   "Q191107", 
+   "Q242274", 
+   "Q128538", 
+   "Q183240", 
+   "Q119289", 
+   "Q360798", 
+   "Q298845", 
+   "Q48438", 
+   "Q119512", 
+   "Q44281", 
+   "Q170164", 
+   "Q43399", 
+   "Q196653", 
+   "Q508214", 
+   "Q9200", 
+   "Q193507", 
+   "Q463600", 
+   "Q43669", 
+   "Q44265", 
+   "Q192816", 
+   "Q43982", 
+   "Q179718", 
+   "Q40662", 
+   "Q332656", 
+   "Q320171", 
+   "Q137947", 
+   "Q80513", 
+   "Q43600", 
+   "Q324700", 
+   "Q744884", 
+   "Q44015", 
+   "Q151967", 
+   "Q149727", 
+   "Q232427", 
+   "Q60059", 
+   "Q17590", 
+   "Q271474", 
+   "Q200895", 
+   "Q44248", 
+   "Q276148"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9438", 
+   "Q60059", 
+   "Q166876"
+  ], 
+  "utterance": "Thomas Aquinas, Albertus Magnus, Isidore of Seville", 
+  "active_set": [
+   "(c(Q12737077),P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9438", 
+   "Q60059", 
+   "Q166876"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P417"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who have adopted Thomas Aquinas, Albertus Magnus and Isidore of Seville as their patron saint ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1622272", 
+   "Q18805", 
+   "Q131512", 
+   "Q82594"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q131512", 
+   "Q18805", 
+   "Q1622272"
+  ], 
+  "utterance": "farmer, naturalist, university teacher", 
+  "active_set": [
+   "(c(Q12737077),P417,Q9438)", 
+   "(c(Q12737077),P417,Q60059)", 
+   "(c(Q12737077),P417,Q166876)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q9438"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1066"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who are pupils of Thomas Aquinas ?"
+ }, 
+ {
+  "all_entities": [
+   "Q676267", 
+   "Q1636083"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q676267", 
+   "Q1636083"
+  ], 
+  "utterance": "Henry Bate of Malines, Remigio dei Girolami", 
+  "active_set": [
+   "(c(Q502895),P1066,Q9438)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q676267", 
+   "Q1636083"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P802"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people were a notable student of Henry Bate of Malines and Remigio dei Girolami ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9438"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9438"
+  ], 
+  "utterance": "Thomas Aquinas", 
+  "active_set": [
+   "(c(Q502895),P802,Q676267)", 
+   "(c(Q502895),P802,Q1636083)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q18805"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which activity has naturalist as thier associated field of occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q484591"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q484591"
+  ], 
+  "utterance": "natural history", 
+  "active_set": [
+   "(Q18805,P425,c(Q1914636))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q16744668"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q1914636"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about physical chemist?"
+ }, 
+ {
+  "all_entities": [
+   "Q11372"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q11372"
+  ], 
+  "utterance": "physical chemistry", 
+  "active_set": [
+   "(Q16744668,P425,c(Q1914636))"
+  ]
+ }
+]

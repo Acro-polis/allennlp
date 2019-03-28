@@ -1,0 +1,957 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q982732"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which national sports team is Joaqu\u00edn Peir\u00f3 a member of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q42267"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q42267"
+  ], 
+  "utterance": "Spain national football team", 
+  "active_set": [
+   "(Q982732,P54,c(Q1194951))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q982732"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q15275719"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which recurring events did Joaqu\u00edn Peir\u00f3 compete in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q134202", 
+   "Q160813"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q134202", 
+   "Q160813"
+  ], 
+  "utterance": "1966 FIFA World Cup, 1962 FIFA World Cup", 
+  "active_set": [
+   "(Q982732,P1344,c(Q15275719))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q2629687"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q15275719"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Ivan Kolev?"
+ }, 
+ {
+  "all_entities": [
+   "Q134202", 
+   "Q160813"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q134202", 
+   "Q160813"
+  ], 
+  "utterance": "1966 FIFA World Cup, 1962 FIFA World Cup", 
+  "active_set": [
+   "(Q2629687,P1344,c(Q15275719))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q12072220"
+  ], 
+  "relations": [
+   "P1344"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 6, 
+  "utterance": "Did Lou Vincent take part in those recurring events ?", 
+  "description": "Verification|one entity, multiple entities (as object) referred indirectly"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q12072220,P1344,Q134202)", 
+   "(Q12072220,P1344,Q160813)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, all direct, 2 are query entities", 
+  "entities_in_utterance": [
+   "Q160813", 
+   "Q43310", 
+   "Q189275"
+  ], 
+  "relations": [
+   "P1923"
+  ], 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 4, 
+  "utterance": "Did Germany national football team and Soviet Union national football team take part in 1962 FIFA World Cup ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q160813,P1923,Q43310)", 
+   "(Q160813,P1923,Q189275)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, both direct", 
+  "entities_in_utterance": [
+   "Q134202", 
+   "Q25239546"
+  ], 
+  "relations": [
+   "P1923"
+  ], 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 1, 
+  "utterance": "Did Monaco at the 2016 European Athletics Championships take part in 1966 FIFA World Cup ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q134202,P1923,Q25239546)"
+  ]
+ }, 
+ {
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Logical operators", 
+  "entities_in_utterance": [
+   "Q134202"
+  ], 
+  "relations": [
+   "P1344"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1194951", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many national sports teams or people took part in 1966 FIFA World Cup ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2627101", 
+   "Q568937", 
+   "Q1338038", 
+   "Q2423706", 
+   "Q658070", 
+   "Q249912", 
+   "Q354150", 
+   "Q314630", 
+   "Q780435", 
+   "Q1138491", 
+   "Q166310", 
+   "Q709041", 
+   "Q1741464", 
+   "Q3742947", 
+   "Q313674", 
+   "Q1343308", 
+   "Q740454", 
+   "Q3623102", 
+   "Q959933", 
+   "Q616023", 
+   "Q686284", 
+   "Q937705", 
+   "Q344152", 
+   "Q2055332", 
+   "Q1709009", 
+   "Q270367", 
+   "Q2282595", 
+   "Q984275", 
+   "Q303293", 
+   "Q980161", 
+   "Q706602", 
+   "Q446908", 
+   "Q57375", 
+   "Q938898", 
+   "Q983267", 
+   "Q44470", 
+   "Q961854", 
+   "Q213879", 
+   "Q176696", 
+   "Q2334469", 
+   "Q2708640", 
+   "Q458743", 
+   "Q645649", 
+   "Q366022", 
+   "Q2001681", 
+   "Q495317", 
+   "Q378621", 
+   "Q1554028", 
+   "Q2531416", 
+   "Q2631159", 
+   "Q605050", 
+   "Q280306", 
+   "Q762372", 
+   "Q658057", 
+   "Q2484564", 
+   "Q210102", 
+   "Q3807491", 
+   "Q2054916", 
+   "Q493081", 
+   "Q64006", 
+   "Q1609495", 
+   "Q265416", 
+   "Q734558", 
+   "Q2002681", 
+   "Q498257", 
+   "Q970694", 
+   "Q1344000", 
+   "Q2005323", 
+   "Q1363074", 
+   "Q527695", 
+   "Q172025", 
+   "Q787373", 
+   "Q2561998", 
+   "Q1123144", 
+   "Q633788", 
+   "Q686716", 
+   "Q972193", 
+   "Q370062", 
+   "Q509178", 
+   "Q3841086", 
+   "Q386720", 
+   "Q604700", 
+   "Q2095028", 
+   "Q1234685", 
+   "Q211933", 
+   "Q2707858", 
+   "Q3938316", 
+   "Q529173", 
+   "Q900993", 
+   "Q314856", 
+   "Q553339", 
+   "Q1043598", 
+   "Q3784437", 
+   "Q2881942", 
+   "Q353905", 
+   "Q2566025", 
+   "Q189275", 
+   "Q594641", 
+   "Q2459990", 
+   "Q83459", 
+   "Q503297", 
+   "Q342424", 
+   "Q2547988", 
+   "Q517817", 
+   "Q529656", 
+   "Q3723316", 
+   "Q164089", 
+   "Q2629254", 
+   "Q936513", 
+   "Q310058", 
+   "Q602665", 
+   "Q372092", 
+   "Q1565534", 
+   "Q491662", 
+   "Q4015189", 
+   "Q657955", 
+   "Q2463419", 
+   "Q38794", 
+   "Q980738", 
+   "Q2054478", 
+   "Q2002211", 
+   "Q612986", 
+   "Q344902", 
+   "Q674936", 
+   "Q372101", 
+   "Q509064", 
+   "Q593389", 
+   "Q453653", 
+   "Q1345108", 
+   "Q3614842", 
+   "Q3144566", 
+   "Q44688", 
+   "Q3973784", 
+   "Q535013", 
+   "Q2659430", 
+   "Q2687414", 
+   "Q2055305", 
+   "Q12897", 
+   "Q201534", 
+   "Q2294406", 
+   "Q670705", 
+   "Q532442", 
+   "Q430746", 
+   "Q162892", 
+   "Q670420", 
+   "Q2635193", 
+   "Q1489510", 
+   "Q180845", 
+   "Q2002012", 
+   "Q2709912", 
+   "Q742351", 
+   "Q716432", 
+   "Q970356", 
+   "Q2054890", 
+   "Q2055370", 
+   "Q3295237", 
+   "Q505430", 
+   "Q44917", 
+   "Q2631162", 
+   "Q2495025", 
+   "Q370679", 
+   "Q611413", 
+   "Q2006693", 
+   "Q1860897", 
+   "Q268412", 
+   "Q438483", 
+   "Q608126", 
+   "Q290615", 
+   "Q310981", 
+   "Q556392", 
+   "Q530416", 
+   "Q665397", 
+   "Q2636401", 
+   "Q550223", 
+   "Q3808580", 
+   "Q599655", 
+   "Q2629687", 
+   "Q980174", 
+   "Q1642856", 
+   "Q1606421", 
+   "Q2144545", 
+   "Q1338289", 
+   "Q498268", 
+   "Q2004614", 
+   "Q4457", 
+   "Q2388577", 
+   "Q2002030", 
+   "Q257606", 
+   "Q3886009", 
+   "Q2716292", 
+   "Q459238", 
+   "Q705942", 
+   "Q712408", 
+   "Q116650", 
+   "Q43310", 
+   "Q384417", 
+   "Q505028", 
+   "Q941465", 
+   "Q2635156", 
+   "Q1355956", 
+   "Q293393", 
+   "Q2449583", 
+   "Q974382", 
+   "Q690387", 
+   "Q1120877", 
+   "Q1317514", 
+   "Q505919", 
+   "Q262826", 
+   "Q727532", 
+   "Q1337571", 
+   "Q47762", 
+   "Q1356712", 
+   "Q124495", 
+   "Q970549", 
+   "Q4018032", 
+   "Q1133556", 
+   "Q2006137", 
+   "Q230046", 
+   "Q2635417", 
+   "Q540463", 
+   "Q3815330", 
+   "Q925165", 
+   "Q838713", 
+   "Q125860", 
+   "Q60435", 
+   "Q1208809", 
+   "Q661290", 
+   "Q869177", 
+   "Q2096033", 
+   "Q162043", 
+   "Q2640591", 
+   "Q2004630", 
+   "Q44194", 
+   "Q311407", 
+   "Q566994", 
+   "Q2449536", 
+   "Q2714457", 
+   "Q3814203", 
+   "Q2464640", 
+   "Q2632685", 
+   "Q971824", 
+   "Q313364", 
+   "Q171583", 
+   "Q2468284", 
+   "Q1334496", 
+   "Q1378311", 
+   "Q361244", 
+   "Q2519143", 
+   "Q170561", 
+   "Q143250", 
+   "Q7351908", 
+   "Q1338274", 
+   "Q959780", 
+   "Q212738", 
+   "Q1357606", 
+   "Q1489134", 
+   "Q2054907", 
+   "Q2638092", 
+   "Q944321", 
+   "Q2530407", 
+   "Q1304290", 
+   "Q383786", 
+   "Q1210530", 
+   "Q459778", 
+   "Q982732", 
+   "Q1368211", 
+   "Q3787523", 
+   "Q219390", 
+   "Q163742", 
+   "Q604553", 
+   "Q643861", 
+   "Q668976", 
+   "Q516417", 
+   "Q42267", 
+   "Q746196", 
+   "Q974715", 
+   "Q2628435", 
+   "Q1373765", 
+   "Q487655", 
+   "Q930605", 
+   "Q922788", 
+   "Q854242", 
+   "Q191492", 
+   "Q62255", 
+   "Q68765", 
+   "Q3943151", 
+   "Q464515", 
+   "Q4122047", 
+   "Q705585", 
+   "Q1185429", 
+   "Q776310", 
+   "Q1382508", 
+   "Q2444179", 
+   "Q3783235", 
+   "Q1381977", 
+   "Q267245", 
+   "Q1441090", 
+   "Q965046", 
+   "Q770415", 
+   "Q715668", 
+   "Q180642", 
+   "Q2478970", 
+   "Q665767", 
+   "Q596341", 
+   "Q4021750", 
+   "Q2479049", 
+   "Q2259514", 
+   "Q822332", 
+   "Q3817473", 
+   "Q731234", 
+   "Q676899", 
+   "Q2388968", 
+   "Q960137", 
+   "Q2255112", 
+   "Q729021", 
+   "Q2462379", 
+   "Q1479715", 
+   "Q511301", 
+   "Q165141", 
+   "Q717932", 
+   "Q47774", 
+   "Q167828", 
+   "Q163134", 
+   "Q1338055", 
+   "Q379345", 
+   "Q937161", 
+   "Q267693", 
+   "Q451321", 
+   "Q1516606", 
+   "Q2469128", 
+   "Q3810721", 
+   "Q3829372", 
+   "Q14132", 
+   "Q2450616", 
+   "Q1657260", 
+   "Q941315", 
+   "Q1381158", 
+   "Q79800", 
+   "Q134916", 
+   "Q1360086", 
+   "Q1133447", 
+   "Q960910", 
+   "Q4020238", 
+   "Q2494967", 
+   "Q938652", 
+   "Q2055310", 
+   "Q1134418", 
+   "Q582863", 
+   "Q536930", 
+   "Q442441", 
+   "Q2479021", 
+   "Q2696085", 
+   "Q299693", 
+   "Q3605916", 
+   "Q297271", 
+   "Q265428", 
+   "Q976269", 
+   "Q1355189", 
+   "Q2706784", 
+   "Q2462351", 
+   "Q2055385", 
+   "Q2006606", 
+   "Q562386", 
+   "Q1185960", 
+   "Q658091", 
+   "Q579872", 
+   "Q2463410"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "367", 
+  "active_set": [
+   "(c(Q1194951),P1344,Q134202)", 
+   "(c(Q502895),P1344,Q134202)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q134202"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P1346"
+  ], 
+  "type_list": [
+   "Q1194951"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which national sports team was the winner of that recurring event ?"
+ }, 
+ {
+  "all_entities": [
+   "Q47762"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47762"
+  ], 
+  "utterance": "England national football team", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q47762", 
+   "Q1261038"
+  ], 
+  "relations": [
+   "P54"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Is Richard A. Whiting one of the members of that national sports team ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "NO", 
+  "active_set": [
+   "(Q1261038,P54,Q47762)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1923"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q1194951", 
+   "Q15275719"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which recurring events did max number of national sports teams contest in ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q176883", 
+   "Q37285", 
+   "Q47735", 
+   "Q101730", 
+   "Q79859"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q47735", 
+   "Q79859", 
+   "Q37285"
+  ], 
+  "utterance": "2002 FIFA World Cup, 2014 FIFA World Cup, 2006 FIFA World Cup", 
+  "active_set": [
+   "(c(Q15275719),P1923,c(Q1194951))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Comparative|Count over More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1344"
+  ], 
+  "count_ques_sub_type": 9, 
+  "type_list": [
+   "Q15275719", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many recurring events did lesser number of people participate in than that recurring event ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Comparative|Count over More/Less|Single entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q79859"
+  ], 
+  "active_set": [
+   "(c(Q502895),P1344,c(Q15275719))"
+  ], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean 2014 FIFA World Cup ?"
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 9, 
+  "entities": [
+   "Q37285"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "No, I meant 2006 FIFA World Cup. Could you tell me the answer for that?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q240629", 
+   "Q204010", 
+   "Q1494216", 
+   "Q1509609", 
+   "Q648363", 
+   "Q211478", 
+   "Q287085", 
+   "Q772726", 
+   "Q386612", 
+   "Q1415959", 
+   "Q211474", 
+   "Q1463291", 
+   "Q689191", 
+   "Q287649", 
+   "Q13650943", 
+   "Q287108", 
+   "Q131591", 
+   "Q5354210", 
+   "Q1537962", 
+   "Q869121", 
+   "Q203245", 
+   "Q194793", 
+   "Q1477177", 
+   "Q10152", 
+   "Q10153", 
+   "Q132529", 
+   "Q10151", 
+   "Q10157", 
+   "Q10155", 
+   "Q10158", 
+   "Q160813", 
+   "Q211469", 
+   "Q287098", 
+   "Q2301224", 
+   "Q209751", 
+   "Q101751", 
+   "Q1415949", 
+   "Q203983", 
+   "Q203987", 
+   "Q700917", 
+   "Q79859", 
+   "Q203254", 
+   "Q179853", 
+   "Q176883", 
+   "Q42369", 
+   "Q213942", 
+   "Q1202380", 
+   "Q132533", 
+   "Q16913723", 
+   "Q956843", 
+   "Q629649", 
+   "Q211754", 
+   "Q166121", 
+   "Q211752", 
+   "Q5389", 
+   "Q46938", 
+   "Q335281", 
+   "Q46934", 
+   "Q402434", 
+   "Q211942", 
+   "Q1415998", 
+   "Q483279", 
+   "Q207538", 
+   "Q1191199", 
+   "Q695884", 
+   "Q208524", 
+   "Q208523", 
+   "Q14818140", 
+   "Q3271471", 
+   "Q890313", 
+   "Q46943", 
+   "Q101730", 
+   "Q198544", 
+   "Q209846", 
+   "Q203329", 
+   "Q205192", 
+   "Q763822", 
+   "Q335271", 
+   "Q48432", 
+   "Q335275", 
+   "Q1974959", 
+   "Q1536380", 
+   "Q10162", 
+   "Q10161", 
+   "Q10160", 
+   "Q10146", 
+   "Q11062", 
+   "Q179920", 
+   "Q6015709", 
+   "Q637844", 
+   "Q132515", 
+   "Q8483", 
+   "Q203975", 
+   "Q10148", 
+   "Q19835278", 
+   "Q171784", 
+   "Q1343333", 
+   "Q218761", 
+   "Q1754568", 
+   "Q930880", 
+   "Q218769", 
+   "Q194811", 
+   "Q211241", 
+   "Q1141795", 
+   "Q11117", 
+   "Q207815", 
+   "Q188517", 
+   "Q959755", 
+   "Q15215081", 
+   "Q25266570", 
+   "Q166246", 
+   "Q11113", 
+   "Q250671", 
+   "Q250677", 
+   "Q203968", 
+   "Q210578", 
+   "Q211490", 
+   "Q211494", 
+   "Q209745", 
+   "Q200794", 
+   "Q216891", 
+   "Q654995", 
+   "Q154846", 
+   "Q207541", 
+   "Q769961", 
+   "Q207889", 
+   "Q218754", 
+   "Q153578", 
+   "Q211487", 
+   "Q211484", 
+   "Q208243", 
+   "Q134202", 
+   "Q202110", 
+   "Q250689", 
+   "Q131075", 
+   "Q132664", 
+   "Q15787287", 
+   "Q209678", 
+   "Q209673", 
+   "Q10150", 
+   "Q226066", 
+   "Q199924", 
+   "Q209429", 
+   "Q1413606"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "144", 
+  "active_set": [
+   "(c(Q502895),P1344,c(Q15275719))"
+  ]
+ }, 
+ {
+  "set_op_choice": 1, 
+  "question-type": "Logical Reasoning (All)", 
+  "description": "Logical|Union|Multiple_Relation", 
+  "type_list": [
+   "Q1048835"
+  ], 
+  "entities_in_utterance": [
+   "Q11796", 
+   "Q37285"
+  ], 
+  "ques_type_id": 4, 
+  "is_inc": 0, 
+  "relations": [
+   "P47", 
+   "P17"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which political territories are 2006 FIFA World Cup a part of or share border with Ordis ?"
+ }, 
+ {
+  "all_entities": [
+   "Q11807", 
+   "Q12173", 
+   "Q11242", 
+   "Q11360", 
+   "Q183", 
+   "Q11227"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q11807", 
+   "Q12173", 
+   "Q11242", 
+   "Q11360", 
+   "Q183", 
+   "Q11227"
+  ], 
+  "utterance": "Pont\u00f3s, Vilanant, Borrass\u00e0, Navata, Germany, Avinyonet de Puigvent\u00f3s", 
+  "active_set": [
+   "OR((Q37285,P17,c(Q1048835)), (Q11796,P47,c(Q1048835)))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q11807", 
+   "Q12173", 
+   "Q11242", 
+   "Q11360", 
+   "Q183", 
+   "Q11227"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P1313"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which occupations are fulfilled by Pont\u00f3s, Vilanant, Borrass\u00e0, Navata, Germany and Avinyonet de Puigvent\u00f3s ?"
+ }, 
+ {
+  "all_entities": [
+   "Q26690427", 
+   "Q26690498", 
+   "Q26690354", 
+   "Q26690380", 
+   "Q4970706", 
+   "Q26690350"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q4970706", 
+   "Q26690427", 
+   "Q26690498"
+  ], 
+  "utterance": "Federal Chancellor of Germany, mayor of Pont\u00f3s, mayor of Vilanant", 
+  "active_set": [
+   "(Q11807,P1313,c(Q12737077))", 
+   "(Q12173,P1313,c(Q12737077))", 
+   "(Q11242,P1313,c(Q12737077))", 
+   "(Q11360,P1313,c(Q12737077))", 
+   "(Q183,P1313,c(Q12737077))", 
+   "(Q11227,P1313,c(Q12737077))"
+  ]
+ }
+]

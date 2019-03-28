@@ -1,0 +1,906 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1637083"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which occupations are the professions of Wolfgang Hage ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1743122", 
+   "Q1234713", 
+   "Q1622272"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1743122", 
+   "Q1234713", 
+   "Q1622272"
+  ], 
+  "utterance": "church historian, theologian, university teacher", 
+  "active_set": [
+   "(Q1637083,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q1637083"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P108"
+  ], 
+  "type_list": [
+   "Q811979"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which architectural structure employs Wolfgang Hage ?"
+ }, 
+ {
+  "all_entities": [
+   "Q152838"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q152838"
+  ], 
+  "utterance": "University of G\u00f6ttingen", 
+  "active_set": [
+   "(Q1637083,P108,c(Q811979))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q835355"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q811979"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Scipione Gentili?"
+ }, 
+ {
+  "all_entities": [
+   "Q151510"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q151510"
+  ], 
+  "utterance": "University of Heidelberg", 
+  "active_set": [
+   "(Q835355,P108,c(Q811979))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Mult. entity type", 
+  "type_list": [
+   "Q12737077", 
+   "Q732577", 
+   "Q191067"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P921"
+  ], 
+  "count_ques_sub_type": 3, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which occupations were min number of publications or articles mainly about ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15637082", 
+   "Q911554", 
+   "Q9045502", 
+   "Q2666591", 
+   "Q39631", 
+   "Q1124183", 
+   "Q11631", 
+   "Q5185440", 
+   "Q765778", 
+   "Q33999", 
+   "Q36180", 
+   "Q774306", 
+   "Q3315094", 
+   "Q83307", 
+   "Q622807", 
+   "Q4610556", 
+   "Q18145518", 
+   "Q7358", 
+   "Q131512", 
+   "Q1708232", 
+   "Q82955", 
+   "Q842782", 
+   "Q730242", 
+   "Q378622", 
+   "Q42973", 
+   "Q19627913", 
+   "Q18534408", 
+   "Q1930187", 
+   "Q16267607", 
+   "Q212238", 
+   "Q6337803", 
+   "Q202883", 
+   "Q14948018", 
+   "Q11642", 
+   "Q20065408", 
+   "Q937857", 
+   "Q618536", 
+   "Q9402", 
+   "Q2961580", 
+   "Q43845", 
+   "Q14128148", 
+   "Q814356", 
+   "Q101539", 
+   "Q168559", 
+   "Q1058375", 
+   "Q16556694", 
+   "Q4991371", 
+   "Q29182", 
+   "Q486839", 
+   "Q899758", 
+   "Q131524", 
+   "Q19185341", 
+   "Q23810528", 
+   "Q2306431", 
+   "Q15958185", 
+   "Q205375", 
+   "Q164236", 
+   "Q654291", 
+   "Q14373094", 
+   "Q483501", 
+   "Q1114448", 
+   "Q16533", 
+   "Q18220900", 
+   "Q936969", 
+   "Q16746569", 
+   "Q3658608", 
+   "Q1028181", 
+   "Q19204627", 
+   "Q15987302", 
+   "Q36834", 
+   "Q133485", 
+   "Q1477129", 
+   "Q158852", 
+   "Q16003605", 
+   "Q245068", 
+   "Q33231", 
+   "Q838811", 
+   "Q219477", 
+   "Q1006696", 
+   "Q639669", 
+   "Q49757", 
+   "Q17143199", 
+   "Q384593", 
+   "Q2095549", 
+   "Q372436", 
+   "Q1238570", 
+   "Q2259532", 
+   "Q1674312", 
+   "Q361593", 
+   "Q1856798", 
+   "Q16003532", 
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q131512", 
+   "Q42973", 
+   "Q16707842"
+  ], 
+  "utterance": "farmer, architect, Member of Parliament in the United Kingdom", 
+  "active_set": [
+   "(c(Q732577)|c(Q191067),P921,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q42973"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P452"
+  ], 
+  "type_list": [
+   "Q4830453"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which business enterprise belongs to the industry that occupation ?"
+ }, 
+ {
+  "description": "Clarification for simple ques.", 
+  "entities_in_utterance": [
+   "Q16707842"
+  ], 
+  "active_set": [
+   "(c(Q4830453),P452,Q131512)", 
+   "(c(Q4830453),P452,Q42973)", 
+   "(c(Q4830453),P452,Q16707842)"
+  ], 
+  "relations": [], 
+  "all_entities": [
+   "Q131512", 
+   "Q42973", 
+   "Q16707842"
+  ], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Member of Parliament in the United Kingdom ?"
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "entities": [
+   "Q42973"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 2, 
+  "utterance": "No, I meant architect. Could you tell me the answer for that?"
+ }, 
+ {
+  "all_entities": [
+   "Q2863562"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2863562"
+  ], 
+  "utterance": "Arquitectonica", 
+  "active_set": [
+   "(c(Q4830453),P452,Q42973)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q1560792"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1408"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q486972", 
+   "Q4830453"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which human settlements can approximately the same number of business enterprises broadcast to as per their license as Vail ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q2228038", 
+   "Q1006574", 
+   "Q851806", 
+   "Q675521", 
+   "Q1085227", 
+   "Q2131187", 
+   "Q955773", 
+   "Q1376378", 
+   "Q2375262", 
+   "Q2321558", 
+   "Q3155671", 
+   "Q1876120", 
+   "Q2892388", 
+   "Q988827", 
+   "Q2797405", 
+   "Q3470764", 
+   "Q249224", 
+   "Q859187", 
+   "Q2402910", 
+   "Q2443721", 
+   "Q2088307", 
+   "Q1613686", 
+   "Q3460058", 
+   "Q1413686", 
+   "Q2362234", 
+   "Q1375929", 
+   "Q6686011", 
+   "Q2429075", 
+   "Q1928157", 
+   "Q754578", 
+   "Q2428769", 
+   "Q3472295", 
+   "Q4570781", 
+   "Q204271", 
+   "Q53077", 
+   "Q3344111", 
+   "Q970773", 
+   "Q1393019", 
+   "Q1022776", 
+   "Q1573469", 
+   "Q774319", 
+   "Q3460450", 
+   "Q1898562", 
+   "Q3476984", 
+   "Q1942119", 
+   "Q2443522", 
+   "Q2271504", 
+   "Q3461320", 
+   "Q1510586", 
+   "Q755020", 
+   "Q1636815", 
+   "Q938100", 
+   "Q5582373", 
+   "Q498773", 
+   "Q2706524", 
+   "Q3460208", 
+   "Q1183709", 
+   "Q1785340", 
+   "Q3452472", 
+   "Q1376943", 
+   "Q5645655", 
+   "Q985486", 
+   "Q3306176", 
+   "Q630260", 
+   "Q79546", 
+   "Q2459183", 
+   "Q2638406", 
+   "Q2588367", 
+   "Q3459304", 
+   "Q3612349", 
+   "Q690991", 
+   "Q2429119", 
+   "Q744198", 
+   "Q1734955", 
+   "Q5680397", 
+   "Q650694", 
+   "Q2277678", 
+   "Q31487", 
+   "Q898109", 
+   "Q2740714", 
+   "Q1377121", 
+   "Q2040930", 
+   "Q7987027", 
+   "Q520499", 
+   "Q2005156", 
+   "Q2101741", 
+   "Q2272266", 
+   "Q1376974", 
+   "Q7570941", 
+   "Q3462028", 
+   "Q984542", 
+   "Q2320197", 
+   "Q1920378", 
+   "Q638180", 
+   "Q282266", 
+   "Q2100117", 
+   "Q2323152", 
+   "Q2150258", 
+   "Q1515408", 
+   "Q2638417", 
+   "Q1847338", 
+   "Q2514220", 
+   "Q1514432", 
+   "Q1086841", 
+   "Q981581", 
+   "Q3313526", 
+   "Q673772", 
+   "Q1375703", 
+   "Q1012971", 
+   "Q2016119", 
+   "Q2570502", 
+   "Q7991947", 
+   "Q2443480", 
+   "Q1959298", 
+   "Q630253", 
+   "Q3458617", 
+   "Q2453592", 
+   "Q1484530", 
+   "Q2891920", 
+   "Q2126669", 
+   "Q1024100", 
+   "Q3056724", 
+   "Q2025717", 
+   "Q3267916", 
+   "Q5091036", 
+   "Q931331", 
+   "Q1028196", 
+   "Q3130627", 
+   "Q949709", 
+   "Q1535079", 
+   "Q2093034", 
+   "Q1866955", 
+   "Q1943133", 
+   "Q2377992", 
+   "Q1013162", 
+   "Q1376559", 
+   "Q2271711", 
+   "Q2443708", 
+   "Q2461671", 
+   "Q19818341", 
+   "Q3294011", 
+   "Q3473949", 
+   "Q2230206", 
+   "Q2637332", 
+   "Q532459", 
+   "Q1845421", 
+   "Q1835270", 
+   "Q542794", 
+   "Q1012668", 
+   "Q2375832", 
+   "Q589958", 
+   "Q1183907", 
+   "Q423505", 
+   "Q3052790", 
+   "Q2361035", 
+   "Q1513007", 
+   "Q2925171", 
+   "Q3459533", 
+   "Q2375999", 
+   "Q2033190", 
+   "Q1560792", 
+   "Q1845155", 
+   "Q2425873", 
+   "Q969173", 
+   "Q1131479", 
+   "Q2877571", 
+   "Q1089064", 
+   "Q1374602", 
+   "Q755880", 
+   "Q868666", 
+   "Q2165777", 
+   "Q1368039", 
+   "Q2392574", 
+   "Q5430744", 
+   "Q756573", 
+   "Q1006586", 
+   "Q2650031", 
+   "Q2429053", 
+   "Q584451", 
+   "Q1850538", 
+   "Q628771", 
+   "Q2356400", 
+   "Q1787293", 
+   "Q2573670", 
+   "Q11703248", 
+   "Q2049822", 
+   "Q1374369", 
+   "Q513757", 
+   "Q880153", 
+   "Q2189258", 
+   "Q2745135", 
+   "Q384692", 
+   "Q1261675", 
+   "Q2691345", 
+   "Q1376781", 
+   "Q3460473", 
+   "Q2111166", 
+   "Q2796218", 
+   "Q2656942"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q31487", 
+   "Q204271", 
+   "Q4570781"
+  ], 
+  "utterance": "Krak\u00f3w, San Luis Potos\u00ed, Lincoln University", 
+  "active_set": [
+   "(c(Q4830453),P1408,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q2150258"
+  ], 
+  "relations": [
+   "P1408"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q486972", 
+   "Q4830453"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And how about Seffner?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q2228038", 
+   "Q1006574", 
+   "Q851806", 
+   "Q675521", 
+   "Q1085227", 
+   "Q2131187", 
+   "Q955773", 
+   "Q1376378", 
+   "Q2375262", 
+   "Q2321558", 
+   "Q3155671", 
+   "Q1876120", 
+   "Q2892388", 
+   "Q988827", 
+   "Q2797405", 
+   "Q3470764", 
+   "Q249224", 
+   "Q859187", 
+   "Q2402910", 
+   "Q2443721", 
+   "Q2088307", 
+   "Q1613686", 
+   "Q3460058", 
+   "Q1413686", 
+   "Q2362234", 
+   "Q1375929", 
+   "Q6686011", 
+   "Q2429075", 
+   "Q1928157", 
+   "Q754578", 
+   "Q2428769", 
+   "Q3472295", 
+   "Q4570781", 
+   "Q204271", 
+   "Q53077", 
+   "Q3344111", 
+   "Q970773", 
+   "Q1393019", 
+   "Q1022776", 
+   "Q1573469", 
+   "Q774319", 
+   "Q3460450", 
+   "Q1898562", 
+   "Q3476984", 
+   "Q1942119", 
+   "Q2443522", 
+   "Q2271504", 
+   "Q3461320", 
+   "Q1510586", 
+   "Q755020", 
+   "Q1636815", 
+   "Q938100", 
+   "Q5582373", 
+   "Q498773", 
+   "Q2706524", 
+   "Q3460208", 
+   "Q1183709", 
+   "Q1785340", 
+   "Q3452472", 
+   "Q1376943", 
+   "Q5645655", 
+   "Q985486", 
+   "Q3306176", 
+   "Q630260", 
+   "Q79546", 
+   "Q2459183", 
+   "Q2638406", 
+   "Q2588367", 
+   "Q3459304", 
+   "Q3612349", 
+   "Q690991", 
+   "Q2429119", 
+   "Q744198", 
+   "Q1734955", 
+   "Q5680397", 
+   "Q650694", 
+   "Q2277678", 
+   "Q31487", 
+   "Q898109", 
+   "Q2740714", 
+   "Q1377121", 
+   "Q2040930", 
+   "Q7987027", 
+   "Q520499", 
+   "Q2005156", 
+   "Q2101741", 
+   "Q2272266", 
+   "Q1376974", 
+   "Q7570941", 
+   "Q3462028", 
+   "Q984542", 
+   "Q2320197", 
+   "Q1920378", 
+   "Q638180", 
+   "Q282266", 
+   "Q2100117", 
+   "Q2323152", 
+   "Q2150258", 
+   "Q1515408", 
+   "Q2638417", 
+   "Q1847338", 
+   "Q2514220", 
+   "Q1514432", 
+   "Q1086841", 
+   "Q981581", 
+   "Q3313526", 
+   "Q673772", 
+   "Q1375703", 
+   "Q1012971", 
+   "Q2016119", 
+   "Q2570502", 
+   "Q7991947", 
+   "Q2443480", 
+   "Q1959298", 
+   "Q630253", 
+   "Q3458617", 
+   "Q2453592", 
+   "Q1484530", 
+   "Q2891920", 
+   "Q2126669", 
+   "Q1024100", 
+   "Q3056724", 
+   "Q2025717", 
+   "Q3267916", 
+   "Q5091036", 
+   "Q931331", 
+   "Q1028196", 
+   "Q3130627", 
+   "Q949709", 
+   "Q1535079", 
+   "Q2093034", 
+   "Q1866955", 
+   "Q1943133", 
+   "Q2377992", 
+   "Q1013162", 
+   "Q1376559", 
+   "Q2271711", 
+   "Q2443708", 
+   "Q2461671", 
+   "Q19818341", 
+   "Q3294011", 
+   "Q3473949", 
+   "Q2230206", 
+   "Q2637332", 
+   "Q532459", 
+   "Q1845421", 
+   "Q1835270", 
+   "Q542794", 
+   "Q1012668", 
+   "Q2375832", 
+   "Q589958", 
+   "Q1183907", 
+   "Q423505", 
+   "Q3052790", 
+   "Q2361035", 
+   "Q1513007", 
+   "Q2925171", 
+   "Q3459533", 
+   "Q2375999", 
+   "Q2033190", 
+   "Q1560792", 
+   "Q1845155", 
+   "Q2425873", 
+   "Q969173", 
+   "Q1131479", 
+   "Q2877571", 
+   "Q1089064", 
+   "Q1374602", 
+   "Q755880", 
+   "Q868666", 
+   "Q2165777", 
+   "Q1368039", 
+   "Q2392574", 
+   "Q5430744", 
+   "Q756573", 
+   "Q1006586", 
+   "Q2650031", 
+   "Q2429053", 
+   "Q584451", 
+   "Q1850538", 
+   "Q628771", 
+   "Q2356400", 
+   "Q1787293", 
+   "Q2573670", 
+   "Q11703248", 
+   "Q2049822", 
+   "Q1374369", 
+   "Q513757", 
+   "Q880153", 
+   "Q2189258", 
+   "Q2745135", 
+   "Q384692", 
+   "Q1261675", 
+   "Q2691345", 
+   "Q1376781", 
+   "Q3460473", 
+   "Q2111166", 
+   "Q2796218", 
+   "Q2656942"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q31487", 
+   "Q204271", 
+   "Q4570781"
+  ], 
+  "utterance": "Krak\u00f3w, San Luis Potos\u00ed, Lincoln University", 
+  "active_set": [
+   "(c(Q4830453),P1408,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q42973"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P417"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which people are the patron saint of architect ?"
+ }, 
+ {
+  "all_entities": [
+   "Q43669", 
+   "Q192816", 
+   "Q44265"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q43669", 
+   "Q192816", 
+   "Q44265"
+  ], 
+  "utterance": "Thomas the Apostle, Saint Barbara, Benedict of Nursia", 
+  "active_set": [
+   "(Q42973,P417,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q151510"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P127"
+  ], 
+  "type_list": [
+   "Q2668072"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which collection belongs to University of Heidelberg ?"
+ }, 
+ {
+  "all_entities": [
+   "Q27095354"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q27095354"
+  ], 
+  "utterance": "Museum of Antiquities of the University of Heidelberg", 
+  "active_set": [
+   "(c(Q2668072),P127,Q151510)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q151510"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which person have University of Heidelberg as their work location ?"
+ }, 
+ {
+  "all_entities": [
+   "Q91103"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q91103"
+  ], 
+  "utterance": "Georg Arnold Heise", 
+  "active_set": [
+   "(c(Q502895),P937,Q151510)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q91103"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Where did the expiration of that person occur ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2843"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2843"
+  ], 
+  "utterance": "L\u00fcbeck", 
+  "active_set": [
+   "(Q91103,P20,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q2843"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P6"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who is the head of the government of that human settlement ?"
+ }, 
+ {
+  "all_entities": [
+   "Q824125"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q824125"
+  ], 
+  "utterance": "Bernd Saxe", 
+  "active_set": [
+   "(Q2843,P6,c(Q502895))"
+  ]
+ }
+]

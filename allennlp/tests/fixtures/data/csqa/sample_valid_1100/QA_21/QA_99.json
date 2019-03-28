@@ -1,0 +1,554 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q21981566"
+  ], 
+  "relations": [
+   "P681"
+  ], 
+  "type_list": [
+   "Q15989253"
+  ], 
+  "speaker": "USER", 
+  "utterance": "What is a component of Echinoderm microtubule-associated protein-like 1 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q79899"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q79899"
+  ], 
+  "utterance": "cytoplasm", 
+  "active_set": [
+   "(Q21981566,P681,c(Q15989253))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q79899"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q20011319"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which part of a plant is a component of that part ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22329458"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q22329458"
+  ], 
+  "utterance": "cytoplasmic region", 
+  "active_set": [
+   "(c(Q20011319),P361,Q79899)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q21981566"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "What is the nucleic acid sequence that is encoded by Echinoderm microtubule-associated protein-like 1 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q18263226"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q18263226"
+  ], 
+  "utterance": "Eml1", 
+  "active_set": [
+   "(c(Q863908),P688,Q21981566)"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q18263226", 
+   "Q21981566"
+  ], 
+  "relations": [
+   "P702"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does that nucleic acid sequence encode Echinoderm microtubule-associated protein-like 1 ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q21981566,P702,Q18263226)"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count over Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q15989253", 
+   "Q15989253", 
+   "Q234460"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 2, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P361"
+  ], 
+  "count_ques_sub_type": 6, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many parts are exactly 1 parts or texts a part of ?"
+ }, 
+ {
+  "all_entities": [
+   "Q24723035", 
+   "Q24726007", 
+   "Q24787755", 
+   "Q24769097", 
+   "Q24769768", 
+   "Q14349455", 
+   "Q24724468", 
+   "Q24777684", 
+   "Q24768657", 
+   "Q24772768", 
+   "Q24725115", 
+   "Q953477", 
+   "Q24726098", 
+   "Q24777809", 
+   "Q24726728", 
+   "Q24783471", 
+   "Q24776378", 
+   "Q24782984", 
+   "Q24780979", 
+   "Q24722662", 
+   "Q24722926", 
+   "Q24741035", 
+   "Q24784598", 
+   "Q24722249", 
+   "Q24741781", 
+   "Q185626", 
+   "Q24720819", 
+   "Q24722810", 
+   "Q24777701", 
+   "Q24727341", 
+   "Q24779079", 
+   "Q24745093", 
+   "Q24787537", 
+   "Q24777659", 
+   "Q24722217", 
+   "Q24723368", 
+   "Q24740660", 
+   "Q24787981", 
+   "Q24726223", 
+   "Q24774743", 
+   "Q24722599", 
+   "Q24769046", 
+   "Q24773859", 
+   "Q164386", 
+   "Q24781826", 
+   "Q24782320", 
+   "Q24727101", 
+   "Q24724970", 
+   "Q582062", 
+   "Q24723612", 
+   "Q24723616", 
+   "Q24725870", 
+   "Q24768401", 
+   "Q24767099", 
+   "Q24766708", 
+   "Q24780980", 
+   "Q24744682", 
+   "Q24772519", 
+   "Q24787493", 
+   "Q24780339", 
+   "Q24771968", 
+   "Q24722085", 
+   "Q22328948", 
+   "Q22328949", 
+   "Q24720602", 
+   "Q24778245", 
+   "Q24720122", 
+   "Q24785042", 
+   "Q24788425", 
+   "Q24772976", 
+   "Q24726395", 
+   "Q24724598", 
+   "Q22327470", 
+   "Q24783967", 
+   "Q24777512", 
+   "Q24776625", 
+   "Q24782563", 
+   "Q24768526", 
+   "Q24781930", 
+   "Q24726710", 
+   "Q187181", 
+   "Q24726800", 
+   "Q24784063", 
+   "Q24776263", 
+   "Q24773415", 
+   "Q24726427", 
+   "Q24721243", 
+   "Q24771920", 
+   "Q24722954", 
+   "Q24783670", 
+   "Q24725178", 
+   "Q24722767", 
+   "Q24741091", 
+   "Q24779769", 
+   "Q24779442", 
+   "Q745887", 
+   "Q24741153", 
+   "Q24774184", 
+   "Q24773928", 
+   "Q24724718", 
+   "Q24720430", 
+   "Q24769358", 
+   "Q24774248", 
+   "Q24779344", 
+   "Q40260", 
+   "Q24769195", 
+   "Q24724363", 
+   "Q24739906", 
+   "Q24770255", 
+   "Q24775107", 
+   "Q24739303", 
+   "Q24787003", 
+   "Q24727438", 
+   "Q24727430", 
+   "Q24722589", 
+   "Q24785664", 
+   "Q24777352", 
+   "Q24721120", 
+   "Q24777420", 
+   "Q24745975", 
+   "Q24786519", 
+   "Q301897", 
+   "Q24726237", 
+   "Q24725862", 
+   "Q24739460", 
+   "Q24783101", 
+   "Q24723982", 
+   "Q24719866", 
+   "Q24719863", 
+   "Q24739884", 
+   "Q24782775", 
+   "Q24725815", 
+   "Q24745121", 
+   "Q24779309", 
+   "Q24779095", 
+   "Q24721343", 
+   "Q24774915", 
+   "Q24740633", 
+   "Q24727005", 
+   "Q24774490", 
+   "Q24769556", 
+   "Q24787355", 
+   "Q24727007", 
+   "Q24723934", 
+   "Q24779579", 
+   "Q24772792", 
+   "Q24720964", 
+   "Q24779275", 
+   "Q24779372", 
+   "Q24782007", 
+   "Q22329250", 
+   "Q24768049", 
+   "Q24727460", 
+   "Q24768696", 
+   "Q24773423", 
+   "Q24738630", 
+   "Q24725668", 
+   "Q24726382", 
+   "Q24720365", 
+   "Q24722600", 
+   "Q24742087", 
+   "Q24720564", 
+   "Q9404", 
+   "Q24776406", 
+   "Q24738705", 
+   "Q24780210", 
+   "Q24740064", 
+   "Q24779023", 
+   "Q24771869", 
+   "Q24720844", 
+   "Q24739380", 
+   "Q24740429", 
+   "Q24773612", 
+   "Q24787303", 
+   "Q24778895", 
+   "Q24771535", 
+   "Q24768163", 
+   "Q24741239", 
+   "Q24724896", 
+   "Q24785919", 
+   "Q24772056", 
+   "Q24781724", 
+   "Q24723468", 
+   "Q24787108", 
+   "Q24788227", 
+   "Q24768420", 
+   "Q24788345", 
+   "Q24781866", 
+   "Q24778163", 
+   "Q24778161", 
+   "Q24770558", 
+   "Q24771420", 
+   "Q24772741", 
+   "Q24721827", 
+   "Q24722431", 
+   "Q24768496", 
+   "Q24778986", 
+   "Q24724181", 
+   "Q24741049", 
+   "Q24775700", 
+   "Q24776506", 
+   "Q24780542", 
+   "Q24783202", 
+   "Q24770876", 
+   "Q24721591", 
+   "Q24776149", 
+   "Q24721451", 
+   "Q24724170", 
+   "Q24769123", 
+   "Q24785714", 
+   "Q24785712", 
+   "Q24721355", 
+   "Q426745", 
+   "Q24775178", 
+   "Q24787360", 
+   "Q24768800", 
+   "Q24783708", 
+   "Q24724391", 
+   "Q24726175", 
+   "Q45948", 
+   "Q24785211", 
+   "Q24773685", 
+   "Q24771596", 
+   "Q24779360", 
+   "Q24724552", 
+   "Q24772480", 
+   "Q14645596", 
+   "Q24720885", 
+   "Q24723173", 
+   "Q24740599", 
+   "Q24726771", 
+   "Q24786013", 
+   "Q24740388", 
+   "Q24741343", 
+   "Q24775878", 
+   "Q24719936", 
+   "Q24768611", 
+   "Q24771027", 
+   "Q24776024", 
+   "Q24784987", 
+   "Q39572", 
+   "Q24784492", 
+   "Q24720429", 
+   "Q24787244", 
+   "Q24774897", 
+   "Q24776308", 
+   "Q24719686", 
+   "Q24779633", 
+   "Q24788028", 
+   "Q24788698", 
+   "Q24788024", 
+   "Q24778494", 
+   "Q24770475", 
+   "Q24787022", 
+   "Q24774737", 
+   "Q24783751"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "256", 
+  "active_set": [
+   "(c(Q15989253)|c(Q234460),P361,c(Q15989253))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q21981465"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Apoptotic protease-activating factor 1?"
+ }, 
+ {
+  "all_entities": [
+   "Q2061363"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2061363"
+  ], 
+  "utterance": "apoptosome", 
+  "active_set": [
+   "(Q21981465,P681,c(Q181394))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q18263226"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P684"
+  ], 
+  "type_list": [
+   "Q863908"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which nucleic acid sequence is an orthologous gene for Eml1 ?"
+ }, 
+ {
+  "all_entities": [
+   "Q17916684"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q17916684"
+  ], 
+  "utterance": "EML1", 
+  "active_set": [
+   "(Q18263226,P684,c(Q863908))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|2 entities, one direct and one indirect, subject is indirect", 
+  "entities_in_utterance": [
+   "Q17916684", 
+   "Q21138662"
+  ], 
+  "relations": [
+   "P688"
+  ], 
+  "type_list": [
+   "Q181394"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 2, 
+  "utterance": "Is Echinoderm microtubule-associated protein-like 1 encoded by that nucleic acid sequence ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q17916684,P688,Q21138662)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q17916684"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P703"
+  ], 
+  "type_list": [
+   "Q16521"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which taxon is that nucleic acid sequence found in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q15978631"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q15978631"
+  ], 
+  "utterance": "Homo sapiens", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Min/Max|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P566"
+  ], 
+  "count_ques_sub_type": 2, 
+  "type_list": [
+   "Q82799", 
+   "Q16521"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which names are a basionyms of max number of taxons ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q11079289", 
+   "Q17244388"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q11079289", 
+   "Q17244388"
+  ], 
+  "utterance": "Salsola brachiata, Atriplex portulacoides", 
+  "active_set": [
+   "(c(Q16521),P566,Q24006173)"
+  ]
+ }
+]

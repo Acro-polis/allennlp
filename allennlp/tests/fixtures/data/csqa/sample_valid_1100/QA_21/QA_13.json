@@ -1,0 +1,535 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q16038573"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sex does Alcide Leroux belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q16038573,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Mult. entity type", 
+  "entities_in_utterance": [
+   "Q6581097", 
+   "Q6581072"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many people are a male and female ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q12966459", 
+   "Q24500675", 
+   "Q17600942", 
+   "Q3260705", 
+   "Q5874237", 
+   "Q21391750", 
+   "Q17225819", 
+   "Q21258362", 
+   "Q16941580", 
+   "Q16733519", 
+   "Q11622868", 
+   "Q6702791", 
+   "Q10263785", 
+   "Q6571041", 
+   "Q16165783", 
+   "Q16732132", 
+   "Q24264223", 
+   "Q20401379", 
+   "Q20119921", 
+   "Q2312612", 
+   "Q16164967", 
+   "Q19357604", 
+   "Q6555624", 
+   "Q12586819", 
+   "Q23698979", 
+   "Q17628096", 
+   "Q22342662", 
+   "Q525066", 
+   "Q9544977", 
+   "Q503007", 
+   "Q22280111", 
+   "Q22102078", 
+   "Q5482749", 
+   "Q21392153", 
+   "Q201204", 
+   "Q10281088", 
+   "Q442804", 
+   "Q16767898", 
+   "Q22570074", 
+   "Q21601127", 
+   "Q12403076", 
+   "Q14432239", 
+   "Q12734885", 
+   "Q734662", 
+   "Q22808784", 
+   "Q24034956", 
+   "Q19957341", 
+   "Q6258596", 
+   "Q22236117", 
+   "Q11379959", 
+   "Q24807469", 
+   "Q21857402", 
+   "Q5972494", 
+   "Q5569499", 
+   "Q11449790", 
+   "Q2379965", 
+   "Q3575012", 
+   "Q3764762", 
+   "Q7377573", 
+   "Q20068820", 
+   "Q6031433", 
+   "Q21794041", 
+   "Q6438624", 
+   "Q25768293", 
+   "Q19448005", 
+   "Q21503040", 
+   "Q17148031", 
+   "Q11604340", 
+   "Q17158335", 
+   "Q11815936", 
+   "Q17364527", 
+   "Q22280435", 
+   "Q15934058", 
+   "Q18559837", 
+   "Q11201210", 
+   "Q25748324", 
+   "Q459844", 
+   "Q22001922", 
+   "Q3291942", 
+   "Q17621841", 
+   "Q20980163", 
+   "Q23416861", 
+   "Q11531266", 
+   "Q4255661", 
+   "Q22675675", 
+   "Q528434", 
+   "Q237726", 
+   "Q74813", 
+   "Q2668396", 
+   "Q298423", 
+   "Q22073991", 
+   "Q503575", 
+   "Q453573", 
+   "Q22095108", 
+   "Q242700", 
+   "Q18049905", 
+   "Q26921704", 
+   "Q2882250", 
+   "Q18346977", 
+   "Q2939204", 
+   "Q3809749", 
+   "Q12685049", 
+   "Q21033490", 
+   "Q5856706", 
+   "Q6003690", 
+   "Q4979792", 
+   "Q12613187", 
+   "Q7849225", 
+   "Q16582167", 
+   "Q19543099", 
+   "Q16865281", 
+   "Q15807938", 
+   "Q12872947", 
+   "Q15433626"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "114", 
+  "active_set": [
+   "(c(Q502895),P21,Q6581097)", 
+   "(c(Q502895),P21,Q6581072)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "sec_ques_sub_type": 1, 
+  "utterance": "Which person has career as male ?"
+ }, 
+ {
+  "all_entities": [
+   "Q24877298"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q24877298"
+  ], 
+  "utterance": "Anton\u00edn Straka", 
+  "active_set": []
+ }, 
+ {
+  "ques_type_id": 5, 
+  "description": "Verification|3 entities, 2 direct, 2(direct) are query entities, subject is indirect", 
+  "entities_in_utterance": [
+   "Q24877298", 
+   "Q888865", 
+   "Q11756741"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "question-type": "Verification (Boolean) (All)", 
+  "bool_ques_type": 5, 
+  "utterance": "Was that person born at Bobrov\u00e1 and Ligota Ksi\u0105\u017c\u0119ca, Silesian Voivodeship ?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES and NO respectively", 
+  "active_set": [
+   "(Q24877298,P19,Q888865)", 
+   "(Q24877298,P19,Q11756741)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q644440"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "How many musical instruments can approximately the same number of people perform with as Lap steel guitar ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "60", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (Count) (All)", 
+  "description": "Comparative|Count over More/Less|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q424017"
+  ], 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 6, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And also tell me about acoustic bass guitar?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q80019", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q8371", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "60", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16038573"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P20"
+  ], 
+  "type_list": [
+   "Q56061"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the place of death of Alcide Leroux ?"
+ }, 
+ {
+  "all_entities": [
+   "Q12191"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q12191"
+  ], 
+  "utterance": "Nantes", 
+  "active_set": [
+   "(Q16038573,P20,c(Q56061))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16038573"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P27"
+  ], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which administrative territory is the country of citizenship of Alcide Leroux ?"
+ }, 
+ {
+  "all_entities": [
+   "Q142"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q142"
+  ], 
+  "utterance": "France", 
+  "active_set": [
+   "(Q16038573,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q16038573"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q101352"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which family name is associated with Alcide Leroux ?"
+ }, 
+ {
+  "all_entities": [
+   "Q20997176"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q20997176"
+  ], 
+  "utterance": "Leroux", 
+  "active_set": [
+   "(Q16038573,P734,c(Q101352))"
+  ]
+ }, 
+ {
+  "ques_type_id": 5, 
+  "question-type": "Verification (Boolean) (All)", 
+  "entities_in_utterance": [
+   "Q20997176", 
+   "Q323589"
+  ], 
+  "relations": [
+   "P734"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "bool_ques_type": 3, 
+  "utterance": "Does Xavier Leroux have that one as their family name ?", 
+  "description": "Verification|2 entities, one direct and one indirect, object is indirect"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "YES", 
+  "active_set": [
+   "(Q323589,P734,Q20997176)"
+  ]
+ }
+]

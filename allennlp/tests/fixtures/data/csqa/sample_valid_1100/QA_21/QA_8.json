@@ -1,0 +1,491 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q7581206"
+  ], 
+  "relations": [
+   "P162"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which person is the produced of Springtime in the Rockies ?"
+ }, 
+ {
+  "all_entities": [
+   "Q782154"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q782154"
+  ], 
+  "utterance": "William LeBaron", 
+  "active_set": [
+   "(Q7581206,P162,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q7581206"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P364"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which language was used originally for the creation of Springtime in the Rockies ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1860"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1860"
+  ], 
+  "utterance": "English", 
+  "active_set": [
+   "(Q7581206,P364,c(Q34770))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type|Indirect", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P282"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q8192", 
+   "Q34770"
+  ], 
+  "count_ques_type": 2, 
+  "utterance": "Which languages use more number of writing systems as the writing system than that language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q182695", 
+   "Q1669994"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q182695", 
+   "Q1669994"
+  ], 
+  "utterance": "Late Old Japanese, Minoan language", 
+  "active_set": [
+   "(c(Q34770),P282,c(Q8192))"
+  ]
+ }, 
+ {
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Mult. entity type", 
+  "type_list": [
+   "Q34770", 
+   "Q2342494", 
+   "Q21114848"
+  ], 
+  "entities_in_utterance": [], 
+  "is_incomplete": 0, 
+  "set_op": 1, 
+  "ques_type_id": 8, 
+  "relations": [
+   "P364"
+  ], 
+  "count_ques_sub_type": 4, 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "Which languages are considered to be the original language of creation of around 3435 collectables and magazine genres ?"
+ }, 
+ {
+  "all_entities": [
+   "Q132659", 
+   "Q13414913", 
+   "Q13211", 
+   "Q35499", 
+   "Q35668", 
+   "Q8785", 
+   "Q1072111", 
+   "Q34909", 
+   "Q36765", 
+   "Q33251", 
+   "Q18130932", 
+   "Q35726", 
+   "Q36206", 
+   "Q1321", 
+   "Q33976", 
+   "Q397", 
+   "Q10862919", 
+   "Q9056", 
+   "Q8752", 
+   "Q37041", 
+   "Q652", 
+   "Q35505", 
+   "Q25167", 
+   "Q56530", 
+   "Q25164", 
+   "Q36790", 
+   "Q29977", 
+   "Q182695", 
+   "Q3110592", 
+   "Q837985", 
+   "Q783605"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q56530", 
+   "Q182695", 
+   "Q35499"
+  ], 
+  "utterance": "Wappo language, Late Old Japanese, Old Church Slavonic", 
+  "active_set": [
+   "(c(Q2342494)|c(Q21114848),P364,c(Q34770))"
+  ]
+ }, 
+ {
+  "set_op": 1, 
+  "ques_type_id": 3, 
+  "question-type": "Clarification", 
+  "description": "Quantitative|Count|Logical operators|Indirect", 
+  "entities_in_utterance": [], 
+  "relations": [
+   "P364"
+  ], 
+  "count_ques_sub_type": 8, 
+  "type_list": [
+   "Q2342494", 
+   "Q571"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "How many collectables and books were originally created in that language language ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "description": "Quantitative|Count|Mult. entity type|Clarification", 
+  "entities_in_utterance": [
+   "Q35499"
+  ], 
+  "active_set": [], 
+  "relations": [], 
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "utterance": "Did you mean Old Church Slavonic ?"
+ }, 
+ {
+  "ques_type_id": 8, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "count_ques_sub_type": 8, 
+  "speaker": "USER", 
+  "count_ques_type": 2, 
+  "utterance": "Yes", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q1133281", 
+   "Q22953730", 
+   "Q1968471"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1 collectables and 2 books", 
+  "active_set": [
+   "(c(Q2342494),P364,Q35499)", 
+   "(c(Q571),P364,Q35499)", 
+   "(c(Q2342494),P364,Q56530)", 
+   "(c(Q571),P364,Q56530)", 
+   "(c(Q2342494),P364,Q182695)", 
+   "(c(Q571),P364,Q182695)", 
+   "(c(Q2342494),P364,Q35499)", 
+   "(c(Q571),P364,Q35499)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q35499"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P144"
+  ], 
+  "type_list": [
+   "Q5962346"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which classification scheme is based on Old Church Slavonic ?"
+ }, 
+ {
+  "all_entities": [
+   "Q145852"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q145852"
+  ], 
+  "utterance": "West Slavic languages", 
+  "active_set": [
+   "(c(Q5962346),P144,Q35499)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q145852"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P361"
+  ], 
+  "type_list": [
+   "Q34770"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which language is a part of that classification scheme ?"
+ }, 
+ {
+  "all_entities": [
+   "Q9056"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q9056"
+  ], 
+  "utterance": "Czech", 
+  "active_set": [
+   "(c(Q34770),P361,Q145852)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q9056"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P101"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which people work in the domain of that language ?"
+ }, 
+ {
+  "all_entities": [
+   "Q21883986", 
+   "Q12042685", 
+   "Q259723", 
+   "Q12037374"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q21883986", 
+   "Q259723", 
+   "Q12037374"
+  ], 
+  "utterance": "Josef Forbelsk\u00fd, Vojt\u011bch Mart\u00ednek, Milena Fucimanov\u00e1", 
+  "active_set": [
+   "(c(Q502895),P101,Q9056)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type", 
+  "entities_in_utterance": [
+   "Q259723"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "How many administrative territories are Vojt\u011bch Mart\u00ednek an inhabitant of ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q213"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q259723,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Quantitative|Count|Single entity type|Incomplete", 
+  "entities_in_utterance": [
+   "Q11719112"
+  ], 
+  "relations": [
+   "P27"
+  ], 
+  "count_ques_sub_type": 1, 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "count_ques_type": 1, 
+  "utterance": "And what about Jan Stryje\u0144ski?", 
+  "is_incomplete": 1
+ }, 
+ {
+  "all_entities": [
+   "Q36"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q11719112,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Quantitative Reasoning (Count) (All)", 
+  "description": "Incomplete count-based ques", 
+  "entities_in_utterance": [
+   "Q24089272"
+  ], 
+  "inc_ques_type": 3, 
+  "relations": [], 
+  "type_list": [
+   "Q15617994"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And what about Costel Moraru?"
+ }, 
+ {
+  "all_entities": [], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [], 
+  "utterance": "1", 
+  "active_set": [
+   "(Q24089272,P27,c(Q15617994))"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Quantitative Reasoning (All)", 
+  "description": "Quantitative|Atleast/ Atmost/ Approx. the same/Equal|Single entity type", 
+  "entities_in_utterance": [], 
+  "speaker": "USER", 
+  "relations": [
+   "P1303"
+  ], 
+  "count_ques_sub_type": 3, 
+  "type_list": [
+   "Q34379", 
+   "Q502895"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which musical instruments do atmost 399 people know to play ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q80284", 
+   "Q201129", 
+   "Q424017", 
+   "Q890073", 
+   "Q1178361", 
+   "Q2563510", 
+   "Q604538", 
+   "Q2660670", 
+   "Q39777", 
+   "Q3574843", 
+   "Q678090", 
+   "Q81982", 
+   "Q182718", 
+   "Q490054", 
+   "Q873588", 
+   "Q593995", 
+   "Q1327500", 
+   "Q206987", 
+   "Q1879664", 
+   "Q189737", 
+   "Q1759986", 
+   "Q1798603", 
+   "Q1099153", 
+   "Q120585", 
+   "Q713298", 
+   "Q1024685", 
+   "Q213461", 
+   "Q3382191", 
+   "Q816793", 
+   "Q862501", 
+   "Q213100", 
+   "Q244976", 
+   "Q537750", 
+   "Q626035", 
+   "Q1179017", 
+   "Q742180", 
+   "Q320341", 
+   "Q1300012", 
+   "Q748455", 
+   "Q669370", 
+   "Q290951", 
+   "Q220971", 
+   "Q178933", 
+   "Q16875637", 
+   "Q790468", 
+   "Q1129422", 
+   "Q379248", 
+   "Q726306", 
+   "Q173453", 
+   "Q483994", 
+   "Q744831", 
+   "Q963150", 
+   "Q16155191", 
+   "Q644440", 
+   "Q1343007", 
+   "Q11404", 
+   "Q497224", 
+   "Q3623688"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1178361", 
+   "Q81982", 
+   "Q1759986"
+  ], 
+  "utterance": "davul, harpsichord, Wurlitzer electric piano", 
+  "active_set": [
+   "(c(Q502895),P1303,c(Q34379))"
+  ]
+ }
+]

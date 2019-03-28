@@ -1,0 +1,105 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2257188"
+  ], 
+  "relations": [
+   "P462"
+  ], 
+  "type_list": [
+   "Q1075"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which color is The Pumpkin Eater associated with ?"
+ }, 
+ {
+  "all_entities": [
+   "Q2254548"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q2254548"
+  ], 
+  "utterance": "black-and-white film", 
+  "active_set": [
+   "(Q2257188,P462,c(Q1075))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q2257188"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P161"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which people starred in The Pumpkin Eater ?"
+ }, 
+ {
+  "all_entities": [
+   "Q294454", 
+   "Q172653", 
+   "Q1351583", 
+   "Q209186", 
+   "Q166422", 
+   "Q2830615", 
+   "Q527735", 
+   "Q183532"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q183532", 
+   "Q172653", 
+   "Q209186"
+  ], 
+  "utterance": "Anne Bancroft, Maggie Smith, James Mason", 
+  "active_set": [
+   "(Q2257188,P161,c(Q502895))"
+  ]
+ }, 
+ {
+  "ques_type_id": 6, 
+  "question-type": "Simple Question (Ellipsis)", 
+  "description": "only subject is changed, parent and predicate remains same", 
+  "entities_in_utterance": [
+   "Q4672720"
+  ], 
+  "inc_ques_type": 2, 
+  "relations": [], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "utterance": "And also tell me about According to Spencer?"
+ }, 
+ {
+  "all_entities": [
+   "Q461238", 
+   "Q281964", 
+   "Q356086", 
+   "Q231660", 
+   "Q442721"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q442721", 
+   "Q461238", 
+   "Q356086"
+  ], 
+  "utterance": "Kendall Schmidt, Jesse Bradford, David Krumholtz", 
+  "active_set": [
+   "(Q4672720,P161,c(Q502895))"
+  ]
+ }
+]

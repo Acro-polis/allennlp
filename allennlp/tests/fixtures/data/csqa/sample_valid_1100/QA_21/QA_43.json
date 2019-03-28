@@ -1,0 +1,62 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q1305017"
+  ], 
+  "relations": [
+   "P19"
+  ], 
+  "type_list": [
+   "Q486972"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which human settlement was Erwin Gniza born in ?"
+ }, 
+ {
+  "all_entities": [
+   "Q8831"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8831"
+  ], 
+  "utterance": "Weinb\u00f6hla", 
+  "active_set": [
+   "(Q1305017,P19,c(Q486972))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q8831"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P937"
+  ], 
+  "type_list": [
+   "Q502895"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Who has that human settlement as their work location ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1144082"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q1144082"
+  ], 
+  "utterance": "Cuno Meyer", 
+  "active_set": [
+   "(c(Q502895),P937,Q8831)"
+  ]
+ }
+]

@@ -1,5 +1,5 @@
 import logging
-from typing import Any, List, Dict
+from typing import Any, List, Dict, Union, Set
 
 import torch
 from collections import OrderedDict
@@ -11,7 +11,7 @@ from allennlp.models.model import Model
 from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser
 from allennlp.modules import Attention, TextFieldEmbedder, Seq2SeqEncoder
 from allennlp.nn import Activation
-from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
+from allennlp.semparse.domain_languages.csqa_language import CSQALanguage, Entity
 from allennlp.state_machines import BeamSearch
 from allennlp.state_machines.states import GrammarBasedState
 from allennlp.state_machines.trainers import MaximumMarginalLikelihood
@@ -101,14 +101,15 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
+
         batch_size = question['tokens'].size()[0]
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float)
                               for i in range(batch_size)]
 
-        result_entities: List[List[str]] = self._get_label_strings(
-            result_entities) if result_entities is not None else None
+        # result_entities: List[List[str]] = self._get_label_strings(
+        #     result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_state = [self._create_grammar_state(world[i], actions[i]) for i in
@@ -139,7 +140,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                                    (target_action_sequences, target_mask))
 
         if not self.training:
-            print(question_type)
+
             initial_state.debug_info = [[] for _ in range(batch_size)]
             best_final_states = self._decoder_beam_search.search(self._max_decoding_steps,
                                                                  initial_state,
@@ -160,7 +161,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 self._update_metrics(action_strings=batch_action_strings,
                                      worlds=world,
                                      label_strings=result_entities,
-                                     question_types=question_type)
+                                     question_types=question_type,
+                                     expected_result=expected_result)
             else:
                 if metadata is not None:
                     outputs["sentence_tokens"] = [x["sentence_tokens"] for x in metadata]
@@ -180,15 +182,18 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                         action_strings: List[List[List[str]]],
                         worlds: List[CSQALanguage],
                         label_strings: List[List[str]],
-                        question_types: List[str]) -> None:
+                        question_types: List[str],
+                        expected_result: List[Union[bool, int, Set[Entity]]]) -> None:
         batch_size = len(worlds)
 
         for i in range(batch_size):
             instance_action_strings = action_strings[i]
             # if instance_action_strings:
             instance_label_strings = label_strings[i]
+            # print("label entities", instance_label_strings)
             instance_world = worlds[i]
             question_type = question_types[i]
+            instance_expected_result = expected_result[i]
             # Taking only the best sequence.
             if question_type in self.retrieval_question_types:
                 precision_metric = self._metrics[question_type + " precision"]
@@ -208,7 +213,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],
                                                                        instance_label_strings,
                                                                        instance_world,
-                                                                       question_type)
+                                                                       question_type,
+                                                                       instance_expected_result)
                 else:
                     sequence_is_correct: bool = False
                 metric(1 if sequence_is_correct else 0)

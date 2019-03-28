@@ -1,0 +1,551 @@
+[
+ {
+  "ques_type_id": 1, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question", 
+  "entities_in_utterance": [
+   "Q2394076"
+  ], 
+  "relations": [
+   "P21"
+  ], 
+  "type_list": [
+   "Q290"
+  ], 
+  "speaker": "USER", 
+  "utterance": "Which sex does Tarek Leitner belong to ?"
+ }, 
+ {
+  "all_entities": [
+   "Q6581097"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "utterance": "male", 
+  "active_set": [
+   "(Q2394076,P21,c(Q290))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Coreferenced)", 
+  "description": "Simple Question|Single Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q6581097"
+  ], 
+  "sec_ques_sub_type": 2, 
+  "relations": [
+   "P138"
+  ], 
+  "type_list": [
+   "Q79529"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which chemical substance is named after that sex ?"
+ }, 
+ {
+  "all_entities": [
+   "Q19833612"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q19833612"
+  ], 
+  "utterance": "fabri\u00e8site", 
+  "active_set": [
+   "(c(Q79529),P138,Q6581097)"
+  ]
+ }, 
+ {
+  "ques_type_id": 7, 
+  "question-type": "Comparative Reasoning (All)", 
+  "description": "Comparative|More/Less|Single entity type", 
+  "entities_in_utterance": [
+   "Q1775444"
+  ], 
+  "speaker": "USER", 
+  "relations": [
+   "P138"
+  ], 
+  "count_ques_sub_type": 4, 
+  "type_list": [
+   "Q15619164", 
+   "Q79529"
+  ], 
+  "count_ques_type": 1, 
+  "utterance": "Which abstract beings are less number of chemical substances named after than Phosphorus ?", 
+  "is_incomplete": 0
+ }, 
+ {
+  "all_entities": [
+   "Q179209", 
+   "Q922493", 
+   "Q3815215", 
+   "Q373799", 
+   "Q233674", 
+   "Q417407", 
+   "Q1064059", 
+   "Q2497579", 
+   "Q2305090", 
+   "Q2194001", 
+   "Q917687", 
+   "Q1790773", 
+   "Q302", 
+   "Q919407", 
+   "Q206561", 
+   "Q1059919", 
+   "Q939549", 
+   "Q305110", 
+   "Q4692047", 
+   "Q2269799", 
+   "Q11378", 
+   "Q5405822", 
+   "Q900649", 
+   "Q213771", 
+   "Q586362", 
+   "Q1417853", 
+   "Q1987269", 
+   "Q978952", 
+   "Q1102307", 
+   "Q724896", 
+   "Q581656", 
+   "Q3057482", 
+   "Q1976939", 
+   "Q318682", 
+   "Q1423283", 
+   "Q1133063", 
+   "Q11815621", 
+   "Q487290", 
+   "Q2668352", 
+   "Q632908", 
+   "Q591914", 
+   "Q604047", 
+   "Q5011", 
+   "Q145664", 
+   "Q3555081", 
+   "Q188236", 
+   "Q83975", 
+   "Q1252904", 
+   "Q2587090", 
+   "Q12292447", 
+   "Q463956", 
+   "Q201261", 
+   "Q42891", 
+   "Q851426", 
+   "Q2142", 
+   "Q4694880", 
+   "Q1944143", 
+   "Q336237", 
+   "Q14515330", 
+   "Q1796078", 
+   "Q945817", 
+   "Q1150", 
+   "Q1514359", 
+   "Q587825", 
+   "Q21155424", 
+   "Q4654", 
+   "Q20743776", 
+   "Q988925", 
+   "Q1129515", 
+   "Q6502703", 
+   "Q746321", 
+   "Q2475517", 
+   "Q1162356", 
+   "Q5951423", 
+   "Q756797", 
+   "Q1019353", 
+   "Q16341", 
+   "Q907685", 
+   "Q942906", 
+   "Q133343", 
+   "Q1257834", 
+   "Q1442062", 
+   "Q1226010", 
+   "Q47553", 
+   "Q658028", 
+   "Q3879383", 
+   "Q178776", 
+   "Q170569", 
+   "Q1423458", 
+   "Q3348590", 
+   "Q126916", 
+   "Q11298741", 
+   "Q190123", 
+   "Q22983", 
+   "Q164846", 
+   "Q4649", 
+   "Q46491", 
+   "Q671534", 
+   "Q1579", 
+   "Q47652", 
+   "Q1028642", 
+   "Q253026", 
+   "Q188676", 
+   "Q3272719", 
+   "Q783947", 
+   "Q12808082", 
+   "Q16664163", 
+   "Q650625", 
+   "Q769739", 
+   "Q15275883", 
+   "Q131795", 
+   "Q250060", 
+   "Q172549", 
+   "Q2744250", 
+   "Q850227", 
+   "Q1251472", 
+   "Q207234", 
+   "Q533120", 
+   "Q797676", 
+   "Q6497135", 
+   "Q145983", 
+   "Q165170", 
+   "Q26904534", 
+   "Q5443792", 
+   "Q6567", 
+   "Q178831", 
+   "Q170485", 
+   "Q2360409", 
+   "Q17745142", 
+   "Q831462", 
+   "Q2914822", 
+   "Q178710", 
+   "Q112", 
+   "Q8964731", 
+   "Q146321", 
+   "Q2603291", 
+   "Q5169921", 
+   "Q474474", 
+   "Q9351", 
+   "Q1579572", 
+   "Q6674", 
+   "Q479033", 
+   "Q185498", 
+   "Q860314", 
+   "Q26904362", 
+   "Q23016450", 
+   "Q468912", 
+   "Q132582", 
+   "Q134270", 
+   "Q1144150", 
+   "Q2313920", 
+   "Q2736074", 
+   "Q2266513", 
+   "Q125046", 
+   "Q1145491", 
+   "Q26904409", 
+   "Q179818", 
+   "Q3266236", 
+   "Q11380", 
+   "Q18019772", 
+   "Q21190990", 
+   "Q188618", 
+   "Q14619419", 
+   "Q1964809", 
+   "Q167685", 
+   "Q8704", 
+   "Q644505", 
+   "Q833933", 
+   "Q855310", 
+   "Q751417", 
+   "Q12389", 
+   "Q26904354", 
+   "Q211611", 
+   "Q7608448", 
+   "Q334447", 
+   "Q762731", 
+   "Q1155364", 
+   "Q7371824", 
+   "Q843382", 
+   "Q3092970", 
+   "Q54875", 
+   "Q2503697", 
+   "Q3296706", 
+   "Q781257", 
+   "Q132543", 
+   "Q2737253", 
+   "Q214554", 
+   "Q213440", 
+   "Q2738049", 
+   "Q1425549", 
+   "Q1088891", 
+   "Q3319880", 
+   "Q1088417", 
+   "Q189726", 
+   "Q1078956", 
+   "Q289355", 
+   "Q935079", 
+   "Q1144144", 
+   "Q1939137", 
+   "Q392239", 
+   "Q2248952", 
+   "Q760904", 
+   "Q84122", 
+   "Q765880"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q8704", 
+   "Q302", 
+   "Q373799"
+  ], 
+  "utterance": "Walt Disney, Jesus Christ, Giovanni Antonio Amedeo Plana", 
+  "active_set": [
+   "(c(Q79529),P138,c(Q15619164))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Mult. Entity|Indirect", 
+  "entities_in_utterance": [
+   "Q8704", 
+   "Q302", 
+   "Q373799"
+  ], 
+  "sec_ques_sub_type": 4, 
+  "relations": [
+   "P106"
+  ], 
+  "type_list": [
+   "Q12737077"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "What do Walt Disney, Jesus Christ and Giovanni Antonio Amedeo Plana do for a living ?"
+ }, 
+ {
+  "all_entities": [
+   "Q266569", 
+   "Q947873", 
+   "Q33999", 
+   "Q36180", 
+   "Q2405480", 
+   "Q154549", 
+   "Q432386", 
+   "Q170790", 
+   "Q11063", 
+   "Q1622272"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q947873", 
+   "Q1622272", 
+   "Q266569"
+  ], 
+  "utterance": "television presenter, university teacher, animator", 
+  "active_set": [
+   "(Q8704,P106,c(Q12737077))", 
+   "(Q302,P106,c(Q12737077))", 
+   "(Q373799,P106,c(Q12737077))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q947873"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P425"
+  ], 
+  "type_list": [
+   "Q58778"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Who has television presenter as the associated field of occupation ?"
+ }, 
+ {
+  "all_entities": [
+   "Q289"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q289"
+  ], 
+  "utterance": "television", 
+  "active_set": [
+   "(Q947873,P425,c(Q58778))"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q8704"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P162"
+  ], 
+  "type_list": [
+   "Q838948"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which works of art created Walt Disney ?"
+ }, 
+ {
+  "all_entities": [
+   "Q1144768", 
+   "Q1367163", 
+   "Q2990286", 
+   "Q175607", 
+   "Q1617162", 
+   "Q3266299", 
+   "Q3227855", 
+   "Q3387812", 
+   "Q641310", 
+   "Q1304590", 
+   "Q3548871", 
+   "Q3225894", 
+   "Q1093219", 
+   "Q1337075", 
+   "Q2207300", 
+   "Q1291269", 
+   "Q3569872", 
+   "Q1522322", 
+   "Q2090255", 
+   "Q3019195", 
+   "Q300579", 
+   "Q1851869", 
+   "Q3411014", 
+   "Q2073030", 
+   "Q5084408", 
+   "Q1345920", 
+   "Q1102396", 
+   "Q2877834", 
+   "Q383854", 
+   "Q3204131", 
+   "Q209170", 
+   "Q1217234", 
+   "Q3224298", 
+   "Q15811508", 
+   "Q221947", 
+   "Q2062523", 
+   "Q2477507", 
+   "Q3234125", 
+   "Q2471434", 
+   "Q3425605", 
+   "Q6266245", 
+   "Q2375231", 
+   "Q1251157", 
+   "Q222732", 
+   "Q1403208", 
+   "Q2248985", 
+   "Q665016", 
+   "Q587532", 
+   "Q3036174", 
+   "Q1762249", 
+   "Q7712993", 
+   "Q663034", 
+   "Q1608728", 
+   "Q2963005", 
+   "Q64110", 
+   "Q7740353", 
+   "Q2406141", 
+   "Q961039", 
+   "Q1196177", 
+   "Q3149709", 
+   "Q1061109", 
+   "Q1297233", 
+   "Q3311826", 
+   "Q3182980", 
+   "Q1168073", 
+   "Q1195822", 
+   "Q16993556", 
+   "Q3505669", 
+   "Q206437", 
+   "Q3143272", 
+   "Q1196390"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q209170", 
+   "Q1196177", 
+   "Q175607"
+  ], 
+  "utterance": "Mary Poppins, Son of Flubber, The Reluctant Dragon", 
+  "active_set": [
+   "(c(Q838948),P162,Q8704)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q209170"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1441"
+  ], 
+  "type_list": [
+   "Q6619679"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 2, 
+  "utterance": "Which fictional humanoids are from the works of Mary Poppins ?"
+ }, 
+ {
+  "all_entities": [
+   "Q24273017", 
+   "Q24273019"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q24273017", 
+   "Q24273019"
+  ], 
+  "utterance": "Jane Banks, Michael Banks", 
+  "active_set": [
+   "(c(Q6619679),P1441,Q209170)"
+  ]
+ }, 
+ {
+  "ques_type_id": 2, 
+  "question-type": "Simple Question (Direct)", 
+  "description": "Simple Question|Single Entity", 
+  "entities_in_utterance": [
+   "Q8704"
+  ], 
+  "sec_ques_sub_type": 1, 
+  "relations": [
+   "P1411"
+  ], 
+  "type_list": [
+   "Q4220917"
+  ], 
+  "speaker": "USER", 
+  "sec_ques_type": 1, 
+  "utterance": "Which film awards did Walt Disney receive ?"
+ }, 
+ {
+  "all_entities": [
+   "Q22335263", 
+   "Q1425151", 
+   "Q917808", 
+   "Q102427", 
+   "Q111332", 
+   "Q1324407"
+  ], 
+  "speaker": "SYSTEM", 
+  "entities_in_utterance": [
+   "Q102427", 
+   "Q22335263", 
+   "Q1425151"
+  ], 
+  "utterance": "Academy Award for Best Picture, Academy Award for Best Live Action Short Film, Two-Reel, Academy Award for Best Documentary, Short Subject", 
+  "active_set": [
+   "(Q8704,P1411,c(Q4220917))"
+  ]
+ }
+]

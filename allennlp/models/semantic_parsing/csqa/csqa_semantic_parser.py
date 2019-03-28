@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import List, Dict, Union, Set, Tuple
 from overrides import overrides
 
 import torch
@@ -9,7 +9,8 @@ from allennlp.semparse.contexts import CSQAContext
 from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
 from allennlp.models.model import Model
 from allennlp.nn import util
-from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
+from allennlp.semparse.domain_languages import CSQALanguage,  START_SYMBOL
+from allennlp.semparse.domain_languages.csqa_language import Entity
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
@@ -17,7 +18,7 @@ from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
 
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
-    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
+    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES, VERIFICATION_QUESTION_STRING
 
 
 class CSQASemanticParser(Model):
@@ -209,7 +210,8 @@ class CSQASemanticParser(Model):
     def _check_denotation(action_sequence: List[str],
                           result_entities: List[str],
                           world: CSQALanguage,
-                          question_type: str) -> List[bool]:
+                          question_type: str,
+                          expected_result: Union[bool, int, Set[Entity]]) -> List[bool]:
 
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
@@ -219,6 +221,9 @@ class CSQASemanticParser(Model):
                 return True
             else:
                 return False
+        elif question_type == VERIFICATION_QUESTION_STRING:
+            assert isinstance(expected_result, bool), expected_result
+            return expected_result == denotation
 
     @staticmethod
     def _get_retrieved_entities(action_sequence: List[str],
@@ -226,7 +231,7 @@ class CSQASemanticParser(Model):
 
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        return [d.name for d in denotation] if isinstance(denotation, set) else []
+        return list(denotation) if isinstance(denotation, set) else []
 
     @overrides
     def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
