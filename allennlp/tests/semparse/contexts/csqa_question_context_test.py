@@ -15,14 +15,6 @@ class TestCSQAContext(AllenNlpTestCase):
         self.entity_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/sample_entity_id2string.json'
         self.predicate_id2string_path = f'{self.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'
         self.tokenizer = WordTokenizer(SpacyWordSplitter(pos_tags=True))
-        context = CSQAContext.read_from_file(self.kg_test_path_json,
-                                             self.kg_type_test_path,
-                                             self.entity_id2string_path,
-                                             self.predicate_id2string_path)
-        self.kg_data = context.kg_data
-        self.kg_type_data = context.kg_type_data
-        self.entity_id2string = context.entity_id2string
-        self.predicate_id2string = context.predicate_id2string
 
     def setUp(self):
         super().setUp()
@@ -33,14 +25,15 @@ class TestCSQAContext(AllenNlpTestCase):
         type_list = ["Q1"]
         question_tokens = self.tokenizer.tokenize(question)
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
+
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_json,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
 
         assert csqa_context.kg_data == {"Q15140125": {"P31": ["Q20010800"]},
                                         "Q1253489": {"P2019": [], "P2387": [], "P2605": [], "P2604": [], "P214": [],
@@ -71,14 +64,14 @@ class TestCSQAContext(AllenNlpTestCase):
                                                     "P106": ["Q7042855"], "P166": ["Q281939"], "P27": ["Q30"],
                                                     "P21": ["Q6581072"], "P20": ["Q1337818"], "P214": []}}
 
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_p,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
 
         assert csqa_context.kg_data == {15140125: {31: [20010800]},
                                         1253489: {19: [262], 31: [5], 735: [1605665], 69: [1664782],
@@ -98,26 +91,28 @@ class TestCSQAContext(AllenNlpTestCase):
         question_predicates = ["P1"]
         type_list = ["Q1"]
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
+
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_json,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         entities, _ = csqa_context.get_entities_from_question()
         assert entities == ["Q12122755"]
 
         question_entities = [12122755]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
+
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_p,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         entities, _ = csqa_context.get_entities_from_question()
         assert entities == [12122755]
 
@@ -127,26 +122,27 @@ class TestCSQAContext(AllenNlpTestCase):
         question_predicates = ["P1"]
         type_list = ["Q1"]
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
+
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_json,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("3", 10)]
 
         question_entities = [12122755]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_p,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("3", 10)]
 
@@ -156,26 +152,26 @@ class TestCSQAContext(AllenNlpTestCase):
         question_entities = ["Q12122755"]
         question_predicates = ["P1"]
         type_list = ["Q1"]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_json,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("3", 6), ("2007", 7)]
 
         question_entities = [12122755]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_p,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("3", 6), ("2007", 7)]
 
@@ -186,27 +182,28 @@ class TestCSQAContext(AllenNlpTestCase):
         question_predicates = ["P1"]
         type_list = ["Q1"]
         question_entities = ["Q12122755"]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_json, "", "", "",
+
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_json,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
 
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("1", 6)]
 
         question_entities = [12122755]
-        csqa_context = CSQAContext.read_from_file(self.kg_test_path_p, "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path_p,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_predicates=question_predicates,
                                                   question_type_entities=type_list,
                                                   question_tokens=question_tokens,
-                                                  question_entities=question_entities,
-                                                  kg_type_data=self.kg_type_data,
-                                                  entity_id2string=self.entity_id2string,
-                                                  predicate_id2string=self.predicate_id2string)
+                                                  question_entities=question_entities)
 
         _, number_entities = csqa_context.get_entities_from_question()
         assert number_entities == [("1", 6)]
