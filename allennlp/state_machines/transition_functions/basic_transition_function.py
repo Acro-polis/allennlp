@@ -194,7 +194,7 @@ class BasicTransitionFunction(TransitionFunction[GrammarBasedState]):
                                       hidden_state: torch.Tensor,
                                       attention_weights: torch.Tensor,
                                       predicted_action_embeddings: torch.Tensor
-                                     ) -> Dict[int, List[Tuple[int, Any, Any, Any, List[int]]]]:
+                                      ) -> Dict[int, List[Tuple[int, Any, Any, Any, List[int]]]]:
         # We take a couple of extra arguments here because subclasses might use them.
         # pylint: disable=unused-argument,no-self-use
 

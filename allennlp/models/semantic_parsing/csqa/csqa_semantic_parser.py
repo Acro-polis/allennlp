@@ -126,7 +126,7 @@ class CSQASemanticParser(Model):
                               world: CSQALanguage,
                               possible_actions: List[ProductionRule]) -> GrammarStatelet:
         """
-        This function creates a GrammarStateLet by computing the valid actions
+        This function creates a GrammarStatelet by computing the valid actions
         """
         valid_actions = world.get_nonterminal_productions()
         action_mapping = {}
