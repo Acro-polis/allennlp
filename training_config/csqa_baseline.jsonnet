@@ -13,12 +13,9 @@
     "type": "csqa",
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
-//    "dpd_output_file": "allennlp/tests/fixtures/data/csqa/sample_valid_1100_logical_forms.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-//    "entity_id2string_path": "allennlp/tests/fixtures/data/csqa/sample_entity_id2string.json",
-//    "predicate_id2string_path": "allennlp/tests/fixtures/data/csqa/filtered_property_wikidata4.json",
     "read_only_direct": true,
     "lazy": true
   },
