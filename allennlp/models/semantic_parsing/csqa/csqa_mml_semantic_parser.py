@@ -101,14 +101,15 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
+        assert target_action_sequences is not None
 
         batch_size = question['tokens'].size()[0]
+        # Remove the trailing dimension (from ListField[ListField[IndexField]]).
+        target_action_sequences = target_action_sequences.squeeze(-1)
+        target_mask = target_action_sequences != self._action_padding_index
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
-
-        # result_entities: List[List[str]] = self._get_label_strings(
-        #     result_entities) if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_statelet = [self._create_grammar_state(world[i], actions[i]) for i in range(batch_size)]
@@ -121,21 +122,9 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                           possible_actions=actions,
                                           extras=result_entities)
 
-        if target_action_sequences is not None:
-            # Remove the trailing dimension (from ListField[ListField[IndexField]]).
-            target_action_sequences = target_action_sequences.squeeze(-1)
-            target_mask = target_action_sequences != self._action_padding_index
-        else:
-            target_mask = None
-
-        outputs: Dict[str, torch.Tensor] = {}
-        # TODO: does this if statement make sense if it is overwritten by decoder_trainer.decode()?
-        if identifier is not None:
-            outputs["identifier"] = identifier
-        if target_action_sequences is not None:
-            outputs = self._decoder_trainer.decode(initial_state,
-                                                   self._decoder_step,
-                                                   (target_action_sequences, target_mask))
+        outputs = self._decoder_trainer.decode(initial_state,
+                                               self._decoder_step,
+                                               (target_action_sequences, target_mask))
 
         if not self.training:
 
@@ -153,27 +142,12 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     best_action_indices = [best_final_states[i][0].action_history[0]]
                     best_action_sequences[i] = best_action_indices
             batch_action_strings = self._get_action_strings(actions, best_action_sequences)
-            batch_denotations = self._get_denotations(batch_action_strings, world)
 
-            if target_action_sequences is not None:
-                self._update_metrics(action_strings=batch_action_strings,
-                                     worlds=world,
-                                     label_strings=result_entities,
-                                     question_types=question_type,
-                                     expected_result=expected_result)
-            else:
-                if metadata is not None:
-                    outputs["sentence_tokens"] = [x["sentence_tokens"] for x in metadata]
-                outputs['debug_info'] = []
-                for i in range(batch_size):
-                    outputs['debug_info'].append(best_final_states[i][0].debug_info[0])  # type: ignore
-                outputs["best_action_strings"] = batch_action_strings
-                outputs["denotations"] = batch_denotations
-                action_mapping = {}
-                for batch_index, batch_actions in enumerate(actions):
-                    for action_index, action in enumerate(batch_actions):
-                        action_mapping[(batch_index, action_index)] = action[0]
-                outputs['action_mapping'] = action_mapping
+            self._update_metrics(action_strings=batch_action_strings,
+                                 worlds=world,
+                                 label_strings=result_entities,
+                                 question_types=question_type,
+                                 expected_result=expected_result)
         return outputs
 
     def _update_metrics(self,
@@ -186,9 +160,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
         for i in range(batch_size):
             instance_action_strings = action_strings[i]
-            # if instance_action_strings:
             instance_label_strings = label_strings[i]
-            # print("label entities", instance_label_strings)
             instance_world = worlds[i]
             question_type = question_types[i]
             instance_expected_result = expected_result[i]
