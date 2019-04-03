@@ -8,7 +8,7 @@ from overrides import overrides
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.models.model import Model
-from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser
+from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser, OVERALL_SCORE
 from allennlp.modules import Attention, TextFieldEmbedder, Seq2SeqEncoder
 from allennlp.nn import Activation
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage, Entity
@@ -61,6 +61,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                  max_decoding_steps: int,
                  dropout: float = 0.0,
                  direct_questions_only=True) -> None:
+
         super(CSQAMmlSemanticParser, self).__init__(vocab=vocab,
                                                     sentence_embedder=sentence_embedder,
                                                     action_embedding_dim=action_embedding_dim,
@@ -188,6 +189,21 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 else:
                     sequence_is_correct: bool = False
                 metric(1 if sequence_is_correct else 0)
+
+        # update overall score
+
+        for metric_name, metric in self._metrics.items():
+            overall_score_metric = self._metrics[OVERALL_SCORE]
+            if metric_name.endswith("accuracy"):
+                accuracy = metric.get_metric()
+                overall_score_metric(accuracy)
+
+            elif metric_name.endswith("precision"):
+                precision = metric.get_metric()
+                corresp_recall_metric_name = metric_name.replace("precision", "recall")
+                recall = self._metrics[corresp_recall_metric_name].get_metric()
+                f1 = 2 * (precision * recall) / (precision + recall + 1e-9)
+                overall_score_metric(f1)
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:

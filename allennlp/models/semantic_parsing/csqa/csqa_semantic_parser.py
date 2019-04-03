@@ -20,6 +20,8 @@ from allennlp.training.metrics.average_recall import AverageRecall
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
     RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES, VERIFICATION_QUESTION_STRING
 
+OVERALL_SCORE = 'overall_score'
+
 
 class CSQASemanticParser(Model):
     """
@@ -64,6 +66,7 @@ class CSQASemanticParser(Model):
         precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
         recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
         average_metrics = [(qt + " accuracy", Average()) for qt in OTHER_QUESTION_TYPES + COUNT_QUESTION_TYPES]
+        average_metrics += [(OVERALL_SCORE, Average())]
 
         self._metrics = OrderedDict(precision_metrics + recall_metrics + average_metrics)
 
@@ -125,7 +128,7 @@ class CSQASemanticParser(Model):
 
     def _create_grammar_state(self,
                               world: CSQALanguage,
-                              language_possible_actions: List[ProductionRule]) -> GrammarStatelet:
+                              instance_possible_actions: List[ProductionRule]) -> GrammarStatelet:
         """
         This function creates a GrammarStatelet by computing the valid actions
 
@@ -134,10 +137,10 @@ class CSQASemanticParser(Model):
 
         """
         valid_actions: Dict[str, List[str]] = world.get_nonterminal_productions()
-        language_action_mapping: Dict[str, int] = {}
+        instance_action_mapping: Dict[str, int] = {}
 
-        for i, action in enumerate(language_possible_actions):
-            language_action_mapping[action[0]] = i
+        for i, action in enumerate(instance_possible_actions):
+            instance_action_mapping[action[0]] = i
 
         # the output structure mapping actions strings to a dict with 'global' as key and
         # (input_emb,output_emd,action_ids) as value, input_emb is for matching in the loss,
@@ -149,9 +152,9 @@ class CSQASemanticParser(Model):
             translated_valid_actions[key] = {}
             # `key` here is a non-terminal from the grammar, and `action_strings` are all the valid
             # productions of that non-terminal.
-            action_indices = [language_action_mapping[action_string] for action_string in action_strings]
+            action_indices = [instance_action_mapping[action_string] for action_string in action_strings]
             # All actions in NLVR are global actions.
-            global_actions = [(language_possible_actions[index][2], index) for index in action_indices]
+            global_actions = [(instance_possible_actions[index][2], index) for index in action_indices]
 
             # Then we get the embedded representations of the global actions.
             global_action_tensors, global_action_ids = zip(*global_actions)
