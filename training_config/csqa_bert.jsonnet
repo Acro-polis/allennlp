@@ -42,6 +42,7 @@
       "tokens": {
         "type": "bert-pretrained",
         "pretrained_model": "bert-base-uncased",
+        "max_pieces": 256,
        }
     }
   },
@@ -55,7 +56,7 @@
     "sentence_embedder": {
         "allow_unmatched_keys": true,
         "embedder_to_indexer_map": {
-            "tokens": ["tokens", "tokens-offsets"],
+            "tokens": ["tokens", "tokens-offsets, tokens_type_ids"],
         },
         "token_embedders": {
           "tokens": {

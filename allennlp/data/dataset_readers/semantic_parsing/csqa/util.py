@@ -1,4 +1,9 @@
 from pathlib import Path
+from typing import List
+import numpy as np
+from allennlp.data.tokenizers.token import Token
+
+from allennlp.data.fields import ArrayField
 
 
 def get_dummy_action_sequences(question_entities, question_type_entities):
@@ -60,3 +65,28 @@ def get_extraction_dir(path: Path):
     else:
         # add _extracted to cached path
         return Path(str(path) + "_extracted")
+
+
+def get_segment_field_from_tokens(tokenized_question: List[Token], sep="[SEP]"):
+    tokenized_question_strings = [t.text for t in tokenized_question]
+    if sep not in tokenized_question_strings:
+        return ArrayField(np.array([0] * len(tokenized_question)))
+    else:
+        n_zero_segments = tokenized_question_strings.index(sep) + 1
+        n_one_segments = len(tokenized_question_strings) - n_zero_segments
+        segment_ids = [0] * n_zero_segments + [1] * n_one_segments
+        return ArrayField(np.array(segment_ids))
+
+
+def prepare_question_for_bert(question,
+                              question_entities,
+                              question_type_entities,
+                              context,
+                              add_entities_to_sentence):
+
+    question = "[CLS] " + question
+    question = maybe_add_entities(question, question_entities, question_type_entities, context,
+                                  add_entities_to_sentence)
+    return question
+
+

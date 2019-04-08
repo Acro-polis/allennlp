@@ -6,6 +6,7 @@ import logging
 import os
 import pickle
 import tarfile
+import numpy as np
 
 from overrides import overrides
 from collections import defaultdict
@@ -15,16 +16,16 @@ from typing import Dict, List, Any
 from allennlp.common import Tqdm
 from allennlp.common.checks import ConfigurationError
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
-from allennlp.data.fields import Field, IndexField, LabelField, ListField
+from allennlp.data.fields import Field, IndexField, LabelField, ListField, ArrayField
 from allennlp.data.fields import MetadataField, ProductionRuleField, TextField
 from allennlp.data.instance import Instance
-from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
+from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer, PretrainedBertIndexer
 from allennlp.data.tokenizers import Token, Tokenizer, WordTokenizer
-from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter
+from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter, BertBasicWordSplitter
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 from allennlp.data.dataset_readers.semantic_parsing.csqa.util import get_dummy_action_sequences, question_is_indirect, \
-    parse_answer, maybe_add_entities, get_extraction_dir
+    parse_answer, maybe_add_entities, get_extraction_dir, get_segment_field_from_tokens, prepare_question_for_bert
 from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -102,6 +103,8 @@ class CSQADatasetReader(DatasetReader):
         self.add_entities_to_sentence = add_entities_to_sentence
         self.dpd_output_file = dpd_output_file
         self.dpd_logical_form_dict = None
+        self.use_bert_encoder = any(isinstance(idxr, PretrainedBertIndexer) for
+                                    idxr in question_token_indexers.values())
 
     def init_dpd_dict(self):
         if not self.dpd_logical_form_dict and self.dpd_output_file:
@@ -211,8 +214,7 @@ class CSQADatasetReader(DatasetReader):
                          question_predicates: List[str],
                          answer: str,
                          entities_result: List[str],
-                         qa_logical_forms: List[str] = None,
-                         tokenized_question: List[Token] = None) -> object:
+                         qa_logical_forms: List[str] = None) -> object:
         """
         Reads text inputs and creates an instance per question answer pair.
 
@@ -259,16 +261,22 @@ class CSQADatasetReader(DatasetReader):
                                              entity_id2string_path=self.entity_id2string_path,
                                              predicate_id2string_path=self.predicate_id2string_path,
                                              question_type=question_type,
-                                             question_tokens=tokenized_question,
+                                             question_tokens=None,
                                              question_entities=question_entities,
                                              question_predicates=question_predicates,
                                              question_type_entities=question_type_entities)
 
-        question = maybe_add_entities(question, question_entities, question_type_entities, context,
-                                      self.add_entities_to_sentence)
-        tokenized_question = tokenized_question or self.tokenizer.tokenize(question.lower())
+        if self.use_bert_encoder:
+            question = prepare_question_for_bert(question, question_entities, question_type_entities, context,
+                                                 self.add_entities_to_sentence)
+
+        if not self.use_bert_encoder:
+            question = question.lower()
+        tokenized_question = self.tokenizer.tokenize(question)
+
         question_field = TextField(tokenized_question, self.question_token_indexers)
         metadata: Dict[str, Any] = {"question_tokens": [x.text for x in tokenized_question], "answer": answer}
+
         context.question_tokens = tokenized_question
 
         language = CSQALanguage(context)
@@ -302,6 +310,9 @@ class CSQADatasetReader(DatasetReader):
                   'metadata': MetadataField(metadata),
                   "result_entities": result_entities_field,
                   'question_predicates': MetadataField(question_predicates)}
+
+        if self.use_bert_encoder:
+            fields['question_segments'] = get_segment_field_from_tokens(tokenized_question)
 
         def create_action_sequences_field(logical_forms, action_map_):
             return ListField([ListField([IndexField(action_map_[a], action_field) for a in l]) for l in logical_forms])

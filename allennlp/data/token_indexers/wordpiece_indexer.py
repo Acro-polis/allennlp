@@ -166,11 +166,11 @@ class WordpieceIndexer(TokenIndexer[int]):
         # is captured by the offsets.
         mask = [1 for _ in offsets]
 
-        return {
-                index_name: wordpiece_ids,
-                f"{index_name}-offsets": offsets,
-                "mask": mask
-        }
+        result = {index_name: wordpiece_ids,
+                  f"{index_name}-offsets": offsets,
+                  "mask": mask}
+
+        return result
 
     @overrides
     def get_padding_token(self) -> int:
@@ -232,13 +232,16 @@ class PretrainedBertIndexer(WordpieceIndexer):
                  use_starting_offsets: bool = False,
                  do_lowercase: bool = True,
                  never_lowercase: List[str] = None,
-                 max_pieces: int = 512) -> None:
+                 max_pieces: int = 512,
+                 add_token_type_ids: bool = True) -> None:
         if pretrained_model.endswith("-cased") and do_lowercase:
             logger.warning("Your BERT model appears to be cased, "
                            "but your indexer is lowercasing tokens.")
         elif pretrained_model.endswith("-uncased") and not do_lowercase:
             logger.warning("Your BERT model appears to be uncased, "
                            "but your indexer is not lowercasing tokens.")
+
+        self.add_token_type_ids = add_token_type_ids
 
         bert_tokenizer = BertTokenizer.from_pretrained(pretrained_model, do_lower_case=do_lowercase)
         super().__init__(vocab=bert_tokenizer.vocab,
@@ -250,3 +253,22 @@ class PretrainedBertIndexer(WordpieceIndexer):
                          never_lowercase=never_lowercase,
                          start_tokens=["[CLS]"],
                          end_tokens=["[SEP]"])
+
+    def tokens_to_indices(self,
+                          tokens: List[Token],
+                          vocabulary: Vocabulary,
+                          index_name: str) -> Dict[str, List[int]]:
+        result = super().tokens_to_indices(tokens, vocabulary, index_name)
+        wordpiece_ids = result[index_name]
+        if self.add_token_type_ids:
+            seperator_id = self.vocab["[SEP]"]
+            if seperator_id not in wordpiece_ids:
+                segment_ids = [0] * len(wordpiece_ids)
+            else:
+                n_zero_segments = wordpiece_ids.index(seperator_id) + 1
+                n_one_segments = len(wordpiece_ids) - n_zero_segments
+                segment_ids = [0] * n_zero_segments + [1] * n_one_segments
+            result["tokens_type_ids"] = segment_ids
+        return result
+
+

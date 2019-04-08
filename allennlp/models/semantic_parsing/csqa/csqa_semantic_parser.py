@@ -4,6 +4,7 @@ from overrides import overrides
 import torch
 from collections import OrderedDict
 
+from allennlp.data.fields import ArrayField
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
@@ -16,6 +17,7 @@ from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
 from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
+from allennlp.modules.token_embedders.bert_token_embedder import PretrainedBertEmbedder
 
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
     RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES, VERIFICATION_QUESTION_STRING
@@ -58,8 +60,9 @@ class CSQASemanticParser(Model):
                  direct_questions_only: bool = True) -> None:
         super(CSQASemanticParser, self).__init__(vocab=vocab)
         self._sentence_embedder = sentence_embedder
+        self._use_bert_embeddings = any(isinstance(value, PretrainedBertEmbedder)
+                                        for value in sentence_embedder._token_embedders.values())
         self._encoder = encoder
-
         self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
             RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
 
@@ -98,7 +101,6 @@ class CSQASemanticParser(Model):
         encodings, an empty memory and a first action embedding.
         """
         embedded_input = self._sentence_embedder(question)
-        # TODO: embed entities
 
         # (batch_size, sentence_length)
         sentence_mask = util.get_text_field_mask(question).float()

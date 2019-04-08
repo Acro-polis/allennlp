@@ -1,13 +1,10 @@
-import json
-import gc
-
 from typing import Dict, List, Tuple
-import pickle
 
 from allennlp.semparse.contexts.csqa.util import load_json, load_pickle
 
 from allennlp.data.tokenizers import Token
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
+import time
 
 
 NUMBER_CHARACTERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'}
@@ -199,7 +196,12 @@ class CSQAContext:
         if entity_id2string_path == CSQAContext.entity_id2string_path:
             entity_id2string = CSQAContext.entity_id2string
         else:
-            entity_id2string = load_json(entity_id2string_path)
+            if '.p' in entity_id2string_path or 'allennlp' in entity_id2string_path:
+                entity_id2string = load_pickle(entity_id2string_path)
+            elif '.json' in entity_id2string_path:
+                entity_id2string = load_json(entity_id2string_path)
+            else:
+                raise ValueError()
 
             CSQAContext.entity_id2string = entity_id2string
             CSQAContext.entity_id2string_path = entity_id2string_path

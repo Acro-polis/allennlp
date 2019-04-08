@@ -5,6 +5,7 @@ import torch
 from collections import OrderedDict
 from overrides import overrides
 
+from allennlp.data.fields import ArrayField
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.models.model import Model
@@ -93,6 +94,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 world: List[CSQALanguage],
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
+                question_segments: torch.FloatTensor = None,
                 target_action_sequences: torch.LongTensor = None,
                 result_entities=None,
                 labels: torch.LongTensor = None,
@@ -114,7 +116,6 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_statelet = [self._create_grammar_state(world[i], actions[i]) for i in range(batch_size)]
-
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),
                                           action_history=[[] for _ in range(batch_size)],
                                           score=initial_score_list,

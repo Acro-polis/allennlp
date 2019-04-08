@@ -1,0 +1,2 @@
+from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser
+from allennlp.models.semantic_parsing.csqa.csqa_mml_semantic_parser import CSQAMmlSemanticParser
