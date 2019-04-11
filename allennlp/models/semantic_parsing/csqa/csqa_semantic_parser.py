@@ -12,7 +12,7 @@ from allennlp.models.model import Model
 from allennlp.nn import util
 from allennlp.semparse.domain_languages import CSQALanguage,  START_SYMBOL
 from allennlp.semparse.domain_languages.csqa_language import Entity
-from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding
+from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, Embedding, TimeDistributed
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
 from allennlp.training.metrics.average_precision import AveragePrecision
@@ -100,20 +100,32 @@ class CSQASemanticParser(Model):
         final state. Then, for each instance in the batch, an RnnStatelet is computed using: the
         encodings, an empty memory and a first action embedding.
         """
-        embedded_input = self._sentence_embedder(question)
 
+        embedded_input= self._sentence_embedder(question)
         # (batch_size, sentence_length)
         sentence_mask = util.get_text_field_mask(question).float()
-
         batch_size = embedded_input.size(0)
 
-        # (batch_size, sentence_length, encoder_output_dim)
-        encoder_outputs = self._dropout(self._encoder(embedded_input, sentence_mask))
+        if self._use_bert_embeddings:
+            encoder_outputs = self._dropout(embedded_input)
+            # new
+            projection = torch.nn.Linear(768, 25)
+            projection.cuda()
+            sequence_projection = TimeDistributed(projection)
+            encoder_outputs = projection(encoder_outputs)
 
-        final_encoder_output = util.get_final_encoder_states(encoder_outputs,
-                                                             sentence_mask,
-                                                             self._encoder.is_bidirectional())
-        memory_cell = encoder_outputs.new_zeros(batch_size, self._encoder.get_output_dim())
+            final_encoder_output = getattr(self._sentence_embedder, 'token_embedder_tokens').pooled_output
+            final_encoder_output = projection(final_encoder_output)
+            # memory_cell = encoder_outputs.new_zeros(batch_size, 768)
+            memory_cell = encoder_outputs.new_zeros(batch_size, 25)
+        else:
+            # (batch_size, sentence_length, encoder_output_dim)
+            encoder_outputs = self._dropout(self._encoder(embedded_input, sentence_mask))
+            final_encoder_output = util.get_final_encoder_states(encoder_outputs,
+                                                                 sentence_mask,
+                                                                 self._encoder.is_bidirectional())
+            memory_cell = encoder_outputs.new_zeros(batch_size, self._encoder.get_output_dim())
+
         attended_sentence, _ = self._decoder_step.attend_on_question(final_encoder_output,
                                                                      encoder_outputs, sentence_mask)
         encoder_outputs_list = [encoder_outputs[i] for i in range(batch_size)]

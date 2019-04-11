@@ -4,9 +4,8 @@
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000_logical_forms.p",
-    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
+    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-    "read_only_direct": true,
     "lazy": true
   },
   "validation_dataset_reader": {
@@ -14,9 +13,8 @@
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
-    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
+    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-    "read_only_direct": true,
     "lazy": true
   },
   "vocabulary": {
@@ -58,7 +56,7 @@
   },
   "trainer": {
     "num_epochs": 100,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "optimizer": {
       "type": "adam",
       "lr": 0.01

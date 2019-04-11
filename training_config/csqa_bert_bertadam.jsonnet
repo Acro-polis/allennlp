@@ -1,14 +1,11 @@
 {
   "dataset_reader": {
     "type": "csqa",
-    "kg_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_kg.p",
-    "kg_type_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_kg.p",
-//    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
-//    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
+    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000_logical_forms.p",
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-    "read_only_direct": true,
     "lazy": true,
     "augment_sentence_with_context": true,
     "tokenizer": {
@@ -20,16 +17,15 @@
     "question_token_indexers": {
       "tokens": {
         "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
+        "pretrained_model": "bert-base-uncased",
+        "max_pieces": 128,
        }
     }
   },
   "validation_dataset_reader": {
     "type": "csqa",
-    "kg_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_kg.p",
-    "kg_type_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_kg.p",
-//    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
-//    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
+    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
@@ -46,22 +42,15 @@
       "tokens": {
         "type": "bert-pretrained",
         "pretrained_model": "bert-base-uncased",
-        "max_pieces": 256,
+        "max_pieces": 128,
        }
     }
   },
   "vocabulary": {
     "non_padded_namespaces": ["denotations", "rule_labels"]
   },
-// "train_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000.tar.gz",
-  "train_data_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_train",
-  "validation_data_path": "/home/ubuntu/allennlp/allennlp/tests/fixtures/data/csqa/sample_train",
-// "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100.tar.gz",
-//  "validation_data_path": "allennlp/tests/fixtures/data/csqa/sample_train_7000.tar.gz",
-//  "validation_data_path": "allennlp/tests/fixtures/data/csqa/sample_train",
-//  "validation_data_path": "/home/ubuntu/Desktop/CSQA_v9/test.tar.gz",
-//  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/valid.tar.gz",
-
+  "train_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000.tar.gz",
+  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100.tar.gz",
   "model": {
     "type": "csqa_mml_parser",
     "sentence_embedder": {
@@ -100,10 +89,11 @@
   },
   "trainer": {
     "num_epochs": 100,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "optimizer": {
-      "type": "adam",
-      "lr": 0.01
+      "type": "bert_adam",
+      "lr": 2e-5,
+      "weight_decay": 0.0
     }
   }
 }

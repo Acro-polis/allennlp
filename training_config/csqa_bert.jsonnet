@@ -4,34 +4,10 @@
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000_logical_forms.p",
-    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
+    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-    "read_only_direct": true,
     "lazy": true,
-    "add_entities_to_sentence": true,
-    "tokenizer": {
-       "type": "word",
-       "word_splitter": {
-          "type": "bert-basic"
-       }
-     },
-    "question_token_indexers": {
-      "tokens": {
-        "type": "bert-pretrained",
-        "pretrained_model": "bert-base-uncased"
-       }
-    }
-  },
-  "validation_dataset_reader": {
-    "type": "csqa",
-    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
-    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
-    "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
-    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
-    "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
-    "read_only_direct": true,
-    "lazy": true,
-    "add_entities_to_sentence": true,
+    "augment_sentence_with_context": false,
     "tokenizer": {
        "type": "word",
        "word_splitter": {
@@ -42,7 +18,31 @@
       "tokens": {
         "type": "bert-pretrained",
         "pretrained_model": "bert-base-uncased",
-        "max_pieces": 256,
+        "max_pieces": 128,
+       }
+    }
+  },
+  "validation_dataset_reader": {
+    "type": "csqa",
+    "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
+    "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+    "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
+    "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
+    "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
+    "read_only_direct": true,
+    "lazy": true,
+    "augment_sentence_with_context": false,
+    "tokenizer": {
+       "type": "word",
+       "word_splitter": {
+          "type": "bert-basic"
+       }
+     },
+    "question_token_indexers": {
+      "tokens": {
+        "type": "bert-pretrained",
+        "pretrained_model": "bert-base-uncased",
+        "max_pieces": 128,
        }
     }
   },
@@ -56,13 +56,13 @@
     "sentence_embedder": {
         "allow_unmatched_keys": true,
         "embedder_to_indexer_map": {
-            "tokens": ["tokens", "tokens-offsets, tokens_type_ids"],
+            "tokens": ["tokens", "tokens-offsets", "tokens_type_ids"],
         },
         "token_embedders": {
           "tokens": {
             "type": "bert-pretrained",
             "pretrained_model": "bert-base-uncased",
-            "requires_grad": true
+            "requires_grad": false
           },
         }
     },
@@ -70,7 +70,7 @@
     "action_embedding_dim": 50,
     "encoder": {
       "type": "lstm",
-      "input_size": 768,
+      "input_size": 25,
       "hidden_size": 10,
       "num_layers": 1
     },
@@ -89,10 +89,10 @@
   },
   "trainer": {
     "num_epochs": 100,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "optimizer": {
       "type": "adam",
-      "lr": 0.01
+      "lr": 0.001
     }
   }
 }

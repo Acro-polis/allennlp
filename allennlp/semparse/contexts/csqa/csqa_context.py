@@ -196,7 +196,7 @@ class CSQAContext:
         if entity_id2string_path == CSQAContext.entity_id2string_path:
             entity_id2string = CSQAContext.entity_id2string
         else:
-            if '.p' in entity_id2string_path or 'allennlp' in entity_id2string_path:
+            if '.p' in entity_id2string_path or '.allennlp' in entity_id2string_path:
                 entity_id2string = load_pickle(entity_id2string_path)
             elif '.json' in entity_id2string_path:
                 entity_id2string = load_json(entity_id2string_path)

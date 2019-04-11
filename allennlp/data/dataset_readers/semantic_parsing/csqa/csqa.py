@@ -25,7 +25,7 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter, BertBasicW
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 from allennlp.data.dataset_readers.semantic_parsing.csqa.util import get_dummy_action_sequences, question_is_indirect, \
-    parse_answer, maybe_add_entities, get_extraction_dir, get_segment_field_from_tokens, prepare_question_for_bert
+    parse_answer, augment_with_context, get_extraction_dir, get_segment_field_from_tokens, prepare_question_for_bert
 from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -88,7 +88,7 @@ class CSQADatasetReader(DatasetReader):
                  question_token_indexers: Dict[str, TokenIndexer] = None,
                  read_only_direct: bool = True,
                  skip_approximate_questions: bool = True,
-                 add_entities_to_sentence: bool = False,
+                 augment_sentence_with_context: bool = False,
                  dpd_output_file: str = None
                  ) -> None:
         super().__init__(lazy=lazy)
@@ -100,7 +100,7 @@ class CSQADatasetReader(DatasetReader):
         self.question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
         self.load_direct_questions_only = read_only_direct
         self.skip_approximate_questions = skip_approximate_questions
-        self.add_entities_to_sentence = add_entities_to_sentence
+        self.augment_sentence_with_context = augment_sentence_with_context
         self.dpd_output_file = dpd_output_file
         self.dpd_logical_form_dict = None
         self.use_bert_encoder = any(isinstance(idxr, PretrainedBertIndexer) for
@@ -267,11 +267,15 @@ class CSQADatasetReader(DatasetReader):
                                              question_type_entities=question_type_entities)
 
         if self.use_bert_encoder:
-            question = prepare_question_for_bert(question, question_entities, question_type_entities, context,
-                                                 self.add_entities_to_sentence)
-
-        if not self.use_bert_encoder:
+            question = prepare_question_for_bert(question,
+                                                 question_entities,
+                                                 question_type_entities,
+                                                 question_predicates,
+                                                 context,
+                                                 self.augment_sentence_with_context)
+        else:
             question = question.lower()
+
         tokenized_question = self.tokenizer.tokenize(question)
 
         question_field = TextField(tokenized_question, self.question_token_indexers)
@@ -310,9 +314,6 @@ class CSQADatasetReader(DatasetReader):
                   'metadata': MetadataField(metadata),
                   "result_entities": result_entities_field,
                   'question_predicates': MetadataField(question_predicates)}
-
-        if self.use_bert_encoder:
-            fields['question_segments'] = get_segment_field_from_tokens(tokenized_question)
 
         def create_action_sequences_field(logical_forms, action_map_):
             return ListField([ListField([IndexField(action_map_[a], action_field) for a in l]) for l in logical_forms])

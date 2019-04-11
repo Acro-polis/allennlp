@@ -41,20 +41,24 @@ def parse_answer(answer, entities_result, language):
         raise ValueError("unknown answer format: {}".format(answer))
 
 
-def maybe_add_entities(question,
-                       question_entities,
-                       question_type_entities,
-                       context,
-                       add_entities_to_sentence,
-                       separator=" [SEP] "):
+def augment_with_context(question,
+                         question_entities,
+                         question_type_entities,
+                         question_predicates,
+                         context,
+                         separator=" [SEP] "):
     """
     maybe add entities to question to enable BERT to attend entities
     """
     entity_id2string = context.entity_id2string
-    if add_entities_to_sentence:
-        all_q_entities_string = [entity_id2string[ent] for ent in question_entities + question_type_entities]
-        if all_q_entities_string:
-            question += separator + separator.join(all_q_entities_string)
+    predicate_id2string = context.predicate_id2string
+    all_q_entities_string = [entity_id2string[ent] for ent in question_entities + question_type_entities]
+    all_q_predicates_string = [predicate_id2string[pred] for pred in question_predicates]
+    if all_q_entities_string:
+        question += separator + separator.join(all_q_entities_string)
+    if all_q_predicates_string:
+        question += separator + separator.join(all_q_predicates_string)
+
     return question
 
 
@@ -81,12 +85,16 @@ def get_segment_field_from_tokens(tokenized_question: List[Token], sep="[SEP]"):
 def prepare_question_for_bert(question,
                               question_entities,
                               question_type_entities,
+                              question_predicates,
                               context,
-                              add_entities_to_sentence):
+                              add_context):
 
     question = "[CLS] " + question
-    question = maybe_add_entities(question, question_entities, question_type_entities, context,
-                                  add_entities_to_sentence)
+    if add_context:
+        question = augment_with_context(question, question_entities, question_type_entities,
+                                        question_predicates, context)
+
+    question += " [SEP]"
     return question
 
 
