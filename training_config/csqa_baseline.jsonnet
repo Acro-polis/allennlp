@@ -30,15 +30,17 @@
 //  "validation_data_path": "/home/ubuntu/Desktop/CSQA_v9/test.tar.gz",
 //  "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/valid.tar.gz",
 
-
-
-//'entity_embedding_path': f'/media/ruben/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/entity2vec.bin'
-
   "model": {
     "kg_embedder": {
       "type": "kg_embedding",
       "embedding_dim": 50,
-      "trainable": false
+      "num_entities": 20982733,
+      "num_relations": 594,
+      "trainable": true,
+      "entity_pretrained_file": "/media/ruben/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/entity2vec.bin",
+      "relation_pretrained_file": "/media/ruben/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/relation2vec.bin",
+      "entity2id_file": "/media/ruben/Data/Datasets/CSQA/Wikidata/knowledge_graphs/entity2id.txt",
+      "relation2id_file": "/media/ruben/Data/Datasets/CSQA/Wikidata/knowledge_graphs/relation2id.txt"
     },
     "type": "csqa_mml_parser",
     "sentence_embedder": {

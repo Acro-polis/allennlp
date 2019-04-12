@@ -127,7 +127,7 @@ class Embedding(TokenEmbedder):
         # but embedding expects (batch_size, sequence_length), so pass inputs to
         # util.combine_initial_dims (which is a no-op if there are no extra dimensions).
         # Remember the original size.
-        print("inputs: ", inputs)
+
         original_size = inputs.size()
         inputs = util.combine_initial_dims(inputs)
 
@@ -145,6 +145,7 @@ class Embedding(TokenEmbedder):
             for _ in range(embedded.dim() - 2):
                 projection = TimeDistributed(projection)
             embedded = projection(embedded)
+
         return embedded
 
     @overrides

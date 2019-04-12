@@ -105,28 +105,22 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
-
-        for i in range(1000):
-            print(i)
-
-
-        print(question['tokens'].size())
+        # print(question['tokens'].size())
         batch_size = question['tokens'].size()[0]
 
         # TODO: embed entities
-        # print(question)
-        # if True:
-        #     embedded_entities = self._kg_embedder(question_entities)
-        #     embedded_type_entities = self._kg_embedder(question_type_entities)
-        #     embedded_predicates = self._kg_embedder(question_predicates)
-        #     print(question_entities, question_predicates, question_type_entities)
-        #     print(embedded_entities, embedded_type_entities, embedded_predicates)
+        if True:
+            embedded_entities = self._kg_embedder(question_entities, input_type="entity")
+            embedded_type_entities = self._kg_embedder(question_type_entities, input_type="entity")
+            embedded_predicates = self._kg_embedder(question_predicates, input_type="relation")
+            # print(question_entities, question_type_entities, question_predicates)
+            # print(embedded_entities, embedded_type_entities, embedded_predicates)
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
 
-        result_entities: List[List[str]] = self._get_label_strings(
-            result_entities) if result_entities is not None else None
+        result_entities: List[List[str]] = self._get_label_strings(result_entities) \
+            if result_entities is not None else None
 
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_statelet = [self._create_grammar_state(world[i], actions[i]) for i in range(batch_size)]
