@@ -112,7 +112,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         if True:
             embedded_entities = self._kg_embedder(question_entities, input_type="entity")
             embedded_type_entities = self._kg_embedder(question_type_entities, input_type="entity")
-            embedded_predicates = self._kg_embedder(question_predicates, input_type="relation")
+            embedded_predicates = self._kg_embedder(question_predicates, input_type="predicate")
+
             # print(question_entities, question_type_entities, question_predicates)
             # print(embedded_entities, embedded_type_entities, embedded_predicates)
 
