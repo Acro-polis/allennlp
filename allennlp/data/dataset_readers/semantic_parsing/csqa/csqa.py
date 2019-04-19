@@ -4,6 +4,7 @@ Reader for CSQA: https://amritasaha1812.github.io/CSQA/.
 import json
 import logging
 import os
+import pathlib
 import pickle
 import tarfile
 import numpy as np
@@ -37,6 +38,8 @@ RETRIEVAL_QUESTION_TYPES_INDIRECT = ["Simple Question (Coreferenced)", "Simple Q
 COUNT_QUESTION_TYPES = ["Quantitative Reasoning (Count) (All)", "Comparative Reasoning (Count) (All)"]
 OTHER_QUESTION_TYPES = [VERIFICATION_QUESTION_STRING]
 
+PROJECT_ROOT = (pathlib.Path(__file__).parent / ".." / ".." / ".." / ".." / "..").resolve()
+FIXTURES_ROOT = PROJECT_ROOT / "allennlp" / "tests" / "fixtures"
 
 # noinspection PyTypeChecker
 @DatasetReader.register("csqa")
@@ -82,6 +85,7 @@ class CSQADatasetReader(DatasetReader):
                  lazy: bool = False,
                  kg_path: str = None,
                  kg_type_path: str = None,
+                 use_sample_kg: bool = False,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
                  tokenizer: Tokenizer = None,
@@ -92,8 +96,13 @@ class CSQADatasetReader(DatasetReader):
                  dpd_output_file: str = None
                  ) -> None:
         super().__init__(lazy=lazy)
-        self.kg_path = cached_path(kg_path)
-        self.kg_type_path = cached_path(kg_type_path)
+        if not use_sample_kg:
+            self.kg_path = cached_path(kg_path)
+            self.kg_type_path = cached_path(kg_type_path)
+        else:
+            self.kg_path = cached_path(f'{FIXTURES_ROOT}/data/csqa/sample_kg.p')
+            self.kg_type_path = cached_path(f'{FIXTURES_ROOT}/data/csqa/sample_kg.p')
+
         self.predicate_id2string_path = cached_path(predicate_id2string_path)
         self.entity_id2string_path = cached_path(entity_id2string_path)
         self.tokenizer = tokenizer or WordTokenizer(SpacyWordSplitter(pos_tags=True))

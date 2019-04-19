@@ -62,7 +62,13 @@ class CSQASemanticParser(Model):
         self._sentence_embedder = sentence_embedder
         self._use_bert_embeddings = any(isinstance(value, PretrainedBertEmbedder)
                                         for value in sentence_embedder._token_embedders.values())
+
+        if self._use_bert_embeddings:
+            self.bert_embedder = getattr(self._sentence_embedder, 'token_embedder_tokens')
         self._encoder = encoder
+        self.encoder_output_dim = self.bert_embedder.get_output_dim() if self._use_bert_embeddings else \
+            self._encoder.get_output_dim()
+
         self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
             RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
 
@@ -107,24 +113,17 @@ class CSQASemanticParser(Model):
         batch_size = embedded_input.size(0)
 
         if self._use_bert_embeddings:
+            # if we use bert embeddings, we do not use an encoder
             encoder_outputs = self._dropout(embedded_input)
-            # new
-            projection = torch.nn.Linear(768, 25)
-            projection.cuda()
-            sequence_projection = TimeDistributed(projection)
-            encoder_outputs = projection(encoder_outputs)
-
-            final_encoder_output = getattr(self._sentence_embedder, 'token_embedder_tokens').pooled_output
-            final_encoder_output = projection(final_encoder_output)
-            # memory_cell = encoder_outputs.new_zeros(batch_size, 768)
-            memory_cell = encoder_outputs.new_zeros(batch_size, 25)
+            final_encoder_output = self.bert_embedder.pooled_output
         else:
             # (batch_size, sentence_length, encoder_output_dim)
             encoder_outputs = self._dropout(self._encoder(embedded_input, sentence_mask))
             final_encoder_output = util.get_final_encoder_states(encoder_outputs,
                                                                  sentence_mask,
                                                                  self._encoder.is_bidirectional())
-            memory_cell = encoder_outputs.new_zeros(batch_size, self._encoder.get_output_dim())
+
+        memory_cell = encoder_outputs.new_zeros(batch_size, self.encoder_output_dim)
 
         attended_sentence, _ = self._decoder_step.attend_on_question(final_encoder_output,
                                                                      encoder_outputs, sentence_mask)

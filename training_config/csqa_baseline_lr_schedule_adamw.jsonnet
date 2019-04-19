@@ -55,12 +55,22 @@
     "batch_size" : 32
   },
   "trainer": {
-    "num_epochs": 100,
+    "num_epochs": 10,
     "cuda_device": 0,
     "weight_decay": 0.01,
     "optimizer": {
-      "type": "adam",
-      "lr": 0.003
+      "type": "adamw",
+//      "lr": 0.03,
+      "lr": std.extVar('learning_rate'),
     },
+    "learning_rate_scheduler": {
+      "type": "slanted_triangular",
+      "num_epochs": 10,
+      "num_steps_per_epoch": 197,
+      "cut_frac": 0.25
+    }
   }
 }
+
+
+

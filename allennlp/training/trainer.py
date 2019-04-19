@@ -654,7 +654,23 @@ class Trainer(TrainerBase):
             model = model.cuda(model_device)
 
         parameters = [[n, p] for n, p in model.named_parameters() if p.requires_grad]
-        optimizer = Optimizer.from_params(parameters, params.pop("optimizer"))
+        optimizer = params.pop("optimizer")
+        wd = params.pop("weight_decay", 0.0)
+
+        no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+        parameter_groups = [
+            [[n for n, p in parameters if not any(nd in n for nd in no_decay)], {'weight_decay': wd}],
+            [[n for n, p in parameters if any(nd in n for nd in no_decay)], {'weight_decay': 0.0}]
+        ]
+        optimizer["parameter_groups"] = parameter_groups
+
+        optimizer = Optimizer.from_params(parameters, optimizer)
+
+        # optimizer = Optimizer.from_params(parameters, params.pop("optimizer"))
+
+
+
+
         if "moving_average" in params:
             moving_average = MovingAverage.from_params(params.pop("moving_average"), parameters=parameters)
         else:

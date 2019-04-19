@@ -3,6 +3,7 @@
     "type": "csqa",
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+//    "use_sample_kg": true,
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000_logical_forms.p",
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
@@ -26,6 +27,7 @@
     "type": "csqa",
     "kg_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/wikidata_short_1_2_rev.p",
     "kg_type_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/par_child_dict_full.p",
+//    "use_sample_kg": true,
     "dpd_output_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100_logical_forms.p",
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
@@ -62,7 +64,9 @@
           "tokens": {
             "type": "bert-pretrained",
             "pretrained_model": "bert-base-uncased",
-            "requires_grad": false
+            "requires_grad": false,
+            "top_layer_only": true,
+            "projection_dim": 25
           },
         }
     },
@@ -70,7 +74,7 @@
     "action_embedding_dim": 50,
     "encoder": {
       "type": "lstm",
-      "input_size": 768,
+      "input_size": 25,
       "hidden_size": 10,
       "num_layers": 1
     },
@@ -88,12 +92,13 @@
     "batch_size" : 32
   },
   "trainer": {
-    "num_epochs": 100,
+    "num_epochs": 5,
     "cuda_device": 0,
     "optimizer": {
       "type": "bert_adam",
-      "lr": 2e-5,
-      "weight_decay": 0.0
+      "lr": 1e-3,
+      "warmup": 0.1,
+      "t_total": 1000
     }
   }
 }

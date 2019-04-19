@@ -27,6 +27,7 @@ from allennlp.common import Params, Registrable
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
+required = object()
 
 class Optimizer(Registrable):
     """
@@ -141,8 +142,98 @@ Registrable._registry[Optimizer] = {   # pylint: disable=protected-access
         "rmsprop": torch.optim.RMSprop,
         "adamax": torch.optim.Adamax,
         "averaged_sgd": torch.optim.ASGD,
-        "bert_adam": BertAdam,
+        # "bert_adam": BertAdam,
 }
+
+@Optimizer.register('bert_adam')
+class BertAdamOptimizer(BertAdam):
+
+    def __init__(self, params, lr=required, warmup=-1, t_total=-1, schedule='warmup_linear',
+                 b1=0.9, b2=0.999, e=1e-6, weight_decay=0.01,
+                 max_grad_norm=1.0):
+
+        super(BertAdamOptimizer, self).__init__(params, lr=lr, warmup=warmup, t_total=t_total,
+                                                schedule=schedule, b1=b1, b2=b2, e=e,
+                                                weight_decay=weight_decay, max_grad_norm=max_grad_norm)
+
+@Optimizer.register('adamw')
+class AdamW(torch.optim.Optimizer):
+    """Implements AdamW algorithm.
+    It has been proposed in `Fixing Weight Decay Regularization in Adam`_.
+    Arguments:
+        params (iterable): iterable of parameters to optimize or dicts defining
+            parameter groups
+        lr (float, optional): learning rate (default: 1e-3)
+        betas (Tuple[float, float], optional): coefficients used for computing
+            running averages of gradient and its square (default: (0.9, 0.999))
+        eps (float, optional): term added to the denominator to improve
+            numerical stability (default: 1e-8)
+        weight_decay (float, optional): weight decay (L2 penalty) (default: 0)
+    .. Fixing Weight Decay Regularization in Adam:
+    https://arxiv.org/abs/1711.05101
+    """
+
+    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, weight_decay=0):
+        defaults = dict(lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+        super(AdamW, self).__init__(params, defaults)
+
+    def step(self, closure=None):
+        """Performs a single optimization step.
+        Arguments:
+            closure (callable, optional): A closure that reevaluates the model
+                and returns the loss.
+        """
+        loss = None
+        if closure is not None:
+            loss = closure()
+
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                grad = p.grad.data
+                if grad.is_sparse:
+                    raise RuntimeError('AdamW does not support sparse gradients, please consider SparseAdam instead')
+
+                state = self.state[p]
+
+                # State initialization
+                if len(state) == 0:
+                    state['step'] = 0
+                    # Exponential moving average of gradient values
+                    state['exp_avg'] = torch.zeros_like(p.data)
+                    # Exponential moving average of squared gradient values
+                    state['exp_avg_sq'] = torch.zeros_like(p.data)
+
+                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
+                beta1, beta2 = group['betas']
+
+                state['step'] += 1
+
+                # according to the paper, this penalty should come after the bias correction
+                # if group['weight_decay'] != 0:
+                #     grad = grad.add(group['weight_decay'], p.data)
+
+                # Decay the first and second moment running average coefficient
+                exp_avg.mul_(beta1).add_(1 - beta1, grad)
+                exp_avg_sq.mul_(beta2).addcmul_(1 - beta2, grad, grad)
+
+                denom = exp_avg_sq.sqrt().add_(group['eps'])
+
+                bias_correction1 = 1 - beta1 ** state['step']
+                bias_correction2 = 1 - beta2 ** state['step']
+                step_size = group['lr'] * math.sqrt(bias_correction2) / bias_correction1
+
+                # w = w - wd * lr * w
+                if group['weight_decay'] != 0:
+                    p.data.add_(-group['weight_decay'] * group['lr'], p.data)
+
+                # w = w - lr * w.grad
+                p.data.addcdiv_(-step_size, exp_avg, denom)
+
+                # w = w - wd * lr * w - lr * w.grad  # See http://www.fast.ai/2018/07/02/adam-weight-decay/
+
+        return loss
 
 def _safe_sparse_mask(tensor: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
     """

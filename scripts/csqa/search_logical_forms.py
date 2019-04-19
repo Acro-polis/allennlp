@@ -30,8 +30,9 @@ def search(args):
     question_type_counter = Counter()
     stop_after_n_found = 1
 
-    for n, instance in enumerate(tqdm(dataset, total=args.instance_limit)):
-        if n == args.instance_limit:
+    pbar = tqdm(total=args.instance_limit)
+    for n, instance in enumerate(dataset):
+        if n == args.instance_limit and args.target_sampling is None:
             break
 
         question = [tok.text for tok in instance['question'].tokens]
@@ -44,7 +45,14 @@ def search(args):
         searcher = PrunedBreadthFirstSearch(language)
 
         time_limit = 20
-        question_type_counter[question_type] += 1
+
+        if args.target_sampling is not None:
+            if question_type_counter[question_type] >= args.target_sampling:
+                if sum(question_type_counter.values()) >= args.instance_limit:
+                    break
+                else:
+                    continue
+
 
         if qa_id in logical_form_result_dict and len(logical_form_result_dict[qa_id]) >= stop_after_n_found:
             continue
@@ -61,12 +69,14 @@ def search(args):
                                                   max_time=time_limit,
                                                   stop_after_n_found=stop_after_n_found)
         if len(result_action_sequences) != 0:
+            question_type_counter[question_type] += 1
+            pbar.update(1)
             logical_form_result_dict[qa_id] = result_action_sequences
 
-    with open(csqa_directory + "_logical_forms.p", 'wb') as file:
+    with open(csqa_directory + args.result_name + "_logical_forms.p", 'wb') as file:
         pickle.dump(logical_form_result_dict, file)
 
-    with open(csqa_directory + "_logical_forms_log", 'w') as file:
+    with open(csqa_directory + args.result_name + "_logical_forms_log", 'w') as file:
         n_found = len(list(logical_form_result_dict.keys()))
         percentage = n_found / args.instance_limit * 100
         file.write("{} qa turns in total, found {} ({:.2f}%)".format(args.instance_limit, n_found, percentage))
@@ -77,6 +87,8 @@ def search(args):
         file.write("\n\n")
         file.write("\n".join([str(k) + " : " + str(v) for k, v in vars(args).items()]))
 
+    pbar.close()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -85,5 +97,7 @@ if __name__ == "__main__":
     parser.add_argument("--csqa_directory", type=str, help="path to csqa directory")
     parser.add_argument("--instance_limit", type=int, help="path to initial dict")
     parser.add_argument("--initial_dict", type=str, default=None, help="path to initial dict")
+    parser.add_argument("--result_name", type=str, default="", help="suffix of resulting files")
+    parser.add_argument("--target_sampling", type=int, default=None, help="target N for each class")
     args = parser.parse_args()
     search(args)

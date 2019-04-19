@@ -35,10 +35,17 @@ class BertEmbedder(TokenEmbedder):
     top_layer_only: ``bool``, optional (default = ``False``)
         If ``True``, then only return the top layer instead of apply the scalar mix.
     """
-    def __init__(self, bert_model: BertModel, top_layer_only: bool = False) -> None:
+    def __init__(self, bert_model: BertModel, top_layer_only: bool = False, projection_dim: int = None) -> None:
         super().__init__()
         self.bert_model = bert_model
-        self.output_dim = bert_model.config.hidden_size
+
+        if projection_dim:
+            self.projection = torch.nn.Linear(768, projection_dim)
+            self.output_dim = projection_dim
+        else:
+            self.projection = None
+            self.output_dim = bert_model.config.hidden_size
+
         if not top_layer_only:
             self._scalar_mix = ScalarMix(bert_model.config.num_hidden_layers,
                                          do_layer_norm=False)
@@ -86,14 +93,10 @@ class BertEmbedder(TokenEmbedder):
 
         # input_ids may have extra dimensions, so we reshape down to 2-d
         # before calling the BERT model and then reshape back at the end.
-        print()
-        print(input_ids)
-        print(token_type_ids)
-        print(input_mask)
         all_encoder_layers, pooled_output = self.bert_model(input_ids=util.combine_initial_dims(input_ids),
                                                             token_type_ids=util.combine_initial_dims(token_type_ids),
                                                             attention_mask=util.combine_initial_dims(input_mask))
-        self.pooled_output = pooled_output
+
         if self._scalar_mix is not None:
             mix = self._scalar_mix(all_encoder_layers, input_mask)
         else:
@@ -103,7 +106,7 @@ class BertEmbedder(TokenEmbedder):
 
         if offsets is None:
             # Resize to (batch_size, d1, ..., dn, sequence_length, embedding_dim)
-            return util.uncombine_initial_dims(mix, input_ids.size())
+            output = util.uncombine_initial_dims(mix, input_ids.size())
         else:
             # offsets is (batch_size, d1, ..., dn, orig_sequence_length)
             offsets2d = util.combine_initial_dims(offsets)
@@ -113,7 +116,15 @@ class BertEmbedder(TokenEmbedder):
             # selected embeddings is also (batch_size * d1 * ... * dn, orig_sequence_length)
             selected_embeddings = mix[range_vector, offsets2d]
 
-            return util.uncombine_initial_dims(selected_embeddings, offsets.size())
+            output =  util.uncombine_initial_dims(selected_embeddings, offsets.size())
+
+        self.pooled_output = pooled_output
+
+        if self.projection:
+            self.pooled_output = self.projection(pooled_output)
+            output = self.projection(output)
+
+        return output
 
 
 @TokenEmbedder.register("bert-pretrained")
@@ -134,10 +145,11 @@ class PretrainedBertEmbedder(BertEmbedder):
     top_layer_only: ``bool``, optional (default = ``False``)
         If ``True``, then only return the top layer instead of apply the scalar mix.
     """
-    def __init__(self, pretrained_model: str, requires_grad: bool = False, top_layer_only: bool = False) -> None:
+    def __init__(self, pretrained_model: str, requires_grad: bool = False, top_layer_only: bool = False
+                 , projection_dim: int = None) -> None:
         model = BertModel.from_pretrained(pretrained_model)
 
         for param in model.parameters():
             param.requires_grad = requires_grad
 
-        super().__init__(bert_model=model, top_layer_only=top_layer_only)
+        super().__init__(bert_model=model, top_layer_only=top_layer_only, projection_dim=projection_dim)

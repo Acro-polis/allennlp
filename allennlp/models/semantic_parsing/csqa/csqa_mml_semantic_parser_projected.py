@@ -71,12 +71,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
 
         self._decoder_trainer = MaximumMarginalLikelihood()
 
-        # encoder_output_dim = 768 if self._use_bert_embeddings else self._encoder.get_output_dim()
-        encoder_output_dim = 25 if self._use_bert_embeddings else self._encoder.get_output_dim()
-        print(self._encoder.get_output_dim())
-
         # self._decoder_step = BasicTransitionFunction(encoder_output_dim=self._encoder.get_output_dim(),
-        self._decoder_step = BasicTransitionFunction(encoder_output_dim=encoder_output_dim,
+        self._decoder_step = BasicTransitionFunction(encoder_output_dim=self.encoder_output_dim,
                                                      action_embedding_dim=action_embedding_dim,
                                                      input_attention=attention,
                                                      num_start_types=1,

@@ -55,12 +55,23 @@
     "batch_size" : 32
   },
   "trainer": {
-    "num_epochs": 100,
+    "num_epochs": 10,
     "cuda_device": 0,
-    "weight_decay": 0.01,
+//    "weight_decay": 0.01,
     "optimizer": {
-      "type": "adam",
-      "lr": 0.003
+      "type": "bert_adam",
+      "lr": 0.03,
+      "max_grad_norm": -1,
+      "e": 1e-8
     },
+    "learning_rate_scheduler": {
+      "type": "slanted_triangular",
+      "num_epochs": 10,
+      "num_steps_per_epoch": 197,
+      "cut_frac": 0.25
+    }
   }
 }
+
+
+

@@ -154,6 +154,9 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                  label_strings=result_entities,
                                  question_types=question_type,
                                  expected_result=expected_result)
+
+            outputs["predicted queries"] = batch_action_strings
+
         return outputs
 
     def _update_metrics(self,

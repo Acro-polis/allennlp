@@ -7,7 +7,7 @@
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.p",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
     "lazy": true,
-    "augment_sentence_with_context": false,
+    "augment_sentence_with_context": true,
     "tokenizer": {
        "type": "word",
        "word_splitter": {
@@ -31,7 +31,7 @@
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
     "read_only_direct": true,
     "lazy": true,
-    "augment_sentence_with_context": false,
+    "augment_sentence_with_context": true,
     "tokenizer": {
        "type": "word",
        "word_splitter": {
@@ -62,7 +62,8 @@
           "tokens": {
             "type": "bert-pretrained",
             "pretrained_model": "bert-base-uncased",
-            "requires_grad": false
+            "requires_grad": false,
+            "top_layer_only": true
           },
         }
     },
