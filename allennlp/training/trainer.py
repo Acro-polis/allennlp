@@ -112,7 +112,7 @@ class Trainer(TrainerBase):
             save models at a given interval in addition to the last num_serialized_models_to_keep.
             To do so, specify keep_serialized_model_every_num_seconds as the number of seconds
             between permanently saved checkpoints.  Note that this option is only used if
-            num_serialized_models_to_keep is not None, otherwise all checkpoints are kept.
+            num_serialized_models_to_keep basicis not None, otherwise all checkpoints are kept.
         model_save_interval : ``float``, optional (default=None)
             If provided, then serialize models every ``model_save_interval``
             seconds within single epochs.  In all cases, models are also saved

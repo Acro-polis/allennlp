@@ -62,15 +62,14 @@ class TestCSQALanguage(AllenNlpTestCase):
                                                      question_predicates: List[str],
                                                      type_list: List[str]) -> CSQALanguage:
 
-        csqa_context = CSQAContext.read_from_file("", "", "", "",
+        csqa_context = CSQAContext.read_from_file(kg_path=self.kg_test_path,
+                                                  kg_type_path=self.kg_type_test_path,
+                                                  entity_id2string_path=self.entity_id2string_path,
+                                                  predicate_id2string_path=self.predicate_id2string_path,
                                                   question_tokens=question_tokens,
                                                   question_entities=question_entities,
                                                   question_predicates=question_predicates,
-                                                  question_type_entities=type_list,
-                                                  kg_data=self.context.kg_data,
-                                                  kg_type_data=self.context.kg_type_data,
-                                                  entity_id2string=self.context.entity_id2string,
-                                                  predicate_id2string=self.context.predicate_id2string)
+                                                  question_type_entities=type_list)
         language = CSQALanguage(csqa_context)
         return language
 

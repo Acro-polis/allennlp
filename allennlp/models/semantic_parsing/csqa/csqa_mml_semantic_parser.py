@@ -1,17 +1,18 @@
 import logging
-from typing import Any, List, Dict
+from typing import Any, List, Dict, Union, Set
 
 import torch
 from collections import OrderedDict
 from overrides import overrides
 
+from allennlp.data.fields import ArrayField
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.models.model import Model
-from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser
+from allennlp.models.semantic_parsing.csqa.csqa_semantic_parser import CSQASemanticParser, OVERALL_SCORE
 from allennlp.modules import Attention, TextFieldEmbedder, KgEmbedder, Seq2SeqEncoder
 from allennlp.nn import Activation
-from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
+from allennlp.semparse.domain_languages.csqa_language import CSQALanguage, Entity
 from allennlp.state_machines import BeamSearch
 from allennlp.state_machines.states import GrammarBasedState
 from allennlp.state_machines.trainers import MaximumMarginalLikelihood
@@ -62,6 +63,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                  max_decoding_steps: int,
                  dropout: float = 0.0,
                  direct_questions_only=True) -> None:
+
         super(CSQAMmlSemanticParser, self).__init__(vocab=vocab,
                                                     sentence_embedder=sentence_embedder,
                                                     kg_embedder=kg_embedder,
@@ -96,6 +98,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                 world: List[CSQALanguage],
                 actions: List[List[ProductionRule]],
                 identifier: List[str] = None,
+                question_segments: torch.FloatTensor = None,
                 target_action_sequences: torch.LongTensor = None,
                 result_entities=None,
                 labels: torch.LongTensor = None,
@@ -105,8 +108,12 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Decoder logic for producing type constrained target sequences, trained to maximize marginal
         likelihood over a set of approximate logical forms.
         """
-        # print(question['tokens'].size())
+        assert target_action_sequences is not None
+
         batch_size = question['tokens'].size()[0]
+        # Remove the trailing dimension (from ListField[ListField[IndexField]]).
+        target_action_sequences = target_action_sequences.squeeze(-1)
+        target_mask = target_action_sequences != self._action_padding_index
 
         # TODO: embed entities
         if True:
@@ -120,12 +127,8 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
 
-        result_entities: List[List[str]] = self._get_label_strings(result_entities) \
-            if result_entities is not None else None
-
         # TODO (pradeep): Assuming all worlds give the same set of valid actions.
         initial_grammar_statelet = [self._create_grammar_state(world[i], actions[i]) for i in range(batch_size)]
-
         initial_state = GrammarBasedState(batch_indices=list(range(batch_size)),
                                           action_history=[[] for _ in range(batch_size)],
                                           score=initial_score_list,
@@ -134,24 +137,11 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                                           possible_actions=actions,
                                           extras=result_entities)
 
-        if target_action_sequences is not None:
-            # Remove the trailing dimension (from ListField[ListField[IndexField]]).
-            target_action_sequences = target_action_sequences.squeeze(-1)
-            target_mask = target_action_sequences != self._action_padding_index
-        else:
-            target_mask = None
-
-        outputs: Dict[str, torch.Tensor] = {}
-        # TODO: does this if statement make sense if it is overwritten by decoder_trainer.decode()?
-        if identifier is not None:
-            outputs["identifier"] = identifier
-        if target_action_sequences is not None:
-            outputs = self._decoder_trainer.decode(initial_state,
-                                                   self._decoder_step,
-                                                   (target_action_sequences, target_mask))
+        outputs = self._decoder_trainer.decode(initial_state,
+                                               self._decoder_step,
+                                               (target_action_sequences, target_mask))
 
         if not self.training:
-            # print(question_type)
             initial_state.debug_info = [[] for _ in range(batch_size)]
             best_final_states = self._decoder_beam_search.search(self._max_decoding_steps,
                                                                  initial_state,
@@ -166,41 +156,28 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     best_action_indices = [best_final_states[i][0].action_history[0]]
                     best_action_sequences[i] = best_action_indices
             batch_action_strings = self._get_action_strings(actions, best_action_sequences)
-            batch_denotations = self._get_denotations(batch_action_strings, world)
 
-            if target_action_sequences is not None:
-                self._update_metrics(action_strings=batch_action_strings,
-                                     worlds=world,
-                                     label_strings=result_entities,
-                                     question_types=question_type)
-            else:
-                if metadata is not None:
-                    outputs["sentence_tokens"] = [x["sentence_tokens"] for x in metadata]
-                outputs['debug_info'] = []
-                for i in range(batch_size):
-                    outputs['debug_info'].append(best_final_states[i][0].debug_info[0])  # type: ignore
-                outputs["best_action_strings"] = batch_action_strings
-                outputs["denotations"] = batch_denotations
-                action_mapping = {}
-                for batch_index, batch_actions in enumerate(actions):
-                    for action_index, action in enumerate(batch_actions):
-                        action_mapping[(batch_index, action_index)] = action[0]
-                outputs['action_mapping'] = action_mapping
+            self._update_metrics(action_strings=batch_action_strings,
+                                 worlds=world,
+                                 label_strings=result_entities,
+                                 question_types=question_type,
+                                 expected_result=expected_result)
         return outputs
 
     def _update_metrics(self,
                         action_strings: List[List[List[str]]],
                         worlds: List[CSQALanguage],
                         label_strings: List[List[str]],
-                        question_types: List[str]) -> None:
+                        question_types: List[str],
+                        expected_result: List[Union[bool, int, Set[Entity]]]) -> None:
         batch_size = len(worlds)
 
         for i in range(batch_size):
             instance_action_strings = action_strings[i]
-            # if instance_action_strings:
             instance_label_strings = label_strings[i]
             instance_world = worlds[i]
             question_type = question_types[i]
+            instance_expected_result = expected_result[i]
             # Taking only the best sequence.
             if question_type in self.retrieval_question_types:
                 precision_metric = self._metrics[question_type + " precision"]
@@ -220,10 +197,26 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     sequence_is_correct: bool = self._check_denotation(instance_action_strings[0],
                                                                        instance_label_strings,
                                                                        instance_world,
-                                                                       question_type)
+                                                                       question_type,
+                                                                       instance_expected_result)
                 else:
                     sequence_is_correct: bool = False
                 metric(1 if sequence_is_correct else 0)
+
+        # update overall score
+
+        for metric_name, metric in self._metrics.items():
+            overall_score_metric = self._metrics[OVERALL_SCORE]
+            if metric_name.endswith("accuracy"):
+                accuracy = metric.get_metric()
+                overall_score_metric(accuracy)
+
+            elif metric_name.endswith("precision"):
+                precision = metric.get_metric()
+                corresp_recall_metric_name = metric_name.replace("precision", "recall")
+                recall = self._metrics[corresp_recall_metric_name].get_metric()
+                f1 = 2 * (precision * recall) / (precision + recall + 1e-9)
+                overall_score_metric(f1)
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:

@@ -7,7 +7,20 @@
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
     "read_only_direct": true,
-    "lazy": true
+    "lazy": true,
+    "add_entities_to_sentence": true,
+    "tokenizer": {
+       "type": "word",
+       "word_splitter": {
+          "type": "bert-basic"
+       }
+     },
+    "question_token_indexers": {
+      "tokens": {
+        "type": "bert-pretrained",
+        "pretrained_model": "bert-base-uncased"
+       }
+    }
   },
   "validation_dataset_reader": {
     "type": "csqa",
@@ -17,7 +30,21 @@
     "entity_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/items_wikidata_n.json",
     "predicate_id2string_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/filtered_property_wikidata4.json",
     "read_only_direct": true,
-    "lazy": true
+    "lazy": true,
+    "add_entities_to_sentence": true,
+    "tokenizer": {
+       "type": "word",
+       "word_splitter": {
+          "type": "bert-basic"
+       }
+     },
+    "question_token_indexers": {
+      "tokens": {
+        "type": "bert-pretrained",
+        "pretrained_model": "bert-base-uncased",
+        "max_pieces": 256,
+       }
+    }
   },
   "vocabulary": {
     "non_padded_namespaces": ["denotations", "rule_labels"]
@@ -25,32 +52,25 @@
   "train_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_train_7000.tar.gz",
   "validation_data_path": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/sample_valid_1100.tar.gz",
   "model": {
-    "kg_embedder": {
-      "type": "kg_embedding",
-      "embedding_dim": 50,
-      "num_entities": 20982733,
-      "num_predicates": 594,
-      "trainable": true,
-      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.bin",
-      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.bin",
-      "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
-      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
-    },
     "type": "csqa_mml_parser",
     "sentence_embedder": {
-      "token_embedders": {
-        "tokens": {
-          "type": "embedding",
-          "embedding_dim": 25,
-          "trainable": true
+        "allow_unmatched_keys": true,
+        "embedder_to_indexer_map": {
+            "tokens": ["tokens", "tokens-offsets, tokens_type_ids"],
+        },
+        "token_embedders": {
+          "tokens": {
+            "type": "bert-pretrained",
+            "pretrained_model": "bert-base-uncased",
+            "requires_grad": true
+          },
         }
-      },
     },
     "direct_questions_only": true,
     "action_embedding_dim": 50,
     "encoder": {
       "type": "lstm",
-      "input_size": 25,
+      "input_size": 768,
       "hidden_size": 10,
       "num_layers": 1
     },
@@ -68,7 +88,7 @@
     "batch_size" : 32
   },
   "trainer": {
-    "num_epochs": 3,
+    "num_epochs": 100,
     "cuda_device": -1,
     "optimizer": {
       "type": "adam",
