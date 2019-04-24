@@ -1,13 +1,11 @@
-import json
-import gc
-
 from typing import Dict, List, Tuple
 import pickle
 import numpy as np
 
 from allennlp.data.tokenizers import Token
+from allennlp.semparse.contexts.csqa.util import load_json, load_pickle
 from allennlp.semparse.contexts.table_question_context import TableQuestionContext
-from allennlp.common.file_utils import cached_path
+import time
 
 
 NUMBER_CHARACTERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'}
@@ -76,6 +74,14 @@ class CSQAContext:
     read_from_file(kg_dict), passing the kg_dict from the first object.
     ################################################################################################
     """
+    kg_data = None
+    kg_data_path = None
+    kg_type_data = None
+    kg_type_data_path = None
+    entity_id2string = None
+    entity_id2string_path = None
+    predicate_id2string = None
+    predicate_id2string_path = None
 
     def __init__(self,
                  kg_data: Dict[str, Dict[str, str]],
@@ -116,11 +122,7 @@ class CSQAContext:
                        question_tokens: List[Token] = None,
                        question_entities: List[str] = None,
                        question_predicates: List[str] = None,
-                       question_type_entities: str = None,
-                       kg_data: Dict[int, Dict[int, int]] = None,
-                       kg_type_data: Dict[int, Dict[int, int]] = None,
-                       entity_id2string: Dict[str, str] = None,
-                       predicate_id2string: Dict[str, str] = None
+                       question_type_entities: str = None
                        ) -> 'CSQAContext':
         """
         This method loads a CSQAContext from file given the question tokens anj the path to the kg,
@@ -159,46 +161,56 @@ class CSQAContext:
         CSQAContext.
 
         """
-        if not kg_data:
+        if kg_path == CSQAContext.kg_data_path:
+            kg_data = CSQAContext.kg_data
+            use_integer_ids = isinstance(next(iter(kg_data)), int)
+        else:
             print("Loading wikidata graph")
-            kg_path = cached_path(kg_path)
+            # kg_path = cached_path(kg_path)
             if '.json' in kg_path:
                 use_integer_ids = False
-                with open(kg_path, 'r') as file:
-                    kg_data = json.load(file)
+                kg_data = load_json(kg_path)
             elif '.p' in kg_path or 'allennlp' in kg_path:
                 use_integer_ids = True
-                # Temporarily disabling gc results in a large speedup.
-                gc.disable()
-                with open(kg_path, 'rb') as file:
-                    kg_data = pickle.load(file)
-                gc.enable()
+                kg_data = load_pickle(kg_path)
             else:
                 raise ValueError()
+            # set global variables
+            CSQAContext.kg_data = kg_data
+            CSQAContext.kg_data_path = kg_path
+
+        if kg_type_path == CSQAContext.kg_type_data_path:
+            kg_type_data = CSQAContext.kg_type_data
         else:
-            # Inspect the first key to determine whether to use integer ids.
-            use_integer_ids = isinstance(next(iter(kg_data)), int)
-
-        if not kg_type_data:
             print("Loading wikidata type graph")
-            kg_type_path = cached_path(kg_type_path)
             if'.p' in kg_type_path or 'allennlp' in kg_type_path:
-                use_integer_ids = True
-                # Temporarily disabling gc results in a large speedup.
-                gc.disable()
-                with open(kg_type_path, 'rb') as file:
-                    kg_type_data = pickle.load(file)
-                gc.enable()
+                kg_type_data = load_pickle(kg_type_path)
             else:
                 raise ValueError()
 
-        if not entity_id2string:
-            with open(entity_id2string_path, 'r') as file:
-                entity_id2string = json.load(file)
+            CSQAContext.kg_type_data = kg_type_data
+            CSQAContext.kg_type_data_path = kg_type_path
 
-        if not predicate_id2string:
-            with open(predicate_id2string_path, 'r') as file:
-                predicate_id2string = json.load(file)
+        if entity_id2string_path == CSQAContext.entity_id2string_path:
+            entity_id2string = CSQAContext.entity_id2string
+        else:
+            if '.p' in entity_id2string_path or 'allennlp' in entity_id2string_path:
+                entity_id2string = load_pickle(entity_id2string_path)
+            elif '.json' in entity_id2string_path:
+                entity_id2string = load_json(entity_id2string_path)
+            else:
+                raise ValueError()
+
+            CSQAContext.entity_id2string = entity_id2string
+            CSQAContext.entity_id2string_path = entity_id2string_path
+
+        if predicate_id2string_path == CSQAContext.predicate_id2string_path:
+            predicate_id2string = CSQAContext.predicate_id2string
+        else:
+            predicate_id2string = load_json(predicate_id2string_path)
+
+            CSQAContext.predicate_id2string = predicate_id2string
+            CSQAContext.predicate_id2string_path = predicate_id2string_path
 
         return cls(kg_data=kg_data,
                    kg_type_data=kg_type_data,

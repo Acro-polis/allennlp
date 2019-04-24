@@ -1,23 +1,28 @@
-from typing import Dict, List, Tuple
+from typing import List, Dict, Union, Set, Tuple
 from overrides import overrides
 
 import torch
 from collections import OrderedDict
 
+from allennlp.data.fields import ArrayField
 from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.state_machines.states import GrammarStatelet, RnnStatelet
 from allennlp.models.model import Model
 from allennlp.nn import util
-from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
 from allennlp.modules import TextFieldEmbedder, Seq2SeqEncoder, KgEmbedder, Embedding
+from allennlp.semparse.domain_languages import CSQALanguage, START_SYMBOL
+from allennlp.semparse.domain_languages.csqa_language import Entity
 from allennlp.data.vocabulary import Vocabulary
 from allennlp.training.metrics import Average
 from allennlp.training.metrics.average_precision import AveragePrecision
 from allennlp.training.metrics.average_recall import AverageRecall
+from allennlp.modules.token_embedders.bert_token_embedder import PretrainedBertEmbedder
 
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import RETRIEVAL_QUESTION_TYPES_DIRECT, \
-    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES
+    RETRIEVAL_QUESTION_TYPES_INDIRECT, COUNT_QUESTION_TYPES, OTHER_QUESTION_TYPES, VERIFICATION_QUESTION_STRING
+
+OVERALL_SCORE = 'overall_score'
 
 
 class CSQASemanticParser(Model):
@@ -57,14 +62,16 @@ class CSQASemanticParser(Model):
         super(CSQASemanticParser, self).__init__(vocab=vocab)
         self._sentence_embedder = sentence_embedder
         self._kg_embedder = kg_embedder
+        self._use_bert_embeddings = any(isinstance(value, PretrainedBertEmbedder)
+                                        for value in sentence_embedder._token_embedders.values())
         self._encoder = encoder
-
         self.retrieval_question_types = RETRIEVAL_QUESTION_TYPES_DIRECT if direct_questions_only else \
             RETRIEVAL_QUESTION_TYPES_DIRECT + RETRIEVAL_QUESTION_TYPES_INDIRECT
 
         precision_metrics = [(qt + " precision", AveragePrecision()) for qt in self.retrieval_question_types]
         recall_metrics = [(qt + " recall", AverageRecall()) for qt in self.retrieval_question_types]
         average_metrics = [(qt + " accuracy", Average()) for qt in OTHER_QUESTION_TYPES + COUNT_QUESTION_TYPES]
+        average_metrics += [(OVERALL_SCORE, Average())]
 
         self._metrics = OrderedDict(precision_metrics + recall_metrics + average_metrics)
 
@@ -74,6 +81,7 @@ class CSQASemanticParser(Model):
             self._dropout = lambda x: x
 
         self._rule_namespace = rule_namespace
+        # size is around 5000
         self._action_embedder = Embedding(num_embeddings=vocab.get_vocab_size(self._rule_namespace),
                                           embedding_dim=action_embedding_dim)
 
@@ -124,25 +132,38 @@ class CSQASemanticParser(Model):
 
     def _create_grammar_state(self,
                               world: CSQALanguage,
-                              possible_actions: List[ProductionRule]) -> GrammarStatelet:
+                              instance_possible_actions: List[ProductionRule]) -> GrammarStatelet:
         """
         This function creates a GrammarStatelet by computing the valid actions
+
+        first we make a mapping from the actions strings in possible actions to their position
+        Then we map the actions from the language to these indices
+
         """
-        valid_actions = world.get_nonterminal_productions()
-        action_mapping = {}
-        for i, action in enumerate(possible_actions):
-            action_mapping[action[0]] = i
+        valid_actions: Dict[str, List[str]] = world.get_nonterminal_productions()
+        instance_action_mapping: Dict[str, int] = {}
+
+        for i, action in enumerate(instance_possible_actions):
+            instance_action_mapping[action[0]] = i
+
+        # the output structure mapping actions strings to a dict with 'global' as key and
+        # (input_emb,output_emd,action_ids) as value, input_emb is for matching in the loss,
+        # output is for feeding as input for the next batch, the indices are indices of the main action list
+        # for that instance
         translated_valid_actions: Dict[str, Dict[str, Tuple[torch.Tensor, torch.Tensor, List[int]]]] = {}
+
         for key, action_strings in valid_actions.items():
             translated_valid_actions[key] = {}
             # `key` here is a non-terminal from the grammar, and `action_strings` are all the valid
             # productions of that non-terminal.
-            action_indices = [action_mapping[action_string] for action_string in action_strings]
+            action_indices = [instance_action_mapping[action_string] for action_string in action_strings]
             # All actions in NLVR are global actions.
-            global_actions = [(possible_actions[index][2], index) for index in action_indices]
+            global_actions = [(instance_possible_actions[index][2], index) for index in action_indices]
 
             # Then we get the embedded representations of the global actions.
             global_action_tensors, global_action_ids = zip(*global_actions)
+            # print(global_action_tensors)
+            # print(global_action_ids)
             global_action_tensor = torch.cat(global_action_tensors, dim=0)
             global_input_embeddings = self._action_embedder(global_action_tensor)
             translated_valid_actions[key]['global'] = (global_input_embeddings,
@@ -151,20 +172,6 @@ class CSQASemanticParser(Model):
         return GrammarStatelet([START_SYMBOL],
                                translated_valid_actions,
                                world.is_nonterminal)
-
-    def _get_label_strings(self, labels):
-        # TODO (pradeep): Use an unindexed field for labels?
-        labels_data = labels.detach().cpu()
-        label_strings: List[List[str]] = []
-        for instance_labels_data in labels_data:
-            label_strings.append([])
-            for label in instance_labels_data:
-                label_int = int(label)
-                if label_int == -1:
-                    # Padding, because not all instances have the same number of labels.
-                    continue
-                label_strings[-1].append(self.vocab.get_token_from_index(label_int, "denotations"))
-        return label_strings
 
     @classmethod
     def _get_action_strings(cls,
@@ -210,7 +217,8 @@ class CSQASemanticParser(Model):
     def _check_denotation(action_sequence: List[str],
                           result_entities: List[str],
                           world: CSQALanguage,
-                          question_type: str) -> List[bool]:
+                          question_type: str,
+                          expected_result: Union[bool, int, Set[Entity]]) -> List[bool]:
 
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
@@ -220,6 +228,9 @@ class CSQASemanticParser(Model):
                 return True
             else:
                 return False
+        elif question_type == VERIFICATION_QUESTION_STRING:
+            assert isinstance(expected_result, bool), expected_result
+            return expected_result == denotation
 
     @staticmethod
     def _get_retrieved_entities(action_sequence: List[str],
@@ -227,52 +238,52 @@ class CSQASemanticParser(Model):
 
         logical_form = world.action_sequence_to_logical_form(action_sequence)
         denotation = world.execute(logical_form)
-        return [d.name for d in denotation] if isinstance(denotation, set) else []
+        return list(denotation) if isinstance(denotation, set) else []
 
-    @overrides
-    def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
-        """
-        This method overrides ``Model.decode``, which gets called after ``Model.forward``, at test
-        time, to finalize predictions. We only transform the action string sequences into logical
-        forms here.
-        """
-        best_action_strings = output_dict["best_action_strings"]
-        # Instantiating an empty world for getting logical forms.
-        world = CSQALanguage(CSQAContext({}, {}, [], [], [], "", [], {}, {}))
-        logical_forms = []
-        for instance_action_sequences in best_action_strings:
-            instance_logical_forms = []
-            for action_strings in instance_action_sequences:
-                if action_strings:
-                    instance_logical_forms.append(world.action_sequence_to_logical_form(action_strings))
-                else:
-                    instance_logical_forms.append('')
-            logical_forms.append(instance_logical_forms)
-
-        action_mapping = output_dict['action_mapping']
-        best_actions = output_dict['best_action_strings']
-        debug_infos = output_dict['debug_info']
-        batch_action_info = []
-        for batch_index, (predicted_actions, debug_info) in enumerate(zip(best_actions, debug_infos)):
-            instance_action_info = []
-            for predicted_action, action_debug_info in zip(predicted_actions[0], debug_info):
-                considered_actions = action_debug_info['considered_actions']
-                probabilities = action_debug_info['probabilities']
-
-                actions = []
-                for action, probability in zip(considered_actions, probabilities):
-                    if action != -1:
-                        actions.append((action_mapping[(batch_index, action)], probability))
-                actions.sort()
-                considered_actions, probabilities = zip(*actions)
-
-                action_info = {'predicted_action': predicted_action,
-                               'considered_actions': considered_actions,
-                               'action_probabilities': probabilities,
-                               'question_attention': action_debug_info.get('question_attention', [])}
-
-                instance_action_info.append(action_info)
-            batch_action_info.append(instance_action_info)
-        output_dict["predicted_actions"] = batch_action_info
-        output_dict["logical_form"] = logical_forms
-        return output_dict
+    # @overrides
+    # def decode(self, output_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
+    #     """
+    #     This method overrides ``Model.decode``, which gets called after ``Model.forward``, at test
+    #     time, to finalize predictions. We only transform the action string sequences into logical
+    #     forms here.
+    #     """
+    #     best_action_strings = output_dict["best_action_strings"]
+    #     # Instantiating an empty world for getting logical forms.
+    #     world = CSQALanguage(CSQAContext({}, {}, [], [], [], "", [], {}, {}))
+    #     logical_forms = []
+    #     for instance_action_sequences in best_action_strings:
+    #         instance_logical_forms = []
+    #         for action_strings in instance_action_sequences:
+    #             if action_strings:
+    #                 instance_logical_forms.append(world.action_sequence_to_logical_form(action_strings))
+    #             else:
+    #                 instance_logical_forms.append('')
+    #         logical_forms.append(instance_logical_forms)
+    #
+    #     action_mapping = output_dict['action_mapping']
+    #     best_actions = output_dict['best_action_strings']
+    #     debug_infos = output_dict['debug_info']
+    #     batch_action_info = []
+    #     for batch_index, (predicted_actions, debug_info) in enumerate(zip(best_actions, debug_infos)):
+    #         instance_action_info = []
+    #         for predicted_action, action_debug_info in zip(predicted_actions[0], debug_info):
+    #             considered_actions = action_debug_info['considered_actions']
+    #             probabilities = action_debug_info['probabilities']
+    #
+    #             actions = []
+    #             for action, probability in zip(considered_actions, probabilities):
+    #                 if action != -1:
+    #                     actions.append((action_mapping[(batch_index, action)], probability))
+    #             actions.sort()
+    #             considered_actions, probabilities = zip(*actions)
+    #
+    #             action_info = {'predicted_action': predicted_action,
+    #                            'considered_actions': considered_actions,
+    #                            'action_probabilities': probabilities,
+    #                            'question_attention': action_debug_info.get('question_attention', [])}
+    #
+    #             instance_action_info.append(action_info)
+    #         batch_action_info.append(instance_action_info)
+    #     output_dict["predicted_actions"] = batch_action_info
+    #     output_dict["logical_form"] = logical_forms
+    #     return output_dict
