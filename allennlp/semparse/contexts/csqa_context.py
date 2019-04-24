@@ -87,7 +87,7 @@ class CSQAContext:
                  question_predicates: List[str],
                  entity_id2string: Dict[str, str],
                  predicate_id2string: Dict[str, str],
-                 use_integer_ids=False) -> None:
+                 use_integer_ids=True) -> None:
         self.kg_data = kg_data
         self.kg_type_data = kg_type_data
         self.question_type = question_type

@@ -8,11 +8,8 @@ import torch
 from copy import deepcopy
 from typing import Callable, Dict, Generic, List, TypeVar
 
-from allennlp.data.fields.production_rule_field import ProductionRule
 from allennlp.state_machines.states.grammar_statelet import GrammarStatelet
-from allennlp.state_machines.states.rnn_statelet import RnnStatelet
 from allennlp.state_machines.states.grammar_statelet import ActionRepresentation
-from allennlp.state_machines.states.state import State
 
 
 class GrammarBasedSearchState:
@@ -43,21 +40,6 @@ class GrammarBasedSearchState:
         self._is_nonterminal = is_nonterminal
         self._reverse_productions = reverse_productions
 
-    # def get_valid_actions(self) -> ActionRepresentation:
-    #     """
-    #     Returns a list of valid actions for each element of the group.
-    #     """
-    #     return self.grammar_state.get_valid_actions()
-
-    # def is_finished(self) -> bool:
-    #     return self.grammar_state.is_finished()
-
-    # def take_action(self, action: str):
-    #     new_action_history = deepcopy(self.action_history)
-    #     new_action_history.append(action)
-    #     return GrammarBasedSearchState(action_history=new_action_history,
-    #                                    grammar_state=self.grammar_state.take_action(action))
-
     def is_finished(self) -> bool:
         return not self._nonterminal_stack
 
@@ -67,38 +49,17 @@ class GrammarBasedSearchState:
     def take_action(self, action: str):
         new_action_history = deepcopy(self.action_history)
         new_action_history.append(action)
-        # return GrammarBasedSearchState(action_history=new_action_history,
-        #                                grammar_state=self.grammar_state.take_action(action))
-
         left_side, right_side = action.split(' -> ')
         assert self._nonterminal_stack[-1] == left_side, (f"Tried to expand {self._nonterminal_stack[-1]}"
                                                           f"but got rule {left_side} -> {right_side}")
 
         new_stack = self._nonterminal_stack[:-1]
 
-        if right_side in ['intersection', 'union', 'diff']:
-            for k in self._valid_actions.keys():
-                try:
-                    self._valid_actions[k].remove(right_side)
-                except ValueError:
-                    pass
-
-        if right_side in ['least', 'most', 'equal', 'larger', 'less']:
-            for k in self._valid_actions.keys():
-                try:
-                    self._valid_actions[k].remove(right_side)
-                except ValueError:
-                    pass
-
         if right_side[0] == '[':
-            # return production_string[1:-1].split(', ')
             productions = right_side[1:-1].split(', ')
         else:
             productions = [right_side]
 
-            # return [production_string]
-
-        # productions = self._get_productions_from_string(right_side)
         if self._reverse_productions:
             productions = list(reversed(productions))
 
@@ -107,35 +68,10 @@ class GrammarBasedSearchState:
                 new_stack.append(production)
 
         return GrammarBasedSearchState(action_history=new_action_history,
-                                       # grammar_state=self.grammar_state.take_action(action),
                                        nonterminal_stack=new_stack,
                                        valid_actions=self._valid_actions,
                                        is_nonterminal=self._is_nonterminal,
                                        reverse_productions=self._reverse_productions)
-        # return GrammarStatelet(nonterminal_stack=new_stack,
-        #                        valid_actions=self._valid_actions,
-        #                        is_nonterminal=self._is_nonterminal,
-        #                        reverse_productions=self._reverse_productions)
-
-    # def take_action(self, production_rule: str) -> 'GrammarStatelet':
-    #     left_side, right_side = production_rule.split(' -> ')
-    #     assert self._nonterminal_stack[-1] == left_side, (f"Tried to expand {self._nonterminal_stack[-1]}"
-    #                                                       f"but got rule {left_side} -> {right_side}")
-    #
-    #     new_stack = self._nonterminal_stack[:-1]
-    #
-    #     productions = self._get_productions_from_string(right_side)
-    #     if self._reverse_productions:
-    #         productions = list(reversed(productions))
-    #
-    #     for production in productions:
-    #         if self._is_nonterminal(production):
-    #             new_stack.append(production)
-    #
-    #     return GrammarStatelet(nonterminal_stack=new_stack,
-    #                            valid_actions=self._valid_actions,
-    #                            is_nonterminal=self._is_nonterminal,
-    #                            reverse_productions=self._reverse_productions)
 
     @staticmethod
     def _get_productions_from_string(self, production_string: str) -> List[str]:
