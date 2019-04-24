@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from allennlp.common.testing.test_case import AllenNlpTestCase
 from allennlp.common import Params
 from allennlp.data.dataset_readers.semantic_parsing.csqa.csqa import CSQADatasetReader
@@ -21,8 +23,8 @@ def search(args):
               'predicate_id2string_path': f'{AllenNlpTestCase.FIXTURES_ROOT}/data/csqa/filtered_property_wikidata4.json'}
 
     reader = CSQADatasetReader.from_params(Params(params))
-    csqa_directory = f'{AllenNlpTestCase.PROJECT_ROOT}/{args.csqa_directory}'
-    dataset = reader.read(csqa_directory)
+    # csqa_directory = f'{AllenNlpTestCase.PROJECT_ROOT}/{args.csqa_directory}'
+    dataset = reader.read(args.csqa_directory)
 
     logical_form_result_dict = pickle.load(open(args.initial_dict, "rb")) if args.initial_dict else {}
     comp_quan_types = ["Quantitative Reasoning (All)", "Comparative Reasoning (All)"]
@@ -31,6 +33,8 @@ def search(args):
     stop_after_n_found = 1
 
     pbar = tqdm(total=args.instance_limit)
+    if logical_form_result_dict: pbar.update(n=len(list(logical_form_result_dict.keys())))
+
     for n, instance in enumerate(dataset):
         if n == args.instance_limit and args.target_sampling is None:
             break
@@ -73,10 +77,13 @@ def search(args):
             pbar.update(1)
             logical_form_result_dict[qa_id] = result_action_sequences
 
-    with open(csqa_directory + args.result_name + "_logical_forms.p", 'wb') as file:
+    if Path(args.csqa_directory + args.result_name + "_logical_forms.p").is_file():
+        args.result_name += "_" + str(int(time.time()))
+
+    with open(args.csqa_directory + args.result_name + "_logical_forms.p", 'wb') as file:
         pickle.dump(logical_form_result_dict, file)
 
-    with open(csqa_directory + args.result_name + "_logical_forms_log", 'w') as file:
+    with open(args.csqa_directory + args.result_name + "_logical_forms_log", 'w') as file:
         n_found = len(list(logical_form_result_dict.keys()))
         percentage = n_found / args.instance_limit * 100
         file.write("{} qa turns in total, found {} ({:.2f}%)".format(args.instance_limit, n_found, percentage))
