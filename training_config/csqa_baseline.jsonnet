@@ -37,8 +37,8 @@
       "num_entities": 20982733,
       "num_predicates": 594,
       "trainable": true,
-      "entity_pretrained_file": "/mnt/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/entity2vec.bin",
-      "predicate_pretrained_file": "/mnt/Data/Datasets/CSQA/Wikidata/embeddings/dimension_50/transe/relation2vec.bin",
+      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.bin",
+      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.bin",
       "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
       "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
     },
