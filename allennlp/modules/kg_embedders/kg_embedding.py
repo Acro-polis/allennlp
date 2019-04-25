@@ -3,6 +3,7 @@ from typing import Dict
 
 from overrides import overrides
 import numpy as np
+import pickle
 import torch
 from torch.nn.functional import embedding
 
@@ -197,12 +198,10 @@ class KgEmbedding(KgEmbedder):
         predicate2id = _read_element2id_file(predicate2id_file)
 
         if entity_pretrained_file:
-            entity_weight = _read_pretrained_embeddings_file(entity_pretrained_file, embedding_dim,
-                                                             len(entity2id))
+            entity_weight = _read_pretrained_embeddings_file(entity_pretrained_file)
 
         if predicate_pretrained_file:
-            predicate_weight = _read_pretrained_embeddings_file(predicate_pretrained_file, embedding_dim,
-                                                                len(predicate2id))
+            predicate_weight = _read_pretrained_embeddings_file(predicate_pretrained_file)
 
         return cls(num_entities=num_entities,
                    num_predicates=num_predicates,
@@ -236,11 +235,10 @@ class KgEmbedding(KgEmbedder):
         return embedded
 
 
-def _read_pretrained_embeddings_file(path: str,
-                                     embedding_dim: int,
-                                     vocab_size: int) -> torch.FloatTensor:
+def _read_pretrained_embeddings_file(path: str) -> torch.FloatTensor:
     path = cached_path(path)
-    embeddings = np.memmap(path, dtype='float32', mode='r', shape=(vocab_size, embedding_dim))
+    with open(path, "rb") as f:
+        embeddings = pickle.load(f)
     return torch.FloatTensor(embeddings)
 
 
