@@ -26,7 +26,7 @@ from allennlp.data.tokenizers.word_splitter import SpacyWordSplitter, BertBasicW
 from allennlp.semparse.contexts import CSQAContext
 from allennlp.semparse.domain_languages.csqa_language import CSQALanguage
 from allennlp.data.dataset_readers.semantic_parsing.csqa.util import get_dummy_action_sequences, question_is_indirect, \
-    parse_answer, augment_with_context, get_extraction_dir, get_segment_field_from_tokens, prepare_question_for_bert
+    parse_answer, get_extraction_dir, prepare_question_for_bert
 from allennlp.common.file_utils import cached_path
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
@@ -146,7 +146,9 @@ class CSQADatasetReader(DatasetReader):
 
     def _read_from_directory(self, directory):
         directory = Path(directory)
-        for file_path in directory.glob('**/*.json'):
+        # sort by number suffix
+        for file_path in sorted(directory.glob('**/*.json'),
+                                key=lambda x: int(x.parent.name.split("_")[1])):
             # The file_id is of format: QA_*/QA_*.json.
             file_id = file_path.relative_to(directory)
             yield from self._read_unprocessed_file(file_path, str(file_id))

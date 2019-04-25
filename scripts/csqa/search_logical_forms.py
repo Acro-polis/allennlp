@@ -32,12 +32,13 @@ def search(args):
     question_type_counter = Counter()
     stop_after_n_found = 1
 
+    searched_folders = set([l.split("/")[0] for l in logical_form_result_dict.keys()])
+
     pbar = tqdm(total=args.instance_limit)
-    if logical_form_result_dict: pbar.update(n=len(list(logical_form_result_dict.keys())))
 
     for n, instance in enumerate(dataset):
-        if n == args.instance_limit and args.target_sampling is None:
-            break
+
+        total_n_instances = sum(question_type_counter.values())
 
         question = [tok.text for tok in instance['question'].tokens]
         language = instance['world'].metadata
@@ -46,31 +47,32 @@ def search(args):
         question_type = instance['question_type'].metadata
         question_description = instance['question_description'].metadata
         question_type_entities = language.kg_context.question_type_entities
-        searcher = PrunedBreadthFirstSearch(language)
+        folder = qa_id.split("/")[0]
 
-        time_limit = 20
+        if total_n_instances >= args.instance_limit:
+            break
 
-        if args.target_sampling is not None:
-            if question_type_counter[question_type] >= args.target_sampling:
-                if sum(question_type_counter.values()) >= args.instance_limit:
-                    break
-                else:
-                    continue
-
+        if args.target_sampling is not None and question_type_counter[question_type] >= args.target_sampling:
+            continue
 
         if qa_id in logical_form_result_dict and len(logical_form_result_dict[qa_id]) >= stop_after_n_found:
+            question_type_counter[question_type] += 1
+            pbar.update(1)
             continue
+
+        if folder in searched_folders:
+            continue
+
+        searcher = PrunedBreadthFirstSearch(language)
+        time_limit = 20
 
         if question_type in comp_quan_types:
             time_limit = 30
             if question_description.endswith("Mult. entity type"):
                 continue
 
-        result_action_sequences = searcher.search(question, question_type, question_description,
-                                                  question_type_entities, expected_result,
-                                                  verbose=False,
-                                                  max_depth=20,
-                                                  max_time=time_limit,
+        result_action_sequences = searcher.search(question, question_type, question_description, question_type_entities,
+                                                  expected_result, verbose=False, max_depth=20, max_time=time_limit,
                                                   stop_after_n_found=stop_after_n_found)
         if len(result_action_sequences) != 0:
             question_type_counter[question_type] += 1
