@@ -83,18 +83,18 @@
           "trainable": true
         }
       },
-    "sentence_embedder": {
-        "allow_unmatched_keys": true,
-        "embedder_to_indexer_map": {
-            "tokens": ["tokens", "tokens-offsets", "tokens_type_ids"],
-        },
-        "token_embedders": {
-          "tokens": {
-            "type": "bert-pretrained",
-            "pretrained_model": "bert-base-uncased",
-            "requires_grad": true
-          },
-        }
+//    "sentence_embedder": {
+//        "allow_unmatched_keys": true,
+//        "embedder_to_indexer_map": {
+//            "tokens": ["tokens", "tokens-offsets", "tokens_type_ids"],
+//        },
+//        "token_embedders": {
+//          "tokens": {
+//            "type": "bert-pretrained",
+//            "pretrained_model": "bert-base-uncased",
+//            "requires_grad": true
+//          },
+//        }
     },
     "direct_questions_only": true,
     "action_embedding_dim": 50,
@@ -125,5 +125,4 @@
       "lr": 0.01
     }
   }
-}
 }
