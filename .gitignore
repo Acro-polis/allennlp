@@ -5,6 +5,7 @@
 allennlp.egg-info/
 build/
 dist/
+venv/
 
 
 # dev tools
