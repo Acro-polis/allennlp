@@ -64,19 +64,17 @@
 
   "model": {
     "type": "csqa_mml_parser",
-    "kg_embedder": {
-      "type": "kg_embedding",
-      "embedding_dim": 50,
-      "num_entities": 20982733,
-      "num_predicates": 594,
-      "trainable": false,
-      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.p",
-      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.p",
-//      "entity_pretrained_file": "notebooks/entity2vec.p",
-//      "predicate_pretrained_file": "notebooks/relation2vec.p",
-      "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
-      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
-    },
+//    "kg_embedder": {
+//      "type": "kg_embedding",
+//      "embedding_dim": 50,
+//      "num_entities": 20982733,
+//      "num_predicates": 594,
+//      "trainable": false,
+//      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.p",
+//      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.p",
+//      "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
+//      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
+//    },
     "sentence_embedder": {
       "token_embedders": {
         "tokens": {
@@ -85,19 +83,18 @@
           "trainable": true
         }
       },
-//    "sentence_embedder": {
-//        "allow_unmatched_keys": true,
-//        "embedder_to_indexer_map": {
-//            "tokens": ["tokens", "tokens-offsets", "tokens_type_ids"],
-////            "tokens": ["tokens", "tokens-offsets", "tokens_segments"],
-//        },
-//        "token_embedders": {
-//          "tokens": {
-//            "type": "bert-pretrained",
-//            "pretrained_model": "bert-base-uncased",
-//            "requires_grad": true
-//          },
-//        }
+    "sentence_embedder": {
+        "allow_unmatched_keys": true,
+        "embedder_to_indexer_map": {
+            "tokens": ["tokens", "tokens-offsets", "tokens_type_ids"],
+        },
+        "token_embedders": {
+          "tokens": {
+            "type": "bert-pretrained",
+            "pretrained_model": "bert-base-uncased",
+            "requires_grad": true
+          },
+        }
     },
     "direct_questions_only": true,
     "action_embedding_dim": 50,

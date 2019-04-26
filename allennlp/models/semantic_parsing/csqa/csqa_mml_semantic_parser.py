@@ -49,19 +49,21 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         Maximum number of steps for beam search after training.
     dropout : ``float``, optional (default=0.0)
         Probability of dropout to apply on encoder outputs, decoder outputs and predicted actions.
+    kg_embedder : ``KgEmbedder``
+        Embedder for knowledge graph elements.
     direct_questions_only : ``bool``, optional (default=True)
         Only train on direct question (i.e.: without questions that refer to earlier conversation).
     """
     def __init__(self,
                  vocab: Vocabulary,
                  sentence_embedder: TextFieldEmbedder,
-                 kg_embedder: KgEmbedder,
                  action_embedding_dim: int,
                  encoder: Seq2SeqEncoder,
                  attention: Attention,
                  decoder_beam_search: BeamSearch,
                  max_decoding_steps: int,
                  dropout: float = 0.0,
+                 kg_embedder: KgEmbedder = None,
                  direct_questions_only=True) -> None:
 
         super(CSQAMmlSemanticParser, self).__init__(vocab=vocab,
@@ -115,14 +117,10 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
         target_action_sequences = target_action_sequences.squeeze(-1)
         target_mask = target_action_sequences != self._action_padding_index
 
-        # TODO: embed entities
-        if True:
+        if self._kg_embedder:
             embedded_entities = self._kg_embedder(question_entities, input_type="entity")
             embedded_type_entities = self._kg_embedder(question_type_entities, input_type="entity")
             embedded_predicates = self._kg_embedder(question_predicates, input_type="predicate")
-
-            # print(question_entities, question_type_entities, question_predicates)
-            # print(embedded_entities, embedded_type_entities, embedded_predicates)
 
         initial_rnn_state = self._get_initial_rnn_state(question)
         initial_score_list = [next(iter(question.values())).new_zeros(1, dtype=torch.float) for _ in range(batch_size)]
@@ -203,8 +201,7 @@ class CSQAMmlSemanticParser(CSQASemanticParser):
                     sequence_is_correct: bool = False
                 metric(1 if sequence_is_correct else 0)
 
-        # update overall score
-
+        # Update overall score.
         for metric_name, metric in self._metrics.items():
             overall_score_metric = self._metrics[OVERALL_SCORE]
             if metric_name.endswith("accuracy"):

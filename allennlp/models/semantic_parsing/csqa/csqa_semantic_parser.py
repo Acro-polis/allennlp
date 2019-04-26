@@ -40,6 +40,8 @@ class CSQASemanticParser(Model):
         Vocabulary used for input.
     sentence_embedder : ``TextFieldEmbedder``
         Embedder for sentences.
+    kg_embedder : ``KgEmbedder``
+        Embedder for knowledge graph elements.
     action_embedding_dim : ``int``
         Dimension to use for action embeddings.
     encoder : ``Seq2SeqEncoder``
@@ -49,6 +51,8 @@ class CSQASemanticParser(Model):
     rule_namespace : ``str``, optional (default=rule_labels)
         The vocabulary namespace to use for production rules.  The default corresponds to the
         default used in the dataset reader, so you likely don't need to modify this.
+    direct_questions_only : ``bool``, optional (default=True)
+        Only train on direct question (i.e.: without questions that refer to earlier conversation).
     """
     def __init__(self,
                  vocab: Vocabulary,
@@ -146,10 +150,10 @@ class CSQASemanticParser(Model):
         for i, action in enumerate(instance_possible_actions):
             instance_action_mapping[action[0]] = i
 
-        # the output structure mapping actions strings to a dict with 'global' as key and
-        # (input_emb,output_emd,action_ids) as value, input_emb is for matching in the loss,
-        # output is for feeding as input for the next batch, the indices are indices of the main action list
-        # for that instance
+        # The output structure mapping actions strings to a dict with 'global' as key and
+        # (input_emb, output_emd, action_ids) as value, input_emb is for matching in the loss,
+        # output is for feeding as input for the next batch, the indices are indices of the main
+        # action list for that instance.
         translated_valid_actions: Dict[str, Dict[str, Tuple[torch.Tensor, torch.Tensor, List[int]]]] = {}
 
         for key, action_strings in valid_actions.items():

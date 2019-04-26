@@ -79,8 +79,7 @@ class KgEmbedding(KgEmbedder):
                  max_norm: float = None,
                  norm_type: float = 2.,
                  scale_grad_by_freq: bool = False,
-                 sparse: bool = False,
-                 vocab_namespace: str = None) -> None:
+                 sparse: bool = False) -> None:
         super(KgEmbedding, self).__init__()
         self.num_entities = num_entities
         self.num_predicates = num_predicates
@@ -93,7 +92,6 @@ class KgEmbedding(KgEmbedder):
         self.norm_type = norm_type
         self.scale_grad_by_freq = scale_grad_by_freq
         self.sparse = sparse
-        self._vocab_namespace = vocab_namespace
         self._projection_entity = None
         self._projection_predicate = None
 
@@ -178,7 +176,6 @@ class KgEmbedding(KgEmbedder):
         # pylint: disable=arguments-differ
         num_entities = params.pop_int('num_entities', None)
         num_predicates = params.pop_int('num_predicates', None)
-        vocab_namespace = params.pop("vocab_namespace", "tokens")
         embedding_dim = params.pop_int('embedding_dim')
         entity_pretrained_file = params.pop("entity_pretrained_file", None)
         predicate_pretrained_file = params.pop("predicate_pretrained_file", None)
@@ -216,8 +213,7 @@ class KgEmbedding(KgEmbedder):
                    max_norm=max_norm,
                    norm_type=norm_type,
                    scale_grad_by_freq=scale_grad_by_freq,
-                   sparse=sparse,
-                   vocab_namespace=vocab_namespace)
+                   sparse=sparse)
 
     def project(self, embedded, input_type):
         if input_type == 'entity':
