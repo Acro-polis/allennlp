@@ -109,7 +109,7 @@ class CSQAContext:
         pass
 
     def get_entities_from_question(self) -> Tuple[List[str], List[Tuple[str, int]]]:
-        extracted_numbers = TableQuestionContext._get_numbers_from_tokens(self.question_tokens)
+        extracted_numbers = TableQuestionContext.get_numbers_from_tokens(self.question_tokens)
         return self.question_entities, extracted_numbers
 
     @classmethod
@@ -139,6 +139,8 @@ class CSQAContext:
             Path to the json file which maps entity ids to their string values
         predicate_id2string_path: ``str``, optional
             Path to the json file which maps predicate ids to their string values
+        question_type: ``str``
+            Type of the question, used to determine metrics per type of question.
         question_tokens: ``List[Token]``
             List of tokens present in the question.
         question_entities: ``List[str]``
@@ -147,14 +149,6 @@ class CSQAContext:
             List of predicates present in the question.
         question_type_entities: ``List[str]``
             List of types of the entities in the question.
-        kg_data: ``Dict[int, Dict[int, int]]``
-            Loaded knowledge graph.
-        kg_type_data: Dict[int, Dict[int, int]]
-            Loaded type relations of entities in knowledge graph.
-        entity_id2string: ``Dict[str,str]``
-            Loaded entity vocabulary.
-        predicate_id2string: ``Dict[str,str]``
-            Loaded predicate vocabulary.
 
         Returns
         -------
@@ -165,7 +159,7 @@ class CSQAContext:
             kg_data = CSQAContext.kg_data
             use_integer_ids = isinstance(next(iter(kg_data)), int)
         else:
-            print("Loading wikidata graph")
+            print("Loading Wikidata graph")
             # kg_path = cached_path(kg_path)
             if '.json' in kg_path:
                 use_integer_ids = False
@@ -182,7 +176,7 @@ class CSQAContext:
         if kg_type_path == CSQAContext.kg_type_data_path:
             kg_type_data = CSQAContext.kg_type_data
         else:
-            print("Loading wikidata type graph")
+            print("Loading Wikidata type graph")
             if'.p' in kg_type_path or 'allennlp' in kg_type_path:
                 kg_type_data = load_pickle(kg_type_path)
             else:

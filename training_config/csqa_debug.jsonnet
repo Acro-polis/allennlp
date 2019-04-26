@@ -64,17 +64,17 @@
 
   "model": {
     "type": "csqa_mml_parser",
-//    "kg_embedder": {
-//      "type": "kg_embedding",
-//      "embedding_dim": 50,
-//      "num_entities": 20982733,
-//      "num_predicates": 594,
-//      "trainable": false,
-//      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.p",
-//      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.p",
-//      "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
-//      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
-//    },
+    "kg_embedder": {
+      "type": "kg_embedding",
+      "embedding_dim": 50,
+      "num_entities": 20982733,
+      "num_predicates": 594,
+      "trainable": false,
+      "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.p",
+      "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.p",
+      "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
+      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
+    },
     "sentence_embedder": {
       "token_embedders": {
         "tokens": {
@@ -125,4 +125,5 @@
       "lr": 0.01
     }
   }
+}
 }

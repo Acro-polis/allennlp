@@ -55,15 +55,6 @@ class CSQADatasetReader(DatasetReader):
     lazy : ``bool`` (optional, default=False)
         Passed to ``DatasetReader``.  If this is ``True``, training will start sooner, but will
         take longer per batch.
-    dpd_output_file : ``str``, optional
-        Directory that contains all the gzipped dpd output files. We assume the filenames match the
-        example IDs (e.g.: ``nt-0.gz``). This is required for training a model, but not required
-        for prediction.
-    tokenizer : ``Tokenizer``, optional
-        Tokenizer to use for the questions. Will default to ``WordTokenizer()`` with Spacy's tagger
-        enabled, as we use lemma matches as features for entity linking.
-    question_token_indexers : ``Dict[str, TokenIndexer]``, optional
-        Token indexers for questions. Will default to ``{"tokens": SingleIdTokenIndexer()}``.
     kg_path : ``str``, optional
         Path to the knowledge graph file. We use this file to initialize our context.
     kg_type_path : ``str``, optional
@@ -72,11 +63,22 @@ class CSQADatasetReader(DatasetReader):
         Path to the json file that maps entity id's to their string values.
     predicate_id2string_path : ``str``, optional
         Path to the json file that maps predicate id's to their string values.
-    skip_approximate_questions : ``bool``, optional
-        Boolean indicating whether questions containing "approximate" or "around" are skipped.
+    tokenizer : ``Tokenizer``, optional
+        Tokenizer to use for the questions. Will default to ``WordTokenizer()`` with Spacy's tagger
+        enabled, as we use lemma matches as features for entity linking.
+    question_token_indexers : ``Dict[str, TokenIndexer]``, optional
+        Token indexers for questions. Will default to ``{"tokens": SingleIdTokenIndexer()}``.
     read_only_direct : ``bool``, optional
         Boolean indicating whether only direct questions are read (without references to questions
         earlier in the conversation).
+    skip_approximate_questions : ``bool``, (optional, default=True)
+        Boolean indicating whether questions containing "approximate" or "around" are skipped.
+    add_entities_to_sentence: ``bool`` (optional, default=False)
+        Boolean indicating whether entities are added to the input as text.
+    dpd_output_file : ``str``, optional
+        Directory that contains all the gzipped dpd output files. We assume the filenames match the
+        example IDs (e.g.: ``nt-0.gz``). This is required for training a model, but not required
+        for prediction.
     """
     def __init__(self,
                  lazy: bool = False,
@@ -84,7 +86,6 @@ class CSQADatasetReader(DatasetReader):
                  kg_type_path: str = None,
                  entity_id2string_path: str = None,
                  predicate_id2string_path: str = None,
-                 entity_embedding_path: str = None,
                  tokenizer: Tokenizer = None,
                  question_token_indexers: Dict[str, TokenIndexer] = None,
                  read_only_direct: bool = True,
@@ -93,15 +94,10 @@ class CSQADatasetReader(DatasetReader):
                  dpd_output_file: str = None
                  ) -> None:
         super().__init__(lazy=lazy)
-        self._tokenizer = tokenizer or WordTokenizer(SpacyWordSplitter(pos_tags=True))
-        self._question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
-        self.entity_id2string_path = entity_id2string_path
-        self.predicate_id2string_path = predicate_id2string_path
-        self.entity_embedding_path = entity_embedding_path
         self.kg_path = cached_path(kg_path)
         self.kg_type_path = cached_path(kg_type_path)
-        self.predicate_id2string_path = cached_path(predicate_id2string_path)
         self.entity_id2string_path = cached_path(entity_id2string_path)
+        self.predicate_id2string_path = cached_path(predicate_id2string_path)
         self.tokenizer = tokenizer or WordTokenizer(SpacyWordSplitter(pos_tags=True))
         self.question_token_indexers = question_token_indexers or {"tokens": SingleIdTokenIndexer()}
         self.load_direct_questions_only = read_only_direct
@@ -128,7 +124,7 @@ class CSQADatasetReader(DatasetReader):
             yield from self._read_from_directory(path)
         elif tarfile.is_tarfile(path):
             untarred_dir = get_extraction_dir(path)
-            # check whether directory already exists (meaning the file has been extracted earlier)
+            # Check whether directory already exists (meaning the file has been extracted earlier).
             if os.path.isdir(untarred_dir):
                 yield from self._read_from_directory(untarred_dir)
             else:
