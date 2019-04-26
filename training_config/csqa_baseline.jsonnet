@@ -57,7 +57,7 @@
   "trainer": {
     "num_epochs": 100,
     "cuda_device": 0,
-    "weight_decay": 0.01,
+    "weight_decay": 0.00,
     "optimizer": {
       "type": "adam",
       "lr": 0.003

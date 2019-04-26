@@ -656,6 +656,7 @@ class Trainer(TrainerBase):
         parameters = [[n, p] for n, p in model.named_parameters() if p.requires_grad]
         optimizer = params.pop("optimizer")
         wd = params.pop("weight_decay", 0.0)
+        
 
         no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
         parameter_groups = [
