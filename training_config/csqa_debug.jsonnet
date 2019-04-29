@@ -73,7 +73,8 @@
       "entity_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2vec.p",
       "predicate_pretrained_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2vec.p",
       "entity2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/entity2id.txt",
-      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt"
+      "predicate2id_file": "https://s3-eu-west-1.amazonaws.com/polisallennlp/datasets/CSQA/relation2id.txt",
+      "cuda_device": 0,
     },
     "sentence_embedder": {
       "token_embedders": {
@@ -119,7 +120,7 @@
   },
   "trainer": {
     "num_epochs": 1,
-    "cuda_device": -1,
+    "cuda_device": 0,
     "optimizer": {
       "type": "adam",
       "lr": 0.01

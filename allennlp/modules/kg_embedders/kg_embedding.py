@@ -79,7 +79,8 @@ class KgEmbedding(KgEmbedder):
                  max_norm: float = None,
                  norm_type: float = 2.,
                  scale_grad_by_freq: bool = False,
-                 sparse: bool = False) -> None:
+                 sparse: bool = False,
+                 cuda_device: int = -1) -> None:
         super(KgEmbedding, self).__init__()
         self.num_entities = num_entities
         self.num_predicates = num_predicates
@@ -92,6 +93,7 @@ class KgEmbedding(KgEmbedder):
         self.norm_type = norm_type
         self.scale_grad_by_freq = scale_grad_by_freq
         self.sparse = sparse
+        self.cuda_device = cuda_device
         self._projection_entity = None
         self._projection_predicate = None
 
@@ -152,6 +154,7 @@ class KgEmbedding(KgEmbedder):
         # Find embeddings of ids.
         original_size = inputs.size()
         inputs = util.combine_initial_dims(inputs)
+        inputs = util.move_to_device(inputs, self.cuda_device)
         embedded = embedding(inputs, weight,
                              max_norm=self.max_norm,
                              norm_type=self.norm_type,
@@ -188,6 +191,7 @@ class KgEmbedding(KgEmbedder):
         norm_type = params.pop_float('norm_type', 2.)
         scale_grad_by_freq = params.pop_bool('scale_grad_by_freq', False)
         sparse = params.pop_bool('sparse', False)
+        cuda_device = params.pop_int('cuda_device', -1)
         params.assert_empty(cls.__name__)
         entity_weight, predicate_weight = None, None
 
@@ -213,7 +217,8 @@ class KgEmbedding(KgEmbedder):
                    max_norm=max_norm,
                    norm_type=norm_type,
                    scale_grad_by_freq=scale_grad_by_freq,
-                   sparse=sparse)
+                   sparse=sparse,
+                   cuda_device=cuda_device)
 
     def project(self, embedded, input_type):
         if input_type == 'entity':
