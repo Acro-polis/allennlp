@@ -24,7 +24,8 @@ DEFAULT_PREDICTORS = {
         'simple_tagger': 'sentence-tagger',
         'srl': 'semantic-role-labeling',
         'quarel_parser': 'quarel-parser',
-        'wikitables_mml_parser': 'wikitables-parser'
+        'wikitables_mml_parser': 'wikitables-parser',
+        'csqa_mml_parser': 'csqa-parser'
 }
 
 class Predictor(Registrable):
