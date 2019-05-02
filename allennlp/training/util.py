@@ -340,7 +340,6 @@ def evaluate(model: Model,
 
         return final_metrics
 
-
 def description_from_metrics(metrics: Dict[str, float]) -> str:
     if (not HasBeenWarned.tqdm_ignores_underscores and
                 any(metric_name.startswith("_") for metric_name in metrics)):
