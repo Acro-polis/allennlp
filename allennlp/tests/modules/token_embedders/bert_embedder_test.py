@@ -18,7 +18,7 @@ class TestBertEmbedder(ModelTestCase):
         super().setUp()
 
         vocab_path = self.FIXTURES_ROOT / 'bert' / 'vocab.txt'
-        self.token_indexer = PretrainedBertIndexer(str(vocab_path))
+        self.token_indexer = PretrainedBertIndexer(str(vocab_path), add_token_type_ids=False)
 
         config_path = self.FIXTURES_ROOT / 'bert' / 'config.json'
         config = BertConfig(str(config_path))
