@@ -361,7 +361,7 @@ def _read_embeddings_from_text_file(file_uri: str,
                                    embedding_dim, len(fields) - 1, line)
                     continue
 
-                vector = np.asarray(fields[1:], dtype='float32')
+                vector = numpy.asarray(fields[1:], dtype='float32')
                 embeddings[token] = vector
 
     if not embeddings:
