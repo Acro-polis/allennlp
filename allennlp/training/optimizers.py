@@ -27,6 +27,7 @@ from allennlp.common import Params, Registrable
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
+required = object()
 
 class Optimizer(Registrable):
     """
@@ -141,8 +142,20 @@ Registrable._registry[Optimizer] = {   # pylint: disable=protected-access
         "rmsprop": torch.optim.RMSprop,
         "adamax": torch.optim.Adamax,
         "averaged_sgd": torch.optim.ASGD,
-        "bert_adam": BertAdam,
+        # "bert_adam": BertAdam,
 }
+
+@Optimizer.register('bert_adam')
+class BertAdamOptimizer(BertAdam):
+
+    def __init__(self, params, lr=required, warmup=-1, t_total=-1, schedule='warmup_linear',
+                 b1=0.9, b2=0.999, e=1e-6, weight_decay=0.01,
+                 max_grad_norm=1.0):
+
+        super(BertAdamOptimizer, self).__init__(params, lr=lr, warmup=warmup, t_total=t_total,
+                                                schedule=schedule, b1=b1, b2=b2, e=e,
+                                                weight_decay=weight_decay, max_grad_norm=max_grad_norm)
+
 
 def _safe_sparse_mask(tensor: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
     """
@@ -274,3 +287,4 @@ class DenseSparseAdam(torch.optim.Optimizer):
                     p.data.addcdiv_(-step_size, exp_avg, denom)
 
         return loss
+

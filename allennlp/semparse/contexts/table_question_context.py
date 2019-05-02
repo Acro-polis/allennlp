@@ -241,7 +241,7 @@ class TableQuestionContext:
                                     'token_type': token_type,
                                     'token_in_column': token_column})
 
-        extracted_numbers = self._get_numbers_from_tokens(self.question_tokens)
+        extracted_numbers = self.get_numbers_from_tokens(self.question_tokens)
         # filter out number entities to avoid repetition
         expanded_entities = []
         for entity in self._expand_entities(self.question_tokens, entity_data):
@@ -250,7 +250,7 @@ class TableQuestionContext:
         return expanded_entities, extracted_numbers  #TODO(shikhar) Handle conjunctions
 
     @staticmethod
-    def _get_numbers_from_tokens(tokens: List[Token]) -> List[Tuple[str, int]]:
+    def get_numbers_from_tokens(tokens: List[Token]) -> List[Tuple[str, int]]:
         """
         Finds numbers in the input tokens and returns them as strings.  We do some simple heuristic
         number recognition, finding ordinals and cardinals expressed as text ("one", "first",

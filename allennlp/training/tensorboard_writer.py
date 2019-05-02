@@ -1,6 +1,5 @@
 from typing import Any, Set, Optional, Callable
 from ordered_set import OrderedSet
-
 import logging
 import os
 
@@ -147,7 +146,6 @@ class TensorboardWriter:
         """
         Sends all of the train metrics (and validation metrics, if provided) to tensorboard.
         """
-        # metric_names = set(train_metrics.keys())
         metric_names = OrderedSet(train_metrics.keys())
         if val_metrics is not None:
             metric_names.update(val_metrics.keys())

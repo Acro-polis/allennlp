@@ -24,6 +24,7 @@ from allennlp.nn import util as nn_util
 from allennlp.training.checkpointer import Checkpointer
 from allennlp.training.learning_rate_schedulers import LearningRateScheduler
 from allennlp.training.metric_tracker import MetricTracker
+from allennlp.training.momentum_schedulers import MomentumScheduler
 from allennlp.training.optimizers import Optimizer
 from allennlp.training.tensorboard_writer import TensorboardWriter
 from allennlp.training.trainer_base import TrainerBase
@@ -54,6 +55,7 @@ class Trainer(TrainerBase):
                  grad_norm: Optional[float] = None,
                  grad_clipping: Optional[float] = None,
                  learning_rate_scheduler: Optional[LearningRateScheduler] = None,
+                 momentum_scheduler: Optional[MomentumScheduler] = None,
                  summary_interval: int = 100,
                  histogram_interval: int = None,
                  should_log_parameter_statistics: bool = True,
@@ -112,7 +114,7 @@ class Trainer(TrainerBase):
             save models at a given interval in addition to the last num_serialized_models_to_keep.
             To do so, specify keep_serialized_model_every_num_seconds as the number of seconds
             between permanently saved checkpoints.  Note that this option is only used if
-            num_serialized_models_to_keep is not None, otherwise all checkpoints are kept.
+            num_serialized_models_to_keep basicis not None, otherwise all checkpoints are kept.
         model_save_interval : ``float``, optional (default=None)
             If provided, then serialize models every ``model_save_interval``
             seconds within single epochs.  In all cases, models are also saved
@@ -201,6 +203,7 @@ class Trainer(TrainerBase):
         self._grad_clipping = grad_clipping
 
         self._learning_rate_scheduler = learning_rate_scheduler
+        self._momentum_scheduler = momentum_scheduler
         self._moving_average = moving_average
 
         # We keep the total batch number as an instance variable because it
@@ -312,6 +315,9 @@ class Trainer(TrainerBase):
             # LRScheduler which doesn't update per batch.
             if self._learning_rate_scheduler:
                 self._learning_rate_scheduler.step_batch(batch_num_total)
+
+            if self._momentum_scheduler:
+                self._momentum_scheduler.step_batch(batch_num_total)
 
             if self._tensorboard.should_log_histograms_this_batch():
                 # get the magnitude of parameter updates for logging
@@ -509,6 +515,11 @@ class Trainer(TrainerBase):
                 # if it doesn't, the validation metric passed here is ignored.
                 self._learning_rate_scheduler.step(this_epoch_val_metric, epoch)
 
+            if self._momentum_scheduler:
+                # The MomentumScheduler API is agnostic to whether your schedule requires a validation metric -
+                # if it doesn't, the validation metric passed here is ignored.
+                self._momentum_scheduler.step(this_epoch_val_metric, epoch)
+
             self._save_checkpoint(epoch)
 
             epoch_elapsed_time = time.time() - epoch_start_time
@@ -559,6 +570,11 @@ class Trainer(TrainerBase):
                     self._learning_rate_scheduler.state_dict()
             )
 
+        if self._momentum_scheduler is not None:
+            training_states["momentum_scheduler"] = (
+                self._momentum_scheduler.state_dict()
+            )
+
         self._checkpointer.save_checkpoint(
                 model_state=self.model.state_dict(),
                 epoch=epoch,
@@ -597,6 +613,8 @@ class Trainer(TrainerBase):
         self.optimizer.load_state_dict(training_state["optimizer"])
         if self._learning_rate_scheduler is not None and "learning_rate_scheduler" in training_state:
             self._learning_rate_scheduler.load_state_dict(training_state["learning_rate_scheduler"])
+        if self._momentum_scheduler is not None and "momentum_scheduler" in training_state:
+            self._momentum_scheduler.load_state_dict(training_state["momentum_scheduler"])
         training_util.move_optimizer_to_cuda(self.optimizer)
 
         # Currently the ``training_state`` contains a serialized ``MetricTracker``.
@@ -643,6 +661,7 @@ class Trainer(TrainerBase):
         grad_norm = params.pop_float("grad_norm", None)
         grad_clipping = params.pop_float("grad_clipping", None)
         lr_scheduler_params = params.pop("learning_rate_scheduler", None)
+        momentum_scheduler_params = params.pop("momentum_scheduler", None)
 
         if isinstance(cuda_device, list):
             model_device = cuda_device[0]
@@ -654,16 +673,35 @@ class Trainer(TrainerBase):
             model = model.cuda(model_device)
 
         parameters = [[n, p] for n, p in model.named_parameters() if p.requires_grad]
-        optimizer = Optimizer.from_params(parameters, params.pop("optimizer"))
+        optimizer_params = params.pop("optimizer")
+        wd = params.pop("weight_decay", 0.0)
+
+        no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+
+        if not isinstance(optimizer_params, str):
+            parameter_groups = [
+                [[n for n, p in parameters if not any(nd in n for nd in no_decay)], {'weight_decay': wd}],
+                [[n for n, p in parameters if any(nd in n for nd in no_decay)], {'weight_decay': 0.0}]
+            ]
+
+            optimizer_params["parameter_groups"] = parameter_groups
+
+        optimizer = Optimizer.from_params(parameters, optimizer_params)
+
         if "moving_average" in params:
             moving_average = MovingAverage.from_params(params.pop("moving_average"), parameters=parameters)
         else:
             moving_average = None
 
         if lr_scheduler_params:
-            scheduler = LearningRateScheduler.from_params(optimizer, lr_scheduler_params)
+            learning_rate_scheduler = LearningRateScheduler.from_params(optimizer, lr_scheduler_params)
         else:
-            scheduler = None
+            learning_rate_scheduler = None
+
+        if momentum_scheduler_params:
+            momentum_scheduler = MomentumScheduler.from_params(optimizer, momentum_scheduler_params)
+        else:
+            momentum_scheduler = None
 
         num_serialized_models_to_keep = params.pop_int("num_serialized_models_to_keep", 20)
         keep_serialized_model_every_num_seconds = params.pop_int(
@@ -687,7 +725,8 @@ class Trainer(TrainerBase):
                    cuda_device=cuda_device,
                    grad_norm=grad_norm,
                    grad_clipping=grad_clipping,
-                   learning_rate_scheduler=scheduler,
+                   learning_rate_scheduler=learning_rate_scheduler,
+                   momentum_scheduler=momentum_scheduler,
                    num_serialized_models_to_keep=num_serialized_models_to_keep,
                    keep_serialized_model_every_num_seconds=keep_serialized_model_every_num_seconds,
                    model_save_interval=model_save_interval,

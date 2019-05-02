@@ -26,13 +26,6 @@ venv/
 allennlp/tools/EVALB/evalb.dSYM/
 doc/_build/
 *.swp
-allennlp/tests/fixtures/data/csqa/sample_train_7000/
-allennlp/tests/fixtures/data/csqa/sample_train_7000_first_200_logical_forms.p
-allennlp/tests/fixtures/data/csqa/sample_train_7000_logical_forms_log
-allennlp/tests/fixtures/data/csqa/sample_valid_1400/
-allennlp/tests/fixtures/data/csqa/sample_valid_1400_logical_forms.p
-allennlp/tests/fixtures/data/csqa/sample_train_7000.tar.gz
-allennlp/tests/fixtures/data/csqa/sample_valid_1100/
 
 
 # python
