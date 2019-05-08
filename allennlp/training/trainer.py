@@ -60,6 +60,7 @@ class Trainer(TrainerBase):
                  histogram_interval: int = None,
                  should_log_parameter_statistics: bool = True,
                  should_log_learning_rate: bool = False,
+                 should_log_momentum: bool = False,
                  log_batch_size_period: Optional[int] = None,
                  moving_average: Optional[MovingAverage] = None) -> None:
         """
@@ -217,7 +218,8 @@ class Trainer(TrainerBase):
                 summary_interval=summary_interval,
                 histogram_interval=histogram_interval,
                 should_log_parameter_statistics=should_log_parameter_statistics,
-                should_log_learning_rate=should_log_learning_rate)
+                should_log_learning_rate=should_log_learning_rate,
+                should_log_momentum=should_log_momentum)
 
         self._log_batch_size_period = log_batch_size_period
 
@@ -711,6 +713,7 @@ class Trainer(TrainerBase):
         histogram_interval = params.pop_int("histogram_interval", None)
         should_log_parameter_statistics = params.pop_bool("should_log_parameter_statistics", True)
         should_log_learning_rate = params.pop_bool("should_log_learning_rate", False)
+        should_log_momentum = params.pop_bool("should_log_momentum", False)
         log_batch_size_period = params.pop_int("log_batch_size_period", None)
 
         params.assert_empty(cls.__name__)

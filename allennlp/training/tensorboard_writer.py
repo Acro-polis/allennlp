@@ -38,7 +38,8 @@ class TensorboardWriter:
                  summary_interval: int = 100,
                  histogram_interval: int = None,
                  should_log_parameter_statistics: bool = True,
-                 should_log_learning_rate: bool = False) -> None:
+                 should_log_learning_rate: bool = False,
+                 shoud_log_momentum: bool = False) -> None:
         if serialization_dir is not None:
             self._train_log = SummaryWriter(os.path.join(serialization_dir, "log", "train"))
             self._validation_log = SummaryWriter(os.path.join(serialization_dir, "log", "validation"))
@@ -49,6 +50,7 @@ class TensorboardWriter:
         self._histogram_interval = histogram_interval
         self._should_log_parameter_statistics = should_log_parameter_statistics
         self._should_log_learning_rate = should_log_learning_rate
+        self._should_log_momentum = shoud_log_momentum
         self._get_batch_num_total = get_batch_num_total
 
     @staticmethod

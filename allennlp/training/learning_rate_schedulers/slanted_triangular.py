@@ -147,5 +147,6 @@ class SlantedTriangular(LearningRateScheduler):
             step = min(self.last_batch_num_total - frozen_steps,
                        num_steps)
         cut = int(num_steps * self.cut_frac)
+
         prop = step / cut if step < cut else 1 - (step - cut) / (num_steps - cut)
         return [lr * (1 + prop * (self.ratio - 1)) / self.ratio for lr in self.base_values]
