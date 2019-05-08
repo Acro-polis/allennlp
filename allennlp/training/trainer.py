@@ -676,7 +676,6 @@ class Trainer(TrainerBase):
         optimizer_params = params.pop("optimizer")
         wd = params.pop("weight_decay", 0.0)
 
-
         no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
         parameter_groups = [
             [[n for n, p in parameters if not any(nd in n for nd in no_decay)], {'weight_decay': wd}],
