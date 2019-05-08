@@ -7,7 +7,6 @@ and produce datasets in the formats required by specific models.
 """
 
 # pylint: disable=line-too-long
-
 from allennlp.data.dataset_readers.ccgbank import CcgBankDatasetReader
 from allennlp.data.dataset_readers.conll2003 import Conll2003DatasetReader
 from allennlp.data.dataset_readers.conll2000 import Conll2000DatasetReader
@@ -29,8 +28,6 @@ from allennlp.data.dataset_readers.universal_dependencies import UniversalDepend
 from allennlp.data.dataset_readers.stanford_sentiment_tree_bank import (
         StanfordSentimentTreeBankDatasetReader)
 from allennlp.data.dataset_readers.quora_paraphrase import QuoraParaphraseDatasetReader
-# from allennlp.data.dataset_readers.semantic_parsing import (
-#         WikiTablesDatasetReader, AtisDatasetReader, NlvrDatasetReader, TemplateText2SqlDatasetReader, CSQADatasetReader)
 from allennlp.data.dataset_readers.semantic_parsing import (
         WikiTablesDatasetReader, AtisDatasetReader, NlvrDatasetReader, TemplateText2SqlDatasetReader)
 from allennlp.data.dataset_readers.semantic_parsing.quarel import QuarelDatasetReader

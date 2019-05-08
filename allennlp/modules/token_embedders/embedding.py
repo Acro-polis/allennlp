@@ -8,7 +8,7 @@ import itertools
 from typing import Optional, Tuple, Sequence, cast, IO, Iterator, Any, NamedTuple
 
 from overrides import overrides
-import numpy as np
+import numpy
 import torch
 from torch.nn.functional import embedding
 with warnings.catch_warnings():
@@ -127,7 +127,6 @@ class Embedding(TokenEmbedder):
         # but embedding expects (batch_size, sequence_length), so pass inputs to
         # util.combine_initial_dims (which is a no-op if there are no extra dimensions).
         # Remember the original size.
-
         original_size = inputs.size()
         inputs = util.combine_initial_dims(inputs)
 
@@ -145,7 +144,6 @@ class Embedding(TokenEmbedder):
             for _ in range(embedded.dim() - 2):
                 projection = TimeDistributed(projection)
             embedded = projection(embedded)
-
         return embedded
 
     @overrides
@@ -363,7 +361,7 @@ def _read_embeddings_from_text_file(file_uri: str,
                                    embedding_dim, len(fields) - 1, line)
                     continue
 
-                vector = np.asarray(fields[1:], dtype='float32')
+                vector = numpy.asarray(fields[1:], dtype='float32')
                 embeddings[token] = vector
 
     if not embeddings:
@@ -371,9 +369,9 @@ def _read_embeddings_from_text_file(file_uri: str,
                                  "misspecified your embedding_dim parameter, or didn't "
                                  "pre-populate your Vocabulary")
 
-    all_embeddings = np.asarray(list(embeddings.values()))
-    embeddings_mean = float(np.mean(all_embeddings))
-    embeddings_std = float(np.std(all_embeddings))
+    all_embeddings = numpy.asarray(list(embeddings.values()))
+    embeddings_mean = float(numpy.mean(all_embeddings))
+    embeddings_std = float(numpy.std(all_embeddings))
     # Now we initialize the weight matrix for an embedding layer, starting with random vectors,
     # then filling in the word vectors we just read.
     logger.info("Initializing pre-trained embedding layer")

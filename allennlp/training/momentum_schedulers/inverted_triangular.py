@@ -1,7 +1,6 @@
 import torch
 from typing import List
 
-from overrides import overrides
 from allennlp.training.momentum_schedulers.momentum_scheduler import MomentumScheduler
 
 
