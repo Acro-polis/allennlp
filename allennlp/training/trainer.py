@@ -60,6 +60,7 @@ class Trainer(TrainerBase):
                  histogram_interval: int = None,
                  should_log_parameter_statistics: bool = True,
                  should_log_learning_rate: bool = False,
+                 should_log_momentum: bool = False,
                  log_batch_size_period: Optional[int] = None,
                  moving_average: Optional[MovingAverage] = None) -> None:
         """
@@ -217,7 +218,8 @@ class Trainer(TrainerBase):
                 summary_interval=summary_interval,
                 histogram_interval=histogram_interval,
                 should_log_parameter_statistics=should_log_parameter_statistics,
-                should_log_learning_rate=should_log_learning_rate)
+                should_log_learning_rate=should_log_learning_rate,
+                should_log_momentum=should_log_momentum)
 
         self._log_batch_size_period = log_batch_size_period
 
@@ -279,6 +281,7 @@ class Trainer(TrainerBase):
                                             shuffle=self.shuffle)
         train_generator = lazy_groups_of(raw_train_generator, num_gpus)
         num_training_batches = math.ceil(self.iterator.get_num_batches(self.train_data)/num_gpus)
+
         self._last_log = time.time()
         last_save_time = time.time()
 
@@ -349,6 +352,7 @@ class Trainer(TrainerBase):
             if self._tensorboard.should_log_this_batch():
                 self._tensorboard.log_parameter_and_gradient_statistics(self.model, batch_grad_norm)
                 self._tensorboard.log_learning_rates(self.model, self.optimizer)
+                self._tensorboard.log_momentum(self.model, self.optimizer)
 
                 self._tensorboard.add_train_scalar("loss/loss_train", metrics["loss"])
                 self._tensorboard.log_metrics({"epoch_metrics/" + k: v for k, v in metrics.items()})
@@ -678,11 +682,15 @@ class Trainer(TrainerBase):
 
         no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
 
+
         if not isinstance(optimizer_params, str):
             parameter_groups = [
                 [[n for n, p in parameters if not any(nd in n for nd in no_decay)], {'weight_decay': wd}],
                 [[n for n, p in parameters if any(nd in n for nd in no_decay)], {'weight_decay': 0.0}]
             ]
+
+
+
 
             optimizer_params["parameter_groups"] = parameter_groups
 
@@ -711,6 +719,7 @@ class Trainer(TrainerBase):
         histogram_interval = params.pop_int("histogram_interval", None)
         should_log_parameter_statistics = params.pop_bool("should_log_parameter_statistics", True)
         should_log_learning_rate = params.pop_bool("should_log_learning_rate", False)
+        should_log_momentum = params.pop_bool("should_log_momentum", False)
         log_batch_size_period = params.pop_int("log_batch_size_period", None)
 
         params.assert_empty(cls.__name__)
@@ -734,11 +743,13 @@ class Trainer(TrainerBase):
                    histogram_interval=histogram_interval,
                    should_log_parameter_statistics=should_log_parameter_statistics,
                    should_log_learning_rate=should_log_learning_rate,
+                   should_log_momentum=should_log_momentum,
                    log_batch_size_period=log_batch_size_period,
                    moving_average=moving_average)
 
 
 class TrainerPieces(NamedTuple):
+    
     """
     We would like to avoid having complex instantiation logic taking place
     in `Trainer.from_params`. This helper class has a `from_params` that

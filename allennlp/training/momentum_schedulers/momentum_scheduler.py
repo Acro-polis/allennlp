@@ -10,7 +10,13 @@ class MomentumScheduler(Scheduler, Registrable):
     def __init__(self,
                  optimizer: torch.optim.Optimizer,
                  last_epoch: int = -1) -> None:
-        super().__init__(optimizer, "momentum", last_epoch)
+
+        if isinstance(optimizer, torch.optim.SGD):
+            param_group_field = "momentum"
+        else:
+            param_group_field = "betas"
+
+        super().__init__(optimizer, param_group_field, last_epoch)
 
     def get_values(self) -> None:
         raise NotImplementedError
@@ -22,3 +28,4 @@ class MomentumScheduler(Scheduler, Registrable):
         scheduler_type = params.pop_choice("type", MomentumScheduler.list_available())
         scheduler = MomentumScheduler.by_name(scheduler_type)(optimizer, **params.as_dict())
         return scheduler
+

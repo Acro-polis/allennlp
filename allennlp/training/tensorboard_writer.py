@@ -38,7 +38,8 @@ class TensorboardWriter:
                  summary_interval: int = 100,
                  histogram_interval: int = None,
                  should_log_parameter_statistics: bool = True,
-                 should_log_learning_rate: bool = False) -> None:
+                 should_log_learning_rate: bool = False,
+                 should_log_momentum: bool = False) -> None:
         if serialization_dir is not None:
             self._train_log = SummaryWriter(os.path.join(serialization_dir, "log", "train"))
             self._validation_log = SummaryWriter(os.path.join(serialization_dir, "log", "validation"))
@@ -49,6 +50,7 @@ class TensorboardWriter:
         self._histogram_interval = histogram_interval
         self._should_log_parameter_statistics = should_log_parameter_statistics
         self._should_log_learning_rate = should_log_learning_rate
+        self._should_log_momentum = should_log_momentum
         self._get_batch_num_total = get_batch_num_total
 
     @staticmethod
@@ -129,6 +131,26 @@ class TensorboardWriter:
                     # check whether params has requires grad or not
                     effective_rate = rate * float(param.requires_grad)
                     self.add_train_scalar("learning_rate/" + names[param], effective_rate)
+
+    def log_momentum(self,
+                     model: Model,
+                     optimizer: torch.optim.Optimizer):
+        """
+        Send current parameter specific learning rates to tensorboard
+        """
+        if self._should_log_momentum:
+            # optimizer stores lr info keyed by parameter tensor
+            # we want to log with parameter name
+            names = {param: name for name, param in model.named_parameters()}
+            for group in optimizer.param_groups:
+
+                if 'momentum' not in group and 'betas' not in group:
+                    continue
+                rate = group['momentum'] if 'momentum' in group else group['betas'][0]
+                for param in group['params']:
+                    # check whether params has requires grad or not
+                    effective_rate = rate * float(param.requires_grad)
+                    self.add_train_scalar("momentum/" + names[param], effective_rate)
 
 
     def log_histograms(self, model: Model, histogram_parameters: Set[str]) -> None:
