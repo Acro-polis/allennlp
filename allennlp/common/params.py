@@ -381,8 +381,9 @@ class Params(MutableMapping):
         was one.  ``class_name`` should be the name of the `calling` class, the one that got extra
         parameters (if there are any).
         """
+        return  # TODO DISABLED TO USE NOTEBOOKS
         if self.params:
-            raise ConfigurationError("Extra parameters passed to {}: {}".format(class_name, self.params))
+            raise ConfgurationError("Extra parameters passed to {}: {}".format(class_name, self.params))
 
     def __getitem__(self, key):
         if key in self.params:
